@@ -1,0 +1,31 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import RepoCard from '../../components/RepoCard.astro';
+import PeriodTabs from '../../components/PeriodTabs.astro';
+import { getSnapshotByDate, getReposBySnapshot } from '../../lib/db';
+import type { ParsedRepo } from '../../lib/db';
+
+const { date } = Astro.params;
+if (!date) return Astro.redirect('/arsiv');
+
+const db = Astro.locals.runtime.env.DB as D1Database;
+const period = (Astro.url.searchParams.get('period') ?? 'daily') as 'daily' | 'weekly' | 'monthly';
+
+const snapshot = await getSnapshotByDate(db, date);
+let repos: ParsedRepo[] = [];
+
+if (!snapshot) return Astro.redirect('/arsiv');
+
+repos = await getReposBySnapshot(db, snapshot.id, period);
+---
+<Layout title={`${date} GitHub Trending Projeleri — Turkce Analiz | GitHub Trends TR`} description={`${date} tarihinde GitHub'da trend olan ${snapshot.repo_count} projenin Turkce AI analizleri.`} canonicalPath={`/arsiv/${date}`}>
+  <a href="/arsiv" class="text-[#58a6ff] text-sm hover:underline mb-4 inline-block">← Arsiv</a>
+  <h1 class="text-2xl font-bold mb-2">{date}</h1>
+  <p class="text-[#7d8590] mb-6">{snapshot.repo_count} repo analiz edildi</p>
+
+  <PeriodTabs current={period} baseUrl={`/arsiv/${date}`} />
+
+  <div class="space-y-4">
+    {repos.map(repo => <RepoCard repo={repo} />)}
+  </div>
+</Layout>

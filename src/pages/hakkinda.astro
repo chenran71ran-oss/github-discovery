@@ -1,0 +1,91 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Hakkında — GitHub Trends TR | Türkçe GitHub Trending Analiz Platformu" description="GitHub Trends TR, GitHub'da trend olan açık kaynak projeleri yapay zeka ile analiz edip Türkçe özetleyen bir platformdur." canonicalPath="/hakkinda">
+  <div class="max-w-2xl mx-auto">
+    <h1 class="text-3xl font-bold mb-8">Hakkında</h1>
+
+    <div class="space-y-8">
+      <section class="bg-[#161b22] border border-[#30363d] rounded-xl p-6">
+        <h2 class="text-lg font-semibold text-[#e6edf3] mb-3 flex items-center gap-2">
+          🔥 GitHub Trends TR Nedir?
+        </h2>
+        <p class="text-[#c9d1d9] leading-relaxed">
+          GitHub Trends TR, GitHub'da trend olan açık kaynak projeleri Türkçe olarak sunan bir platformdur.
+          Her gün otomatik olarak GitHub Trending sayfasındaki tüm projeleri tarar, yapay zeka ile analiz eder
+          ve Türkçe özetler oluşturur. Amacımız, Türkiye'deki yazılım geliştiricilerin dünya genelinde popüler
+          olan projeleri kolayca anlamasını sağlamaktır.
+        </p>
+      </section>
+
+      <section class="bg-[#161b22] border border-[#30363d] rounded-xl p-6">
+        <h2 class="text-lg font-semibold text-[#e6edf3] mb-3 flex items-center gap-2">
+          🤖 Nasıl Çalışıyor?
+        </h2>
+        <div class="space-y-3">
+          <div class="flex items-start gap-3">
+            <span class="shrink-0 w-6 h-6 rounded-full bg-green-500/15 text-green-400 text-xs flex items-center justify-center font-bold">1</span>
+            <p class="text-[#c9d1d9] text-sm">Her gün 07:00 TR saatinde GitHub Trending sayfası taranır (günlük, haftalık, aylık)</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="shrink-0 w-6 h-6 rounded-full bg-blue-500/15 text-blue-400 text-xs flex items-center justify-center font-bold">2</span>
+            <p class="text-[#c9d1d9] text-sm">Her proje için README dosyası okunur ve içerik analiz edilir</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="shrink-0 w-6 h-6 rounded-full bg-purple-500/15 text-purple-400 text-xs flex items-center justify-center font-bold">3</span>
+            <p class="text-[#c9d1d9] text-sm">Cloudflare Workers AI ile detaylı Türkçe özet ve analiz oluşturulur</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="shrink-0 w-6 h-6 rounded-full bg-orange-500/15 text-orange-400 text-xs flex items-center justify-center font-bold">4</span>
+            <p class="text-[#c9d1d9] text-sm">Veriler veritabanına kaydedilir ve bu sitede yayınlanır</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-[#161b22] border border-[#30363d] rounded-xl p-6">
+        <h2 class="text-lg font-semibold text-[#e6edf3] mb-3 flex items-center gap-2">
+          💡 Neden Bu Proje?
+        </h2>
+        <p class="text-[#c9d1d9] leading-relaxed">
+          Türkiye'deki yazılım geliştiricilerin dünya genelinde trend olan projeleri keşfetmesini ve bunların
+          ne işe yaradığını kolayca anlamasını sağlamak. Teknik terimleri bilmeden bile bir projenin ne yaptığını
+          anlayabilirsiniz. Her seviyeden geliştirici için erişilebilir, Türkçe içerik.
+        </p>
+      </section>
+
+      <section class="bg-[#161b22] border border-[#30363d] rounded-xl p-6">
+        <h2 class="text-lg font-semibold text-[#e6edf3] mb-3 flex items-center gap-2">
+          🛠️ Teknoloji
+        </h2>
+        <div class="grid grid-cols-2 gap-3 text-sm">
+          <div class="bg-[#0d1117] rounded-lg p-3 border border-[#21262d]">
+            <div class="text-[#7d8590] text-xs mb-1">Frontend</div>
+            <div class="text-[#e6edf3]">Astro 5 SSR</div>
+          </div>
+          <div class="bg-[#0d1117] rounded-lg p-3 border border-[#21262d]">
+            <div class="text-[#7d8590] text-xs mb-1">AI Model</div>
+            <div class="text-[#e6edf3]">Llama 4 Scout</div>
+          </div>
+          <div class="bg-[#0d1117] rounded-lg p-3 border border-[#21262d]">
+            <div class="text-[#7d8590] text-xs mb-1">Veritabanı</div>
+            <div class="text-[#e6edf3]">Cloudflare D1</div>
+          </div>
+          <div class="bg-[#0d1117] rounded-lg p-3 border border-[#21262d]">
+            <div class="text-[#7d8590] text-xs mb-1">Altyapı</div>
+            <div class="text-[#e6edf3]">Cloudflare Workers</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-[#161b22] border border-[#30363d] rounded-xl p-6">
+        <h2 class="text-lg font-semibold text-[#e6edf3] mb-3 flex items-center gap-2">
+          📬 İletişim
+        </h2>
+        <p class="text-[#c9d1d9]">
+          Sorularınız ve önerileriniz için:
+          <a href="mailto:hello@softween.com" class="text-[#58a6ff] hover:underline ml-1">hello@softween.com</a>
+        </p>
+      </section>
+    </div>
+  </div>
+</Layout>

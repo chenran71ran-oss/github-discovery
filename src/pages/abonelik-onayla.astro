@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { confirmSubscriber } from '../lib/db';
+
+const db = (Astro.locals as { runtime: { env: { DB: D1Database } } }).runtime.env.DB;
+const token = Astro.url.searchParams.get('token') ?? '';
+let ok = false;
+if (token) ok = await confirmSubscriber(db, token);
+---
+<Layout title="Abonelik Onayı">
+  <div class="max-w-lg mx-auto px-4 py-20 text-center">
+    <span class="text-4xl block mb-4">✅</span>
+    <h1 class="text-2xl font-bold text-[#e6edf3] mb-3">Abonelik Onayı</h1>
+    <p class="text-[#7d8590]">
+      {ok
+        ? 'Aboneligin onaylandi. Her sabah gunluk GitHub Trending digest kutuna gelecek.'
+        : 'Bu baglanti gecersiz ya da abonelik zaten onaylanmis.'}
+    </p>
+    <a href="/" class="inline-block mt-6 text-[#58a6ff] hover:underline">Ana sayfaya dön</a>
+  </div>
+</Layout>

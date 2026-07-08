@@ -1,0 +1,80 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getLatestSnapshot, getCategoryStats } from '../../lib/db';
+
+const db = Astro.locals.runtime.env.DB as D1Database;
+
+const snapshot = await getLatestSnapshot(db);
+let categories: Array<{ category: string; count: number }> = [];
+let snapshotDate = '';
+
+if (snapshot) {
+  categories = await getCategoryStats(db, snapshot.id);
+  snapshotDate = snapshot.date;
+}
+
+const categoryEmojis: Record<string, string> = {
+  'AI/ML': '🤖',
+  'Web Dev': '🌐',
+  'DevOps': '⚙️',
+  'Mobile': '📱',
+  'Data': '📊',
+  'Security': '🔒',
+  'CLI Tool': '💻',
+  'Finance': '💰',
+  'Game': '🎮',
+  'Education': '📚',
+  'Other': '📦',
+};
+
+const pageTitle = 'Kategorilere Göre Trending Projeler — GitHub Trends TR';
+const pageDesc = 'AI tarafından kategorilenen GitHub trending projelerini keşfet. AI/ML, Web Dev, DevOps, Güvenlik ve daha fazlası.';
+---
+<Layout title={pageTitle} description={pageDesc} canonicalPath="/kategori">
+  <div class="mb-6">
+    <nav class="text-xs text-[#7d8590] mb-4 flex items-center gap-2">
+      <a href="/" class="hover:text-[#58a6ff] transition-colors">Anasayfa</a>
+      <span>/</span>
+      <span class="text-[#e6edf3]">Kategoriler</span>
+    </nav>
+    <h1 class="text-2xl sm:text-3xl font-bold text-[#e6edf3] mb-2">
+      🏷️ Kategorilere Göre
+    </h1>
+    <p class="text-[#7d8590] text-sm">
+      AI tarafından kategorilenen projeleri filtrele ve ilgilendiğin alanlardaki trend repoları keşfet.
+    </p>
+    {snapshotDate && (
+      <p class="text-[#484f58] text-xs mt-2">Son güncelleme: {snapshotDate}</p>
+    )}
+  </div>
+
+  {categories.length > 0 ? (
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+      {categories.map(({ category, count }) => {
+        const emoji = categoryEmojis[category] ?? '📦';
+        const slug = encodeURIComponent(category);
+        return (
+          <a
+            href={`/kategori/${slug}`}
+            class="group border border-[#30363d] rounded-xl bg-[#161b22] p-4 hover:border-[#484f58] transition-all hover:shadow-lg hover:shadow-black/20 flex flex-col gap-2"
+          >
+            <div class="flex items-center gap-2">
+              <span class="text-xl">{emoji}</span>
+              <span class="text-sm font-semibold text-[#e6edf3] group-hover:text-[#58a6ff] transition-colors truncate">{category}</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs text-[#7d8590]">{count} proje</span>
+              <span class="text-xs text-[#484f58] group-hover:text-[#58a6ff] transition-colors">→</span>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  ) : (
+    <div class="text-center py-16 text-[#7d8590]">
+      <span class="text-4xl block mb-4">🏷️</span>
+      <p class="text-lg font-medium mb-2">Henüz kategori verisi yok</p>
+      <p class="text-sm">Kategoriler AI analizi tamamlandıktan sonra görünür. Veriler her gün 07:00 TR saatinde güncellenir.</p>
+    </div>
+  )}
+</Layout>

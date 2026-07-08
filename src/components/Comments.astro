@@ -1,0 +1,27 @@
+---
+interface Props {
+  term?: string;
+}
+const { term } = Astro.props;
+---
+<div class="mt-8 border-t border-[#30363d] pt-6">
+  <h3 class="text-sm font-semibold text-[#7d8590] mb-4">💬 Yorumlar</h3>
+  <script
+    is:inline
+    src="https://giscus.app/client.js"
+    data-repo="Softween/softween-trending-web"
+    data-repo-id=""
+    data-category="General"
+    data-category-id=""
+    data-mapping="specific"
+    data-term={term ?? 'general'}
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="dark_dimmed"
+    data-lang="tr"
+    crossorigin="anonymous"
+    async
+  ></script>
+</div>

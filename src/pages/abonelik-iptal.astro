@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { deactivateSubscriber } from '../lib/db';
+
+const db = (Astro.locals as { runtime: { env: { DB: D1Database } } }).runtime.env.DB;
+const token = Astro.url.searchParams.get('token') ?? '';
+
+// Gmail one-click sends POST; treat POST the same as a confirmed opt-out.
+if (Astro.request.method === 'POST') {
+  await deactivateSubscriber(db, token);
+  return new Response(null, { status: 200 });
+}
+
+let done = false;
+if (token) {
+  done = await deactivateSubscriber(db, token);
+}
+---
+<Layout title="Abonelik İptali">
+  <div class="max-w-lg mx-auto px-4 py-20 text-center">
+    <span class="text-4xl block mb-4">📭</span>
+    <h1 class="text-2xl font-bold text-[#e6edf3] mb-3">Abonelik İptali</h1>
+    <p class="text-[#7d8590]">
+      {done
+        ? 'Bültenden çıkarıldınız. Artık günlük digest almayacaksınız.'
+        : 'Bu bağlantı geçersiz ya da abonelik zaten iptal edilmiş.'}
+    </p>
+    <a href="/" class="inline-block mt-6 text-[#58a6ff] hover:underline">Ana sayfaya dön</a>
+  </div>
+</Layout>

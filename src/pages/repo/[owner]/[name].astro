@@ -1,0 +1,172 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import ShareButtons from '../../../components/ShareButtons.astro';
+import SimilarRepos from '../../../components/SimilarRepos.astro';
+import Comments from '../../../components/Comments.astro';
+import { getRepoByName, getRepoHistory, getSimilarRepos } from '../../../lib/db';
+
+const { owner, name } = Astro.params;
+if (!owner || !name) return Astro.redirect('/');
+
+const db = Astro.locals.runtime.env.DB as D1Database;
+const repo = await getRepoByName(db, owner, name);
+
+if (!repo) return Astro.redirect('/');
+
+const history = await getRepoHistory(db, repo.full_name);
+const similarRepos = repo.language ? await getSimilarRepos(db, repo) : [];
+const summary = repo.parsedSummary;
+const meta = repo.parsedMeta;
+
+function formatNumber(n: number): string {
+  if (n >= 1000) return `${(n / 1000).toFixed(1)}k`;
+  return n.toString();
+}
+
+function timeAgo(dateStr: string): string {
+  if (!dateStr) return '';
+  const diff = Date.now() - new Date(dateStr).getTime();
+  const hours = Math.floor(diff / 3600000);
+  if (hours < 1) return 'az önce';
+  if (hours < 24) return `${hours} saat önce`;
+  const days = Math.floor(hours / 24);
+  if (days < 30) return `${days} gün önce`;
+  const months = Math.floor(days / 30);
+  if (months < 12) return `${months} ay önce`;
+  return `${Math.floor(months / 12)} yıl önce`;
+}
+
+const periodLabels: Record<string, string> = { daily: 'Gunluk', weekly: 'Haftalik', monthly: 'Aylik' };
+
+const pageTitle = `${repo.full_name} Nedir? Turkce Aciklama ve AI Analizi | GitHub Trends TR`;
+const pageDesc = summary?.summary ?? repo.description ?? `${repo.full_name} GitHub projesinin detayli Turkce analizi.`;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareSourceCode',
+  name: repo.full_name,
+  description: repo.description,
+  url: repo.url,
+  codeRepository: repo.url,
+  programmingLanguage: repo.language || undefined,
+  author: { '@type': 'Person', name: repo.owner, url: `https://github.com/${repo.owner}` },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: Math.min(5, Math.round((repo.stars / 10000) * 5 * 10) / 10),
+    bestRating: 5,
+    ratingCount: repo.stars,
+  },
+  inLanguage: 'en',
+  about: {
+    '@type': 'Article',
+    inLanguage: 'tr',
+    headline: pageTitle,
+    description: pageDesc,
+  },
+};
+---
+<Layout title={pageTitle} description={pageDesc} canonicalPath={`/repo/${repo.owner}/${repo.name}`} jsonLd={jsonLd} ogType="article" ogImage={`https://trends.softween.com/api/og/${repo.owner}/${repo.name}`}>
+  <div class="mb-6">
+    <a href="/" class="text-[#58a6ff] text-sm hover:underline mb-4 inline-block">← Ana Sayfa</a>
+    <h1 class="text-2xl font-bold mb-2">
+      <a href={repo.url} target="_blank" rel="noopener noreferrer" class="hover:text-[#58a6ff] transition-colors">
+        {repo.full_name}
+      </a>
+    </h1>
+    <div class="flex items-center gap-3 text-sm text-[#7d8590] flex-wrap">
+      {repo.language && <span class="bg-[#1f2937] px-2 py-0.5 rounded">{repo.language}</span>}
+      <span>⭐ {formatNumber(repo.stars)}</span>
+      <span>🍴 {formatNumber(repo.forks)}</span>
+      {repo.period_stars > 0 && <span class="text-[#f0883e] font-semibold">🔥 +{formatNumber(repo.period_stars)} {repo.period_label}</span>}
+    </div>
+  </div>
+
+  {repo.description && (
+    <div class="border border-[#30363d] rounded-lg bg-[#161b22] p-4 mb-6">
+      <h2 class="text-sm font-semibold text-[#7d8590] mb-2">Orijinal Aciklama</h2>
+      <p class="text-[#e6edf3]">{repo.description}</p>
+    </div>
+  )}
+
+  {meta && (
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+      {meta.license && meta.license !== 'NOASSERTION' && (
+        <div class="border border-[#30363d] rounded-lg bg-[#161b22] p-3 text-center">
+          <div class="text-lg font-bold text-[#e6edf3]">📄 {meta.license}</div>
+          <div class="text-[10px] text-[#7d8590] uppercase tracking-wide">Lisans</div>
+        </div>
+      )}
+      <div class="border border-[#30363d] rounded-lg bg-[#161b22] p-3 text-center">
+        <div class="text-lg font-bold text-[#f0883e]">{formatNumber(meta.openIssues)}</div>
+        <div class="text-[10px] text-[#7d8590] uppercase tracking-wide">Açık Issue</div>
+      </div>
+      {meta.lastPush && (
+        <div class="border border-[#30363d] rounded-lg bg-[#161b22] p-3 text-center">
+          <div class="text-sm font-bold text-[#58a6ff]">{timeAgo(meta.lastPush)}</div>
+          <div class="text-[10px] text-[#7d8590] uppercase tracking-wide">Son Commit</div>
+        </div>
+      )}
+      <div class="border border-[#30363d] rounded-lg bg-[#161b22] p-3 text-center">
+        <div class="text-lg font-bold text-[#e6edf3]">{formatNumber(meta.watchers)}</div>
+        <div class="text-[10px] text-[#7d8590] uppercase tracking-wide">İzleyici</div>
+      </div>
+    </div>
+  )}
+
+  {meta?.topics && meta.topics.length > 0 && (
+    <div class="flex flex-wrap gap-1.5 mb-6">
+      {meta.topics.map(t => (
+        <span class="text-xs bg-[#121d2f] text-[#58a6ff] px-3 py-1 rounded-full border border-[#1f3d5f]">{t}</span>
+      ))}
+    </div>
+  )}
+
+  {summary && (
+    <div class="border border-[#30363d] rounded-lg bg-[#161b22] p-5 mb-6">
+      <h2 class="text-sm font-semibold text-[#7d8590] mb-3">🤖 AI Analizi (Turkce)</h2>
+      <p class="text-[#e6edf3] leading-relaxed mb-4">{summary.summary}</p>
+      <p class="text-[#a5d6ff] text-sm mb-3">🎯 <strong>Hedef Kitle:</strong> {summary.targetAudience}</p>
+      {summary.highlights.length > 0 && (
+        <div>
+          <h3 class="text-xs font-semibold text-[#7d8590] mb-2">TEMEL OZELLIKLER</h3>
+          <ul class="text-sm text-[#c9d1d9] list-disc list-inside space-y-1">
+            {summary.highlights.map(h => <li>{h}</li>)}
+          </ul>
+        </div>
+      )}
+      {summary.usageExample && (
+        <div class="mt-4 bg-[#122117] rounded-lg p-4 border border-[#1f3a1f]">
+          <h3 class="text-xs font-semibold text-[#3fb950] mb-2 uppercase tracking-wide">💡 Kullanım Örneği</h3>
+          <p class="text-sm text-[#c9d1d9] leading-relaxed">{summary.usageExample}</p>
+        </div>
+      )}
+    </div>
+  )}
+
+  {history.length > 0 && (
+    <div class="border border-[#30363d] rounded-lg bg-[#161b22] p-5 mb-6">
+      <h2 class="text-sm font-semibold text-[#7d8590] mb-3">📊 Trend Gecmisi</h2>
+      <div class="space-y-2">
+        {history.map(h => (
+          <div class="flex items-center gap-3 text-sm">
+            <a href={`/arsiv/${h.date}`} class="text-[#58a6ff] hover:underline">{h.date}</a>
+            <span class="text-[#7d8590]">{periodLabels[h.period] ?? h.period}</span>
+            <span class="text-[#7d8590]">#{h.rank}</span>
+            <span class="text-[#7d8590]">⭐ {formatNumber(h.stars)}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  )}
+
+  <SimilarRepos repos={similarRepos} />
+
+  <div class="text-center">
+    <a href={repo.url} target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-3 rounded-lg bg-[#238636] text-white font-medium hover:bg-[#2ea043] transition-colors">
+      GitHub'da Gor →
+    </a>
+    <ShareButtons url={`https://trends.softween.com/repo/${repo.owner}/${repo.name}`} title={`${repo.full_name} — GitHub Trends TR`} />
+  </div>
+
+  <Comments term={repo.full_name} />
+</Layout>

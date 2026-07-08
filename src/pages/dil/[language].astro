@@ -1,0 +1,104 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import RepoCard from '../../components/RepoCard.astro';
+import { getLatestSnapshot, getReposByLanguage } from '../../lib/db';
+import type { ParsedRepo } from '../../lib/db';
+
+const db = Astro.locals.runtime.env.DB as D1Database;
+const { language } = Astro.params;
+
+const snapshot = await getLatestSnapshot(db);
+let repos: ParsedRepo[] = [];
+let snapshotDate = '';
+
+if (snapshot && language) {
+  repos = await getReposByLanguage(db, snapshot.id, decodeURIComponent(language));
+  snapshotDate = snapshot.date;
+}
+
+// Try to find the actual cased language name from results
+const displayLanguage = repos[0]?.language ?? (language ? decodeURIComponent(language) : 'Bilinmiyor');
+
+if (!language || (snapshot && repos.length === 0)) {
+  // If no repos found we still render an empty state — no 404 redirect needed
+}
+
+const periodGroups: Record<string, ParsedRepo[]> = {
+  daily: repos.filter(r => r.period === 'daily'),
+  weekly: repos.filter(r => r.period === 'weekly'),
+  monthly: repos.filter(r => r.period === 'monthly'),
+};
+
+const pageTitle = `${displayLanguage} Trending Projeleri — GitHub Trends TR`;
+const pageDesc = `GitHub'da trend olan ${displayLanguage} projeleri. Türkçe AI analizleriyle günlük, haftalık ve aylık ${displayLanguage} repoları.`;
+---
+<Layout title={pageTitle} description={pageDesc} canonicalPath={`/dil/${language}`}>
+  <div class="mb-6">
+    <nav class="text-xs text-[#7d8590] mb-4 flex items-center gap-2">
+      <a href="/" class="hover:text-[#58a6ff] transition-colors">Anasayfa</a>
+      <span>/</span>
+      <a href="/dil" class="hover:text-[#58a6ff] transition-colors">Diller</a>
+      <span>/</span>
+      <span class="text-[#e6edf3]">{displayLanguage}</span>
+    </nav>
+    <h1 class="text-2xl sm:text-3xl font-bold text-[#e6edf3] mb-2">
+      🔵 {displayLanguage} Projeleri
+    </h1>
+    <p class="text-[#7d8590] text-sm">
+      GitHub'da trend olan tüm {displayLanguage} açık kaynak projeleri.
+    </p>
+    {snapshotDate && (
+      <p class="text-[#484f58] text-xs mt-2">Son güncelleme: {snapshotDate}</p>
+    )}
+  </div>
+
+  {repos.length > 0 ? (
+    <div class="space-y-8">
+      {periodGroups.daily.length > 0 && (
+        <section>
+          <h2 class="text-base font-semibold mb-4 flex items-center gap-2 text-green-400">
+            <span>📅</span>
+            <span>Günlük Trending</span>
+            <span class="text-xs font-normal bg-[#30363d] text-[#7d8590] px-2 py-0.5 rounded-full">{periodGroups.daily.length}</span>
+          </h2>
+          <div class="space-y-4">
+            {periodGroups.daily.map(repo => <RepoCard repo={repo} />)}
+          </div>
+        </section>
+      )}
+      {periodGroups.weekly.length > 0 && (
+        <section>
+          <h2 class="text-base font-semibold mb-4 flex items-center gap-2 text-blue-400">
+            <span>📊</span>
+            <span>Haftalık Trending</span>
+            <span class="text-xs font-normal bg-[#30363d] text-[#7d8590] px-2 py-0.5 rounded-full">{periodGroups.weekly.length}</span>
+          </h2>
+          <div class="space-y-4">
+            {periodGroups.weekly.map(repo => <RepoCard repo={repo} />)}
+          </div>
+        </section>
+      )}
+      {periodGroups.monthly.length > 0 && (
+        <section>
+          <h2 class="text-base font-semibold mb-4 flex items-center gap-2 text-purple-400">
+            <span>📈</span>
+            <span>Aylık Trending</span>
+            <span class="text-xs font-normal bg-[#30363d] text-[#7d8590] px-2 py-0.5 rounded-full">{periodGroups.monthly.length}</span>
+          </h2>
+          <div class="space-y-4">
+            {periodGroups.monthly.map(repo => <RepoCard repo={repo} />)}
+          </div>
+        </section>
+      )}
+    </div>
+  ) : (
+    <div class="text-center py-16 text-[#7d8590]">
+      <span class="text-4xl block mb-4">🔍</span>
+      <p class="text-lg font-medium mb-2">Bu dil için şu an proje bulunamadı</p>
+      <p class="text-sm mb-6">Başka bir dil denemek ister misin?</p>
+      <a href="/dil" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#21262d] border border-[#30363d] text-sm text-[#58a6ff] hover:border-[#484f58] transition-all">
+        ← Tüm Dillere Dön
+      </a>
+    </div>
+  )}
+</Layout>

@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.astro/
+.wrangler/
+.dev.vars
+*.log
+graphify-out/cache/
+src/graphify-out/
+
+# internal tooling / planning (not for public repo)
+.claude/
+graphify-out/
+docs/
+.superpowers/

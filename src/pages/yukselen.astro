@@ -1,0 +1,63 @@
+---
+import Layout from '../layouts/Layout.astro';
+import RepoCard from '../components/RepoCard.astro';
+import { getLatestSnapshot, getRisingStars } from '../lib/db';
+import type { ParsedRepo } from '../lib/db';
+
+const db = Astro.locals.runtime.env.DB as D1Database;
+
+const snapshot = await getLatestSnapshot(db);
+let repos: ParsedRepo[] = [];
+let snapshotDate = '';
+
+if (snapshot) {
+  repos = await getRisingStars(db, snapshot.id);
+  snapshotDate = snapshot.date;
+}
+
+const pageTitle = 'Yükselen Yıldızlar — GitHub Trends TR';
+const pageDesc = 'Az yıldızı olan ama hızla büyüyen GitHub projeleri. Geleceğin popüler open source projelerini bugünden keşfet.';
+---
+<Layout title={pageTitle} description={pageDesc} canonicalPath="/yukselen">
+  <div class="mb-6">
+    <nav class="text-xs text-[#7d8590] mb-4 flex items-center gap-2">
+      <a href="/" class="hover:text-[#58a6ff] transition-colors">Anasayfa</a>
+      <span>/</span>
+      <span class="text-[#e6edf3]">Yükselen Yıldızlar</span>
+    </nav>
+    <h1 class="text-2xl sm:text-3xl font-bold text-[#e6edf3] mb-2">
+      🌟 Yükselen Yıldızlar
+    </h1>
+    <p class="text-[#7d8590] text-sm">
+      5.000'den az yıldızı olan ama son dönemde hızla büyüyen projeler. Popüler olmadan önce keşfet.
+    </p>
+    {snapshotDate && (
+      <p class="text-[#484f58] text-xs mt-2">Son güncelleme: {snapshotDate}</p>
+    )}
+  </div>
+
+  {repos.length > 0 ? (
+    <div class="space-y-4">
+      {repos.map((repo, index) => {
+        const growthRatio = repo.stars > 0
+          ? ((repo.period_stars / repo.stars) * 100).toFixed(1)
+          : '0.0';
+        return (
+          <div class="relative">
+            <div class="absolute -top-2 -left-2 z-10 flex items-center gap-1.5 bg-[#21262d] border border-[#30363d] rounded-full px-2.5 py-0.5 text-xs font-medium text-yellow-400">
+              <span>🌟</span>
+              <span>+{growthRatio}% büyüme</span>
+            </div>
+            <RepoCard repo={repo} />
+          </div>
+        );
+      })}
+    </div>
+  ) : (
+    <div class="text-center py-16 text-[#7d8590]">
+      <span class="text-4xl block mb-4">🌟</span>
+      <p class="text-lg font-medium mb-2">Henüz yükselen yıldız yok</p>
+      <p class="text-sm">Veriler her gün 07:00 TR saatinde güncellenir.</p>
+    </div>
+  )}
+</Layout>

@@ -1,0 +1,92 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const pageTitle = 'Sponsor — Projenizi Öne Çıkarın | GitHub Trends TR';
+const pageDesc = 'Türk geliştiricilere ulaşmak için projenizi GitHub Trends TR\'de öne çıkarın. Her gün yüzlerce aktif yazılımcıya erişin.';
+---
+<Layout title={pageTitle} description={pageDesc} canonicalPath="/sponsor">
+  <div class="max-w-2xl mx-auto">
+    <h1 class="text-3xl font-bold mb-2 text-[#e6edf3]">🚀 Projenizi Öne Çıkarın</h1>
+    <p class="text-[#7d8590] text-sm mb-8">Türk yazılım topluluğuna doğrudan ulaşın.</p>
+
+    <div class="space-y-6">
+      <!-- Why Sponsor -->
+      <section class="bg-[#161b22] border border-[#30363d] rounded-xl p-6">
+        <h2 class="text-lg font-semibold text-[#e6edf3] mb-3">Neden Sponsor Olmalısınız?</h2>
+        <ul class="text-[#c9d1d9] space-y-2 list-disc list-inside text-sm">
+          <li>Her gün yüzlerce Türk geliştirici sitemizi ziyaret ediyor</li>
+          <li>Projeniz AI destekli Türkçe analizle öne çıkarılır</li>
+          <li>Hedefli kitle — sadece aktif yazılım geliştiricileri</li>
+          <li>SEO avantajı — Google'da indexlenen kalıcı sayfa</li>
+          <li>Newsletter abonelerine özel tanıtım imkânı</li>
+        </ul>
+      </section>
+
+      <!-- Packages -->
+      <section class="bg-[#161b22] border border-[#30363d] rounded-xl p-6">
+        <h2 class="text-lg font-semibold text-[#e6edf3] mb-4">Paketler</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <!-- Free tier -->
+          <div class="bg-[#0d1117] border border-[#30363d] rounded-lg p-5">
+            <div class="text-[#3fb950] text-xs font-semibold uppercase tracking-wide mb-2">Temel</div>
+            <div class="text-3xl font-bold text-[#e6edf3] mb-1">Ücretsiz</div>
+            <p class="text-xs text-[#484f58] mb-4">GitHub Trending'e girmeniz yeterli</p>
+            <ul class="text-xs text-[#7d8590] space-y-1.5">
+              <li class="flex items-start gap-1.5"><span class="text-[#3fb950] mt-0.5">✓</span> Otomatik AI analizi</li>
+              <li class="flex items-start gap-1.5"><span class="text-[#3fb950] mt-0.5">✓</span> Kalıcı detay sayfası</li>
+              <li class="flex items-start gap-1.5"><span class="text-[#3fb950] mt-0.5">✓</span> Günlük / haftalık / aylık listeler</li>
+              <li class="flex items-start gap-1.5"><span class="text-[#3fb950] mt-0.5">✓</span> Google indexleme</li>
+            </ul>
+          </div>
+
+          <!-- Featured tier -->
+          <div class="bg-[#0d1117] border border-[#238636] rounded-lg p-5 relative overflow-hidden">
+            <div class="absolute top-0 right-0 bg-[#238636] text-white text-[9px] font-bold uppercase px-2 py-1 rounded-bl-lg">Önerilen</div>
+            <div class="text-[#f0883e] text-xs font-semibold uppercase tracking-wide mb-2">Öne Çıkan</div>
+            <div class="text-3xl font-bold text-[#e6edf3] mb-1">İletişime Geçin</div>
+            <p class="text-xs text-[#484f58] mb-4">Özel paketler müzakere edilebilir</p>
+            <ul class="text-xs text-[#7d8590] space-y-1.5">
+              <li class="flex items-start gap-1.5"><span class="text-[#f0883e] mt-0.5">✓</span> Anasayfada öne çıkan proje kartı</li>
+              <li class="flex items-start gap-1.5"><span class="text-[#f0883e] mt-0.5">✓</span> Detaylı Türkçe inceleme yazısı</li>
+              <li class="flex items-start gap-1.5"><span class="text-[#f0883e] mt-0.5">✓</span> Newsletter'da öncelikli tanıtım</li>
+              <li class="flex items-start gap-1.5"><span class="text-[#f0883e] mt-0.5">✓</span> Sosyal medya paylaşımı</li>
+              <li class="flex items-start gap-1.5"><span class="text-[#f0883e] mt-0.5">✓</span> Aylık istatistik raporu</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Audience stats -->
+      <section class="bg-[#161b22] border border-[#30363d] rounded-xl p-6">
+        <h2 class="text-lg font-semibold text-[#e6edf3] mb-4">Kitleye Bakış</h2>
+        <div class="grid grid-cols-3 gap-4 text-center">
+          <div>
+            <div class="text-2xl font-bold text-[#58a6ff]">%100</div>
+            <div class="text-xs text-[#7d8590] mt-1">Yazılım Geliştirici</div>
+          </div>
+          <div>
+            <div class="text-2xl font-bold text-[#3fb950]">Günlük</div>
+            <div class="text-xs text-[#7d8590] mt-1">Güncellenen İçerik</div>
+          </div>
+          <div>
+            <div class="text-2xl font-bold text-[#f0883e]">🇹🇷</div>
+            <div class="text-xs text-[#7d8590] mt-1">Türkçe Analiz</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section class="bg-[#161b22] border border-[#30363d] rounded-xl p-6 text-center">
+        <h2 class="text-lg font-semibold text-[#e6edf3] mb-2">İletişim</h2>
+        <p class="text-[#7d8590] text-sm mb-5">Projenizi tanıtmak veya özel paket görüşmek için bize ulaşın:</p>
+        <a
+          href="mailto:hello@softween.com"
+          class="inline-block px-6 py-3 rounded-lg bg-[#238636] text-white font-medium hover:bg-[#2ea043] transition-colors text-sm"
+        >
+          hello@softween.com
+        </a>
+        <p class="text-xs text-[#484f58] mt-4">Genellikle 24 saat içinde yanıtlıyoruz.</p>
+      </section>
+    </div>
+  </div>
+</Layout>

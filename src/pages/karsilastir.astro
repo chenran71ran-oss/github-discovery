@@ -1,0 +1,183 @@
+---
+import Layout from '../layouts/Layout.astro';
+import RepoCard from '../components/RepoCard.astro';
+import { getTwoSnapshots, getReposBySnapshot } from '../lib/db';
+import type { ParsedRepo } from '../lib/db';
+
+const db = Astro.locals.runtime.env.DB as D1Database;
+
+const { today: todaySnap, yesterday: yesterdaySnap } = await getTwoSnapshots(db);
+
+let todayRepos: ParsedRepo[] = [];
+let yesterdayRepos: ParsedRepo[] = [];
+
+if (todaySnap) {
+  todayRepos = await getReposBySnapshot(db, todaySnap.id);
+}
+if (yesterdaySnap) {
+  yesterdayRepos = await getReposBySnapshot(db, yesterdaySnap.id);
+}
+
+// Build lookup maps by full_name + period
+type RepoKey = string; // `${full_name}:${period}`
+const makeKey = (r: ParsedRepo): RepoKey => `${r.full_name}:${r.period}`;
+
+const todayMap = new Map<RepoKey, ParsedRepo>(todayRepos.map(r => [makeKey(r), r]));
+const yesterdayMap = new Map<RepoKey, ParsedRepo>(yesterdayRepos.map(r => [makeKey(r), r]));
+
+// 🆕 Yeni girenler — in today, not in yesterday
+const newRepos = todayRepos.filter(r => !yesterdayMap.has(makeKey(r)));
+
+// ❌ Çıkanlar — in yesterday, not in today
+const removedRepos = yesterdayRepos.filter(r => !todayMap.has(makeKey(r)));
+
+// 📈 Yükselenler — lower rank number today than yesterday (rank 1 is best)
+const risingRepos: Array<{ repo: ParsedRepo; prevRank: number; rankChange: number }> = [];
+
+// 📉 Düşenler — higher rank number today than yesterday
+const fallingRepos: Array<{ repo: ParsedRepo; prevRank: number; rankChange: number }> = [];
+
+for (const [key, todayRepo] of todayMap) {
+  const prevRepo = yesterdayMap.get(key);
+  if (!prevRepo) continue;
+  const rankChange = prevRepo.rank - todayRepo.rank; // positive = moved up
+  if (rankChange > 0) {
+    risingRepos.push({ repo: todayRepo, prevRank: prevRepo.rank, rankChange });
+  } else if (rankChange < 0) {
+    fallingRepos.push({ repo: todayRepo, prevRank: prevRepo.rank, rankChange });
+  }
+}
+
+risingRepos.sort((a, b) => b.rankChange - a.rankChange);
+fallingRepos.sort((a, b) => a.rankChange - b.rankChange);
+
+const hasData = todaySnap && yesterdaySnap;
+const pageTitle = 'Dün vs Bugün — Trending Karşılaştırma | GitHub Trends TR';
+const pageDesc = "GitHub trending'de ne değişti? Yeni giren, yükselen, düşen ve çıkan projeleri karşılaştır.";
+---
+<Layout title={pageTitle} description={pageDesc} canonicalPath="/karsilastir">
+  <div class="mb-6">
+    <nav class="text-xs text-[#7d8590] mb-4 flex items-center gap-2">
+      <a href="/" class="hover:text-[#58a6ff] transition-colors">Anasayfa</a>
+      <span>/</span>
+      <span class="text-[#e6edf3]">Karşılaştır</span>
+    </nav>
+    <h1 class="text-2xl sm:text-3xl font-bold text-[#e6edf3] mb-2">
+      📊 Dün vs Bugün
+    </h1>
+    <p class="text-[#7d8590] text-sm">
+      GitHub trending listesinde neler değişti? Yeni gelenler, çıkanlar ve sıralama değişiklikleri.
+    </p>
+    {hasData && (
+      <p class="text-[#484f58] text-xs mt-2">
+        {yesterdaySnap!.date} → {todaySnap!.date}
+      </p>
+    )}
+  </div>
+
+  {!hasData ? (
+    <div class="text-center py-16 text-[#7d8590]">
+      <span class="text-4xl block mb-4">📭</span>
+      <p class="text-lg font-medium mb-2">Karşılaştırma için yeterli veri yok</p>
+      <p class="text-sm">En az iki günlük veri gereklidir. Yarın tekrar bakın!</p>
+    </div>
+  ) : (
+    <div class="space-y-10">
+
+      <!-- Summary Stats -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <div class="bg-[#161b22] border border-[#238636]/40 rounded-lg p-3 text-center">
+          <div class="text-xl font-bold text-green-400">{newRepos.length}</div>
+          <div class="text-[10px] text-[#7d8590] uppercase tracking-wide mt-1">🆕 Yeni Giren</div>
+        </div>
+        <div class="bg-[#161b22] border border-[#1f6feb]/40 rounded-lg p-3 text-center">
+          <div class="text-xl font-bold text-blue-400">{risingRepos.length}</div>
+          <div class="text-[10px] text-[#7d8590] uppercase tracking-wide mt-1">📈 Yükselen</div>
+        </div>
+        <div class="bg-[#161b22] border border-[#9e6a03]/40 rounded-lg p-3 text-center">
+          <div class="text-xl font-bold text-yellow-500">{fallingRepos.length}</div>
+          <div class="text-[10px] text-[#7d8590] uppercase tracking-wide mt-1">📉 Düşen</div>
+        </div>
+        <div class="bg-[#161b22] border border-[#da3633]/40 rounded-lg p-3 text-center">
+          <div class="text-xl font-bold text-red-400">{removedRepos.length}</div>
+          <div class="text-[10px] text-[#7d8590] uppercase tracking-wide mt-1">❌ Çıkan</div>
+        </div>
+      </div>
+
+      <!-- New entries -->
+      {newRepos.length > 0 && (
+        <section>
+          <h2 class="text-lg font-semibold text-green-400 mb-4 flex items-center gap-2">
+            🆕 <span>Yeni Giren Repolar</span>
+            <span class="text-xs font-normal bg-green-500/10 text-green-400 px-2 py-0.5 rounded-full border border-green-500/20">{newRepos.length}</span>
+          </h2>
+          <div class="space-y-4">
+            {newRepos.map(repo => <RepoCard repo={repo} />)}
+          </div>
+        </section>
+      )}
+
+      <!-- Rising -->
+      {risingRepos.length > 0 && (
+        <section>
+          <h2 class="text-lg font-semibold text-blue-400 mb-4 flex items-center gap-2">
+            📈 <span>Yükselen Repolar</span>
+            <span class="text-xs font-normal bg-blue-500/10 text-blue-400 px-2 py-0.5 rounded-full border border-blue-500/20">{risingRepos.length}</span>
+          </h2>
+          <div class="space-y-4">
+            {risingRepos.slice(0, 20).map(({ repo, prevRank, rankChange }) => (
+              <div class="relative">
+                <div class="absolute top-3 right-3 z-10 flex items-center gap-1 bg-blue-500/15 border border-blue-500/30 text-blue-300 text-xs font-semibold px-2 py-1 rounded-md">
+                  <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 2.25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 2.25Z" />
+                  </svg>
+                  +{rankChange} (dün #{prevRank})
+                </div>
+                <RepoCard repo={repo} />
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <!-- Falling -->
+      {fallingRepos.length > 0 && (
+        <section>
+          <h2 class="text-lg font-semibold text-yellow-500 mb-4 flex items-center gap-2">
+            📉 <span>Düşen Repolar</span>
+            <span class="text-xs font-normal bg-yellow-500/10 text-yellow-500 px-2 py-0.5 rounded-full border border-yellow-500/20">{fallingRepos.length}</span>
+          </h2>
+          <div class="space-y-4">
+            {fallingRepos.slice(0, 20).map(({ repo, prevRank, rankChange }) => (
+              <div class="relative">
+                <div class="absolute top-3 right-3 z-10 flex items-center gap-1 bg-yellow-500/10 border border-yellow-500/30 text-yellow-400 text-xs font-semibold px-2 py-1 rounded-md">
+                  ↓ {Math.abs(rankChange)} (dün #{prevRank})
+                </div>
+                <RepoCard repo={repo} />
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <!-- Removed -->
+      {removedRepos.length > 0 && (
+        <section>
+          <h2 class="text-lg font-semibold text-red-400 mb-4 flex items-center gap-2">
+            ❌ <span>Çıkan Repolar</span>
+            <span class="text-xs font-normal bg-red-500/10 text-red-400 px-2 py-0.5 rounded-full border border-red-500/20">{removedRepos.length}</span>
+          </h2>
+          <p class="text-xs text-[#7d8590] mb-4">Dün trending'deydi, bugün listeden çıktı.</p>
+          <div class="space-y-4">
+            {removedRepos.slice(0, 20).map(repo => (
+              <div class="opacity-60">
+                <RepoCard repo={repo} />
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+    </div>
+  )}
+</Layout>
