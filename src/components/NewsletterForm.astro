@@ -1,24 +1,77 @@
-<section class="relative overflow-hidden border border-[#30363d] rounded-xl bg-gradient-to-br from-[#161b22] to-[#0d1117] p-8 mt-10 text-center">
+<section class="relative overflow-hidden border border-[#30363d] rounded-xl bg-gradient-to-br from-[#161b22] to-[#0d1117] p-8 mt-10 text-center" data-testid="newsletter-section">
   <div class="absolute inset-0 bg-gradient-to-r from-green-500/5 via-blue-500/5 to-purple-500/5" />
   <div class="relative">
     <span class="text-3xl mb-3 block">📬</span>
     <h3 class="text-xl font-bold mb-2 text-[#e6edf3]">Günlük Trending Digest</h3>
     <p class="text-[#7d8590] text-sm mb-5 max-w-md mx-auto">Her sabah GitHub'da trend olan projelerin Türkçe AI analizini doğrudan e-posta kutuna al.</p>
-    <form method="POST" action="/api/subscribe" class="flex flex-col sm:flex-row gap-2 max-w-lg mx-auto">
+    <form id="newsletter-form" method="POST" action="/api/subscribe" class="flex flex-col sm:flex-row gap-2 max-w-lg mx-auto" data-testid="newsletter-form">
       <input
         type="email"
         name="email"
         required
         placeholder="email@adresiniz.com"
         class="flex-1 px-4 py-2.5 rounded-lg bg-[#0d1117] border border-[#30363d] text-[#e6edf3] text-sm placeholder-[#484f58] focus:border-[#58a6ff] focus:outline-none focus:ring-1 focus:ring-[#58a6ff]/50 transition-all"
+        data-testid="newsletter-email"
       />
       <button
         type="submit"
         class="px-6 py-2.5 rounded-lg bg-[#238636] text-white text-sm font-semibold hover:bg-[#2ea043] active:scale-95 transition-all shadow-lg shadow-green-900/20"
+        data-testid="newsletter-submit"
       >
         Ücretsiz Abone Ol
       </button>
     </form>
+    <p id="newsletter-status" class="text-xs mt-3 max-w-md mx-auto" style="display:none" role="status" aria-live="polite" data-testid="newsletter-status"></p>
     <p class="text-[10px] text-[#484f58] mt-3 max-w-md mx-auto">Abone olarak günlük GitHub Trending bültenini almayı kabul ediyorsun. Her e-postada tek tıkla çıkabilirsin. İletişim: <a href="mailto:hello@softween.com" class="underline">hello@softween.com</a></p>
   </div>
 </section>
+
+<script>
+  const form = document.getElementById('newsletter-form') as HTMLFormElement | null;
+  const status = document.getElementById('newsletter-status');
+  if (form && status) {
+    const button = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+    const emailInput = form.querySelector('input[name="email"]') as HTMLInputElement | null;
+
+    const show = (message: string, color: string) => {
+      status.textContent = message;
+      status.style.color = color;
+      status.style.display = 'block';
+    };
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const email = emailInput?.value.trim() ?? '';
+      if (!email) return;
+
+      if (button) {
+        button.disabled = true;
+        button.style.opacity = '0.6';
+      }
+      show('Gönderiliyor...', '#7d8590');
+
+      try {
+        const res = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email }),
+        });
+        const data = (await res.json().catch(() => ({}))) as { success?: boolean; message?: string; error?: string };
+
+        if (res.ok && data.success) {
+          show(data.message ?? 'Onay maili gönderdik, lütfen e-posta kutunu kontrol et.', '#3fb950');
+          form.reset();
+        } else {
+          show(data.error ?? 'Bir şeyler ters gitti, lütfen tekrar dene.', '#f85149');
+        }
+      } catch {
+        show('Bağlantı hatası, lütfen tekrar dene.', '#f85149');
+      } finally {
+        if (button) {
+          button.disabled = false;
+          button.style.opacity = '1';
+        }
+      }
+    });
+  }
+</script>
