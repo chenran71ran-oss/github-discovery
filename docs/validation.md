@@ -16,13 +16,13 @@ Cloudflare 的 Node process v2 与 Astro 5 SSR 存在兼容问题，可能造成
 
 ## 线上部署证据（2026-10-11）
 
-| 项目           | 已确认的证据                                         | 尚待确认                               |
-| -------------- | ---------------------------------------------------- | -------------------------------------- |
-| Pages          | Cloudflare 成功页面显示 `github-discovery.pages.dev` | 浏览器完整交互与布局                   |
-| D1             | Studio 显示五张 `discovery_` 表                      | 真实采集写入结果                       |
+|      项目      | 已确认的证据                                         | 尚待确认                               |
+| :------------: | :--------------------------------------------------- | :------------------------------------- |
+|     Pages      | Cloudflare 成功页面显示 `github-discovery.pages.dev` | 浏览器完整交互与布局                   |
+|       D1       | Studio 显示五张 `discovery_` 表                      | 真实采集写入结果                       |
 | 前端数据库查询 | `/api/status` 返回 `{"jobs":[]}`                     | 采集后的任务和榜单展示                 |
-| 采集 Worker    | 构建日志显示部署成功，绑定 DB、AI，发布两条 Cron     | Cron 实际采集、GitHub 请求、AI 输出    |
-| 自定义域名     | Pages 已添加 `radar.chenran71ran.cc`                 | 最后截图为 Initializing，未确认 Active |
+|  采集 Worker   | 构建日志显示部署成功，绑定 DB、AI，发布两条 Cron     | Cron 实际采集、GitHub 请求、AI 输出    |
+|   自定义域名   | Pages 已添加 `radar.chenran71ran.cc`                 | 最后截图为 Initializing，未确认 Active |
 
 以上来自维护者提供的 Cloudflare 截图与状态接口结果。当前环境直接请求 Pages 收到 HTTP 403，不能据此认定用户侧站点异常，也不能声称已完成独立线上验收。
 

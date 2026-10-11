@@ -25,14 +25,14 @@ ORDER BY name;
 
 Cloudflare → Workers & Pages → Create application → Pages → Connect to Git。选择本站仓库。
 
-| 字段                       | 填写                  |
-| -------------------------- | --------------------- |
-| Project name               | `github-discovery`    |
-| Production branch          | `main`                |
-| Framework preset           | `Astro`               |
-| Build command              | `npm run build`       |
-| Build output directory     | `dist`                |
-| Root directory             | 留空，使用仓库根目录  |
+|            字段            |         填写          |
+| :------------------------: | :-------------------: |
+|        Project name        |  `github-discovery`   |
+|     Production branch      |        `main`         |
+|      Framework preset      |        `Astro`        |
+|       Build command        |    `npm run build`    |
+|   Build output directory   |        `dist`         |
+|       Root directory       | 留空，使用仓库根目录  |
 | Build environment variable | `NODE_VERSION` = `22` |
 
 保存并部署。根目录 `wrangler.jsonc` 已声明 `DB` 与上述 D1 的绑定和所需兼容标志，以仓库配置为准。
@@ -43,16 +43,16 @@ Cloudflare → Workers & Pages → Create application → Pages → Connect to G
 
 Cloudflare → Workers & Pages → Create application，连接同一个 GitHub 仓库，创建 Worker。
 
-| 字段                           | 填写                                |
-| ------------------------------ | ----------------------------------- |
-| Worker name                    | `github-discovery-collector`        |
-| Production branch              | `main`                              |
-| Root directory                 | `worker`                            |
-| Build command                  | `npm --prefix .. ci`                |
-| Deploy command                 | `npm --prefix .. run worker:deploy` |
-| Build environment variable     | `NODE_VERSION` = `22`               |
-| Enable Preview builds          | 关闭                                |
-| Protect with Cloudflare Access | 关闭                                |
+|              字段              |                填写                 |
+| :----------------------------: | :---------------------------------: |
+|          Worker name           |    `github-discovery-collector`     |
+|       Production branch        |               `main`                |
+|         Root directory         |              `worker`               |
+|         Build command          |        `npm --prefix .. ci`         |
+|         Deploy command         | `npm --prefix .. run worker:deploy` |
+|   Build environment variable   |        `NODE_VERSION` = `22`        |
+|     Enable Preview builds      |                关闭                 |
+| Protect with Cloudflare Access |                关闭                 |
 
 采集器与前端属于同一仓库，依赖和 lockfile 在上一级，所以安装和部署命令明确使用父目录。Worker 的 Wrangler 配置位于 `worker/wrangler.jsonc`。
 
