@@ -9,4 +9,12 @@ isboyjc/github-trending-api：仅消费其公开备用 JSON，不复制源码。
 AndrewGodlewsky/trendingrepos：仅参考多信号发现思路，重新实现基于实际观测的排名，未复制 Python 代码。
 OmniTrends：仅参考聚合导航交互，未复制其 AGPL 代码或素材。
 
-所有代码在主副本历史上修改；GitHub 账户中的 Fork 尚未创建。后续创建 Fork 后，可直接推送此改造分支；worker 上游作为独立 upstream-mailer remote 同步。
+## 副本与维护方式
+
+改造仓库：[chenran71ran-oss/github-discovery](https://github.com/chenran71ran-oss/github-discovery)，由 Softween Web Fork 后二次开发，保留主上游 Git 历史。采集器作为同仓库的独立 Worker 部署。
+
+更新上游时先审查差异、在分支合并并运行验证，再发布。不要用原版文件整体覆盖本项目，否则会丢失数据库、UI 和采集改造。
+
+## 排版参考
+
+文档的信息组织参考 [Astro](https://github.com/withastro/astro) 与 [Hono](https://github.com/honojs/hono) 的官方仓库：清晰的项目介绍、快速开始、独立文档入口与贡献说明。文案和视觉标识为本项目编写，未复制其代码或品牌素材。
