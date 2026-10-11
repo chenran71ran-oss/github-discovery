@@ -1,40 +1,16 @@
-# GitHub Trending — Web Dashboard
+# GitHub Discovery
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
+中文开源项目发现站，基于 Softween Web 副本并整合采集 Worker。
 
-Live: **https://trends.softween.com** — GitHub Trending repolarının günlük Türkçe AI özeti. Open source, Cloudflare üzerinde çalışır.
+[完整说明与 Cloudflare 部署步骤](README.zh-CN.md) · [上游与来源记录](UPSTREAM.md)
 
-Public Turkish website showing GitHub Trending repositories with AI-powered summaries. Reads data from a shared D1 database populated by `softween-trending-mailer`.
-
-> See [`CLAUDE.md`](./CLAUDE.md) for the short architecture summary.
-
-## Tech Stack
-
-- **Framework**: Astro 5 (SSR)
-- **SSR adapter**: `@astrojs/cloudflare`
-- **Styling**: Tailwind CSS v4
-- **Database**: Cloudflare D1 — shared with `softween-trending-mailer`
-- **Hosting**: Cloudflare Pages
-
-## Commands
+Astro 5 + TypeScript + Cloudflare Pages / Workers + D1 + Workers AI + Cron。支持日／周／月榜、历史、中文解读、Rising、筛选、收藏与深浅色主题。
 
 ```bash
-npm install          # Install dependencies
-npm run dev          # Local dev server
-npm run build        # Production build
-npm run deploy       # Build + deploy to Cloudflare Pages
+npm ci
+npm run db:local
+npm run seed -- --demo # 可选，仅本地演示
+npm run dev
 ```
 
-## Data Flow
-
-The `softween-trending-mailer` Worker runs a daily cron, scrapes GitHub Trending, summarizes each repo with Cloudflare Workers AI, and writes the results into a shared D1 database. This site reads from the same D1 and renders a public Turkish-language dashboard.
-
-## Setup
-
-1. `cp .dev.vars.example .dev.vars` (web için app secret'ı yok; D1 binding yeterli).
-2. `npm install`
-3. `npm run dev`
-
-## Contributing
-
-Issue / PR açabilirsin. Yeni kullanıcı-görünür string eklerken TR + EN (`src/lib/i18n.ts`).
+生产运行不需要 VPS、Docker 或本地常驻电脑。所有数据库 ID 均为占位值，部署时替换为你自己的 D1。

@@ -1,29 +1,24 @@
-# CLAUDE.md
+# GitHub Discovery
 
-## Project Overview
+## Architecture
 
-Public Turkish website showing GitHub Trending repos with AI-powered summaries. Reads data from a shared D1 database populated by github-trending-mailer Worker.
+Fork baseline and licenses: UPSTREAM.md.
+Astro SSR + same-origin API in src/; scheduled collector in worker/. Shared Zod contracts in shared/. Both bind the same D1 database.
 
-## Commands
+## Requirements
 
-npm install          # Install dependencies
-npm run dev          # Local dev server
-npm run build        # Build for production
-npm run deploy       # Build + deploy to Cloudflare Pages
+- Keep complete original daily, weekly and monthly membership/ranking. Deduplicate enrichment only.
+- Publish snapshots in a D1 transaction; keep the previous complete snapshot after failures.
+- Do not block browsing on GitHub or AI requests. Chinese summaries are filled separately.
+- Rising uses independent counter observations, with the actual sample interval visible.
+- Never commit credentials or author-specific deployment bindings.
+- Keep source records, licenses and Git history.
 
-## Tech Stack
+## Validation
 
-- Framework: Astro 5 SSR
-- Adapter: @astrojs/cloudflare
-- Styling: Tailwind CSS v4
-- Database: Cloudflare D1 (shared with github-trending-mailer)
-- Deploy: Cloudflare Pages
+- npm run check
+- npm test
+- npm run build
+- npx wrangler deploy --config worker/wrangler.jsonc --dry-run
 
-## graphify
-
-This project has a graphify knowledge graph at graphify-out/.
-
-Rules:
-- Before answering architecture or codebase questions, read graphify-out/GRAPH_REPORT.md for god nodes and community structure
-- If graphify-out/wiki/index.md exists, navigate it instead of reading raw files
-- After modifying code files in this session, run `python3 -c "from graphify.watch import _rebuild_code; from pathlib import Path; _rebuild_code(Path('.'))"` to keep the graph current
+See README.zh-CN.md for local setup and deployment. No graphify metadata exists in this fork.

@@ -1,19 +1,39 @@
 {
-  "name": "github-trending-web",
+  "name": "github-discovery",
   "type": "module",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "astro dev",
+    "dev": "astro dev --host 0.0.0.0",
     "build": "astro build",
-    "preview": "astro preview",
-    "deploy": "astro build && wrangler pages deploy dist/"
+    "check": "astro check && tsc -p tsconfig.worker.json --noEmit",
+    "test": "vitest run",
+    "preview": "astro preview --host 0.0.0.0",
+    "worker:dev": "wrangler dev --config worker/wrangler.jsonc --persist-to .wrangler/state",
+    "worker:deploy": "wrangler deploy --config worker/wrangler.jsonc",
+    "db:local": "wrangler d1 migrations apply github-discovery-db --local --config worker/wrangler.jsonc --persist-to .wrangler/state",
+    "db:remote": "wrangler d1 migrations apply github-discovery-db --remote --config worker/wrangler.jsonc",
+    "deploy": "astro build && wrangler pages deploy dist --project-name github-discovery",
+    "seed": "node scripts/seed.mjs"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^12.6.12",
     "@astrojs/sitemap": "^3.7.2",
     "@tailwindcss/vite": "^4.2.0",
     "astro": "^5.17.1",
-    "tailwindcss": "^4.2.0"
+    "cheerio": "^1.0.0",
+    "hono": "^4.7.0",
+    "tailwindcss": "^4.2.0",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@cloudflare/workers-types": "^4.20250327.0",
+    "miniflare": "^4.0.0",
+    "prettier": "^3.9.9",
+    "prettier-plugin-astro": "^0.14.1",
+    "typescript": "^5.8.0",
+    "vitest": "^3.1.0",
+    "wrangler": "^4.5.0"
   }
 }

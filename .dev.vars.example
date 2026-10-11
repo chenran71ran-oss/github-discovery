@@ -1,6 +1,1 @@
-# Web reads the shared D1 binding (DB) configured in wrangler.jsonc.
-# No app secrets required for local dev.
-
-# Double opt-in confirm email fan-out (mailer worker)
-MAILER_CONFIRM_URL=https://your-mailer.workers.dev
-CONFIRM_SECRET=shared-secret-with-mailer
+# 前端只需要 D1 绑定，无应用密钥。

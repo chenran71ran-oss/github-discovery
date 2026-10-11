@@ -1,114 +1,260 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import RepoCard from '../components/RepoCard.astro';
-import PeriodTabs from '../components/PeriodTabs.astro';
-import NewsletterForm from '../components/NewsletterForm.astro';
-import { getLatestSnapshot, getReposBySnapshot } from '../lib/db';
-import type { ParsedRepo } from '../lib/db';
-
-const db = Astro.locals.runtime.env.DB as D1Database;
-const period = (Astro.url.searchParams.get('period') ?? 'daily') as 'daily' | 'weekly' | 'monthly';
-
-const snapshot = await getLatestSnapshot(db);
-let repos: ParsedRepo[] = [];
-let allRepos: ParsedRepo[] = [];
-let snapshotDate = '';
-
-if (snapshot) {
-  allRepos = await getReposBySnapshot(db, snapshot.id);
-  repos = allRepos.filter(r => r.period === period);
-  snapshotDate = snapshot.date;
-}
-
-const dailyCount = allRepos.filter(r => r.period === 'daily').length;
-const weeklyCount = allRepos.filter(r => r.period === 'weekly').length;
-const monthlyCount = allRepos.filter(r => r.period === 'monthly').length;
-
-// Top languages
-const langCounts = allRepos.reduce((acc, r) => {
-  if (r.language) acc[r.language] = (acc[r.language] || 0) + 1;
-  return acc;
-}, {} as Record<string, number>);
-const topLangs = Object.entries(langCounts).sort((a, b) => b[1] - a[1]).slice(0, 5);
-
-// Total stars
-const totalStars = allRepos.reduce((sum, r) => sum + (r.period_stars || 0), 0);
-
-const periodTitles: Record<string, string> = {
-  daily: 'Günlük',
-  weekly: 'Haftalık',
-  monthly: 'Aylık',
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { categories, querySchema, type Listing } from "../../shared/contracts";
+import { getListing } from "../lib/db";
+import { renderCard } from "../lib/card";
+const parsed = querySchema.safeParse(
+  Object.fromEntries(Astro.url.searchParams),
+);
+const query = parsed.success ? parsed.data : querySchema.parse({});
+let listing: Listing = {
+  repos: [],
+  period: query.period,
+  capturedAt: null,
+  source: null,
+  stale: false,
+  total: 0,
+  languages: [],
+  dates: [],
+  sampled: 0,
+  ready: false,
 };
-
-const pageTitle = `${periodTitles[period]} GitHub Trending Projeleri — Türkçe AI Analizi | GitHub Trends TR`;
-const pageDesc = `GitHub'da bugün trend olan ${repos.length} açık kaynak projenin Türkçe AI destekli detaylı analizleri. ${periodTitles[period]} trending repolar, ne işe yaradıkları ve nasıl kullanıldıkları.`;
-
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  name: 'GitHub Trends TR',
-  url: 'https://trends.softween.com',
-  description: pageDesc,
-  inLanguage: 'tr',
-  publisher: {
-    '@type': 'Organization',
-    name: 'Softween',
-    url: 'https://softween.com',
-  },
-};
-
-function formatK(n: number): string {
-  if (n >= 1000) return `${(n / 1000).toFixed(0)}k`;
-  return n.toString();
+let dbError = false;
+try {
+  listing = await getListing(Astro.locals.runtime.env.DB, query);
+} catch {
+  dbError = true;
+  Astro.response.status = 503;
 }
+const periodLabels = {
+  daily: "今日",
+  weekly: "本周",
+  monthly: "本月",
+  rising: "Rising",
+};
+const initial = JSON.stringify({ listing, query, dbError }).replace(
+  /</g,
+  "\\u003c",
+);
 ---
-<Layout title={pageTitle} description={pageDesc} canonicalPath={period === 'daily' ? '/' : `/?period=${period}`} jsonLd={jsonLd}>
-  <!-- Hero -->
-  <div class="text-center mb-8">
-    <h1 class="text-3xl sm:text-4xl font-bold mb-3 bg-gradient-to-r from-[#e6edf3] to-[#7d8590] bg-clip-text text-transparent">
-      GitHub'da Bugün Ne Trend?
-    </h1>
-    <p class="text-[#7d8590] text-sm">Yapay zeka destekli Türkçe analizlerle güncel açık kaynak projeleri keşfet</p>
-    {snapshotDate && (
-      <p class="text-[#484f58] text-xs mt-2">Son güncelleme: {snapshotDate}</p>
-    )}
-  </div>
 
-  <!-- Stats bar -->
-  {allRepos.length > 0 && (
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
-      <div class="bg-[#161b22] border border-[#30363d] rounded-lg p-3 text-center">
-        <div class="text-xl font-bold text-[#e6edf3]">{allRepos.length}</div>
-        <div class="text-[10px] text-[#7d8590] uppercase tracking-wide">Toplam Proje</div>
+<Layout title="GitHub Discovery · 发现值得尝试的开源项目">
+  <Header />
+  <main class="shell">
+    <section class="hero">
+      <div>
+        <p class="eyebrow"><span></span> OPEN SOURCE, OPEN POSSIBILITIES</p><h1>
+          下一个好项目，<br class="mobile-break" /><em>从这里发现。</em>
+        </h1><p class="hero-subtitle">
+          看见热度，读懂用途。把值得尝试的开源项目，留在你的工具箱。
+        </p>
+      </div><div class="hero-aside">
+        <span class="orbit-mark">✦</span><span
+          >BUILD SOMETHING<br />YOU CARE ABOUT</span>
       </div>
-      <div class="bg-[#161b22] border border-[#30363d] rounded-lg p-3 text-center">
-        <div class="text-xl font-bold text-[#f0883e]">+{formatK(totalStars)}</div>
-        <div class="text-[10px] text-[#7d8590] uppercase tracking-wide">Yeni Yıldız</div>
+    </section>
+    <section class="discovery-panel" aria-label="项目筛选">
+      <div class="toolbar">
+        <nav class="periods" aria-label="榜单周期">
+          {
+            Object.entries(periodLabels).map(([key, label]) => (
+              <button
+                data-period={key}
+                class:list={{ active: query.period === key }}
+                aria-pressed={query.period === key}
+              >
+                {key === "rising" ? <span class="rising-dot" /> : null}
+                {label}
+              </button>
+            ))
+          }
+        </nav><div class="toolbar-right">
+          <span class="update-time" id="updated-at"
+            >{
+              listing.capturedAt
+                ? new Date(listing.capturedAt).toLocaleString("zh-CN", {
+                    timeZone: "Asia/Shanghai",
+                    month: "2-digit",
+                    day: "2-digit",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  }) + " 更新"
+                : "等待首次采集"
+            }</span
+          ><div class="view-switch" role="group" aria-label="显示方式">
+            <button data-view="grid" aria-label="卡片视图" aria-pressed="true"
+              >▦</button
+            ><button data-view="list" aria-label="列表视图" aria-pressed="false"
+              >☰</button>
+          </div>
+        </div>
       </div>
-      <div class="bg-[#161b22] border border-[#30363d] rounded-lg p-3 text-center">
-        <div class="text-xl font-bold text-[#58a6ff]">{Object.keys(langCounts).length}</div>
-        <div class="text-[10px] text-[#7d8590] uppercase tracking-wide">Programlama Dili</div>
+      <div class="search-row">
+        <label class="search-box"
+          ><svg viewBox="0 0 24 24" aria-hidden="true"
+            ><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m16 16 5 5"
+            ></path></svg
+          ><input
+            id="search"
+            type="search"
+            value={query.q}
+            maxlength="100"
+            placeholder="搜索项目、中文用途或技术栈…"
+            aria-label="搜索项目"
+          /><kbd>/</kbd></label
+        ><label class="select-label"
+          ><span class="sr-only">语言</span><select id="language"
+            ><option value="">全部语言</option>{
+              listing.languages.map((l) => (
+                <option selected={query.language === l} value={l}>
+                  {l}
+                </option>
+              ))
+            }</select
+          ></label
+        ><label class="select-label date-label"
+          ><span class="sr-only">历史日期</span><select id="date"
+            ><option value="">最新榜单</option>{
+              listing.dates.map((d) => (
+                <option selected={query.date === d} value={d}>
+                  {d}
+                </option>
+              ))
+            }</select
+          ></label>
       </div>
-      <div class="bg-[#161b22] border border-[#30363d] rounded-lg p-3 text-center">
-        <div class="text-xl font-bold text-green-400">{topLangs[0]?.[0] ?? '-'}</div>
-        <div class="text-[10px] text-[#7d8590] uppercase tracking-wide">En Popüler Dil</div>
+      <nav class="categories" aria-label="项目分类">
+        <button
+          data-category=""
+          class:list={{ active: !query.category }}
+          aria-pressed={!query.category}>全部</button
+        >{
+          categories.map((c) => (
+            <button
+              data-category={c}
+              class:list={{ active: query.category === c }}
+              aria-pressed={query.category === c}
+            >
+              {c}
+            </button>
+          ))
+        }
+      </nav>
+    </section>
+    <div class="results-heading">
+      <div class="scope-tabs">
+        <button data-scope="all" aria-pressed="true" class="active"
+          >发现 <span id="result-count">{listing.repos.length}</span></button
+        ><button data-scope="saved" aria-pressed="false"
+          >我的收藏 <span id="saved-count">0</span></button>
+      </div><div class="results-controls">
+        <label class="read-filter"
+          ><input id="hide-read" type="checkbox" /> 隐藏已读</label
+        ><label class="sort-control"
+          ><span class="sr-only">排序</span><select id="sort"
+            ><option value="rank" selected={query.sort === "rank"}
+              >榜单顺序</option
+            ><option value="growth" selected={query.sort === "growth"}
+              >新增最多</option
+            ><option value="stars" selected={query.sort === "stars"}
+              >Star 最多</option
+            ></select
+          ></label>
       </div>
     </div>
-  )}
-
-  <PeriodTabs current={period} counts={{ daily: dailyCount, weekly: weeklyCount, monthly: monthlyCount }} />
-
-  {repos.length > 0 ? (
-    <div class="space-y-4">
-      {repos.map(repo => <RepoCard repo={repo} />)}
+    <p id="source-note" class="source-note">
+      {
+        listing.source?.startsWith("isboyjc")
+          ? "当前使用备用榜单数据；原始更新时间见下方。"
+          : query.period === "rising"
+            ? "Rising 基于独立采样的约 24 小时增长；仅覆盖本站持续跟踪的项目。"
+            : "榜单来自 GitHub Trending，中文解读根据项目 README 生成。"
+      }
+    </p>
+    <div
+      id="feedback"
+      class="feedback"
+      role="status"
+      aria-live="polite"
+      hidden={!dbError}
+    >
+      {
+        dbError
+          ? "数据库尚未就绪。完成数据库初始化与首次采集后，榜单会显示在这里。"
+          : ""
+      }
     </div>
-  ) : (
-    <div class="text-center py-16 text-[#7d8590]">
-      <span class="text-4xl block mb-4">🔍</span>
-      <p class="text-lg font-medium mb-2">Henüz veri yok</p>
-      <p class="text-sm">Veriler her gün 07:00 TR saatinde güncellenir.</p>
+    <section
+      id="repo-grid"
+      class="repo-grid"
+      aria-label="项目列表"
+      aria-busy="false"
+    >
+      <Fragment
+        set:html={listing.repos
+          .map((r) => renderCard(r, query.period))
+          .join("")}
+      />
+    </section>
+    <section
+      id="empty-state"
+      class="empty-state"
+      hidden={listing.repos.length > 0}
+    >
+      <span>✧</span><h2>
+        {query.period === "rising" ? "正在积累增长数据" : "这里还没有项目"}
+      </h2><p>
+        {
+          query.period === "rising"
+            ? "至少需要两次相隔约 24 小时的有效采样。期间可以浏览今日、本周或本月榜单。"
+            : "首次采集完成后自动显示。已有数据时，可以清除筛选条件再看看。"
+        }
+      </p><button id="reset-filters" class="button secondary">清除筛选</button>
+    </section>
+  </main>
+  <Footer />
+  <dialog id="detail-dialog" aria-labelledby="detail-title">
+    <div class="dialog-top">
+      <span>PROJECT NOTES</span><button
+        class="icon-button"
+        data-close="detail-dialog"
+        aria-label="关闭项目详情">✕</button>
+    </div><div id="detail-content"></div>
+  </dialog>
+  <dialog id="settings-dialog" aria-labelledby="settings-title">
+    <div class="dialog-top">
+      <h2 id="settings-title">偏好设置</h2><button
+        class="icon-button"
+        data-close="settings-dialog"
+        aria-label="关闭偏好设置">✕</button>
+    </div><div class="settings-body">
+      <p>外观</p><div class="theme-options">
+        <button data-theme-choice="light">浅色</button><button
+          data-theme-choice="dark">深色</button
+        ><button data-theme-choice="system">跟随系统</button>
+      </div><p class="settings-description">
+        收藏与已读记录保存在当前浏览器。导出一份备份，可以在其他设备导入。
+      </p><button id="export-data" class="button secondary"
+        >导出收藏与已读</button
+      ><label class="button secondary file-label"
+        >导入备份<input
+          id="import-data"
+          type="file"
+          accept="application/json"
+          hidden
+        /></label
+      ><p id="settings-message" role="status"></p><p
+        class="settings-description"
+      >
+        快捷键：<kbd>/</kbd> 搜索，<kbd>Esc</kbd> 关闭详情。
+      </p>
     </div>
-  )}
-
-  <NewsletterForm />
+  </dialog>
+  <div id="toast" class="toast" role="status" hidden></div>
+  <script id="initial-data" type="application/json" set:html={initial} />
+  <script>
+    import "../lib/app";
+  </script>
 </Layout>

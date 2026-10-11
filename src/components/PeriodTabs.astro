@@ -1,38 +1,19 @@
 ---
-interface Props {
-  current: string;
-  baseUrl?: string;
-  counts?: { daily: number; weekly: number; monthly: number };
-}
-
-const { current, baseUrl = '', counts } = Astro.props;
-
-const tabs = [
-  { key: 'daily', label: 'Günlük', emoji: '📅', activeClass: 'bg-green-500/15 text-green-400 border-green-500/50 shadow-green-500/10 shadow-sm' },
-  { key: 'weekly', label: 'Haftalık', emoji: '📊', activeClass: 'bg-blue-500/15 text-blue-400 border-blue-500/50 shadow-blue-500/10 shadow-sm' },
-  { key: 'monthly', label: 'Aylık', emoji: '📈', activeClass: 'bg-purple-500/15 text-purple-400 border-purple-500/50 shadow-purple-500/10 shadow-sm' },
-];
+const { current = "daily" } = Astro.props;
+const labels = {
+  daily: "今日",
+  weekly: "本周",
+  monthly: "本月",
+  rising: "Rising",
+};
 ---
-<div class="flex gap-2 mb-6">
-  {tabs.map(tab => {
-    const count = counts?.[tab.key as keyof typeof counts];
-    return (
-      <a
-        href={`${baseUrl}?period=${tab.key}`}
-        class={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium border transition-all ${
-          current === tab.key
-            ? tab.activeClass
-            : 'border-[#30363d] text-[#7d8590] hover:text-[#e6edf3] hover:border-[#484f58] hover:bg-[#21262d]'
-        }`}
-      >
-        <span>{tab.emoji}</span>
-        <span>{tab.label}</span>
-        {count !== undefined && (
-          <span class={`text-xs px-1.5 py-0.5 rounded-full ${
-            current === tab.key ? 'bg-white/10' : 'bg-[#30363d]'
-          }`}>{count}</span>
-        )}
+
+<nav class="periods" aria-label="榜单周期">
+  {
+    Object.entries(labels).map(([key, label]) => (
+      <a href={"/?period=" + key} class:list={{ active: current === key }}>
+        {label}
       </a>
-    );
-  })}
-</div>
+    ))
+  }
+</nav>

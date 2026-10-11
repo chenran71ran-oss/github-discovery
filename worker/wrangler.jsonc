@@ -1,0 +1,25 @@
+{
+  "name": "github-discovery-collector",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "triggers": {
+    "crons": ["15 */6 * * *", "45 * * * *"],
+  },
+  "ai": {
+    "binding": "AI",
+  },
+  "vars": {
+    "AI_MODEL": "@cf/qwen/qwen3-30b-a3b-fp8",
+    "AI_BATCH_SIZE": "6",
+    "META_BATCH_SIZE": "24",
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "github-discovery-db",
+      "database_id": "00000000-0000-0000-0000-000000000000",
+      "migrations_dir": "../migrations",
+    },
+  ],
+}

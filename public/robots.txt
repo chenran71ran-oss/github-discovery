@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://trends.softween.com/sitemap-index.xml
+Disallow: /api/

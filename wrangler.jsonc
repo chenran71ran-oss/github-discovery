@@ -1,12 +1,14 @@
 {
-  "name": "github-trending-web",
-  "compatibility_date": "2025-03-28",
+  "name": "github-discovery",
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": ["nodejs_compat", "disable_nodejs_process_v2"],
   "pages_build_output_dir": "dist",
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "github-trending-db",
-      "database_id": "06f24ed2-f63c-4508-8b26-a702baaeed8a"
-    }
-  ]
+      "database_name": "github-discovery-db",
+      "database_id": "00000000-0000-0000-0000-000000000000",
+      "migrations_dir": "migrations",
+    },
+  ],
 }
