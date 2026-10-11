@@ -17,7 +17,7 @@ Cloudflare 的 Node process v2 与 Astro 5 SSR 存在兼容问题，可能造成
 
 - 当前环境无法成功取得浏览器二进制，未完成浏览器点击、视觉布局、手机／电脑截图验证。HTML 演示是已构建界面的离线展示，不能代替浏览器实测。
 - 未在你的 Cloudflare 账号中运行 Cron 或 Workers AI；模型可用性、账户配额和线上 GitHub 请求需部署后验证。
-- 未创建你账号中的 GitHub Fork，未创建远程 D1，未发布站点或绑定域名。
+- 改造代码已提交到 `chenran71ran-oss/github-discovery` 的 main 分支，保留上游历史。未创建远程 D1，未发布站点或绑定域名。
 
 ## 演示页
 
