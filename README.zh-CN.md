@@ -42,7 +42,7 @@ npx wrangler deploy --config worker/wrangler.jsonc --dry-run
 ## 在你的 Cloudflare 部署
 
 1. 本仓库 https://github.com/chenran71ran-oss/github-discovery 已保存改造代码及 Softween 上游历史，可直接连接 Cloudflare。交付 ZIP 中的 `github-discovery-history.bundle` 保存了上游及本地改造历史，可以使用 `git clone github-discovery-history.bundle github-discovery` 恢复；需要最新版本时直接克隆本仓库。
-2. Cloudflare 创建 **全新的** D1，名称 `github-discovery-db`。不要使用上游作者的数据库。将得到的 `database_id` 同时填入根目录和 `worker/` 内的 `wrangler.jsonc`；当前全零 ID 是占位值。
+2. 本站已配置 D1 `github-discovery-db`，ID `b4eb73ce-f62b-4168-99a4-8173e2482cc6`，前端和采集器共用此数据库。其他用户 Fork 时应创建自己的 D1，并同时替换根目录和 `worker/` 内的 `wrangler.jsonc`。
 3. 登录 Wrangler，执行 `npm run db:remote` 初始化数据库。
 4. 为采集 Worker 设置密钥：
 
@@ -73,7 +73,7 @@ npm run worker:deploy
 
 ## 当前交付状态
 
-已完成源码与本地验证，并提交到 `chenran71ran-oss/github-discovery` 的 main 分支。远程 D1、Cloudflare 部署与域名绑定尚未执行。不要把本地演示截图当作线上真实榜单。
+已完成源码与本地验证，并提交到 `chenran71ran-oss/github-discovery` 的 main 分支。用户已提供 D1 ID，两份绑定配置已更新；远程表结构初始化、Cloudflare 部署与域名绑定尚未验证。不要把本地演示截图当作线上真实榜单。
 
 ## 运行时复现检查
 

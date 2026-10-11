@@ -7,7 +7,7 @@
     {
       "binding": "DB",
       "database_name": "github-discovery-db",
-      "database_id": "00000000-0000-0000-0000-000000000000",
+      "database_id": "b4eb73ce-f62b-4168-99a4-8173e2482cc6",
       "migrations_dir": "migrations",
     },
   ],

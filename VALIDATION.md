@@ -8,6 +8,7 @@
 - `wrangler deploy --config worker/wrangler.jsonc --dry-run`：采集 Worker 打包通过，D1 / AI 绑定解析正确。
 - 编译后的前端直接在 Miniflare / workerd 运行：首页 SSR、仓库详情页面、仓库详情 API、联合筛选 API、Rising API、无效查询返回 400 全部通过。
 - 本地 D1 迁移、演示数据导入、前后端共用 DB 绑定已验证。
+- 用户提供的 D1 ID 已写入前端和采集器配置，采集器重新执行 Wrangler dry-run 通过；此检查不代表远程数据库权限或表结构已验证。
 
 ## 修复的运行时问题
 
@@ -17,7 +18,7 @@ Cloudflare 的 Node process v2 与 Astro 5 SSR 存在兼容问题，可能造成
 
 - 当前环境无法成功取得浏览器二进制，未完成浏览器点击、视觉布局、手机／电脑截图验证。HTML 演示是已构建界面的离线展示，不能代替浏览器实测。
 - 未在你的 Cloudflare 账号中运行 Cron 或 Workers AI；模型可用性、账户配额和线上 GitHub 请求需部署后验证。
-- 改造代码已提交到 `chenran71ran-oss/github-discovery` 的 main 分支，保留上游历史。未创建远程 D1，未发布站点或绑定域名。
+- 改造代码已提交到 `chenran71ran-oss/github-discovery` 的 main 分支，保留上游历史。用户提供的 D1 ID 已写入两份配置；远程表结构初始化和绑定权限尚未验证，未发布站点或绑定域名。
 
 ## 演示页
 
