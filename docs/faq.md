@@ -46,3 +46,17 @@ curl --request POST 'https://<你的采集Worker域名>/trigger' \
 ## 部署成功就代表采集正常吗？
 
 不代表。至少检查一次任务完成、D1 写入、榜单显示与 AI 摘要；完整检查项见[验证记录](validation.md)。
+
+### 榜单已有项目，但没有中文摘要？
+
+榜单发布与 AI 分析是两个独立步骤。访问 `/api/status`，查看 `summaries` 中 ready / pending / failed 的数量，以及最近任务的 `summarized` 和 `error`。任务没有待处理项目时 summarized=0 是正常情况；有分析失败时会显示 failed 或 partial。
+
+- `AI_BINDING_MISSING`：检查采集 Worker 的 AI binding 是否命名为 `AI`。
+- `README_UNAVAILABLE`：README 获取失败；检查 GitHub API 配额，可在 Worker secret 中配置 `GITHUB_TOKEN`。
+- `AI_REQUEST_FAILED`：在 Cloudflare 检查 Workers AI 可用性、配额及 `AI_MODEL` 配置。
+- `AI_OUTPUT_INVALID`：模型输出不完整、非中文或不符合结构；后续任务会重试。
+- `SUMMARY_WRITE_FAILED`：检查采集 Worker 的 D1 binding。
+
+2026-10-12 修复同时支持 `response` 与 `choices[0].message.content`，拒绝截断内容，并使用 JSON 输出模式。失败项目至少间隔一小时重试；每批默认最多处理六个项目，因此整榜补齐需要若干轮任务。旧中文摘要在刷新失败时继续保留。
+
+这次更新需要部署 **Pages 与采集 Worker 两个项目**。无需新建数据库或执行新迁移。仅部署 Pages 不会修复后端摘要生成。Worker 部署后等待下一次每小时第45分钟的定时任务；已设置触发密钥时，也可使用上文的受保护手动触发入口。

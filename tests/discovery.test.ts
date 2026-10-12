@@ -285,3 +285,97 @@ describe("collector orchestration", () => {
     expect(wrong.status).toBe(401);
   });
 });
+
+import { extractSummaryText } from "../worker/src/lib/ai-summarizer";
+import type { Env } from "../worker/src/types";
+const chineseSummary = {
+  summary: "这是一个用于自托管监控的仪表盘项目，可以集中查看服务状态。",
+  useCase: "适合开发者搭建自己的服务监控面板。",
+  techStack: ["TypeScript"],
+  highlights: ["集中展示服务状态"],
+  categories: ["Dashboard"],
+};
+describe("Chinese enrichment integration", () => {
+  it("accepts Workers AI and chat completion envelopes but rejects truncated or English output", () => {
+    const text = JSON.stringify(chineseSummary);
+    expect(extractSummaryText({ response: text })).toBe(text);
+    expect(
+      extractSummaryText({
+        choices: [{ message: { content: text }, finish_reason: "stop" }],
+      }),
+    ).toBe(text);
+    expect(
+      extractSummaryText({
+        choices: [{ message: { content: text }, finish_reason: "length" }],
+      }),
+    ).toBe("");
+    expect(
+      parseSummaryResponse(
+        JSON.stringify({
+          ...chineseSummary,
+          summary: "An English dashboard description",
+        }),
+      ),
+    ).toBeNull();
+  });
+  it("persists chat completion Chinese analysis and serves it through the listing contract", async () => {
+    await publishSnapshot(
+      db,
+      "daily",
+      repos,
+      "github-trending",
+      new Date().toISOString(),
+    );
+    vi.spyOn(globalThis, "fetch").mockImplementation(async () =>
+      new Response(
+        "# Dashboard\nA self hosted monitoring dashboard in TypeScript.",
+      ),
+    );
+    const run = vi
+      .fn()
+      .mockResolvedValue({
+        choices: [
+          {
+            message: { content: JSON.stringify(chineseSummary) },
+            finish_reason: "stop",
+          },
+        ],
+      });
+    const result = await runJob(
+      { DB: db, AI: { run } as unknown as Ai },
+      "summarize",
+    );
+    expect(result.summarized).toBe(5);
+    const listing = await getListing(db, querySchema.parse({ q: "监控" }));
+    expect(listing.repos[0].summary).toEqual(chineseSummary);
+    expect(listing.repos[0].summaryStatus).toBe("ready");
+  });
+  it("records failed analysis honestly and retries after cooldown", async () => {
+    await publishSnapshot(
+      db,
+      "daily",
+      repos,
+      "github-trending",
+      new Date().toISOString(),
+    );
+    vi.spyOn(globalThis, "fetch").mockImplementation(
+      async () => new Response("# Dashboard"),
+    );
+    const run = vi.fn().mockResolvedValue({ response: "invalid" });
+    const env = { DB: db, AI: { run } } as unknown as Env;
+    expect((await runJob(env, "summarize")).success).toBe(false);
+    const job = await db
+      .prepare("SELECT status,error FROM discovery_jobs")
+      .first();
+    expect(job).toMatchObject({ status: "failed", error: "AI_OUTPUT_INVALID" });
+    await runJob(env, "summarize");
+    expect(run).toHaveBeenCalledTimes(5);
+    await db
+      .prepare(
+        "UPDATE discovery_repos SET summary_attempt_at=datetime('now','-2 hours')",
+      )
+      .run();
+    run.mockResolvedValue({ response: JSON.stringify(chineseSummary) });
+    expect((await runJob(env, "summarize")).summarized).toBe(5);
+  });
+});

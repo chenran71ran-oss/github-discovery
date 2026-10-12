@@ -115,8 +115,13 @@ export async function runJob(env: Env, mode: "collect" | "summarize") {
         );
       }
     }
-    summarized = await summarizePending(env);
-    const success = mode === "summarize" || published > 0;
+    const summaryResult = await summarizePending(env);
+    summarized = summaryResult.done;
+    errors.push(...summaryResult.errors);
+    const success =
+      mode === "summarize"
+        ? summarized > 0 || errors.length === 0
+        : published > 0;
     await env.DB.prepare(
       "UPDATE discovery_jobs SET status=?,finished_at=?,published=?,summarized=?,error=? WHERE id=?",
     )

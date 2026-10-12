@@ -18,3 +18,7 @@ OmniTrends：仅参考聚合导航交互，未复制其 AGPL 代码或素材。
 ## 排版参考
 
 文档的信息组织参考 [Astro](https://github.com/withastro/astro) 与 [Hono](https://github.com/honojs/hono) 的官方仓库：清晰的项目介绍、快速开始、独立文档入口与贡献说明。文案和视觉标识为本项目编写，未复制其代码或品牌素材。
+
+### 2026-10-12 中文分析整合
+
+核对 `bhwa233/github-trending-history` 的 `ai-service.ts`，将“中文摘要、技术栈、适用场景”的分析流程与 JSON 输出约束适配到现有 Workers AI binding + D1 队列。独立实现响应格式兼容、中文校验、失败分类和小时级重试，不引入其 Next.js 部署或 Gateway 账户配置，也未复制其实现代码。原始描述保留，卡片优先显示中文摘要并展示技术栈，详情继续展示用途与亮点。
