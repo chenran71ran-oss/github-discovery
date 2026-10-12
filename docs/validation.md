@@ -47,3 +47,13 @@ Cloudflare 的 Node process v2 与 Astro 5 SSR 存在兼容问题，可能造成
 新增回归覆盖：聊天补全响应写入真实本地 D1 后能被中文查询读出；旧 response 格式兼容；截断与纯英文摘要拒绝；失败任务记录原因；冷却后可重试成功。AI 调用使用模拟响应，不代表生产 Workers AI 已生成成功。线上需要两端部署后以 summarized>0、ready 数量和真实卡片验证。
 
 本次本地验证结果：14 项测试通过；Astro/Worker 类型检查、前端构建、Worker 部署 dry-run 与编译后 SSR/D1/API 运行时验证通过。未调用生产 Workers AI，也未修改生产 D1。
+
+## 2026-10-12 第二轮：JSON 对象响应与 README 备用源
+
+线上诊断记录显示 ready=2、failed=36，任务出现 AI_OUTPUT_INVALID 和 README_UNAVAILABLE。核对 Cloudflare JSON Mode 官方文档，确认合法返回可以是 `response: { ... }` 对象；原提取器只接受字符串。回归复现对象响应导致五个仓库摘要全部失败，修复后五个仓库均写入 D1，并能通过前端查询读取。
+
+新增 README API 403 时使用公开 `raw.githubusercontent.com/<owner>/<repo>/HEAD/README.md` 的测试，确认 GitHub Token 不传给备用源。HEAD 跟随默认分支；非标准 README 路径仍需 GitHub API。此备用源不能保证所有仓库获取成功。
+
+增加独立输出诊断：截断、空内容、JSON 无效、字段结构无效、非中文。仍保留严格校验与小时级重试，不把编造的中文内容写入数据库。未获得生产 AI 原始输出，因此对象兼容问题已确认可复现，但不能解释所有线上失败。需自动部署后继续依据真实任务结果验收。
+
+第二轮本地结果：18 项测试通过；类型检查、前端构建、Worker 部署 dry-run 通过。生产 AI 成功率尚待新版定时任务验证。

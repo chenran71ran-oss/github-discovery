@@ -60,3 +60,5 @@ curl --request POST 'https://<你的采集Worker域名>/trigger' \
 2026-10-12 修复同时支持 `response` 与 `choices[0].message.content`，拒绝截断内容，并使用 JSON 输出模式。失败项目至少间隔一小时重试；每批默认最多处理六个项目，因此整榜补齐需要若干轮任务。旧中文摘要在刷新失败时继续保留。
 
 这次更新需要部署 **Pages 与采集 Worker 两个项目**。无需新建数据库或执行新迁移。仅部署 Pages 不会修复后端摘要生成。Worker 部署后等待下一次每小时第45分钟的定时任务；已设置触发密钥时，也可使用上文的受保护手动触发入口。
+
+第二轮更新兼容 JSON 模式直接返回的对象，并在 README API 失败时尝试公开原文备用源。新的输出错误码为 `AI_OUTPUT_TRUNCATED`、`AI_OUTPUT_EMPTY`、`AI_OUTPUT_JSON_INVALID`、`AI_OUTPUT_SCHEMA_INVALID` 和 `AI_OUTPUT_NOT_CHINESE`。这些诊断不公开模型原文或凭据。两个项目连接 GitHub 自动部署时，推送新提交会触发更新，无需重复创建 Pages。

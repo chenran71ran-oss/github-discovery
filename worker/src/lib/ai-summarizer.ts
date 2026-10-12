@@ -17,27 +17,49 @@ export function extractSummaryText(value: unknown): string {
   const choice = r.choices?.[0];
   if (choice?.finish_reason === "length") return "";
   const content = choice?.message?.content ?? choice?.text ?? r.response;
-  return typeof content === "string" ? content : "";
+  if (typeof content === "string") return content;
+  // JSON mode may return an already decoded object. Keep validation below.
+  if (content && typeof content === "object" && !Array.isArray(content))
+    return JSON.stringify(content);
+  return "";
 }
+function decodeSummary(text: string): unknown {
+  const cleaned = text
+    .replace(/<think>[\s\S]*?<\/think>/g, "")
+    .replace(/^\s*```(?:json)?\s*/, "")
+    .replace(/\s*```\s*$/, "")
+    .trim();
+  const start = cleaned.indexOf("{"),
+    end = cleaned.lastIndexOf("}");
+  if (start < 0 || end < start) throw new Error("Missing JSON object");
+  return JSON.parse(cleaned.slice(start, end + 1));
+}
+const hasChinese = (s: Summary) =>
+  /[\u3400-\u9fff]/.test(s.summary) && /[\u3400-\u9fff]/.test(s.useCase);
 export function parseSummaryResponse(text: string): Summary | null {
   try {
-    const cleaned = text
-      .replace(/<think>[\s\S]*?<\/think>/g, "")
-      .replace(/^\s*```(?:json)?\s*/, "")
-      .replace(/\s*```\s*$/, "")
-      .trim();
-    const start = cleaned.indexOf("{");
-    const end = cleaned.lastIndexOf("}");
-    const result = summarySchema.safeParse(
-      JSON.parse(cleaned.slice(start, end + 1)),
-    );
-    return result.success &&
-      /[\u3400-\u9fff]/.test(result.data.summary) &&
-      /[\u3400-\u9fff]/.test(result.data.useCase)
-      ? result.data
-      : null;
+    const result = summarySchema.safeParse(decodeSummary(text));
+    return result.success && hasChinese(result.data) ? result.data : null;
   } catch {
     return null;
+  }
+}
+export function summaryOutputIssue(response: unknown): string | null {
+  if (
+    response &&
+    typeof response === "object" &&
+    (response as { choices?: { finish_reason?: string }[] }).choices?.[0]
+      ?.finish_reason === "length"
+  )
+    return "AI_OUTPUT_TRUNCATED";
+  const text = extractSummaryText(response);
+  if (!text.trim()) return "AI_OUTPUT_EMPTY";
+  try {
+    const result = summarySchema.safeParse(decodeSummary(text));
+    if (!result.success) return "AI_OUTPUT_SCHEMA_INVALID";
+    return hasChinese(result.data) ? null : "AI_OUTPUT_NOT_CHINESE";
+  } catch {
+    return "AI_OUTPUT_JSON_INVALID";
   }
 }
 async function hash(text: string): Promise<string> {
@@ -119,7 +141,7 @@ export async function summarizePending(
           temperature: 0.2,
         },
       );
-      stage = "AI_OUTPUT_INVALID";
+      stage = summaryOutputIssue(response) ?? "AI_OUTPUT_INVALID";
       const result = parseSummaryResponse(extractSummaryText(response));
       if (!result) throw new Error("Invalid AI summary");
       stage = "SUMMARY_WRITE_FAILED";

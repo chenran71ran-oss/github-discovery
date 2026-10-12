@@ -326,21 +326,20 @@ describe("Chinese enrichment integration", () => {
       "github-trending",
       new Date().toISOString(),
     );
-    vi.spyOn(globalThis, "fetch").mockImplementation(async () =>
-      new Response(
-        "# Dashboard\nA self hosted monitoring dashboard in TypeScript.",
-      ),
+    vi.spyOn(globalThis, "fetch").mockImplementation(
+      async () =>
+        new Response(
+          "# Dashboard\nA self hosted monitoring dashboard in TypeScript.",
+        ),
     );
-    const run = vi
-      .fn()
-      .mockResolvedValue({
-        choices: [
-          {
-            message: { content: JSON.stringify(chineseSummary) },
-            finish_reason: "stop",
-          },
-        ],
-      });
+    const run = vi.fn().mockResolvedValue({
+      choices: [
+        {
+          message: { content: JSON.stringify(chineseSummary) },
+          finish_reason: "stop",
+        },
+      ],
+    });
     const result = await runJob(
       { DB: db, AI: { run } as unknown as Ai },
       "summarize",
@@ -367,7 +366,10 @@ describe("Chinese enrichment integration", () => {
     const job = await db
       .prepare("SELECT status,error FROM discovery_jobs")
       .first();
-    expect(job).toMatchObject({ status: "failed", error: "AI_OUTPUT_INVALID" });
+    expect(job).toMatchObject({
+      status: "failed",
+      error: "AI_OUTPUT_JSON_INVALID",
+    });
     await runJob(env, "summarize");
     expect(run).toHaveBeenCalledTimes(5);
     await db
@@ -378,4 +380,76 @@ describe("Chinese enrichment integration", () => {
     run.mockResolvedValue({ response: JSON.stringify(chineseSummary) });
     expect((await runJob(env, "summarize")).summarized).toBe(5);
   });
+});
+
+import { fetchReadme } from "../worker/src/lib/github-api";
+describe("Workers AI JSON mode and README recovery", () => {
+  it("reads the documented structured response object", () => {
+    expect(
+      parseSummaryResponse(extractSummaryText({ response: chineseSummary })),
+    ).toEqual(chineseSummary);
+    expect(
+      parseSummaryResponse(
+        extractSummaryText({ response: { summary: "只有摘要" } }),
+      ),
+    ).toBeNull();
+  });
+  it("writes a structured object response to D1", async () => {
+    await publishSnapshot(
+      db,
+      "daily",
+      repos,
+      "github-trending",
+      new Date().toISOString(),
+    );
+    vi.spyOn(globalThis, "fetch").mockImplementation(
+      async () => new Response("# Dashboard"),
+    );
+    const env = {
+      DB: db,
+      AI: { run: async () => ({ response: chineseSummary }) },
+    } as unknown as Env;
+    expect((await runJob(env, "summarize")).summarized).toBe(5);
+    expect(
+      (await getListing(db, querySchema.parse({}))).repos[0].summary,
+    ).toEqual(chineseSummary);
+  });
+  it("falls back to the repository HEAD README without leaking GitHub authorization", async () => {
+    const calls: { url: string; headers: Headers }[] = [];
+    vi.spyOn(globalThis, "fetch").mockImplementation(async (input, init) => {
+      calls.push({ url: String(input), headers: new Headers(init?.headers) });
+      return String(input).includes("api.github.com")
+        ? new Response("rate limited", { status: 403 })
+        : new Response("# Actual README\nProject documentation");
+    });
+    expect(
+      await fetchReadme("owner/repo", { DB: db, GITHUB_TOKEN: "test-secret" }),
+    ).toContain("Actual README");
+    expect(calls[1].url).toBe(
+      "https://raw.githubusercontent.com/owner/repo/HEAD/README.md",
+    );
+    expect(calls[1].headers.get("Authorization")).toBeNull();
+  });
+});
+
+import { summaryOutputIssue } from "../worker/src/lib/ai-summarizer";
+it("distinguishes output truncation, empty content, malformed JSON, schema and language failures", () => {
+  expect(
+    summaryOutputIssue({
+      choices: [{ finish_reason: "length", message: { content: "{" } }],
+    }),
+  ).toBe("AI_OUTPUT_TRUNCATED");
+  expect(summaryOutputIssue({ response: "" })).toBe("AI_OUTPUT_EMPTY");
+  expect(summaryOutputIssue({ response: "not JSON" })).toBe(
+    "AI_OUTPUT_JSON_INVALID",
+  );
+  expect(summaryOutputIssue({ response: { summary: "中文说明" } })).toBe(
+    "AI_OUTPUT_SCHEMA_INVALID",
+  );
+  expect(
+    summaryOutputIssue({
+      response: { ...chineseSummary, summary: "An English dashboard" },
+    }),
+  ).toBe("AI_OUTPUT_NOT_CHINESE");
+  expect(summaryOutputIssue({ response: chineseSummary })).toBeNull();
 });

@@ -49,13 +49,30 @@ export async function fetchReadme(
   fullName: string,
   env: Env,
 ): Promise<string | null> {
-  const response = await fetch(
-    "https://api.github.com/repos/" + fullName + "/readme",
+  if (!/^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/.test(fullName)) return null;
+  const sources = [
     {
+      url: "https://api.github.com/repos/" + fullName + "/readme",
       headers: headers(env, "application/vnd.github.raw+json"),
-      signal: AbortSignal.timeout(10000),
     },
-  );
-  if (!response.ok) return null;
-  return (await response.text()).slice(0, 10000);
+    // HEAD follows the default branch, including repositories that do not use main.
+    {
+      url: "https://raw.githubusercontent.com/" + fullName + "/HEAD/README.md",
+      headers: { "User-Agent": "GitHub-Discovery/0.1" },
+    },
+  ];
+  for (const source of sources) {
+    try {
+      const response = await fetch(source.url, {
+        headers: source.headers,
+        signal: AbortSignal.timeout(10000),
+      });
+      if (!response.ok) continue;
+      const text = (await response.text()).slice(0, 10000).trim();
+      if (text && !/^\s*(?:<!doctype html|<html)/i.test(text)) return text;
+    } catch {
+      /* Try the independent public source after API timeout or quota failure. */
+    }
+  }
+  return null;
 }
