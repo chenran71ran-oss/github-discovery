@@ -1,0 +1,34 @@
+name: Discovery preview checks
+on:
+  push:
+    branches: [codex/newsnow-discovery-preview]
+  pull_request:
+    paths: ['src/**', 'shared/**', 'collector/**', package.json, pnpm-lock.yaml, '*.config.*']
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.30.3
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pnpm install --frozen-lockfile
+      - run: pip install -r collector/requirements.txt
+      - run: CF_PAGES=1 pnpm build
+      - run: pnpm typecheck
+      - run: pnpm exec vitest run shared/discovery.test.ts
+      - run: python -m unittest discover -s collector -p 'test_*.py'
+      - run: pnpm build:preview
+      - uses: actions/upload-artifact@v4
+        with:
+          name: discovery-static-preview
+          path: dist
