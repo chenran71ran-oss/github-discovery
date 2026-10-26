@@ -12,11 +12,11 @@
 
 ## 当前状态
 
-这是 `codex/newsnow-discovery-preview` 独立验收版本。未替换原站域名、main 分支、D1 或 Worker。
+2026-10-26 已上线至 **[radar.chenran71ran.cc](https://radar.chenran71ran.cc/)**。新版已合入 `main`，沿用原 Cloudflare Pages 项目 `github-discovery` 与原域名；生产基线提交为 `cfe50089821e60b09a65e2b1a26e3a7acd03d5cc`。
 
 已接入真实 GitHub Trending 日榜、周榜、月榜，首批数据日期为 2026-10-26：14 / 15 / 21 条，合计 40 个独立项目，均有中文简介。历史列表当前只有首日，后续采集会逐日积累。
 
-README 深度解读的接口已经实现，但本预览**没有配置独立模型密钥**。首批中文内容由 GithubTrending 速览和有来源记录的资料整理组成，页面明确标注；没有用模板冒充 AI 分析。自动采集工作流已提供，预览分支本身不会启用 GitHub 默认分支的定时任务。
+README 深度解读的接口已经实现，但本预览**没有配置独立模型密钥**。首批中文内容由 GithubTrending 速览和有来源记录的资料整理组成，页面明确标注；没有用模板冒充 AI 分析。自动采集工作流已合入默认分支，每日北京时间 08:20 执行；首次定时运行及后续 Pages 联动仍需依据任务日志验收。
 
 ## 功能
 
@@ -82,7 +82,7 @@ python -m unittest discover -s collector -p 'test_*.py'
 
 ## Cloudflare 部署
 
-建议先创建独立测试 Pages 项目，连接本分支：
+当前生产 Pages 项目为 `github-discovery`，生产分支为 `main`，原域名绑定保持不变。独立测试部署可以使用以下相同参数：
 
 | 配置项 | 纯静态预览 |
 | :--- | :--- |
@@ -94,7 +94,7 @@ python -m unittest discover -s collector -p 'test_*.py'
 
 静态前端与 JSON 同源部署，读取不依赖跨域代理、Worker 在线状态或 D1。自动采集由 GitHub Actions 执行，更新后重新构建；页面“刷新”读取已发布快照，不会现场触发采集或模型。
 
-若需要保留 NewsNow 其他实时聚合源，使用 `CF_PAGES=1 npm run build`、输出 `dist/output/public`，按 NewsNow 原说明配置 Nitro/D1、`nodejs_compat` 与兼容日期。这条完整后端路径已做本地构建验证，**尚未部署到用户 Cloudflare 账号**。现有生产 D1、Cron、域名配置未改动。
+若需要保留 NewsNow 其他实时聚合源，使用 `CF_PAGES=1 npm run build`、输出 `dist/output/public`，按 NewsNow 原说明配置 Nitro/D1、`nodejs_compat` 与兼容日期。这条完整后端路径已做本地构建验证，完整 Nitro 后端未部署至生产。当前生产采用上表的纯静态构建；旧 D1、采集 Worker 与其 Cron 保留用于回滚，新页面读取同源 JSON，不读取旧 D1。
 
 ## 目录
 
@@ -107,3 +107,21 @@ python -m unittest discover -s collector -p 'test_*.py'
 ## 来源与许可
 
 请阅读 [UPSTREAM.md](UPSTREAM.md)。NewsNow MIT 许可和 GithubTrending Apache-2.0 许可保留在仓库中。本分支是源码引入与二次开发，不冒充 GitHub 平台的正式 Fork 关系，也不宣称上游认可本项目。上游文档保留于 `docs/NEWSNOW-README.md`。
+
+## 上线基线、回滚与模块维护
+
+2026-10-26 北京时间 21:13，Cloudflare Pages 生产部署 `27d3d4d9-2f6c-4002-99a0-0392e09c0220` 成功，别名为 `radar.chenran71ran.cc`。线上已验证中文日榜、周榜切换与中文关键词搜索。
+
+旧版源码保留在 [backup/radar-before-newsnow-20261026](https://github.com/chenran71ran-oss/github-discovery/tree/backup/radar-before-newsnow-20261026)，提交 `50ab15af4cc08db3d58c74b9e6a4295691b267da`。旧生产部署 `39e3297c-d641-4b26-9068-8293bd02c93c` 仍保留。需要回滚时，优先在 Pages 的旧部署菜单执行 Rollback，不需要删除数据库或重新绑定域名；恢复旧源码构建时，将构建命令改回 `npm run build`、输出目录保持 `dist`。
+
+后续修改以 main 上的新版为基线，按功能开独立分支、经过 PR 检查后发布；不把所有新功能同时混入一次改动。当前首页组件仍有集中状态管理，下面是逐步拆分与维护边界，不表示所有模块已完成组件拆分。
+
+| 模块 | 当前代码入口 | 后续修改边界 |
+| :--- | :--- | :--- |
+| 页面布局与主题 | src/components/discovery/style.css | 排版、颜色、响应式，不改数据格式 |
+| 榜单与查询 | src/components/discovery/index.tsx、shared/discovery.ts | 周期、排序、搜索、分类与历史选择 |
+| 中文解读 | collector/collect.py、collector/editorial.json | README 获取、模型输出校验、内容来源与缓存 |
+| 收藏与详情 | src/components/discovery/index.tsx | 浏览器收藏、弹窗、项目阅读体验 |
+| 采集与发布 | collector/、.github/workflows/discovery-collect.yml | 定时任务、完整快照、异常保留与静态发布 |
+
+跨模块数据契约集中于 `shared/discovery.ts`；修改字段时同时更新采集输出、校验与前端读取。独立 Rising 排名、GPT 推送和跨设备收藏仍属于后续功能。
