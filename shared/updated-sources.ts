@@ -1,3 +1,3 @@
 export const updatedSourceIds = [
-  "nowcoder"
+  "nowcoder",
 ] as const

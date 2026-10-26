@@ -3,7 +3,7 @@ on:
   push:
     branches: [codex/newsnow-discovery-preview]
   pull_request:
-    paths: ['src/**', 'shared/**', 'collector/**', 'package.json', 'pnpm-lock.yaml', '*.config.*']
+    paths: ['src/**', 'shared/**', 'collector/**', package.json, pnpm-lock.yaml, '*.config.*']
 permissions:
   contents: read
 jobs:
