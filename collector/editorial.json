@@ -1,0 +1,156 @@
+{
+  "Nutlope/hallmark": {
+    "descriptionHash": "356dfb29b89cae6c9ee3b4f6721f233edb60ec19f7379097087cc49c046a9ad7",
+    "summary": "面向 Claude Code、Cursor 和 Codex 的设计技能，帮助 AI 生成更有辨识度的界面，减少千篇一律的视觉样式。",
+    "sourceUrl": "https://github.com/Nutlope/hallmark",
+    "basis": "repository-description",
+    "at": "2026-10-26T20:22:35.574168+08:00"
+  },
+  "TauricResearch/TradingAgents": {
+    "descriptionHash": "03d519e20881158c555daeb6b68cea744631e3845e29fea73e50a4b4ca63f607",
+    "summary": "基于大语言模型和多个智能体构建的金融交易研究框架，用协作方式组织分析流程。",
+    "sourceUrl": "https://github.com/TauricResearch/TradingAgents",
+    "basis": "repository-description",
+    "at": "2026-10-26T20:22:35.574168+08:00"
+  },
+  "affaan-m/ECC": {
+    "descriptionHash": "e4eb8aaa1f3709dfbddd66df722d80fd434b7b9b9867fddd8330683c2965308f",
+    "summary": "面向 Claude Code、Codex、OpenCode 和 Cursor 等工具的智能体性能优化体系，整合技能、记忆、安全与研究优先的开发流程。",
+    "sourceUrl": "https://github.com/affaan-m/ECC",
+    "basis": "repository-description",
+    "at": "2026-10-26T20:22:35.574168+08:00"
+  },
+  "NVIDIA/SkillSpector": {
+    "descriptionHash": "83ca942fbb9f66012cdc8bc10f27ec18ca230e7cba058fafce2722bc66e9725a",
+    "summary": "安装 AI 智能体技能前使用的安全扫描器，可检查恶意模式、提示注入、数据外传和供应链风险。",
+    "sourceUrl": "https://github.com/NVIDIA/SkillSpector",
+    "basis": "repository-description",
+    "at": "2026-10-26T20:22:35.574168+08:00"
+  },
+  "nightly-labs/openbot": {
+    "descriptionHash": "5a7d870e3f1476cf6e31b04d99bcbb5af603cf4bad4db035db139730fc50a7e0",
+    "summary": "本地优先的 AI 协作桌面工作区，为 Codex、Claude 和 Grok 提供独立工作区、任务队列、文件共享与智能体协作。",
+    "sourceUrl": "https://github.com/nightly-labs/openbot",
+    "basis": "repository-description",
+    "at": "2026-10-26T20:22:35.574168+08:00"
+  },
+  "Panniantong/Agent-Reach": {
+    "descriptionHash": "4ab8da157b2c3c50aea01899755d173f5046233b1ea49808911588e0d1a9ade9",
+    "summary": "为 AI 智能体提供跨网站阅读和搜索能力的命令行工具，覆盖社交、视频及开发者平台。各来源的实际可用性需按项目文档确认。",
+    "sourceUrl": "https://github.com/Panniantong/Agent-Reach",
+    "basis": "repository-description",
+    "at": "2026-10-26T20:22:35.574168+08:00"
+  },
+  "gitroomhq/postiz-app": {
+    "descriptionHash": "d9be90a22e8541c40905cafa035fec18b8ed812e53bf96a884a15fcf8c1f183a",
+    "summary": "带有智能体能力的社交媒体内容排期工具，用于组织发布计划与内容管理。",
+    "sourceUrl": "https://github.com/gitroomhq/postiz-app",
+    "basis": "repository-description",
+    "at": "2026-10-26T20:22:35.574168+08:00"
+  },
+  "alchaincyf/huashu-design": {
+    "descriptionHash": "f8dab7d1c29f8cce66882c4361a3cf27814c82d175029a7dbdb39d2e4a08a4bc",
+    "summary": "面向 AI 编码工具的设计技能，支持网页、App 原型、可编辑演示文稿、动画和信息图等设计产出，并提供样式库与设计检查。",
+    "sourceUrl": "https://github.com/alchaincyf/huashu-design",
+    "basis": "repository-description",
+    "at": "2026-10-26T20:22:35.574168+08:00"
+  },
+  "multica-ai/andrej-karpathy-skills": {
+    "descriptionHash": "a9de5c4449094aa47d55ff17676c6abe77ab412e312126aed14c3c1f0cb0b870",
+    "summary": "根据 Andrej Karpathy 对大模型编程常见问题的观察整理的 CLAUDE.md 指令文件，用于改进 Claude Code 的编码行为。",
+    "sourceUrl": "https://github.com/multica-ai/andrej-karpathy-skills",
+    "basis": "repository-description",
+    "at": "2026-10-26T20:22:35.574168+08:00"
+  },
+  "ruvnet/ruflo": {
+    "descriptionHash": "f3f5f05f4e064f28a1176b655913dd3efc96d8a0994f0f247bb2d8096eff80cb",
+    "summary": "用于组织多个 AI 智能体协作的框架，包含工作流协调、记忆、检索与多种编码工具的集成能力。",
+    "sourceUrl": "https://github.com/ruvnet/ruflo",
+    "basis": "repository-description",
+    "at": "2026-10-26T20:22:35.574168+08:00"
+  },
+  "stablyai/orca": {
+    "descriptionHash": "ab35e1712a4d3e02190ca158ab12c46394d2dfe95bd7c77ce5908cd80773263c",
+    "summary": "用于管理一组 AI 智能体的工作环境，支持连接已有工具订阅，在桌面、移动端或远程运行时工作。",
+    "sourceUrl": "https://github.com/stablyai/orca",
+    "basis": "repository-description",
+    "at": "2026-10-26T20:22:35.574168+08:00"
+  },
+  "wshobson/agents": {
+    "descriptionHash": "8f498c6fc288274524108f6dd3a763ecebb0a6b7f7fa75a8d800ca5964ad0859",
+    "summary": "面向多种 AI 编码工具的智能体插件集合，提供可组合的专业角色与工作流扩展。",
+    "sourceUrl": "https://github.com/wshobson/agents",
+    "basis": "repository-description",
+    "at": "2026-10-26T20:22:35.574168+08:00"
+  },
+  "AgriciDaniel/claude-seo": {
+    "descriptionHash": "320a35ec8b34937eb4f2a10931e32e7b2c5ecb7283ba5d41a7f7e84927adafde",
+    "summary": "为 Claude Code 提供 SEO 工作流的技能集合，涵盖技术审计、结构化数据、搜索可见性、内容与本地 SEO 等方向。",
+    "sourceUrl": "https://github.com/AgriciDaniel/claude-seo",
+    "basis": "repository-description",
+    "at": "2026-10-26T20:22:35.574168+08:00"
+  },
+  "pingdotgg/t3code": {
+    "descriptionHash": "8ae96d747e59609ec2585fb215bd5f662c60dadf3d5ed59e012cda498a0bac40",
+    "summary": "用于控制本机 AI 编码智能体的操作界面，提供网页、桌面和移动端入口，可连接已安装并认证的 Claude Code、Codex 等工具。",
+    "sourceUrl": "https://github.com/pingdotgg/t3code",
+    "basis": "README",
+    "at": "2026-10-26T20:22:35.574168+08:00"
+  },
+  "earthtojake/text-to-cad": {
+    "descriptionHash": "8df3deb177fe92499e6e670b3abf55f6334a825301a05e9ead80fb881101885a",
+    "summary": "为智能体提供 CAD 相关能力的项目。原始简介较简短，具体建模范围与支持格式请查看项目文档。",
+    "sourceUrl": "https://github.com/earthtojake/text-to-cad",
+    "basis": "repository-description",
+    "at": "2026-10-26T20:22:35.574168+08:00"
+  },
+  "thedotmack/claude-mem": {
+    "descriptionHash": "6e74a6b0a1940155412595c6ae14b0110c2b108eea5d87715d801ae17b6da61d",
+    "summary": "为 AI 智能体保存跨会话上下文：记录操作、用 AI 压缩，再将相关记忆提供给后续会话。",
+    "sourceUrl": "https://github.com/thedotmack/claude-mem",
+    "basis": "repository-description",
+    "at": "2026-10-26T20:22:35.574168+08:00"
+  },
+  "NationalSecurityAgency/ghidra": {
+    "descriptionHash": "e0da9f5ac838a6ef323e6c17d49bbe79e40328cc77e8ef2d27214aec367ca52d",
+    "summary": "用于软件逆向工程的分析框架，帮助研究程序和二进制文件的内部结构。",
+    "sourceUrl": "https://github.com/NationalSecurityAgency/ghidra",
+    "basis": "repository-description",
+    "at": "2026-10-26T20:22:35.574168+08:00"
+  },
+  "tashfeenahmed/freellmapi": {
+    "descriptionHash": "9654c885c709838bc3901bd6e134c67153d8e3c75fd5862a6676f7046ec1de8e",
+    "summary": "将多个大模型服务接入统一兼容接口，提供路由、故障切换和密钥管理。项目定位为个人实验，供应商额度与可用性需另行确认。",
+    "sourceUrl": "https://github.com/tashfeenahmed/freellmapi",
+    "basis": "repository-description",
+    "at": "2026-10-26T20:22:35.574168+08:00"
+  },
+  "DietrichGebert/ponytail": {
+    "descriptionHash": "b4c66a09f2c118ca2fed4364f32b6ddb2e2328fc047dd08686cff77d62d9e1ef",
+    "summary": "用于约束 AI 编码智能体的项目，强调减少不必要的代码和实现复杂度。",
+    "sourceUrl": "https://github.com/DietrichGebert/ponytail",
+    "basis": "repository-description",
+    "at": "2026-10-26T20:22:35.574168+08:00"
+  },
+  "VectifyAI/PageIndex": {
+    "descriptionHash": "1da7894d4c11dd89a9a77ce31e499c1b2e5d8bd1e167e02ade593f4fe570983c",
+    "summary": "面向文档检索的索引项目，探索不依赖向量库、基于推理进行检索增强生成的方式。",
+    "sourceUrl": "https://github.com/VectifyAI/PageIndex",
+    "basis": "repository-description",
+    "at": "2026-10-26T20:22:35.574168+08:00"
+  },
+  "rohitg00/ai-engineering-from-scratch": {
+    "descriptionHash": "0e246e8440dabe2fcc3b79718174ed4d0cd7c03a863903429c688316baf7dd5c",
+    "summary": "从基础开始学习 AI 工程的资料与实践项目，强调通过构建和交付应用掌握相关技能。",
+    "sourceUrl": "https://github.com/rohitg00/ai-engineering-from-scratch",
+    "basis": "repository-description",
+    "at": "2026-10-26T20:22:35.574168+08:00"
+  },
+  "supabase/supabase": {
+    "descriptionHash": "f121a66429d7f11c43cebf634567853f3d9a0b90b835a0cfd32e9a55b77d0208",
+    "summary": "基于 Postgres 的应用开发平台，为网页、移动端和 AI 应用提供数据库等开发基础能力。",
+    "sourceUrl": "https://github.com/supabase/supabase",
+    "basis": "repository-description",
+    "at": "2026-10-26T20:22:35.574168+08:00"
+  }
+}
