@@ -22,5 +22,5 @@ export function useDark() {
     setColorScheme(isDark ? "light" : "dark")
   }
 
-  return { isDark, setDark, toggleDark }
+  return { isDark, colorScheme: colorScheme as ColorScheme, setDark, toggleDark }
 }
