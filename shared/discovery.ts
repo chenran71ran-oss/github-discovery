@@ -35,7 +35,22 @@ export function filterRepositories(repos: Repository[], q: string, language: str
   const term = q.trim().toLowerCase()
   return repos.filter(r => (!language || r.language === language) && (!category || r.category === category) && (!saved || saved.includes(r.fullName)) && (!term || [r.fullName, r.description, r.summary, r.useCase, ...r.techStack].join(" ").toLowerCase().includes(term)))
 }
-export const categoryNames = ["全部", "AI 与智能体", "开发工具", "自托管", "数据与基础设施", "学习与研究", "其他"]
+/**
+ * 「爆发」：周期新增 Star 占当前总 Star 的比例，与绝对增量同时达标。
+ * 用来区分刚冒头的项目和长期高位的老项目。阈值按真实榜单分布设定，调整时同步更新测试。
+ */
+export const breakoutRules: Record<Period, { share: number, min: number }> = {
+  daily: { share: 0.15, min: 300 },
+  weekly: { share: 0.25, min: 1000 },
+  monthly: { share: 0.5, min: 3000 },
+}
+export function isBreakout(repo: Pick<Repository, "stars" | "periodStars">, period: Period) {
+  const gain = repo.periodStars
+  if (gain === null || repo.stars <= 0) return false
+  const rule = breakoutRules[period]
+  return gain >= rule.min && gain / repo.stars >= rule.share
+}
+export const categoryNames =["全部", "AI 与智能体", "开发工具", "自托管", "数据与基础设施", "学习与研究", "其他"]
 export function compact(n: number) {
   return new Intl.NumberFormat("en-US", { notation: "compact", maximumFractionDigits: 1 }).format(n)
 }
