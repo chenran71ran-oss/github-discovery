@@ -1,4 +1,4 @@
-import { type CSSProperties, useEffect, useMemo, useRef, useState } from "react"
+import { type CSSProperties, type PointerEvent, useEffect, useMemo, useRef, useState } from "react"
 import { useQuery } from "@tanstack/react-query"
 import { type DiscoverySnapshot, type Period, type Repository, categoryNames, compact, filterRepositories, isBreakout, isSnapshot } from "@shared/discovery"
 import { useDark } from "~/hooks/useDark"
@@ -49,8 +49,8 @@ function Row({ repo, period, index, showCategory, saved, onSave, onOpen }: RowPr
   const [owner, name] = repo.fullName.split("/")
   const moved = repo.previousRank ? repo.previousRank - repo.rank : 0
   return (
-    <li className="row" style={{ "--i": Math.min(index, 12) } as CSSProperties}>
-      <span className={`rk ${repo.rank <= 3 ? "hi" : ""}`}>{String(repo.rank).padStart(2, "0")}</span>
+    <li className={`row card ${repo.rank && repo.rank <= 3 ? "top" : ""}`} style={{ "--i": Math.min(index, 14) } as CSSProperties}>
+      <span className={`rk ${repo.rank && repo.rank <= 3 ? "hi" : ""}`}>{repo.rank ? String(repo.rank).padStart(2, "0") : "—"}</span>
       <RepoIcon fullName={repo.fullName} />
       <div className="head">
         <button type="button" className="name" onClick={() => onOpen(repo)}>{name}</button>
@@ -168,11 +168,12 @@ export function Discovery() {
     else setLightId(picked.id)
     setDark(picked.mode)
   }
-  const source = useMemo(() => view === "saved" ? Object.values(saved).map(r => data?.periods[period].find(n => n.fullName === r.fullName) || r) : data?.periods[period] || [], [view, saved, data, period])
+  // 收藏里不在当前周期榜单上的项目：没有这个周期的名次和增量，不能沿用收藏时另一个周期的数字
+  const source = useMemo(() => view === "saved" ? Object.values(saved).map(r => data?.periods[period].find(n => n.fullName === r.fullName) || { ...r, rank: 0, previousRank: null, periodStars: null }) : data?.periods[period] || [], [view, saved, data, period])
   const languages = [...new Set(source.map(r => r.language))].sort()
   const repos = useMemo(() => {
     const rows = filterRepositories(source, q, language, category)
-    return sort === "stars" ? rows.sort((a, b) => b.stars - a.stars) : sort === "growth" ? rows.sort((a, b) => (b.periodStars ?? -1) - (a.periodStars ?? -1)) : rows.sort((a, b) => a.rank - b.rank)
+    return sort === "stars" ? rows.sort((a, b) => b.stars - a.stars) : sort === "growth" ? rows.sort((a, b) => (b.periodStars ?? -1) - (a.periodStars ?? -1)) : rows.sort((a, b) => (a.rank || Infinity) - (b.rank || Infinity))
   }, [source, q, language, category, sort])
   const groups = useMemo(() => {
     const names = categoryNames.slice(1)
@@ -187,6 +188,16 @@ export function Discovery() {
   const savedCount = Object.keys(saved).length
   const emptySaved = view === "saved" && !savedCount
   const rowProps = (repo: Repository, index: number, showCategory: boolean) => ({ repo, period, index, showCategory, saved: !!saved[repo.fullName], onSave: toggleSave, onOpen: setActive })
+  // 切换周期、视图、分类或排序时整组卡片重新入场；输入搜索词时不重放，避免打字时闪动
+  const listKey = `${view}-${period}-${category}-${sort}-${date}`
+  const glow = (e: PointerEvent<HTMLElement>) => {
+    if (e.pointerType !== "mouse") return
+    const card = (e.target as HTMLElement).closest<HTMLElement>(".card")
+    if (!card) return
+    const r = card.getBoundingClientRect()
+    card.style.setProperty("--mx", `${e.clientX - r.left}px`)
+    card.style.setProperty("--my", `${e.clientY - r.top}px`)
+  }
   const go = (next: "discover" | "saved") => {
     setView(next)
     window.scrollTo({ top: 0, behavior: "smooth" })
@@ -317,18 +328,16 @@ export function Discovery() {
         </div>
         {query.isPending
           ? (
-              <div className="sheet glass" aria-label="正在加载榜单">
-                <ol className="rows">
-                  {[1, 2, 3, 4, 5, 6].map(i => (
-                    <li className="row skeleton" key={i}>
-                      <span className="repo-icon loading" />
-                      <span className="sk-line w1" />
-                      <span className="sk-line w2" />
-                      <span className="sk-line w3" />
-                    </li>
-                  ))}
-                </ol>
-              </div>
+              <ol className="rows cards two" aria-label="正在加载榜单">
+                {[1, 2, 3, 4, 5, 6].map(i => (
+                  <li className="row card skeleton" key={i} style={{ "--i": i } as CSSProperties}>
+                    <span className="repo-icon loading" />
+                    <span className="sk-line w1" />
+                    <span className="sk-line w2" />
+                    <span className="sk-line w3" />
+                  </li>
+                ))}
+              </ol>
             )
           : layout === "board"
             ? (
@@ -340,15 +349,13 @@ export function Discovery() {
                         <h2>{group.name}</h2>
                         <span>{group.rows.length}</span>
                       </header>
-                      <ol className="rows">{group.rows.map((repo, i) => <Row key={repo.fullName} {...rowProps(repo, i, false)} />)}</ol>
+                      <ol className="rows cards" key={listKey} onPointerMove={glow}>{group.rows.map((repo, i) => <Row key={repo.fullName} {...rowProps(repo, i, false)} />)}</ol>
                     </section>
                   ))}
                 </div>
               )
             : repos.length > 0 && (
-              <div className="sheet glass">
-                <ol className="rows two">{repos.map((repo, i) => <Row key={repo.fullName} {...rowProps(repo, i, true)} />)}</ol>
-              </div>
+              <ol className="rows cards two" key={listKey} onPointerMove={glow}>{repos.map((repo, i) => <Row key={repo.fullName} {...rowProps(repo, i, true)} />)}</ol>
             )}
         {!query.isPending && repos.length === 0 && (
           <div className="empty-state">

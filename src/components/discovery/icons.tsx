@@ -36,6 +36,9 @@ export function Icon({ name, className = "" }: { name: IconName, className?: str
   )
 }
 
+/** 本次访问里已经加载过的头像：列表重新入场时直接显示，不再闪一下字母色块 */
+const loaded = new Set<string>()
+
 function hash(text: string) {
   let h = 0
   for (const char of text) h = (h * 31 + char.charCodeAt(0)) >>> 0
@@ -48,7 +51,7 @@ function hash(text: string) {
  */
 export function RepoIcon({ fullName }: { fullName: string }) {
   const [owner, name = ""] = fullName.split("/")
-  const [state, setState] = useState<"loading" | "ready" | "failed">("loading")
+  const [state, setState] = useState<"loading" | "ready" | "failed">(() => loaded.has(owner) ? "ready" : "loading")
   return (
     <span className={`repo-icon ${state}`} style={{ "--h": hash(owner) % 360 } as CSSProperties} aria-hidden="true">
       <span className="repo-icon-letter">{name.charAt(0).toUpperCase() || "#"}</span>
@@ -61,7 +64,10 @@ export function RepoIcon({ fullName }: { fullName: string }) {
           loading="lazy"
           decoding="async"
           referrerPolicy="no-referrer"
-          onLoad={() => setState("ready")}
+          onLoad={() => {
+            loaded.add(owner)
+            setState("ready")
+          }}
           onError={() => setState("failed")}
         />
       )}
