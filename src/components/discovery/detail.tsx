@@ -32,7 +32,10 @@ export function RepoDetail({ repo, onClose, saved, onSave }: { repo: Repository,
       aria-label={`${repo.fullName} 项目解读`}
       onCancel={onClose}
       onClick={(e) => {
-        if (e.target === e.currentTarget) onClose()
+        // 面板自身的内边距和段落间空白也算 dialog 本身，只有点在面板矩形外（背景遮罩）才关闭
+        if (e.target !== e.currentTarget) return
+        const r = e.currentTarget.getBoundingClientRect()
+        if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) onClose()
       }}
     >
       <div className="grabber" aria-hidden="true" />
