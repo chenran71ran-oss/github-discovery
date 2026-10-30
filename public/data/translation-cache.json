@@ -1,0 +1,1447 @@
+{
+  "milind-soni/OpenMausBot": {
+    "hash": "f880a5cf6e5c0e41be2127fc7c1951b6717b4f12d2c52ccba9c998f8b60ead1c",
+    "summary": "使用机器人可以使用的虚拟机的开源Grok机器人替代方案",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "CopilotKit/OpenBot": {
+    "hash": "2b24ce450d5f71cd0d8ec5d42c0bca7d1f354f855f30f63d72fc92be547d1ec5",
+    "summary": "开源的人工智能同事，每个人都有一台自己的电脑：浏览器、文件和工具，每次操作都会在发生之前决定，并在之后记录下来。携带任何AG-UI代理。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "Donchitos/Claude-Code-Game-Studios": {
+    "hash": "15c7ef15a766da2c14f6d7ecc770cf706992204290a712b24fec0d99490b9ebf",
+    "summary": "将Claude Code变成一个完整的游戏开发工作室--49个人工智能代理、72个工作流程技能，以及一个完整的协调系统，反映了真实的工作室层次结构。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "vectorize-io/hindsight": {
+    "hash": "e6d843d8ba3c5b8f7e33542970d358267f1eff197e03172d3c9444d01767ab5a",
+    "summary": "后见之明：学习的客服代表记忆",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "ruvnet/RuView": {
+    "hash": "441c815381479a861ff08093651d38b2fb57eff58d143bf719f4725210ad9f5c",
+    "summary": "π RuView将商用WiFi信号转化为实时空间智能、生命体征监测和存在检测--所有这些都无需一个像素的视频。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "github/spec-kit": {
+    "hash": "7a42e25d76e2fc9a40dc13629db4bb5079125a0bb02cb58d7dde9dfa7571a5c8",
+    "summary": "帮助您开始使用SDD或任何其他流程的工💫具包！",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "JuliusBrussee/caveman": {
+    "hash": "be5efb2f495735684b424552c2c22843afe0474783b1cbee69958199f549d8c8",
+    "summary": "🪨 为什么在很少令牌做恶作剧时使用许多令牌。病毒技能+编码代理的代理，通过像穴居人一样说话来削减65%的代币。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "JustVugg/colibri": {
+    "hash": "cf345f21681b59b92fd9dd200a4cb5c4635f3ff9008fe5160b26e5ee0ecf6069",
+    "summary": "在您已经拥有的硬件上运行前沿MoE模型—纯C ，零DEPS ，从磁盘流式传输的专家。微型引擎，超大型号。 🐦",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "baidu/Unlimited-OCR": {
+    "hash": "8158bf430576fc58db1c248b55ac765bbe0772a00dcc65693e7f5a3ed64a70f9",
+    "summary": "无限的OCR工作：迎接一次性长距离解析的时代。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "JCodesMore/ai-website-cloner-template": {
+    "hash": "e7fc391a0393b95bb2f247295cd9a44fd320f8c38ee07c42525eed4bffd4c7ce",
+    "summary": "使用AI编码代理，只需一个命令即可克隆任何网站",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "tgeorgiadis/quiver-launcher": {
+    "hash": "63bca174bfda9b916d83f8ffcef81eefa6907da948850900863f4dfa939c8998",
+    "summary": "用于从GitHub和GitLab版本下载、安装和运行应用程序的现代启动器。拥有个人库、社区目录订阅和灵活的筛选。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "p-e-w/heretic": {
+    "hash": "dc92f2670e7f806529b1f29e739783b2f13afb3eb54d16dae968c91340b3bfdf",
+    "summary": "语言模型的全自动审查删除",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "agentscope-ai/QwenPaw": {
+    "hash": "5d756bd99610a8750821ca6226d8dd97a85438a40f83ea2ef7c8e2b23e973f49",
+    "summary": "您的个人AI助手；易于安装，部署在您自己的计算机或云上；支持多个聊天应用程序，具有易于扩展的功能。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "juspay/hyperswitch": {
+    "hash": "cf3daf62715828a77ecdf1df24a70f6e72f090e3829c3dd840a93dfb621d5410",
+    "summary": "开源、可组合的支付平台|符合PCI | SaaS和自托管选项|支持与多重支付、收款、欺诈、保管库和令牌化提供商的连接|通过智能路由和收入回收提升授权|通过成本可观察性降低支付处理成本|通过对账减少支付运营",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "PurpleDoubleD/locally-uncensored": {
+    "hash": "18f2113f00c10671c3328ef2b40aa6500e4943cecc7fb760b16e7ea815a80a72",
+    "summary": "适用于您的桌面的一体化本地AI工作室：聊天、图像和视频生成以及一个免费的开源应用程序中的编码代理。Windows和Linux。无需Docker、无需终端、无需云。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "microsoft/PowerToys": {
+    "hash": "aff133237ea11e8d38a3ca478e19c31490e26e58971b3f134e97b9aa3e649a1a",
+    "summary": "Microsoft PowerToys是一组实用程序，可在Windows上提高生产力和自定义",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "1lck/Lithe-IDEA": {
+    "hash": "e323b34e6169b5156c075f4134d56aeb9ee488ce4b55a42f584b4d31d306387e",
+    "summary": "面向人工智能时代的轻量级跨平台IDE ，提供按需工具和服务。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "realidkroo/Mochy-Music": {
+    "hash": "17f52d87e1b6b4b57db774accfb4a79f59727a9579975f1b07e690a7b420fe71",
+    "summary": "现代时尚的音乐播放器。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "iOfficeAI/OfficeCLI": {
+    "hash": "b79847898ad6208d44475d1e9ab44893fea9c83f0e4ce15d225ef6723452cce2",
+    "summary": "OfficeCLI是第一个也是最好的Office套件，专为AI代理读取、编辑和自动化Word、Excel和PowerPoint文件而构建。免费、开源、单一二进制文件，无需安装Office。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "files-community/Files": {
+    "hash": "127f0589610ad5837372bdef065ad0ec2507382ceae79ee090c019cdd1118cbc",
+    "summary": "新式文件管理器，可帮助用户整理其文件和文件夹。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "trymirai/uzu": {
+    "hash": "fe07f12c96d46c2fbe41efbb8283b0393ab09d64c8a0fb1f650dcca6d903ce05",
+    "summary": "人工智能模型的高性能推理引擎",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "react/react": {
+    "hash": "f6939c9992ef2117f062c39d8a30ff955e8b297728f157de6f0ac73842e8f9a1",
+    "summary": "用于Web和本机用户界面的库。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "agent-substrate/substrate": {
+    "hash": "22bff492dbd082ae937ec0caf2b10b92194c1ffd4e2c94edf24a581541d0f6f0",
+    "summary": "Agent Substrate ：核心系统",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "CopilotKit/CopilotKit": {
+    "hash": "c59e8a4d55027771325d0a4871bf117fae8574ada00abe8242f82fe17673766f",
+    "summary": "Agent和生成式UI的前端堆栈。React、Angular、Mobile、Slack等。AG-UI协议的制定者",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "floci-io/floci": {
+    "hash": "4a45e9ec0b27bc2fd477fa36ab9a59bac727b77bd7ca465598ac0b1d79b60b80",
+    "summary": "轻盈、蓬松且始终免费- AWS本地模拟器替代方案",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "shiaho777/web-to-app": {
+    "hash": "5950e8a4e827e22adfa8537dad214397ab8eaafa5a0c2414d31659a8ac0d75ef",
+    "summary": "Android上功能最齐全的网络到应用程序工具包，一个完整的APK研讨会，完全在您的手机上运行",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "NVIDIA/cuda-rust": {
+    "hash": "e487c938fe1e9dc1a39d7c9a07e6be74eedf538b2d8244f39857565a091a8b3f",
+    "summary": "NVIDIA的Rust CUDA平台。在惯用的Rust中，主机运行时板条箱加上Tile （ cutile-rs ）和SIMT （ cuda-oxide ）内核编程模型。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "invoiceninja/invoiceninja": {
+    "hash": "0b0d5b06bbb6ccd30d7ac4ef445a869f785fc8d8ba005967f4f3cc855627470f",
+    "summary": "使用Laravel构建的源可用发票、报价、项目和时间跟踪应用程序",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "github/copilot-sdk": {
+    "hash": "45e1b829e7b990d84542137dfa6cf5df2744ce83f4515ac4f0451ed0a54f7704",
+    "summary": "用于将GitHub Copilot Agent集成到应用和服务中的多平台SDK",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "electron/electron": {
+    "hash": "5d493a18f44bef9c8671a9295c60da45eb8e71de65ebd51bc90e2861f6300b07",
+    "summary": "使用JavaScript、HTML和CSS构建跨平台桌面应用",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "OrcaSlicer/OrcaSlicer": {
+    "hash": "9d1b4b898c52c050ff8aff3a6ef3fa7376613e6f21871e321c039adf1b0df773",
+    "summary": "用于3D打印机的G代码生成器（ Bambu、Prusa、Voron、VzBot、RatRig、Creality等）",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "PimpinPumpkin/Vela": {
+    "hash": "5494eeaf1decd24665f827eca1e52b55296b0b79e2b33233e15084874fcf74f4",
+    "summary": "适用于Android的地图和逐向导航，无需Google Play服务：最好的开放地图数据，可选择Google查找。在去谷歌的手机上运行，可以避开Flock摄像头",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "agentscope-ai/agentscope-java": {
+    "hash": "e31e9c12ff283ceb4315ac2e41b0f61489431df8a1334d29e20b21f451f9895e",
+    "summary": "构建分布式、生产级、长期运行的代理。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "icsharpcode/ILSpy": {
+    "hash": "3275f0dc8fb7632b87b1dad29a3287711d175f1fac130c1e41bf13e5ca92bae2",
+    "summary": ".NET反编译器支持PDB生成、ReadyToRun、元数据（及其他） -跨平台！",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "gastownhall/beads": {
+    "hash": "2224f993f99bfd1342250587590c6b1ec258113306bfc883cee3fdb95c1ab406",
+    "summary": "Beads -编码代理的内存升级",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "openssl/openssl": {
+    "hash": "1e9e34311320c01d56ebb054b72eca95722c878c191263c7bd8403d0ac4b7a4b",
+    "summary": "通用TLS和加密库",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "docker/compose": {
+    "hash": "5e5baa1d25d555a49d5877e6f401b2e20b5b822216acef061d55f649eb647ccc",
+    "summary": "使用Docker定义和运行多容器应用程序",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "valkey-io/valkey": {
+    "hash": "839cd3eae491a658438168ada6a2208bffb6353626f1ebf5ffd308b314734468",
+    "summary": "灵活的分布式键值数据库，针对缓存和其他实时工作负载进行了优化。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "filamentphp/filament": {
+    "hash": "5ee1e34a64f0f58ccaa91ab807278723f6885770e23f476bbf7d86c061dbfb8e",
+    "summary": "Laravel的强大开源UI框架•使用Livewire快速构建和发布应用程序和管理面板",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "VictoriaMetrics/VictoriaMetrics": {
+    "hash": "dfdfb8ddcc7ebb7ed420e141c9038d0cf4463884b51f2530b40f67cf68b00870",
+    "summary": "VictoriaMetrics ：快速、经济高效的监控解决方案和时间序列数据库",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "opensearch-project/OpenSearch": {
+    "hash": "fa0a77c0b8b8bc5dcdc8f755011120f89fc26b89155c91176b703d920074c43a",
+    "summary": "🔎 开源分布式和RESTful搜索引擎。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "glpi-project/glpi": {
+    "hash": "e5d211ea5baf4078b5b0ed6f4b85e9e08dadc4e4e372743aaf9fb2e22e6f5463",
+    "summary": "GLPI是一个免费的资产和IT管理软件包、数据中心管理、ITIL服务台、许可证跟踪和软件审计。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "ggml-org/Llama-macOS": {
+    "hash": "19eb793c0183de9d9450ea02cb25f9e9ac6cabbac06e12e0d8749186b2d96baf",
+    "summary": "适合LLM的舒适房源。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "hypery11/flipper-tesla-fsd": {
+    "hash": "e81891e091390256acda345be54edb73cfe64ae0f1a9d5ee61ed51a6615e72f8",
+    "summary": "Tesla Mod — Flipper Zero和ESP32。NAG KILLER ， FSD区域解锁，跟踪模式， BMS仪表板，盲点警报，高光束闪光灯，可以捕获，转向模式+更多。通过OBD-II或X179连接器工作。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "protocolbuffers/protobuf": {
+    "hash": "1848296db8482c22bf66e1bf555518c82460a3c1253f66c57d09ee4fafd95ec3",
+    "summary": "协议缓冲区- Google的数据交换格式",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "JetBrains/koog": {
+    "hash": "0f87f9b515c7f473bf4dc29f03a2899f6fb39bdb67b9b0d02a7c4d5076ecd979",
+    "summary": "Koog是一个JVM （ Java和Kotlin ）框架，用于在所有平台（从后端服务到Android和iOS、JVM ，甚至是浏览器内环境）上构建可预测、容错和企业就绪的AI代理。Koog基于我们的人工智能产品专业知识，为复杂的LLM和人工智能问题提供成熟的解决方案",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "composer/composer": {
+    "hash": "3f470c9f864c8c67c9911a717e08411f5c439dd5a25dbb18672d86b8441acb77",
+    "summary": "PHP依赖项管理器",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "apache/arrow": {
+    "hash": "1989af0eef77f84e0d9bd1da5942ba493374ede34095a1818faa699609695c61",
+    "summary": "Apache Arrow是用于快速数据交换和内存分析的通用列格式和多语言工具箱",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "nook-browser/Nook": {
+    "hash": "8c18a51f1c9d2cf7c91736f97b228486a6a670041da71844532b9bf2ef91d786",
+    "summary": "一个新的浏览器，不属于Atlassian。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "pointfreeco/swift-composable-architecture": {
+    "hash": "5b16cb4bbb6ec2e5fca747b20884a17ee323a8ae55501b61529ac80d2538de68",
+    "summary": "用于以一致且易于理解的方式构建应用程序的库，并考虑到构图、测试和人体工程学。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "mossyhub/openautolink": {
+    "hash": "3d0804bab0a5bfced24974cd1411bc4cf31ef79b50740d9d114edf23ac54ecb0",
+    "summary": "适用于GM EV AAOS头部的Android Auto和CarPlay ，支持集群/HUD以及地图中的EV系列",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "woocommerce/woocommerce": {
+    "hash": "bdbb20afaf35e31b6ab3f4bdc7fbb3773ddb2ff69777cc41e04615e212cf684b",
+    "summary": "基于WordPress构建的可定制开源电子商务平台。构建您可以想象的任何商务解决方案。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "webpack/webpack": {
+    "hash": "e345a14233477423f971e4632e0754a4331452a65e9388f478a99308f5c947a5",
+    "summary": "Javascript和朋友的捆绑包。将许多模块打包成几个捆绑资产。代码拆分允许按需加载应用程序的部分。通过“加载器” ，模块可以是CommonJs、AMD、ES6模块、CSS、图像、JSON、Coffeescript、LESS……以及您的自定义内容。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "madler/zlib": {
+    "hash": "6d64f0c2396581afcadbc6d09f668775404e1b3b5d26730900c489ab2bb0f4db",
+    "summary": "一个巨大的spiffy但精致的不引人注目的压缩库。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "dotnet/roslyn": {
+    "hash": "6dcd82d4aa526f7c858c9b151433d6f3d2b7a004804fa7702a8f326c12d3482b",
+    "summary": "Roslyn .NET编译器为C #和Visual Basic语言提供了丰富的代码分析API。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "JustAResearcher/gpu-unlock-ada": {
+    "hash": "42d04f55dc05e0656302a6c60bd05127c70680148a8b02e7f775b9a051e94986",
+    "summary": "腾讯通4090和实验性腾讯通4070 Ti SUPER的GPU张量解锁源；本地生成的固件",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "interplains/Zero-Breach-Toolkit": {
+    "hash": "be6f0bac9cad092a99c9ab43d6d7263daff5503edef54b42cfb46b9d1159760b",
+    "summary": "免费、开源、离线检查已知雇佣军间谍软件的痕迹。适用于Windows、macOS和Linux、Android手机和iPhone备份。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "t3dotgg/tstack": {
+    "hash": "32630c5252196a5e3c51cd080948c3cff96198b95a10d2e2d8260cac8b8c8add",
+    "summary": "我每天使用的代理技能。适用于Claude Code和Codex。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "enesozturk/dimensional-drawing": {
+    "hash": "546f7ead9840391e99bf2be6139ac27ca0ea394b1cac72086987382396c60781",
+    "summary": "创建UI组件的Apple风格尺寸图。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "andyhuo520/digital-human-koubo": {
+    "hash": "348670b5a18ebd2969dae3e22aff627339232834877b26318ca06baf9476110a",
+    "summary": "一张照片中的AI数字人物对话视频： Renoise MCP生成+ 5种编辑风格+ 48个创作者级包装组件。Claude Code/Codex/OpenClaw/WorkBuddy的代理技能……",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "morganlinton/BeautifulRust": {
+    "hash": "e719c09bd786082bbf23c49ce0135cb778b99137ef02a131607a49573f6c7718",
+    "summary": "教导编码代理编写、审核和移植惯用Rust的代理技能，以及经过测试的clippy配置。适用于Claude Code、Codex、Copilot、Cursor和Gemini CLI。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "DenisSergeevitch/ex-ussr-kinship-research": {
+    "hash": "22e69fb1bd503dcc2a7c0e7cf09b7ac5a7eccec5cd4b5c194a0c67573804579c",
+    "summary": "人工智能代理人以证据为先的家谱技能（ Codex、Claude Code ） ：前苏联各地的教会书籍、民事、军事、驱逐和镇压记录。以您的语言回复。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "Motionsites-AI/claude-skill": {
+    "hash": "69543395bd442a7b3c571a9db2e2b2b7c690de3e25b41ec4b2531ed0e086b546",
+    "summary": "免费Claude技能：让Claude构建奖项级别的电影登录页面。由MotionSites提供。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "aschmelyun/print-my-profile-pic": {
+    "hash": "bad5acfc07da9b6c0b4b46ebc73e39280ce4a26a8e1f19911edd30525d456751",
+    "summary": "说奶酪！给这个仓库加星标，您的个人资料图片就会在收据打印机上打印出来。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "KillaBoi/StealMyBitcoin-PoC": {
+    "hash": "d2637b08fe95bb908b8d4c32e33cae5517cca30b177a7dc157739f3a50007b6d",
+    "summary": "“窃取我的比特币”挑战赛公开发布",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "qybaihe/bla": {
+    "hash": "f655d8abd2e92435015cd04efddccad381722887a6ec98fcd3274f4af1350e79",
+    "summary": "🛡️ BLA （盲法学硕士代理） —对抗性防御盾牌，可保护二进制文件、Electron应用程序、JS捆绑包、Python和WebAssembly免受REA等AI逆向工程代理的攻击。中毒- >疲惫- >幻觉。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "ZiChuanLan/agent-purge": {
+    "hash": "e98448904facc369895e2c057f2b901b7f2fcfd41559d084edad9637851119d4",
+    "summary": "一个角色，多个编码代理。使用本地Web控制台替换或注入codex、claude、opencode、grok、omp、hermes、pi、zcode中的系统提示。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "daveebbelaar/bama": {
+    "hash": "c6a5974ecb20accef06e46c99d5df2c50aa04a37a7d68e847f4e0d43f1a3fb32",
+    "summary": "BAMA ：构建任何Mac应用程序。使用Swift和SwiftUI研究、克隆、设计、构建、优化和测试原生macOS应用的代理技能。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "anonnerdfrenzy/survival-llm": {
+    "hash": "a758c5dca530d44c46c8ea3b0f79a56cd7ac18889f08f5d7bfe7b1b1c207b600",
+    "summary": "一个免费的人工智能助手和生存库，在您自己的计算机上运行，无需互联网。显示每个答案的来源。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "DrWhax/unfairplay": {
+    "hash": "c84749420a0e0a233c5824dff29b822ea3106920cbc61af6b2bdf209dc980eb3",
+    "summary": "在MacOS上解密IPA",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "surendrapandar/minilytics": {
+    "hash": "7b2c2916ed8c7b889e6018f9ec12e171b2f40f364801437ef05117ca470d1471",
+    "summary": "面向独立黑客和个人创始人的开源收入优先分析",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "mizorewww/gdirect": {
+    "hash": "ec76205088448d75d19a2c7504cdf62da74a7945d8ff515dce6b16bd0c5cc9fc",
+    "summary": "使用固定libaria2的Rust Google Drive直接下载器",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "valentderah/totk-pc-recomp": {
+    "hash": "781dd06519f55461e0ada3e413caf707e22f5e5dabd4f53e8dd7375b4d7be554",
+    "summary": "使用Vulkan渲染器将《塞尔达传说：王国之泪》静态重新编译为本机Windows x86-64。游戏文件不包括在内。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "blakeandersonw/ai-app-playbook": {
+    "hash": "f7df8bd1b34eb451b2dcc3ff7289309ee3cb7617be2c43e236d71de324b91756",
+    "summary": "如何在2026年构建实用、盈利的应用程序。克隆它，并将您的编码代理指向AGENTS.md。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "OpenBMB/MiniCPM-OCR": {
+    "hash": "130c02b5cf050c98d9f40aa9b32ededc0c7266ca9c7053311e57ad0e201140d2",
+    "summary": "具有正确性评估的快速、准确的OCR。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "zeabur-oss/zeabur": {
+    "hash": "001d514c66e34d7528e23e1f5cb67479ba840fa67c8a50861ac6b58b9d633711",
+    "summary": "在您自己的Kubernetes上自托管PaaS。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "mxhm11cr/LinuxRunner": {
+    "hash": "f9a64f209d2cdc3baff480da0dc8ba2ccb91e057fd30d0a793b5112b3dfaae9c",
+    "summary": "在iPhone和iPad上运行ARM64 Linux用户空间和桌面应用程序。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "kuscholar/iDeck": {
+    "hash": "1c9700822df092cf49e07b2a1ee07c47fb5f4fbc061b95c2a87b0e4608891812",
+    "summary": "iDeck将Steam Big Picture体验带到iOS",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "davemessew/AgentFlux": {
+    "hash": "84997ea85061bd498f6f5b00d60c62fabec38a6e770d12f22da5d52126516d8f",
+    "summary": "用于可视化工作流程和自主代理的Agentic AI平台。在您自己的计算机或服务器上使用Docker运行它。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "emanuele-em/kanzo": {
+    "hash": "6fa085cecdf0c34479aae81c550229f9a5a241ceafbb1a3c3d9afffccea90c0d",
+    "summary": "适用于人员和代理的自托管看板。一个4 MB二进制文件， 2毫秒后开始，零设置。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "jmanico/grim-prompter": {
+    "hash": "5a28941e763ee3b87e7c402c96c17dcd20d4c1f2f822d0943f2aad1d8605b094",
+    "summary": "人工智能编码代理的威胁建模：指向存储库中的Claude Code、Codex或任何代理，并获取证据跟踪威胁模型。36个架构， 29种方法，麻省理工学院。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "mutonby/agentring": {
+    "hash": "75bd67e97e1d59cc7143682e2c97866ea6696ca33d9f471eb86b6e144b7e7094",
+    "summary": "让您的人工智能代理通过VoIP呼叫您的手机，然后回拨。你的手机像真正的电话一样响起，甚至被锁定；一个语音AI通过它说话并返回成绩单。自托管、开源、无电话号码或Twilio。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "lwh0630/TokenBar": {
+    "hash": "cd1f8b9f2d8e3d79391921126d8969ba6074975bb5149558be7a80484a3f24c1",
+    "summary": "开源、跨平台的人工智能配额监控器（ Codex、Claude、Cursor等47家）。Windows、macOS、Linux、Android和iOS。采用Flutter打造。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "Shaitrish/37studio": {
+    "hash": "f0be015b8468cc6df5ba10b38782dbed6d8a1db27611ce5ca9aa04b16101d95e",
+    "summary": "开源人工智能替代Buffer和Opus Clip ： Claude Code制作品牌视频，将其发布到9个平台并起草回复。自托管，您自己的钥匙。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "aarsaputra/php2shell": {
+    "hash": "1cbeeebb4e2fcd3fef586901ae7971941664dee227effa2c3272741e0b47f758",
+    "summary": "未经身份验证的PHP 5.4-8.4.26 RCE工具包（ CVE-2026-109619/109618 ） —纯HTTP链、JA3模拟、渗透测试访问权限设计",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "subhashhhhhh/Lumen": {
+    "hash": "ea9166d27aae90c581a059e9f726d08aa3bf3d4cdee01c1465884ea055bc5c3a",
+    "summary": "适用于Android的照片库，具有Google相册和iPhone相册的智能功能。手机里什么都没有。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "UltraSultanHonor/recon-v1.7.0": {
+    "hash": "a088766e5e8e6d9cf3f845af354373d908c1659d4ee95cdec0660e6f5edf7ba7",
+    "summary": "发布时间： 2026-10-28",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "litmers-dev/litpage": {
+    "hash": "07a28ae0f6643d3be28c83d77868a569afb23882416829b19e4dbf954aca3b51",
+    "summary": "用于页面、数据库和人工智能的开源自托管工作区。One Node.js进程与SQLite。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "AtEpic9014/PokeMMO-Atlas-AIO-Soft": {
+    "hash": "8793c5272b2b496b0fb08e7783d0b98e60db9e7f21cd6ea29204fab0048486ef",
+    "summary": "PokeMMO的公平竞争、社区驱动的制图引擎。实时观察图表路线、生成模式和地标的屏幕输出。由RESPOCKET团队构建和发布。没有内存注入，没有数据包拦截—只是纯粹的观察。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "jamesalmeida/agent-honeypot": {
+    "hash": "e13b3a5d71aca801b3dbe6fe4da3bf880bcc86dbc2be0ce7e896139126762564",
+    "summary": "人工智能代理的蜜罐和留言簿，它们降落在他们没有被邀请使用的机器上",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "kanapitsas/portal2-recomp": {
+    "hash": "dabcbbb552f018b2d589a557c09155d4b71b768ef4cd93a6d1d3c5fa63c04bfe",
+    "summary": "Portal 2从Linux x86二进制文件静态重新编译到原生ARM64 ：可在macOS和iPhone上播放。带上您自己的游戏副本。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "StationFactory/northgard-battlegrounds-tutorial-softlock-guide": {
+    "hash": "f7c8bd13743e8d5607018c4be6014e659ca4a64267b7252f5938df5b60719ab4",
+    "summary": "Northgard Battlegrounds教程卡住或软锁故障排除村民与结构购买顺序。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "varyform/nx-native-wrapper": {
+    "hash": "a1f33a66f3b8dc765e33b0cfd0f8652770c27470831469fb8178e091ec33b336",
+    "summary": "NX Play ：一个Mac应用程序，用于在Mac和iPhone/iPad上使用nxnative构建、播放、安装和管理Switch游戏",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "huggingface/safeagents": {
+    "hash": "6acc4daa4a288c21c74251550e574c58443a32a2f9c7cec766a8fd4c3883cba0",
+    "summary": "使用任何编码线束安全运行您的代理",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "RoUntoBlizzard/resocket-elden-ring-cheat-2026-trainer-mod-menu-tools": {
+    "hash": "50e3432dde4ebc030daee76c1f0d15fd87d3532acc5d3489e129785f3e80b71d",
+    "summary": "Elden Ring Cheat 2026 —单人改装和游戏工具包概念，包括角色构建优化、符文规划、武器升级、boss策略、保存管理和离线教练研究。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "Vandal238angel/oh-i-see-resocket": {
+    "hash": "6f201e18f4bb85ab50626a41d458063ff7d8bc1ff9bbacb7e605929b81d2ba39",
+    "summary": "使用Playwright对Web应用进行基于证据的视觉回归审计：响应式UI检查、辅助功能信号、屏幕截图、测量和可重现的结果。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "OverFaun/nexcanvas-drawio-resp": {
+    "hash": "375f781a4f9e14893ab92f4a805b22adbe74e3b200affe66e6a1ad6742712770",
+    "summary": "便携式AI代理技能和架构编译器，用于打磨、可编辑、基于证据的Draw.io图表。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "Noblereachdata/resocket-pixeljury": {
+    "hash": "e2522b64ae14deff63069cb8fb6bb351c5b06aeae44a1a4578edeba5a3bc7762",
+    "summary": "AI构建的前端可视化QA CLI ，可呈现页面，发现设计和可访问性问题，并编写代理就绪的修复提示。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "Sto65544neHeart/claude-resocket-plugin": {
+    "hash": "4771d70c59c7c49a50d965b662c7dc3ffbf64ee2415402f6b71d7372ed9aa635",
+    "summary": "Claude Code的Uiprobe插件： Claude可以对您的Figma设计进行检查。它将构建的页面与框架、按值计算的值进行比较， Claude修复了差异。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "TitanByDark/resp-codex-image-context-runtime": {
+    "hash": "943780fdffd0dbd022f3dfc45f1588ae4095651ba5359da98ddf65fe676a50aa",
+    "summary": "Codex插件和本地MCP运行时，用于上下文限制的图像生成和检查。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "JotunheimCount/rpocket-team-eyeproof": {
+    "hash": "414691c48511d3627b55d00a913719fa03d9df21aeba04a7f59de05713034791",
+    "summary": "无头编码代理的眼睛：屏幕截图，游戏测试， Blender渲染和视频，测量，然后查看。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "Venomsphinx/pursr-rpocket": {
+    "hash": "8b7e89159ae77517d12e06ff2a2d4822babc866ce24ce41b31302457a20707c6",
+    "summary": "可视化QA、浏览器自动化、辅助功能审核、屏幕截图差异和编码代理的MCP工具。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "kaanarici/Emblem": {
+    "hash": "7051184b8d9cea5528f5c7a352dab1bb4863b0054e855f54aae122f35b90a3fc",
+    "summary": "使用本机SwiftUI页面进行应答的iPhone助手",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "zihang-huang/iDex": {
+    "hash": "d9230b3d3257ab934ca62f0caad9896f3dd70e15b9c3dfa281221da4e21f6754",
+    "summary": "适用于iPhone Duo的Fan-made Pokédex ，带有用于识别精灵宝可梦的设备机器学习模型",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "turayevr12-spec/defiguard": {
+    "hash": "fe400246d08429a1db349104c133025e0b1870f11b44dee068d9d9241711eee1",
+    "summary": "启发式Solidity/DeFi安全审查工具包—在Foundry场景的支持下，标记要审查的可疑模式。仅供教育/授权使用。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "php/php-src": {
+    "hash": "fcb56316c193df6236b8b0d0969cab9324ffa18e3191d068377762b94b15c1bb",
+    "summary": "PHP解释器",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "hugohe3/ppt-master": {
+    "hash": "1924bd39aca36255491459d28b41d84c34feccc5c195f14253bc99eb660a1490",
+    "summary": "人工智能将文档或主题转换为真实的原生PowerPoint幻灯片，包括原生形状、转场和动画、数据支持的图表和表格、演讲者笔记中的音频旁白，以及对您自己的.pptx模板的支持。· by Hugo He",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "jakubkrehel/skills": {
+    "hash": "b3243f5075423079054e00f406571949afffea54cc1b0a3a9ea553aa92dea25d",
+    "summary": "一系列客服代表技能，可帮助您构建出色的界面。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "debpalash/VoiceStudio": {
+    "hash": "f5cb1ec90245f9d7d088726c0d4ffb162bb496f01e9736324d21fe83f8ab779b",
+    "summary": "VoiceStudio是开源、完全本地的ElevenLabs替代品--语音克隆、语音设计、视频配音、听写、转录和有声读物创作，支持646种语言。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "xerj-org/xerj": {
+    "hash": "69f03e8e370c876fd2d20a274db16f3c7607dff6f068330a4a6ad4571ebdf88f",
+    "summary": "用于机器人和代理的AI搜索引擎和MCP服务器。一个Rust二进制索引代码、文档、日志、JSONL/CSV和PDF ，用于BM25全文、矢量和混合搜索、无grep的代码搜索、代理内存和RAG。Elasticsearch兼容API ； Corpus Hub提供数百个参考内存语料库。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "pollen-robotics/microduck": {
+    "hash": "8129a79de7406acebd9aa73e85b89018cee7e880573c184b0170fdb923276f26",
+    "summary": "微型双足鸭机器人 🦆",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "citrolabs/ego-lite": {
+    "hash": "30ad0ee0ba6523d4ef40c9cf80aa82e72b068fcf3d276946f3cb4b4dbd3556f8",
+    "summary": "人工智能代理运行浏览器自动化的最快浏览器，旨在与您的人工智能代理（如Codex或Claude Code ）共享您登录的浏览器状态，而不会打扰您。零成本，零配置。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "coollabsio/coolify": {
+    "hash": "a955fd41723063bbed0cb3a89372064b7e54d8de2706aaebaa9d52bc071ce1ad",
+    "summary": "Vercel、Heroku和Netlify的开源、自托管PaaS替代品，让您可以在自己的服务器上轻松部署静态站点、数据库、全栈应用程序和360 +一键式服务。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "akitaonrails/ai-memory": {
+    "hash": "dea45948fb0dfbfeebe4c06e20618aedd3c5b091a863ea04eb7a1e92711894f4",
+    "summary": "针对座席编码CLI的长期记忆解决方案，以及促进不同座席供应商之间切换的解决方案",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "kksimp/Mac.apk": {
+    "hash": "47744f7c0ba848c70b89f89e6f11ac3c3b1ea6329b72e9c1265ed9d38b24cb85",
+    "summary": "Mac.apk ：在Apple Silicon Mac上本地运行Android应用程序",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "google-gemini/gemini-cli": {
+    "hash": "a681f77dd39e465ba942a77a8090502d1931473a62ce6f26874205cbd32898de",
+    "summary": "一个开源的人工智能代理，将双子座的力量直接带入您的终端。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "anthropics/sandbox-runtime": {
+    "hash": "ae2bb53ceb06e4fd5c1212b0a4d889f2e8fdb755f4f062162d6d9655398b45fc",
+    "summary": "一个轻量级的沙盒工具，用于在操作系统级别对任意进程强制执行文件系统和网络限制，而无需容器。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "colbymchenry/codegraph": {
+    "hash": "95d723d2c141a65231f324c5a513179f234f167f2920b212ad2dbb3b941f4dfe",
+    "summary": "预索引的代码知识图，在代码更改时自动同步，适用于Claude Code、Codex、Gemini、Cursor、OpenCode、AntiGravity、Kiro、CoPilot和Hermes Agent —代币更少，工具调用更少， 100%本地",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "vllm-project/vllm": {
+    "hash": "c7bbf50ac3e0c3b1ff47706b3792d4b650c6c1d38c82ea495c7cce5ed642c6c7",
+    "summary": "LLM的高吞吐量和内存效率推断和服务引擎",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "multica-ai/multica": {
+    "hash": "72bc2d616d5b8bdd5f520a097130f3a2d76e84d35c668b91922dfd6f1811c049",
+    "summary": "让人类和人工智能代理作为一个团队工作—开源和自托管。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "strelov1/freehire": {
+    "hash": "d0fe768de4852cf226120359bab90fc9ec561486fb029cf0bce2d6b62736008c",
+    "summary": "freehire —面向求职者的开源搜索引擎",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "QuantumNous/new-api": {
+    "hash": "a61d342a2a5631a25c213eb2dd39131d8b2f4c320180507fc4083f5430f11a69",
+    "summary": "开源AI网关。具有OpenAI、Claude和Gemini兼容API、模型路由、访问控制、使用跟踪和成本核算的自托管LLM网关。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "ntdevlabs/tiny11builder": {
+    "hash": "fde6cdb4a574e52062b4d8b4d3e7570629621020040e626916f77e4cff14a50b",
+    "summary": "WinUI应用程序，用于构建更小的自定义Windows 11映像。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "pauljoda/Crest": {
+    "hash": "71c1ac7d604b30b94016e37f402029899fd60841c738d87b98c8b1fda12ba5f4",
+    "summary": "适用于Mac、iPhone和iPad的开源浏览器。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "infiniflow/ragflow": {
+    "hash": "f482b5814aa3a087bcf5be6c72c5df8ad61e01b0bfb266399fb55d22d96eaeb0",
+    "summary": "RAGFlow是领先的开源Retrieval-Augmented Generation (RAG)引擎，将尖端的RAG与Agent功能融合在一起，为LLM创建出色的上下文层",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "zarazhangrui/frontend-slides": {
+    "hash": "02ca4b11fa043391408cd7a53c31f2c6cb20f31ae81752fd61140c288991c24a",
+    "summary": "使用编码代理的前端技能在网络上创建漂亮的幻灯片",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "godotengine/godot": {
+    "hash": "88db1beac9ec528aa4c272ecace8157fa24f74aa5404e1bd80b5fc18bebd60aa",
+    "summary": "Godot引擎–多平台2D和3D游戏引擎",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "jellyfin/jellyfin": {
+    "hash": "33c79321a020b27b524c4d0606bedfbcdcc7597ac148960be78d13d3ee17a3d0",
+    "summary": "自由软件媒体系统-服务器后端和API",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "aws/agent-toolkit-for-aws": {
+    "hash": "29395bcf1cccbd1b39dcb488097986b7b2cf57ba6bef26210409145a99cb9460",
+    "summary": "AWS支持的官方MCP服务器、技能和插件，以帮助AI代理在AWS上构建",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "Fincept-Corporation/FinceptTerminal": {
+    "hash": "86129443da4b307b54157d0b344fbac76d16303d9fb4bfd24d02a66480caee88",
+    "summary": "FinceptTerminal是一款现代金融应用程序，提供先进的市场分析、投资研究和经济数据工具，专为在用户友好的环境中进行交互式探索和数据驱动的决策而设计。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "permissionlesstech/bitchat": {
+    "hash": "51945f1c566cb27f0f2875a2019dbe7e4ab3e0c4480768b0ff0ec890cfe75871",
+    "summary": "蓝牙网状聊天， IRC共鸣",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "duckdb/duckdb": {
+    "hash": "d492840e4ac9377ed92fc1a4a410a4145f25bfb18d8352a3b16bf17f747efd05",
+    "summary": "DuckDB是一个高性能的分析数据库系统",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "agentgateway/agentgateway": {
+    "hash": "4684d78d6d03e77a587da25446a9a7c53832ad04084708ddc646c3ae0b64a0be",
+    "summary": "适用于AI Agent和MCP服务器的下一代Agentic Proxy",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "TheAlgorithms/Java": {
+    "hash": "35c7db0718840fb124e1f442fc26ebc6c954508ad0b4b6fbe0b9213581043dd5",
+    "summary": "在Java中实现的所有算法",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "HMCL-dev/HMCL": {
+    "hash": "21a85d49644791e0352448931627b105ee380e7ff41697bfe6d0741d82264be3",
+    "summary": "多功能、跨平台、流行的Minecraft Launcher",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "slavakurilyak/awesome-ai-agents": {
+    "hash": "b689c629a2948dcd16fa14b888ba29aad6c2cdefeb9a9fb98df1228ac35c63e3",
+    "summary": "300多个代理AI资源的精彩列表",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "hashcat/hashcat": {
+    "hash": "4aa77fd8d659af24ee47d1b0d8be78e95638d023e111555e6d927b88f7f349b9",
+    "summary": "全球最快、最先进的密码恢复实用程序",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "pass-with-high-score/blockads-android": {
+    "hash": "8269ef541ae52e3f30c203c711ab34078db01ad5a4fea1008f38788756a8e840",
+    "summary": "使用基于本地VPN的DNS过滤，在Android上全系统屏蔽广告。无需根。无需数据收集。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "nextcloud/server": {
+    "hash": "89cf7ab4f959fe240f9a0b11c6e33e851e434f52540eaf594fbdcc029913404f",
+    "summary": "☁️ Nextcloud服务器，所有数据的安全家园",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "SukiSU-Ultra/SukiSU-Ultra": {
+    "hash": "d0d4956a2fee480ca59e7346df86877785d09ef9feea3cd83a951951056de528",
+    "summary": "基于内核的Android根解决方案和KPM",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "geode-sdk/geode": {
+    "hash": "2f59d3ae583860d3356f2cc92eee81ede17196faddd63cb6b518e61394dcbd98",
+    "summary": "终极几何破折号改装框架",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "altstoreio/AltStore": {
+    "hash": "1cc260766cc30f2bd7f86e7ad66257962b07211465a3a19465ba576079d60adf",
+    "summary": "AltStore是适用于非越狱iOS设备的替代应用商店。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "kaishi00/hermes-conduit": {
+    "hash": "b53ee3842a5609f7e435299ca6ad57bd6378dbecf0dcf9716d769d22e3210b08",
+    "summary": "Conduit —适用于Hermes Agent的本地SwiftUI iOS客户端",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "damontecres/Wholphin": {
+    "hash": "fbeeb1122cc8b3e8e60c286ee5308ac1f00e35b0f6e381696f491609a20d46a8",
+    "summary": "适用于Jellyfin的OSS Android TV客户端",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "MariaDB/server": {
+    "hash": "f0fcc5fb01c29c11de48c6b3abbb59ab9302c71515e1146aa18af9388bab5c98",
+    "summary": "MariaDB服务器是MySQL服务器的社区开发分支。MariaDB由最初的MySQL团队的核心成员启动，积极与外部开发人员合作，提供业内功能最强大、最稳定、许可最合理的开放SQL服务器。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "symfony/symfony": {
+    "hash": "4eb7907156a5fb2f1e5979027c4b4ff79465202d0c676824e4009e19f50a5a36",
+    "summary": "Symfony PHP框架",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "micropython/micropython": {
+    "hash": "fcfc799feb8368477dd65ac46983b8223bbdbf368f2a6aaef908c005ae3b3059",
+    "summary": "MicroPython -适用于微控制器和受限系统的精益高效的Python实现",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "openmediavault/openmediavault": {
+    "hash": "214f73a401ae7e5420ef4afc15ac8546aa3765355b34dbd8dae44fbcedd099b2",
+    "summary": "openmediavault是基于Debian Linux的下一代网络连接存储（ NAS ）解决方案。得益于框架的模块化设计，它可以通过插件进行增强。openmediavault主要设计用于家庭环境或小型家庭办公室。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "laravel/framework": {
+    "hash": "a579364896e4b1b68ad4dc089b66d87004d55a07f4c97b2827d6b8b970fc8e48",
+    "summary": "Laravel是一个具有表达式、优雅语法的Web应用程序框架。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "storytold/photocraft": {
+    "hash": "5555bd5e0ef27aefc38081dc55f06c4b0c79f81ac4aa35802f606f7b188832ed",
+    "summary": "PhotoCraft ：用纯Rust编写的开源照片编辑器",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "Gathin23/cleanyourtv": {
+    "hash": "0a799d76b0c4420b5f3ca8bd7afcb4d50080982b6c37ccaa8fa88ba30dd82811",
+    "summary": "通过Wi-Fi连接任何Android或Google TV ，即可获得Apple TV风格的家居体验。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "deepseek-ai/DeepInfer": {
+    "hash": "7a46e9a6c8725a6332338a18c53cce84cd928229910182578e73a323d6ab52d6",
+    "summary": "DeepInfer ： DeepSeek模型的高性能、大规模推理框架",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "wheresryan22/anatomy": {
+    "hash": "81f3700519329dd55bc72f65890307e9ae5ff2b74747809afbae11a94f84c8eb",
+    "summary": "用于创建真实世界机器和复杂系统的详细交互式等距插图的代理技能。使用可选的WebGL着色器和3D效果生成精美的SVG。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "storytold/pdfcraft": {
+    "hash": "8d6c2bb7925f2d8af2d0613ff70a2be432e96b6fd0d610079fc46f9b48991991",
+    "summary": "PdfCraft ：用纯Rust通过scratch编写的开源PDF阅读器和编辑器",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "storytold/filmcraft": {
+    "hash": "5d248b8288750f7953bdb4056c81c9e736c79c524da609910ec490c3978aa0e3",
+    "summary": "FilmCraft ：用纯Rust编写的开源非线性视频编辑器",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "storytold/wordcraft": {
+    "hash": "0114f6046ae83abbf2db753b69442fc72f727020d38f274416e23dcf2fcf71c7",
+    "summary": "在纯Rust中重新实现Microsoft Word的开源洁净室",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "storytold/lightcraft": {
+    "hash": "e81e29b10a09e26d375438fbba307a9a09e2e987e2237b2649b06b222f79e06e",
+    "summary": "LightCraft ：用纯Rust编写的开源无损照片编辑器",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "Zagitta/gpu-unlock": {
+    "hash": "ccc0316d510cec31bbdadef90fc086a00b02eec59f9781af66176e1c7acda578",
+    "summary": "您的GeForce以半速运行AI。这可以修复20/30/40系列卡。高达2 × FP16/BF16/TF32张量吞吐量",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "tangency-labs/solidcraft": {
+    "hash": "0c6538c283d52087797cac021dd2fa2e1b8ee961a2e346210ae51b4396450094",
+    "summary": "SolidCraft ：用纯Rust构建的开源参数化3D CAD应用程序。通过MCP实现桌面、网络和自动化。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "storytold/vectorcraft": {
+    "hash": "2947d400f432813ccf2569536df266b280a689c94e0ff9149f8b3ede39602382",
+    "summary": "VectorCraft ：用纯Rust编写的开源矢量艺术工具",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "seedds/nxnative": {
+    "hash": "2e1ac9c5de0ed781d8054625664154f3da84f3d54e4318ada64ed3080ffb575a",
+    "summary": "切换在iPhone、iPad和Mac上本机运行的游戏： NSP文件夹变为未签名的IPA （ NSO重写器、Horizon HLE主机、NVN→ Metal ）",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "rehan-remade/universal-modder": {
+    "hash": "d09086548fb54839154002cd57a31757bdc860fbd72579b88b7e8bad354a1bb0",
+    "summary": "在任何比赛中指向克劳德。技能、工具和FAL MCP让Claude Code可以修改您拥有的几乎所有PC游戏：侦察、逆向工程、FAL生成的艺术/3D/音频、游戏内测试、展示视频。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "storytold/effectcraft": {
+    "hash": "5700f32fc7fdbe6652018dc38327401617964f85a67f72b18c917ee35cd2c05b",
+    "summary": "EffectCraft ：用纯Rust编写的开源动态图形和合成工具",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "storytold/cadcraft": {
+    "hash": "185aa2ea055a1c9293d71178444ab133ddd25da1ec5695914f0c4b49f01e1742",
+    "summary": "CADCraft ：计算机辅助设计和绘图—纯Rust的开源、无尘室AutoCAD风格应用程序",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "storytold/gridcraft": {
+    "hash": "03a2aa1475b1cc0e7d532c1816e48cc060d82f7bcdac4ca1e38d052e6b032d50",
+    "summary": "GridCraft ：纯Rust的开源洁净室电子表格（ Microsoft Excel风格）。由ArtCraft提供。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "Jakeschincariol/replica-skill": {
+    "hash": "7cf2d9d23a2f6c8dbb3383beccd1a8b3d865dff20ee5d37072abdc8f3754686f",
+    "summary": "克隆任何应用程序的11项免费Claude技能：对其进行逆向工程、重建、测试错误，然后修复用户讨厌的内容。免费，麻省理工学院。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "ly05010419/MacNativeGames": {
+    "hash": "ced71fd38aee0ad692e2b045ca950b61ad18c870979110fac095b0dcb1e97f3c",
+    "summary": "在Apple Silicon Mac、iPhone和iPad上玩自己的《王国之泪》和《荒野之息》。不是模拟器：游戏的ARM64代码直接运行， NVN在Metal上重建。带上您自己的游戏。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "ARahim3/DigUp": {
+    "hash": "e565c7faefb84937cff8c19dee14e8f62b4e5507bc60667c135624a0823a9e0e",
+    "summary": "根据文件中的内容（照片、PDF、文档、录制、视频和代码）搜索您的计算机。Mac、Windows和Linux上的设备，基于Google DeepMind的EmbeddingGemma 2构建。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "HeyPuter/everything": {
+    "hash": "af025627d5a52e0fa453b7ee9d5e39870af59b310c4fe0cbfba3690483add586",
+    "summary": "我们正在从头开始重建和开源全球软件。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "simbasjungles/free-my-tv": {
+    "hash": "da2953b68084eef8a95a9fdc361d32dc3470b8790ff399c78c513311a0d5b92e",
+    "summary": "适用于Google TV、LG webOS和Samsung Tizen的快速无广告主屏幕。只需一个按钮即可撤消。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "storytold/designcraft": {
+    "hash": "aa8db18208c5627010a4dc9094666d831aec7c55d01e39ad1a5687fd7969c338",
+    "summary": "DesignCraft ：用纯Rust编写的开源页面和布局设计编辑器",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "AienTech/dossier": {
+    "hash": "888002e8651d58bacc55c5d3c739455ec413c3edeeaca5d9e2d3d2e7ec42b546",
+    "summary": "一个自托管的求职应用程序，可以从您的个人资料中编写量身定制的简历和求职信。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "net-merge/net-merge": {
+    "hash": "c105012e6643e111b6fd01a2785c61bc7d957a38ff0677be3218d8bb69b47ba5",
+    "summary": "在Windows、macOS、Linux和Android上同时使用所有互联网连接：通过Wi-Fi、以太网、移动数据和电话连接实现每连接负载平衡",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "jiwoochris/artex-global": {
+    "hash": "d70be9d6740f916ac063f2b45a6e137d87617372c4986e476d15a0510fd52ac3",
+    "summary": "ARTEX全球版—法学硕士多代理自主渗透测试框架。默认为英语，可切换为韩语/中文/西班牙语/日语。仅用于授权、防御和检测用途。（上游： Autumn-27/ARTEX ， AGPL-3.0 ）",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "mw00/project-maya": {
+    "hash": "b40d9b8d75b0fc410fe6dbf664fd43ff350da540eee442f36109eb9e47f539c8",
+    "summary": "Project Maya -在您自己的显卡上私下运行GLM-5.3-Flash （ 321B MoE ）、DeepSeek-V4.1-Flash-1017 （ 748B MoE ）和MiniMax-M3.1-Flash （ 428B MoE ） ，从一个显卡到16个显卡、NVIDIA或AMD、Linux或Windows。引擎、服务器、仪表板、OpenAI和人类兼容的API、定量工具。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "shaongitbd/doory": {
+    "hash": "820970a5549ad70e59aa212093b80f9bef3967b6274f820324b181be72ef8c6a",
+    "summary": "开源Canva替代方案",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "marclou/mailcheap": {
+    "hash": "4fa696a4226a4a9144042a67762c6a424773bdf99cd737d3eee812d79b595be0",
+    "summary": "时事通讯，您为发送的电子邮件付费，而不是为休眠订阅者付费，价格仅为蜜蜂病毒等的一小部分。开源：自助托管，或使用mailcheap.ai。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "InukaAsith/TwinDesk": {
+    "hash": "f1806950c063e709ddd007fb77187d16fa036cca597d028d07f4c6af5348d7bc",
+    "summary": "您的所有电脑和手机，就像一张办公桌。屏幕、应用程序、文件、剪贴板、通话、短信、通知、鼠标和键盘，在Mac、Windows、Linux和Android之间共享。免费开源。无需帐户，无需云，现在无需共享网络。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "rociiu/talorys": {
+    "hash": "2afd3c0c3b928b8751cc0c01dd61a8f5fbc76154606fa3303941a87350350acb",
+    "summary": "您自己的Cloudflare帐户中的个人AI代理。聊天、内存、任务、笔记和定时提醒，只需一个命令即可部署： npx create-talorys @ latest。免费会员友好，单用户，无遥测。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "morluto/awesome-reverse-engineering": {
+    "hash": "fdcef4dab9020ced35ba9b0e83ae2c6959650b5c91e4f4770e4b8fc8305ab13d",
+    "summary": "精心策划的二进制文件、应用程序、固件、格式和协议的反向工程工具和学习资源。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "jwuthri-cloud/Tracely-ai": {
+    "hash": "ce6aa49ea199468cb176535aed4caca025190ea0c0603a568f05d3fb1281b15b",
+    "summary": "跟踪AI代理的本地CI/CD ：对生产跟踪、集群故障进行分级，将其冻结为可重播的回归测试，并阻止回归的PR。自托管。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "StayLameBro/backburner": {
+    "hash": "de14834d3de27021df886e999cc02d960716b6207e8ca30793db60f4bff4aeaa",
+    "summary": "您的iPhone可帮助您的Mac运行27B型号：通过USB-C电缆实现更快的提示读取和更多上下文",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "openqodex/openqodex": {
+    "hash": "f6d09e7aeefa893eede446105d979961d29b35f710c53f75aeef7aefd7763934",
+    "summary": "针对编码代理的开源AI代码审查。在推送Claude Code、Codex、Cursor和Cline之前，由一名单独的审核员检查您的代理所写的每项更改。没有账户或钥匙。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "juliobsz/skills": {
+    "hash": "8339afcdcea503d2a7d2265ef18931c1f21700008670cd850247d29dc53445ac",
+    "summary": "从一行构建获奖级网站的客服代表技能",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "Zfinix/eleven": {
+    "hash": "59191f028a8eecb657d1d327a74ef6d518ed12722f2e597258291ec4396627fd",
+    "summary": "适用于macOS、Windows和Linux的代理优先逆向工程：任何ACP代理都可以读取、重命名和修补您旁边的二进制文件、Android应用和GPU内核。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "kividbio/kividb": {
+    "hash": "56c5f7e62c40fea791ac2b25c890caf6a8e44d2e2e02ae3d15bc31b1c8205c70",
+    "summary": "用Rust编写的快速、多线程的Redis ®和Valkey替代方案：插件兼容，内置全文和矢量搜索",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "0xProbabillity/house-control": {
+    "hash": "d7825fcec658a28cec3ab0d60137a61d2759466e61b754e3621cab18fc8bb667",
+    "summary": "在Mac菜单栏和iPhone上将您的家作为实时3D模型—通过Smart Life、Home Assistant、Philips Hue和Apple Home提供灯光和空调。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "man15h/tellyscope": {
+    "hash": "425254b47f36f58fe3b12e3f39720398b8b71917631bc3e488a4e5e59b8b53b8",
+    "summary": "从手机上下载Android TV、安装应用程序、浏览和传输文件。3 MB以下，无跟踪，无根目录，无PC。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "kota-zo/myspoti": {
+    "hash": "68635c0f1b6811f6b8553d26272760c324ac6f58cb1228800684ac2e77abae35",
+    "summary": "使用Jetpack Compose构建的Spotify本机Android客户端",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "Paradigm-Study/claude-share": {
+    "hash": "4a82d627f012074501fb30768f42d186570c632774bab180b02e21551e155851",
+    "summary": "Claude Code的多人游戏会话。分享链接，进行实时协作，并查看相同的回复、工具和预览。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "opentrap/opentrap": {
+    "hash": "bb510b51a7495a2c7bfe5c9675e80fdc96ceb1491c3a82ddb542b65b3bb68baf",
+    "summary": "Burp Suite的免费开源替代品：具有Repeater、Intruder、Collaborator和内置OWASP ZAP扫描仪的拦截代理和Web应用安全测试套件。Linux ， AGPL-3.0。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "pgrundev/pgx": {
+    "hash": "95450727218f5d04844a7e74eca5621d2bd8fdbb7bc1a8164413040fc50a4a5a",
+    "summary": "PGX —用于AI代理的轻量级Postgres。用Rust编写。在一个运行时中，有成千上万个隔离的数据库。 🐘",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "Alejandros17487/ai-jailbreaks": {
+    "hash": "1bc2f2007e27c91922660f1cd295472fafe3b714722208bca07835906f21936b",
+    "summary": "AI越狱： 35个粘贴就绪的AI越狱提示，适用于25个以上的前沿和开放权重模型-系统提示、AGENTS.md规范和Ollama模型文件。专为人工智能安全研究和红队测试而构建。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "NPMscan/npmscan-action": {
+    "hash": "c98430e2e4086402ddc0e7321c9b87d982ac9b5b359677c610b94bcd3de12dbc",
+    "summary": "在合并之前捕捉高风险的npm依赖关系更改。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "strands-agents/box": {
+    "hash": "3c686add0962e49e53321335146c74d9b10da6a36b078536953a8872caf19d7e",
+    "summary": "在沙箱中运行AI代理，限制他们可以在网络上执行、读取、写入和访问的内容。Box将操作系统隔离与默认拒绝Dogwood策略和凭据注入相结合，将秘密保留在代理之外。用Rust编写。在Apple芯片上支持macOS ，并计划支持Linux。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "nathanialf/ico-pc": {
+    "hash": "ee776978959b4ab9ca6d766c6bdada45de06172ebd7084baa28da46fe66eebb3",
+    "summary": "ICO （ PS2 ）反编译（ nathanialf/ico ）的PC ， Android ， iOS和macOS端口： Windows ， Linux ， Steam Deck ， Android ，通过LiveContainer和Apple-silicon Mac的iPhone （贡献）。不包含游戏数据。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "LumaryLabsLLC/muxin": {
+    "hash": "7c844f733cd62b7e78b47791a0fcdc7cfd9724d5060553fdd9543cc2bf58befa",
+    "summary": "所有机器，一款应用。对于您和您的AI代理：代理会话、桌面、文件、日志和跨Mac、Linux和Windows计算机的GitHub ，以及MCP服务器。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "nekohasekai/open-screen-sharing": {
+    "hash": "c7985d8be9d76d385006534787dadca4d96dda5e2ea1667317c3dac5ec02f6dd",
+    "summary": "为Apple系统提供更好的屏幕共享功能",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "Entelligence-AI/agentplay": {
+    "hash": "32f195d1709b9818552d4257a4c50c3c0b0890e385d8826f03c7959f8f8bf380",
+    "summary": "将您的编码代理会话重播为地图和时间轴",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "justxor/claude-code-pro-course": {
+    "hash": "37c0440235213e154484a10fa3754785ed3ecab4c73d9edfad9206e32f7ee728",
+    "summary": "Claude Code PRO — полный курс и гайд на русском: CLAUDE.md, settings, skills, subagents, hooks, MCP, плагины, CI. 8 лабораторных, библиотека промптов и готовый入门套件。Здесь бесплатные курсы по chatgpt -",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "salihcantekin/ruvio": {
+    "hash": "14c61cf44316fb6aa3152071fb9f057648a73a847f07ddb0fc1f0a2d1c4e255a",
+    "summary": "Rust中的内存中键值服务器会说RESP ，因此redis-cli和Redis客户端连接。锁定、速率限制、作业队列和更改馈送是单个命令；基于Raft的故障转移。Rust、.NET、Go、Java、Python和Node.js的客户端。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "justxor/deepseek-local-guide-ru": {
+    "hash": "c34714324979407c4e0fee5dcaeeeb96e907da670fb44640ab83072520bcb4d2",
+    "summary": "🐋 Полный гайд на русском: как установить и запустить DeepSeek локально (V4, R1) на ПК, Mac и сервере — Ollama, llama.cpp, LM Studio, vLLM, Open WebUI, API, RAG, агенты,微调, лучшие фишки",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "madong-code/madong-mono": {
+    "hash": "96db97128d2311165dd9bf3d89c78ba3f86a39613b9b5fbbd32c0a60945a144b",
+    "summary": "使用Vue3 + Vben构建的madong-admin-saas多租户SaaS平台的Monorepo前端骨架包括租户管理、平台管理UI、RBAC和CRUD页面。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "LambdaLabsHQ/xmatrix": {
+    "hash": "b78f552ededea310e4138de1f9ee9c6f8977bb03389b7a284442e6053e0d15b1",
+    "summary": "面向人类和编码代理的群聊。在频道中提及@ claude、@ codex、@ cursor或@ gemini ：代理使用您自己的订阅在您的机器上运行，并保持团队页面的最新状态。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "ryuxdsgn/design-intelligence": {
+    "hash": "fdb1441bbd19a040ac0864f0c9088acdd6c9cf6cad3340a94f4eaaa4be6c2a16",
+    "summary": "RYUX为人工智能代理提供设计智能，以了解产品背景，做出有意的设计决策，并评估他们创造的内容。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "widefleet/widefleet": {
+    "hash": "3c794c68c2140b8728614be7b596b0bbc7e65b22ff746ad052d6d170c60f316a",
+    "summary": "为代理构建的应用和工作流程提供基础架构",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "aidenleads/css-animation-snippets": {
+    "hash": "65b945f17e191b6386da6d3d54d5dcd08187644729769d893e6b10b702b8324f",
+    "summary": "适用于商业网站的免费复制粘贴CSS动画。没有框架，没有构建步骤，默认可访问。爱YALL ❤️",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "peterhoang1103991-cmd/pilot-ai-ticket-shipper": {
+    "hash": "01c22c0a1df989158dcf08048ed63f45cff6159ca5036402959d6ec69e509635",
+    "summary": "试点：为自动化开发提供工单的人工智能",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "Rikinshah787/dotpals": {
+    "hash": "ff640e14c0951b656529ac80fbcb14bc46b5264414ec4166f0835e1d982641a0",
+    "summary": "看看您的编码代理实际做了什么。Claude Code、Codex、Cursor、Gemini CLI和任何代理的桌面PAL和缺口：从输出读取的测试结果、捕获的伪造通行证以及任何AI工具都可以询问的MCP服务器。新功能：与BLU交谈， BLU会看到您的屏幕，并在屏幕上解释和使用您的应用程序时对其进行绘制。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "flutter/flutter": {
+    "hash": "48fb12cc254038ba827cf87fe5532aa78473761bea7401a6fd8d265976e1f0aa",
+    "summary": "Flutter可以轻松快速地为移动设备及其他设备构建漂亮的应用程序",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "boykopovar/AnyPS5": {
+    "hash": "06ceec1ab3e72664299a436e51f388428f683d1e5c9d8abbb8769fbef8690661",
+    "summary": "用于自动将PS5可执行文件移植到Linux和Windows的工具",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "DuarteSantos8/openGym": {
+    "hash": "16ca69a1cb8ffb63259f419c107480134180eb4933c41e40d6fc5b937917b488",
+    "summary": "开源健身房和体重追踪器，现已登陆App Store （ iPhone + Apple Watch ）并作为Android APK。规划例程，记录锻炼，查看哪些肌肉得到训练，从Strong/Hevy/FitNotes导入。您可以自行托管，也可以独自在手机上使用。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "paperclipai/paperclip": {
+    "hash": "e091e6c4017040c77f0750a8fc438dc17cea943150406b70c5e89376b17edfb3",
+    "summary": "每个人都使用的开源应用程序来管理工作中的代理",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "NVIDIA/OpenShell": {
+    "hash": "4d6819b952c85016ef43192fd20e27bfdc9b1740353bb0d6f826a1bc334ba9c5",
+    "summary": "OpenShell是自主AI代理的安全、私有运行时。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "Alishahryar1/free-claude-code": {
+    "hash": "4058b9f4a35b18e198346b5e91c27ddab5018a63336d1b15e9eed9f5f0be305c",
+    "summary": "从您的终端、应用程序、IDE或手机免费使用Claude Code、Codex、Antigravity、VSCode、Pi和OpenCode （以及其他6种线束） （ 13亿+免费令牌） ，现在从浏览器使用本机浏览器会话（多哈尼斯+多模型） ，如OpenClaw （支持语音+ ToS友好）",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "vxcontrol/pentagi": {
+    "hash": "151efcc923acb41ce3a127e342e7f1bbf3a2012a00d5ddddab46441741761296",
+    "summary": "完全自主的AI Agents系统，能够执行复杂的渗透测试任务",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "coreyhaines31/marketingskills": {
+    "hash": "e52a02d4c2ca8865d52334d6710b8e84f9aaa285fd886bf1292f50be43b271d2",
+    "summary": "Claude Code和人工智能代理的营销技能。CRO、文案撰写、搜索引擎优化、分析和增长工程。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "crmne/spotifast": {
+    "hash": "96f9ce97c4cee923696bf77466c8a7c57526321a21ec91c63578b416680087de",
+    "summary": "Spotify ，原生且快速。一个轻量级的Rust应用程序，适用于Linux、macOS和Windows上的整个库、本地播放和Spotify Connect。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "vercel-labs/skills": {
+    "hash": "219726a9d34faa5f88334e16e2c7f68b9c1d3d8c130866634eb2008cff8d3120",
+    "summary": "开放式客服代表技能工具- npx技能",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "ollama/ollama": {
+    "hash": "e9fd9cefeae26b121200cfb1c3f924a3be1f985ab2a22399901cb01a11b79aca",
+    "summary": "开始使用Kimi、GLM、MiniMax、DeepSeek、gpt-oss、Qwen、Gemma和其他型号。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "longbridge/gpui-kit": {
+    "hash": "a9955b534096a8b9ace7f58d66cd39a05da4e2238be9c1645fb9710e4732a3d2",
+    "summary": "使用GPUI构建梦幻般的跨平台桌面应用程序的Rust GUI组件。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "danyuchn/asd-ste100-skill": {
+    "hash": "17b5622f225b08ccc7983c63fe336410030592bb2b5a711e51a36e5391af2191",
+    "summary": "ASD-STE100简化技术英语规则，被重新用作重写模糊的面向代理的英语的Claude Code技能。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "Genymobile/scrcpy": {
+    "hash": "0bbf96443abd77159910f976e8b3ce31947dc3e14fac26ff82ec1dcb7658617a",
+    "summary": "显示和控制您的Android设备",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "mnfst/awesome-free-llm-apis": {
+    "hash": "259d6f3fad6f83cb8cea999a00c1acdf114b81f489d71afec117cfb4e608e06f",
+    "summary": "永久免费LLM API （ API密钥）列表",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "kushagrasinghx/BitChord": {
+    "hash": "33fb10acfe83840734d42c58a2d1bcd4bc3c31621e9b76d224284042affb6a6f",
+    "summary": "BitChord -一个现代化的YouTube音乐客户端，具有受Apple Music启发的干净美学",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "caddyserver/caddy": {
+    "hash": "fd28627d191757ae3fb551404dbd411c524ca49f2c561de1072e4062484c7253",
+    "summary": "具有自动HTTPS的快速可扩展的多平台HTTP/1-2-3 Web服务器",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "obsproject/obs-studio": {
+    "hash": "e2891d042321b99f11cf262a0e4bbe1cc6505607d0fdd27d8b6b3489a27bd4fc",
+    "summary": "OBS Studio -用于直播和屏幕录制的免费开源软件",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "Gaurav-Gosain/tuios": {
+    "hash": "0bf3a08132175a4f265265d5863cb8319ec70c2b7f9c2ed5f8e533afc54006c4",
+    "summary": "一个终端窗口管理器，它知道您的代理在做什么。平铺窗格、工作区、重新启动后的会话，以及每个编码代理的一个收件箱。官方仅在tuios.dev和此仓库。tuios没有X/Twitter帐户。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "willfaust/Madeira": {
+    "hash": "c08715487fc0697b67a5578dcbb7dc1a1bd137d1bd5d55be06df04447866b238",
+    "summary": "通过FEX-Emu + Wine + DXMT在被监禁的iOS上运行x86-64 Windows PC游戏",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "LaurieWired/GhidraMCP": {
+    "hash": "853c97d79176cf80658b53d5ae30f8d5093a7bd264d1eedc813618082e550cec",
+    "summary": "Ghidra的MCP服务器",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "manaflow-ai/cmux": {
+    "hash": "7d529a3fcc4f05ea5d95ecfefb09afb4e8edfff7619c38924b3cb77264435106",
+    "summary": "基于Ghostty的开源macOS终端，具有针对AI编码代理的垂直选项卡和通知。专为多任务处理、组织和可编程性而打造。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "YuKongA/ghostlock-app": {
+    "hash": "a007a2feea620b6c4fc014b17df5a225d0b6eda3f850b93ede173b1a453f7743",
+    "summary": "GhostLock一键执行应用(CVE-2026-43499)",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "tiann/KernelSU": {
+    "hash": "47a0b1d16c70070c9618bbe9998fbb77e1f3ec571f418fbbccd81f536303fb60",
+    "summary": "基于内核的Android根解决方案",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "EpicGames/raddebugger": {
+    "hash": "edbc037ad096c0c47f1d08c5491f5c15c97f04eeb14a98e0fa0c86c586367a48",
+    "summary": "本机、用户模式、多进程、图形调试器。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "shadps4-emu/shadPS4": {
+    "hash": "217773689fbfe7233820c1952663f8b9329604c04e69b85bcce945dfb6b1ad2e",
+    "summary": "用C + +编写的Windows、Linux、macOS和FreeBSD版PlayStation 4模拟器",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "CoplayDev/unity-mcp": {
+    "hash": "f58b2b92dcf38c7c03e9506b93ee739dd2d00955fe36152db1896a9ed3ab4c45",
+    "summary": "Unity MCP充当AI助手和Unity Editor之间的桥梁。为您的LLM工具提供在Unity中管理资源、控制场景、编辑脚本和自动化任务的工具。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "WerWolv/ImHex": {
+    "hash": "3f590b3dbd4cc1e64633a5474c2a58ef830fcfafcf46b0384de7b208c1cc9d5b",
+    "summary": "🔍 适用于逆向工程师、程序员和在凌晨3点工作时重视视网膜的人的十六进制编辑器。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "spring-projects/spring-boot": {
+    "hash": "cd82c43582967a25faacee87c88029bc0b6819633595c18ee095b7615d53378f",
+    "summary": "Spring Boot可帮助您以绝对最小的麻烦创建基于Spring的生产级应用程序和服务。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "elastic/elasticsearch": {
+    "hash": "c2ba982fe6c8592860cada7ae64c34b81e6e4f09e4834379c7ca09268f8226d0",
+    "summary": "免费开源、分布式、REST风格的搜索引擎",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "lharries/whatsapp-mcp": {
+    "hash": "231d1483174cd0151e7fe80c71daf062cf240b33a8a67b78496498187acd0b51",
+    "summary": "WhatsApp MCP服务器",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "ran-j/PS2Recomp": {
+    "hash": "e58acb192853dfea5c00fc8d99efdb4e50816d53812f1c7c5e3fdb5675ec4ef7",
+    "summary": "Playstation 2静态重新编译器和运行时工具，用于制作本机PC端口",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "iliyami/MacSai": {
+    "hash": "6f0afbc5aaac64ce0a25e59fbd7692e683c9e08377b8cc97e4283223de54803d",
+    "summary": "Mac SAI ：开源Mac清理器、优化器和恶意软件扫描器。使用Swift 6和SwiftUI构建的CleanMyMac的免费Apple公证替代品。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "f/textream": {
+    "hash": "40a3440e6ba37d5a603a2967492422b5596b1d42f30ce8b946b56876d9c4b883",
+    "summary": "Textream是一款免费的macOS电传提示器应用，适用于主播、面试官和演示者。当您说话时，它会实时突出显示您的脚本，并显示在美丽的Dynamic Island叠加层中。具有可扩展的功能。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "mlmvpn/mlmvpn_android": {
+    "hash": "6832124debf8ca8b3da41aec064d65bfebef966f260340ced0dd2bd62705df4f",
+    "summary": "多引擎Android VPN — Xray、WARP、Psiphon、Tor、Geph、OpenVPN、MASQUE/AmneziaWG ，以及通过最佳路径路由每个应用程序的MLM自适应引擎； Cloudflare面板、Config Studio、游戏助推器。Kotlin + Jetpack Compose。| اپلیکیشن VPN چندموتورهٔ اندروید با موتور تطبیقی",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "nextcloud/all-in-one": {
+    "hash": "adee61df74212b5868cd5b36ca679f4ca3c1e93e941ccfdced39eefb6e0f1755",
+    "summary": "📦 官方Nextcloud安装方法。使用此Nextcloud实例中包含的大多数功能，提供轻松的部署和维护。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "pterodactyl/panel": {
+    "hash": "f531080f6fb1b2d6b2b05a865cd3889cda9f9f7480e071479319e766f92eeec2",
+    "summary": "Pterodactyl ®是一个使用PHP、React和Go构建的免费开源游戏服务器管理面板。Pterodactyl的设计考虑到安全性，在隔离的Docker容器中运行所有游戏服务器，同时向最终用户展示美观直观的用户界面。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "dotnet/runtime": {
+    "hash": "6482c72c8b43abd5d4a0f2713adce7c769efe40d4ddcd8979f8b7e454b072bc4",
+    "summary": ".NET是云、移动、桌面和物联网应用程序的跨平台运行时。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "roundcube/roundcubemail": {
+    "hash": "c5c7cccef183915cdaf2ce19c5763827973b7b96f759dc7356e52b50006f034a",
+    "summary": "Roundcube Webmail套件",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "deepseek-ai/deepseek-harness": {
+    "hash": "d3da329e87511b2cec0669e33aa43e0aeeb13d544bbb744523d4c72e521308b2",
+    "summary": "DeepSeek线束：一切都是插件。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "Niko1221/Strata": {
+    "hash": "7bee46383847eca6400d4af20333352c50433485cab657e9670ecd645131dc20",
+    "summary": "任何消费硬件上的Qwen3.8-Flash-Next ：一键安装Windows/Linux。Strata推理引擎， localhost上的OpenAI/Anthropic API ，可选图像输入。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "NandhaKishorM/laya": {
+    "hash": "23f6b947fe79adbac034b2812705467d14bb5744fcf70920e515859538b34223",
+    "summary": "非自回归系统1决策引擎。在100多种语言的单个转发通道中对任何文本进行键入选择、评分和是/否决定，路由器可为每个请求选择正确的检查点。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "yetone/magpie": {
+    "hash": "dfa4450df641f3070e2e0cddcdbf58bf7a4af6fc5b8a8a2add44f4ead9c4249c",
+    "summary": "每个代理的模型。一个地方。DeepSeek上的Codex ，菜单栏中的Kimi上的Claude Code。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "guillaumemeyer/watermarks-remover": {
+    "hash": "eb037c7a3af8c06911903db88221c1f028c347b471a67da8e46da058952389ab",
+    "summary": "一款以隐私为先的应用程序，可从您拥有的内容中去除AI水印。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "browser-use/jev-ultrafast": {
+    "hash": "098261d40fdc2f1b2ae1c81eb721abb8c32b509732d02188d062f420e6b797d1",
+    "summary": "最快、最便宜的网络代理",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "firecrawl/anydoc": {
+    "hash": "636ba64818141205489b55c6f7b3417a4e099584383f241647302438fb4c595c",
+    "summary": "将Word、PowerPoint、Excel、OpenDocument、RTF、EPUB、CSV和PDF转换为清除Markdown。内置Rust ，带有Node.js和Python绑定。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "lexmount/moli": {
+    "hash": "eae9b17c18e90bbd3752d1efe707db1a7db47555e00f64133b04ab0ec5267f07",
+    "summary": "人工智能代理的最佳无外设浏览器。轻巧、快速、高兼容性。内置Rust",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "robbietilton/Compositor": {
+    "hash": "865b68d3aff15d5d237005ef8d136486c27800eaf7cebe35e61247f7ee5b11d4",
+    "summary": "适用于Mac的Photoshop替代品",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "KnifeLemon/Filee": {
+    "hash": "e916572055c5c5ab7d474e3be90b4fe1fc0c8dd3d6187ccd659d75466d5f0b57",
+    "summary": "免费开源文件转换器。通过拖放离线转换263种格式—图像、PDF、Word、Excel、PowerPoint、HWP/HWPX、视频、音频、电子书和存档。无需上传，无需Office。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "Droid-Deck/DroidDeck": {
+    "hash": "88d7ada0537d9a0fe1ef689a0728907b4d8e6582ad709b012e748947bd98df97",
+    "summary": "DroidDeck为Android带来SteamOS体验",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "google/artemis": {
+    "hash": "ef16f46d2a0305fcdc25c5dac31a3ad1f90382d0fe6bf7bb6f9aa374122e7a9d",
+    "summary": "ARTEMIS将自然语言指令转化为可靠的Android自动化。它自动化端到端工作流程，捕获日志，并与Antigravity、Codex和Claude Code等AI编码助手无缝集成。它在AndroidWorld Benchmark上的成功率也达到了99%以上。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "peach-mitao/peach": {
+    "hash": "ce497e02c5f963b885cf9d0bad606776ee3421e7265d0693cf0d92e0108940bd",
+    "summary": "PEACH ：本地第一个视频元数据爬虫和媒体管理器。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "jub0t/Concat": {
+    "hash": "3e8a6a23989b7e9e830f35a5aafa311aaffb158a8b532bd2b2ac101206cb06fd",
+    "summary": "真正免费、开源、本地优先、跨平台的CapCut替代品。可通过JSON-RPC API和MCP编写脚本。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "deeplethe/utopia": {
+    "hash": "3f4994f0f81c4fd39a337ecd480e98aa7f695ee585d473846a58f43e40b57c02",
+    "summary": "世界上第一个开源企业世界模型。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "Louis-CFM/coucou": {
+    "hash": "f7665ff49cc900244e313f76f6b27f35c871f552840b22affc0886ad2fdf2a6f",
+    "summary": "Mac和iPhone上的小朋友，密切关注您的AI编码代理： Claude Code、Codex、Cursor、Gemini CLI、Antigravity等。从缺口或锁定屏幕进行审批。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "elie222/rakazo": {
+    "hash": "6635ceec2971313b79ccca458be349d63e174892f0d79b001ab9b6f1406e1c53",
+    "summary": "开源Grok Bot替代方案。选择您自己的模型和沙箱。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "Saffsanity/sill": {
+    "hash": "8c67f822d7f5f305312a1a345c347c15f1766794f9a46430eeee1b12790b4a41",
+    "summary": "Mac上的任何窗口，都可以在iPhone或iPad上实时显示。触摸、Apple Pencil、触控板和按键。免费、开源，无服务器。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "nateherkai/scroll-craft": {
+    "hash": "25074c5f9acb089466dfb0352ed3116f064d9cc5b7b13ce10ce43f0516ed2f3c",
+    "summary": "构建高级、沉浸式、滚动式网站的代理技能。与Codex、Claude Code和其他编码代理合作。也可作为Claude Code插件使用。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "AhmadHassan-BTed/MotionShot": {
+    "hash": "87148e066e1fc34df31338f36fee7dceacac95a936a38a9cb3a2a93af3d8b488",
+    "summary": "相机应用程序，可将快速运动序列冻结到单张频闪照片中；由设备上的计算机视觉、2D稳定和手动曝光控制提供支持",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "HarnessRouter/harnessrouter": {
+    "hash": "6e2b22c8839939cb19502f09a47044da226e1e8bb8a49936414e3f919d658b3a",
+    "summary": "HarnessRouter社区版：代理线束统一接口的自托管Apache-2.0版本。通过一个API运行Codex、Claude Code、Hermes、PI、DSH等，包括会话、流媒体、文件、取消和故障处理。实施统一线束协议(UHP) ，这是一个开放标准。您的钥匙，您的基础设施。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "nano-muse/nanoMuse": {
+    "hash": "e1e467357900f69f42ac8b548e4613d189ee242b508fcc86c17c593318f6ef48",
+    "summary": "nanoMuse ：适用于您拥有的每台设备的开源个人代理。一位具有姓名和独特外观的客服代表在应用关闭时继续工作，记住您，并在您无法撤消之前询问任何事情。在安卓、iPhone和iPad、Windows/macOS/Linux以及浏览器中；手机的屏幕和电脑。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "Leviidev/Husk": {
+    "hash": "b73c176f4a5804139af211d4257931845cf9bfb1e3459dae78fa275fbebee0ec",
+    "summary": "在iOS上运行Android。原生或仿真。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "Chuloo/mural": {
+    "hash": "d71ea30c8056a7caedb69a9590e8af25cd7003852cb76233656e88e81f6566f4",
+    "summary": "您最终删除的语言应用。通过对话学习的原生iPhone伴侣。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "datawhalechina/zero-to-sglang": {
+    "hash": "aa8ddcceb2f0c49afc7485da4b98b2fee94d8c63e964ba9b09c65d185b9ef367",
+    "summary": "关于LLM推理的SGLang x Datawhale官方课程：了解推理，从头开始构建一个迷你slang ，然后阅读真正的SGLang源代码并获得您的第一个PR。提供英文和中文版本。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "archestra-ai/OpenAPPA": {
+    "hash": "bb596c0520e534d2d1209764a8ef826a9ad7e858d5613de270c1e2ee5489bfae",
+    "summary": "不破坏客服代表的决定性护栏",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "pgrundev/pgbot": {
+    "hash": "813c3bc574eaac6ad4863e96a10112bafc65d72be32c42edb7744b207f32357d",
+    "summary": "人工智能代理的Postgres智能",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "unstablebuild/rune": {
+    "hash": "2be07a3ae32c3274c13f7ecfff8dbbe31f18cde6723465694575aabae27f4fc4",
+    "summary": "快速、GPU加速、功能齐全的IDE和终端多路复用器，适用于自动和手动编程。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "mikehasa/golive-skill": {
+    "hash": "c447804446ee9829a1689cdddb50d7acbc281c26fa8b85d2f807e647336851c4",
+    "summary": "将代理商打造的产品上线：托管、数据库、域名、电子邮件、付款—在您自己的帐户上。开源代理技能+零依赖节点CLI ：检测→计划→批准→应用→验证。无GoLive帐户、后端或遥测。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "nealbridges/VulnHunter": {
+    "hash": "5ff014fb60fe4cb58a1a1db4c86495652df6806e5834a1f8f24c82edeaec9ca1",
+    "summary": "代理人工智能安全扫描程序，可以像对手一样寻找可利用的漏洞，用可执行的PoC证明它们，并首先对其进行测试修复。Capital One的VulnHunter的维护分叉，为任何特工线束重建。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "ShayanAbbas1/dbdelve": {
+    "hash": "aafe6c13e250f10c4c4acf484b7d54be408f91932fb9acb6506052fbb633df3e",
+    "summary": "Rust和GPUI制造的快速轻量级数据库客户端。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "alpcanaydin/tusk": {
+    "hash": "6d3f4b894ff65964ed6cb7e3b50fc0472308d588accdd0c7244d42d5e0a2b834",
+    "summary": "适用于macOS的快速、本机、键盘驱动的数据库客户端。20个数据库，显示其工作的人工智能助手，免费和开源。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "lakeday-org/perch": {
+    "hash": "b291e455edecff0ddceaa7a91413b651c8e16f8039b647a6d7a390a06f848760",
+    "summary": "语义代码和安全扫描器",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "no-human-ai/no_human": {
+    "hash": "0b2ed833fa00afbb232c139b701faa2d2cc5ebd4225c74f6e124e7b911213213",
+    "summary": "从工单到已审核的拉取请求。免费和开源，在您的机器上。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "edisonmbli/refactoring-ui-skill": {
+    "hash": "6ca31c72c09b44dca0f633dd8dfa8f16163a8e9324ea014e6ec7033ee11a5c4d",
+    "summary": "非官方的Claude Skill源自Refactoring UI一书— Web UI的设计规则手册和诊断层。151个跟踪规则、设计令牌生成和顺风映射。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "Sheltercosmo/jev4pg": {
+    "hash": "3b29da1ff3f4a681d3604c0f648e257f6344699ae313e71cd6c6c116cadd47d3",
+    "summary": "为PostgreSQL建立了强大的基于JEV的自然语言到SQL性能和覆盖良好的语义运算符，优化了成本和延迟。可重复使用的证据，在开发预览中具有原生执行、并行计划和可解释的嵌入。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "matank001/clodfarm": {
+    "hash": "b926cb6990231262f4b708a7ad9193ef742c4094d045f145fbcb0f5191fb9a0f",
+    "summary": "clodfarm （大声说出来） ： Claude Code特工的农场。植入任务，他们将其拆分为子代理，打开工作，并根据每个帐户的实际5小时和每周的使用情况进行调整。从Claude应用程序引导它。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "madebymustafa/design-taste": {
+    "hash": "d20434727e93fc167de567fd3904b6299d50579fb6894feff6aec292f09f4526",
+    "summary": "24种将品味转化为指导的开源代理技能—十种流派身份，每种身份在演示前后由同一简报证明",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "kostja94/bricks": {
+    "hash": "93675ca4570274d369f2f9a2e9ce848b786126d0e4bb0b9cf4d6c6f64da2323b",
+    "summary": "AI代理的组件层：用于构建项目原生接口组件的实现感知合约。",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "dopbase/dopbase": {
+    "hash": "813a23c40bca56293c2277ddf08d0d349d38dff28cf63c78a602241d7f7e2eb9",
+    "summary": "DevOps秘密库：单个文件中的轻量级自托管秘密管理器",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  },
+  "lacvietanh/aki-mcp-sv": {
+    "hash": "2661a051e79333f7c916a883539c00fe5290521feca9c487da41cd583fdbdf89",
+    "summary": "用于AI聊天网页的自定义MCP [连接器] [Claude | ChatGPT | Grok...]直接在您的计算机上使用文件/Shell",
+    "at": "2026-10-30T13:49:17.238303+08:00"
+  }
+}
