@@ -1,6 +1,6 @@
 <div align="center">
 
-# 开源雷达 · GitHub Discovery
+# GIT Bot · GitHub Discovery
 
 **从开源趋势到中文解读，找到下一个想动手的项目。**
 

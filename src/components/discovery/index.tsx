@@ -196,12 +196,13 @@ export function Discovery() {
       <div className="orbs" aria-hidden="true"><i /><i /><i /></div>
       <header className="radar-header glass">
         <div className="bar">
-          <a className="radar-brand" href="/" aria-label="开源雷达首页">
-            <span className="brand-symbol"><Icon name="radar" /></span>
+          <a className="radar-brand" href="/" aria-label="GIT Bot 首页">
+            <span className="brand-symbol"><Icon name="bot" /></span>
             <span className="brand-text">
-              开源
-              <span className="brand-accent">雷达</span>
-              <small>OPEN SOURCE DISCOVERY</small>
+              GIT
+              {" "}
+              <span className="brand-accent">Bot</span>
+              <small>GITHUB DISCOVERY</small>
             </span>
           </a>
           <nav className="primary-nav" aria-label="主导航">
@@ -377,7 +378,7 @@ export function Discovery() {
         </aside>
         <footer className="radar-footer">
           <span className="footer-brand">
-            开源雷达
+            GIT Bot
             <small>让好项目被看见。</small>
           </span>
           <span>

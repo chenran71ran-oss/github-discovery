@@ -7,10 +7,10 @@ const pwaOption: Partial<VitePWAOptions> = {
   includeAssets: ["icon.svg", "apple-touch-icon.png"],
   filename: "swx.js",
   manifest: {
-    name: "开源雷达",
-    short_name: "开源雷达",
+    name: "GIT Bot",
+    short_name: "GIT Bot",
     description: "用中文发现下一个好项目",
-    theme_color: "#df665c",
+    theme_color: "#4f7cff",
     icons: [
       {
         src: "pwa-192x192.png",
