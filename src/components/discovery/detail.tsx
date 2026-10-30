@@ -11,6 +11,7 @@ const sourceNotes: Record<Repository["summarySource"], string> = {
   "ai-readme": "基于 README 的 AI 解读",
   "upstream": "GithubTrending 中文速览 · 尚非 README 深读",
   "editorial": "基于项目公开资料整理 · 不代表 AI 深度分析",
+  "machine": "机器翻译 · 只翻译了项目简介，可能不够准确",
   "pending": "原始信息",
 }
 

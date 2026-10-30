@@ -1,14 +1,17 @@
 """Reuse GithubTrending parsing, preserve full rankings, enrich once per repository.
 No API credentials or fabricated translations are written into the data artifacts.
+Machine translations are labelled as such and only ever translate the project's own description.
 """
 import concurrent.futures
 import hashlib
+import html
 import json
 import os
 import re
 import sys
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
+from urllib.parse import quote
 
 sys.path.insert(0, str(Path(__file__).parent / "vendor"))
 from github_trending.app import create_http_session, parse_trending_html
@@ -18,7 +21,12 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "public/data"
 PERIODS = ("daily", "weekly", "monthly")
 TZ = timezone(timedelta(hours=8))
-CATEGORIES = ("AI 与智能体", "开发工具", "自托管", "数据与基础设施", "学习与研究", "其他")
+CATEGORIES = ("AI 与智能体", "开发工具", "前端与界面", "自托管", "数据与基础设施", "安全与隐私", "移动与桌面", "学习与研究", "其他")
+# The all-language Trending page is dominated by whatever is hot (lately AI agents). A few
+# repositories from each language's own Trending page widen what the categories can cover.
+LANGUAGE_POOLS = ("python", "typescript", "javascript", "go", "rust", "java", "c++", "swift")
+POOL_SIZE = 3
+NO_DESCRIPTION = "无描述"
 
 def number(s):
     s = str(s).replace(",", "").strip().lower()
@@ -28,11 +36,35 @@ def number(s):
 def chinese(s):
     return isinstance(s, str) and bool(re.search(r"[\u3400-\u9fff]", s))
 
-def category(text):
-    text = text.lower()
-    for words, label in [(r"\bai\b|agent|llm|neural|machine learning", CATEGORIES[0]), (r"self.host|自托管", CATEGORIES[2]), (r"database|postgres|redis|storage|cloud|infra", CATEGORIES[3]), (r"tutorial|course|research|learn|paper", CATEGORIES[4]), (r"tool|framework|cli|sdk|developer|plugin|code", CATEGORIES[1])]:
-        if re.search(words, text): return label
-    return CATEGORIES[-1]
+# (category, weight, pattern). Every distinct keyword that matches adds its weight; the highest
+# score wins. Ties go to the more specific category, so "AI-powered terminal" is a developer tool
+# while "LLM agent framework" stays AI.
+CATEGORY_RULES = [
+    ("AI 与智能体", 1, r"ai|llms?|gpt|agents?|agentic|rag|mcp|ml|neural|transformers?|diffusion|embeddings?|inference|prompts?|chatbots?|copilot|claude|codex|openai|ollama|whisper|multimodal|fine-?tun\w*|text-to-\w+|voice cloning|tts|asr|人工智能|大模型|智能体"),
+    ("开发工具", 1, r"cli|sdk|ide|editor|compiler|debugger|linter|formatter|build tool|package manager|terminal|shell|git|devops|ci/?cd|testing|framework|library|code review|vs ?code|neovim|vim|plugins?|extensions?|codebase|开发者|命令行"),
+    ("前端与界面", 1, r"ui|ux|components?|css|tailwind|react|vue|svelte|design system|frontend|front-end|animations?|icons?|web ?app|interfaces?|html|界面|前端"),
+    ("自托管", 2, r"self-?hosted|selfhost\w*|homelab|home lab|home assistant|docker compose|nas|media server|local-first|alternative to|\w+ alternative|自托管"),
+    ("数据与基础设施", 1, r"database|sql|postgres\w*|mysql|sqlite|redis|kafka|storage|cloud|kubernetes|k8s|infra\w*|observability|monitoring|etl|data pipelines?|vector (?:db|database)|cache|serverless|distributed|knowledge graph|网盘|数据库"),
+    ("安全与隐私", 2, r"security|vulnerabilit\w+|pentest\w*|penetration|malware|privacy|encryption|password|firewall|vpn|osint|ctf|zero trust|2fa|reverse engineering|jailbreaks?|安全|隐私"),
+    ("移动与桌面", 1, r"ios|android|macos|mac app|windows app|desktop|mobile|flutter|react native|electron|tauri|menu ?bar|swiftui|expo|桌面|手机"),
+    ("学习与研究", 1, r"learn(?:ing)?|research|papers?|benchmarks?|datasets?|notes|books?|teach\w*|tutor\w*|教程|学习"),
+    ("学习与研究", 2, r"awesome|curated|tutorials?|courses?|roadmaps?|cheat ?sheets?|interview\w*|guides?"),
+]
+LANGUAGE_HINTS = {"Swift": "移动与桌面", "Kotlin": "移动与桌面", "Dart": "移动与桌面", "Objective-C": "移动与桌面", "HTML": "前端与界面", "CSS": "前端与界面", "Vue": "前端与界面", "Svelte": "前端与界面", "Astro": "前端与界面", "Jupyter Notebook": "学习与研究", "TeX": "学习与研究"}
+TIE_ORDER = ("安全与隐私", "自托管", "移动与桌面", "前端与界面", "数据与基础设施", "学习与研究", "开发工具", "AI 与智能体", "其他")
+
+def category(text, language=""):
+    text = text.lower().replace("user-agent", " ")
+    # "machine learning" is AI, not a learning resource
+    text = re.sub(r"\b(?:machine|deep|reinforcement) learning\b", " ml ", text)
+    scores = dict.fromkeys(CATEGORIES, 0)
+    for label, weight, words in CATEGORY_RULES:
+        hits = {m.group(0) for m in re.finditer(rf"(?<![a-z0-9])(?:{words})(?![a-z0-9])", text)}
+        scores[label] += weight * len(hits)
+    if language in LANGUAGE_HINTS: scores[LANGUAGE_HINTS[language]] += 1
+    best = max(scores.values())
+    if best == 0: return CATEGORIES[-1]
+    return next(label for label in TIE_ORDER if scores[label] == best)
 
 def read_json(path, fallback):
     try: return json.loads(path.read_text())
@@ -44,21 +76,81 @@ def atomic_json(path, data):
     tmp.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n")
     tmp.replace(path)
 
-def fetch_period(period):
+def parse_rows(text):
+    # Upstream defaults to ten; preserve every member of the original list.
+    rows = parse_trending_html(text, limit=1000)
+    counters = {}
+    for article in BeautifulSoup(text, "html.parser").select("article.Box-row"):
+        link = article.select_one("h2 a[href]")
+        growth = re.search(r"([\d,.kmKM]+)\s+stars?\s+(?:today|this week|this month)", article.get_text(" ", strip=True))
+        if link: counters[link["href"].strip("/")] = number(growth[1]) if growth else None
+    return [{"fullName":r["title"], "rank":0, "description":r["description"], "language":r["language"], "stars":number(r["stars"]), "forks":number(r["forks"]), "periodStars":counters.get(r["title"]), "previousRank":None, "summary":None, "useCase":None, "techStack":[], "highlights":[], "category":category(r["title"].split("/")[-1].replace("-"," ")+" "+r["description"], r["language"]), "summarySource":"pending", "summaryAt":None, "origin":"trending"} for r in rows]
+
+def fetch_trending(period, language=""):
+    path = "https://github.com/trending" + (f"/{quote(language, safe='')}" if language else "")
     session = create_http_session()
     try:
-        response = session.get("https://github.com/trending", params={"since":period}, timeout=(10,30))
+        response = session.get(path, params={"since":period}, timeout=(10,30))
         response.raise_for_status()
-        # Upstream defaults to ten; preserve every member of the original list.
-        rows = parse_trending_html(response.text, limit=1000)
-        articles = BeautifulSoup(response.text, "html.parser").select("article.Box-row")
-        counters = {}
-        for article in articles:
-            link = article.select_one("h2 a[href]")
-            growth = re.search(r"([\d,.kmKM]+)\s+stars?\s+(?:today|this week|this month)", article.get_text(" ", strip=True))
-            if link: counters[link["href"].strip("/")] = number(growth[1]) if growth else None
-        if len(rows) < 5: raise ValueError("Incomplete ranking")
-        return [{"fullName":r["title"], "rank":i+1, "description":r["description"], "language":r["language"], "stars":number(r["stars"]), "forks":number(r["forks"]), "periodStars":counters.get(r["title"]), "previousRank":None, "summary":None, "useCase":None, "techStack":[], "highlights":[], "category":category(r["title"]+" "+r["description"]), "summarySource":"pending", "summaryAt":None} for i,r in enumerate(rows)]
+        return parse_rows(response.text)
+    finally: session.close()
+
+def fetch_period(period, fetch=fetch_trending):
+    rows = fetch(period)
+    if len(rows) < 5: raise ValueError("Incomplete ranking")
+    seen = {r["fullName"] for r in rows}
+    extra = []
+    for language in LANGUAGE_POOLS:
+        try: pool = fetch(period, language)
+        except Exception:
+            print(f"Language pool {language}/{period} failed; skipped", file=sys.stderr)
+            continue
+        for r in [r for r in pool if r["fullName"] not in seen][:POOL_SIZE]:
+            seen.add(r["fullName"])
+            extra.append({**r, "origin":"language"})
+    # The main ranking keeps its order; language picks follow, strongest growth first.
+    extra.sort(key=lambda r: -(r["periodStars"] or 0))
+    rows = rows + extra
+    for i, r in enumerate(rows): r["rank"] = i + 1
+    return rows
+
+def trim_bytes(text, limit=480):
+    text = " ".join(text.split())
+    while len(text.encode()) > limit: text = text[:-1]
+    return text
+
+def machine_translate(text, session, email=""):
+    """English description -> Simplified Chinese via MyMemory's free API. None when it can't."""
+    params = {"q":trim_bytes(text), "langpair":"en|zh-CN"}
+    if email: params["de"] = email
+    response = session.get("https://api.mymemory.translated.net/get", params=params, timeout=15)
+    response.raise_for_status()
+    doc = response.json()
+    out = html.unescape(str((doc.get("responseData") or {}).get("translatedText") or "")).strip()
+    # Quota and error notices come back as 'translations' too; only accept real Chinese text.
+    if str(doc.get("responseStatus")) != "200" or "MYMEMORY" in out.upper() or not chinese(out): return None
+    return out[:600]
+
+def translate_missing(names, unique, cache, now):
+    """Fill in a labelled machine translation for repositories that still have no Chinese text.
+    Cached by description hash, so each description is translated once. Stops at the daily budget."""
+    if os.getenv("MACHINE_TRANSLATION", "1") == "0": return
+    email = os.getenv("MYMEMORY_EMAIL", "")
+    budget = 45000 if email else 4500
+    todo = [n for n in names if cache.get(n, {}).get("hash") != hashlib.sha256(unique[n]["description"].encode()).hexdigest()]
+    if not todo: return
+    try: session = create_http_session()
+    except Exception: return
+    try:
+        for name in todo:
+            text = trim_bytes(unique[name]["description"])
+            if len(text) > budget: break
+            budget -= len(text)
+            try: value = machine_translate(text, session, email)
+            except Exception:
+                print("Machine translation unavailable; leaving the rest pending", file=sys.stderr)
+                break
+            if value: cache[name] = {"hash":hashlib.sha256(unique[name]["description"].encode()).hexdigest(),"summary":value,"at":now}
     finally: session.close()
 
 def valid_analysis(v):
@@ -93,6 +185,7 @@ def main():
     yesterday = (datetime.now(TZ)-timedelta(days=1)).date().isoformat()
     baseline = read_json(DATA / "history" / f"{yesterday}.json", {})
     cache = read_json(DATA / "analysis-cache.json", {})
+    translations = read_json(DATA / "translation-cache.json", {})
     editorial = read_json(ROOT / "collector/editorial.json", {})
     upstream = {}
     try:
@@ -131,6 +224,11 @@ def main():
                     value = future.result()
                     if value: cache[futures[future]] = value
                 except Exception: print("AI analysis failed; preserved previous validated content", file=sys.stderr)
+    def has_chinese_source(name, r):
+        entry = cache.get(name)
+        return bool((entry and valid_analysis(entry.get("analysis"))) or name in upstream or (name in editorial and editorial[name].get("descriptionHash") == hashlib.sha256(r["description"].encode()).hexdigest()) or (r.get("summary") and chinese(r["summary"])))
+    missing = [n for n,r in unique.items() if r["description"] != NO_DESCRIPTION and not chinese(r["description"]) and not has_chinese_source(n, r)]
+    translate_missing(missing, unique, translations, now)
     ready = 0
     for name,r in unique.items():
         entry = cache.get(name)
@@ -143,6 +241,8 @@ def main():
             enrichment = {"summary":e["summary"],"summarySource":"editorial","summaryAt":e["at"]}
         elif r.get("summary") and chinese(r["summary"]):
             enrichment = {k:r[k] for k in ("summary","useCase","techStack","highlights","category","summarySource","summaryAt")}
+        elif name in translations and translations[name].get("hash") == hashlib.sha256(r["description"].encode()).hexdigest():
+            enrichment = {"summary":translations[name]["summary"],"summarySource":"machine","summaryAt":translations[name]["at"]}
         else: enrichment = {}
         if enrichment: ready += 1
         for rows in periods.values():
@@ -152,6 +252,7 @@ def main():
     atomic_json(DATA / "latest.json", payload)
     atomic_json(DATA / "history" / f"{now[:10]}.json", payload)
     atomic_json(DATA / "analysis-cache.json", cache)
+    atomic_json(DATA / "translation-cache.json", translations)
     dates = sorted((p.stem for p in (DATA/"history").glob("????-??-??.json")), reverse=True)
     atomic_json(DATA / "dates.json", dates[:90])
     print(json.dumps({"periodCounts":{k:len(v) for k,v in periods.items()},"enrichment":payload["enrichment"]}, ensure_ascii=False))

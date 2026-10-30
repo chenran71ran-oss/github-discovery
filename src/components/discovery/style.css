@@ -210,6 +210,7 @@
 .radar-app .lang i { width: 9px; height: 9px; border-radius: 50%; }
 .radar-app .stars .i { width: 12px; height: 12px; }
 .radar-app .cat { color: hsl(var(--ch) 82% var(--cl)); }
+.radar-app .pool { padding: 0 7px; border-radius: 99px; box-shadow: inset 0 0 0 1px var(--line); color: var(--muted); font-size: 11px; }
 .radar-app .move.up { color: hsl(150 70% var(--cl)); }
 .radar-app .move.down { color: hsl(8 82% var(--cl)); }
 .radar-app .gain { grid-area: gain; display: flex; flex-direction: column; align-items: flex-end; align-self: start; line-height: 1.25; }
