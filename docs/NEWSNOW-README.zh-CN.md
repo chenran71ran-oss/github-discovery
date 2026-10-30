@@ -1,6 +1,6 @@
-![](/public/og-image.png)
+![](../public/og-image.png)
 
-[English](./README.md) | 简体中文 | [日本語](README.ja-JP.md)
+[English](NEWSNOW-README.md) | 简体中文 | [日本語](NEWSNOW-README.ja-JP.md)
 
 ***优雅地阅读实时热门新闻***
 
@@ -105,11 +105,11 @@ pnpm dev
 
 ## License
 
-[MIT](./LICENSE) © ourongxing
+[MIT](../LICENSE) © ourongxing
 
 ## 赞赏
 如果你依赖本服务，欢迎赞助以帮助它长期运行。如果需要定制或者其他帮助，也可以下列方式联系备注。
 
-![](./screenshots/reward.gif)
+![](../screenshots/reward.gif)
 
 <a href="https://hellogithub.com/repository/c2978695e74a423189e9ca2543ab3b36" target="_blank"><img src="https://api.hellogithub.com/v1/widgets/recommend.svg?rid=c2978695e74a423189e9ca2543ab3b36&claim_uid=SMJiFwlsKCkWf89&theme=small" alt="Featured｜HelloGitHub" /></a>
