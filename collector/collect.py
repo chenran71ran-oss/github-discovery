@@ -9,6 +9,7 @@ import json
 import os
 import re
 import sys
+import time
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from urllib.parse import quote
@@ -22,11 +23,19 @@ DATA = ROOT / "public/data"
 PERIODS = ("daily", "weekly", "monthly")
 TZ = timezone(timedelta(hours=8))
 CATEGORIES = ("AI 与智能体", "开发工具", "前端与界面", "自托管", "数据与基础设施", "安全与隐私", "移动与桌面", "学习与研究", "其他")
-# The all-language Trending page is dominated by whatever is hot (lately AI agents). A few
-# repositories from each language's own Trending page widen what the categories can cover.
-LANGUAGE_POOLS = ("python", "typescript", "javascript", "go", "rust", "java", "c++", "swift")
-POOL_SIZE = 3
+# GitHub Trending now lists only about 8-20 repositories per page, mostly AI agents. Two more
+# sources widen coverage: each language's own Trending page, and the GitHub search API for
+# recently created repositories that are gaining stars fast (overall and per topic).
+LANGUAGE_POOLS = ("python", "typescript", "javascript", "go", "rust", "java", "c++", "c", "c#", "swift", "kotlin", "php")
+POOL_SIZE = 5
+# Search: repositories created within this many days, with at least this many stars.
+SEARCH_WINDOWS = {"daily": (7, 50), "weekly": (30, 150), "monthly": (90, 400)}
+SEARCH_GENERAL = 30
+SEARCH_TOPICS = ("self-hosted", "security", "frontend", "android", "ios", "database", "devtools", "tutorial")
+SEARCH_PER_TOPIC = 8
+SEARCH_PAUSE = 2.2  # authenticated search allows 30 requests a minute
 NO_DESCRIPTION = "无描述"
+FULL_NAME = re.compile(r"^[\w.-]+/[\w.-]+$")
 
 def number(s):
     s = str(s).replace(",", "").strip().lower()
@@ -41,7 +50,7 @@ def chinese(s):
 # while "LLM agent framework" stays AI.
 CATEGORY_RULES = [
     ("AI 与智能体", 1, r"ai|llms?|gpt|agents?|agentic|rag|mcp|ml|neural|transformers?|diffusion|embeddings?|inference|prompts?|chatbots?|copilot|claude|codex|openai|ollama|whisper|multimodal|fine-?tun\w*|text-to-\w+|voice cloning|tts|asr|人工智能|大模型|智能体"),
-    ("开发工具", 1, r"cli|sdk|ide|editor|compiler|debugger|linter|formatter|build tool|package manager|terminal|shell|git|devops|ci/?cd|testing|framework|library|code review|vs ?code|neovim|vim|plugins?|extensions?|codebase|开发者|命令行"),
+    ("开发工具", 1, r"cli|sdk|ide|editor|compiler|debugger|linter|formatter|build tool|package manager|terminal|shell|git|devops|ci/?cd|testing|framework|library|code review|devtools|developer tools|vs ?code|neovim|vim|plugins?|extensions?|codebase|开发者|命令行"),
     ("前端与界面", 1, r"ui|ux|components?|css|tailwind|react|vue|svelte|design system|frontend|front-end|animations?|icons?|web ?app|interfaces?|html|界面|前端"),
     ("自托管", 2, r"self-?hosted|selfhost\w*|homelab|home lab|home assistant|docker compose|nas|media server|local-first|alternative to|\w+ alternative|自托管"),
     ("数据与基础设施", 1, r"database|sql|postgres\w*|mysql|sqlite|redis|kafka|storage|cloud|kubernetes|k8s|infra\w*|observability|monitoring|etl|data pipelines?|vector (?:db|database)|cache|serverless|distributed|knowledge graph|网盘|数据库"),
@@ -95,11 +104,47 @@ def fetch_trending(period, language=""):
         return parse_rows(response.text)
     finally: session.close()
 
-def fetch_period(period, fetch=fetch_trending):
+def search_row(item):
+    name = str(item.get("full_name") or "")
+    if not FULL_NAME.fullmatch(name) or item.get("fork") or item.get("archived"): return None
+    description = " ".join(str(item.get("description") or "").split()) or NO_DESCRIPTION
+    language = item.get("language") or "未知"
+    topics = [t for t in item.get("topics") or [] if isinstance(t, str)]
+    return {"fullName":name, "rank":0, "description":description[:400], "language":language, "stars":int(item.get("stargazers_count") or 0), "forks":int(item.get("forks_count") or 0), "periodStars":None, "previousRank":None, "summary":None, "useCase":None, "techStack":[], "highlights":[], "category":category(name.split("/")[-1].replace("-"," ")+" "+description+" "+" "+" ".join(topics), language), "summarySource":"pending", "summaryAt":None, "origin":"search", "createdAt":item.get("created_at")}
+
+def search_queries(period, today, authenticated):
+    days, stars = SEARCH_WINDOWS[period]
+    since = (today - timedelta(days=days)).isoformat()
+    queries = [(f"created:>={since} stars:>={stars} archived:false", SEARCH_GENERAL)]
+    # Unauthenticated search allows 10 requests a minute: only the general query then.
+    if authenticated: queries += [(f"topic:{t} created:>={since} stars:>={max(10, stars // 3)} archived:false", SEARCH_PER_TOPIC) for t in SEARCH_TOPICS]
+    return queries
+
+def fetch_search(period, today=None, pause=None):
+    token = os.getenv("GITHUB_TOKEN", "")
+    headers = {"Accept":"application/vnd.github+json", "X-GitHub-Api-Version":"2022-11-28"}
+    if token: headers["Authorization"] = f"Bearer {token}"
+    today = today or datetime.now(TZ).date()
+    rows = []
+    session = create_http_session()
+    try:
+        for i, (query, size) in enumerate(search_queries(period, today, bool(token))):
+            if i: time.sleep(SEARCH_PAUSE if pause is None else pause)
+            try:
+                response = session.get("https://api.github.com/search/repositories", params={"q":query, "sort":"stars", "order":"desc", "per_page":size}, headers=headers, timeout=(10,30))
+                response.raise_for_status()
+                rows += [r for r in map(search_row, response.json().get("items") or []) if r]
+            except Exception as error:
+                print(f"Search failed for {period} ({query}): {error}; skipped", file=sys.stderr)
+    finally: session.close()
+    return rows
+
+def fetch_period(period, fetch=fetch_trending, search=fetch_search):
     rows = fetch(period)
-    if len(rows) < 5: raise ValueError("Incomplete ranking")
+    # An empty main page means the page layout changed; refuse rather than publish only extras.
+    if not rows: raise ValueError("Incomplete ranking")
     seen = {r["fullName"] for r in rows}
-    extra = []
+    picks, found = [], []
     for language in LANGUAGE_POOLS:
         try: pool = fetch(period, language)
         except Exception:
@@ -107,10 +152,20 @@ def fetch_period(period, fetch=fetch_trending):
             continue
         for r in [r for r in pool if r["fullName"] not in seen][:POOL_SIZE]:
             seen.add(r["fullName"])
-            extra.append({**r, "origin":"language"})
-    # The main ranking keeps its order; language picks follow, strongest growth first.
-    extra.sort(key=lambda r: -(r["periodStars"] or 0))
-    rows = rows + extra
+            picks.append({**r, "origin":"language"})
+    try: results = search(period)
+    except Exception as error:
+        print(f"Search for {period} failed: {error}; skipped", file=sys.stderr)
+        results = []
+    for r in results:
+        if r["fullName"] in seen: continue
+        seen.add(r["fullName"])
+        found.append(r)
+    # Main ranking keeps its order; then language picks by growth; then new projects by stars.
+    picks.sort(key=lambda r: -(r["periodStars"] or 0))
+    found.sort(key=lambda r: -r["stars"])
+    rows = rows + picks + found
+    if len(rows) < 5: raise ValueError("Incomplete ranking")
     for i, r in enumerate(rows): r["rank"] = i + 1
     return rows
 

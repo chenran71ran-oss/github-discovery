@@ -48,6 +48,9 @@ interface RowProps {
 function Row({ repo, period, index, showCategory, saved, onSave, onOpen }: RowProps) {
   const [owner, name] = repo.fullName.split("/")
   const moved = repo.previousRank ? repo.previousRank - repo.rank : 0
+  // 搜索来的新项目没有周期增量，改为显示建了几天
+  const created = repo.createdAt ? Date.parse(repo.createdAt) : Number.NaN
+  const age = Number.isFinite(created) ? Math.max(1, Math.ceil((Date.now() - created) / 86400000)) : null
   return (
     <li className={`row card ${repo.rank && repo.rank <= 3 ? "top" : ""}`} style={{ "--i": Math.min(index, 14) } as CSSProperties}>
       <span className={`rk ${repo.rank && repo.rank <= 3 ? "hi" : ""}`}>{repo.rank ? String(repo.rank).padStart(2, "0") : "—"}</span>
@@ -67,13 +70,25 @@ function Row({ repo, period, index, showCategory, saved, onSave, onOpen }: RowPr
         <span className="lang"><i style={{ backgroundColor: languageColors[repo.language] || "#9b8ca9" }} />{repo.language}</span>
         <span className="stars"><Icon name="star" />{compact(repo.stars)}</span>
         {repo.origin === "language" && <span className="pool" title="来自该语言自己的 Trending 榜，不在总榜里">语言榜</span>}
+        {repo.origin === "search" && <span className="pool new" title={`近期新建、Star 增长很快的项目${repo.createdAt ? ` · 创建于 ${repo.createdAt.slice(0, 10)}` : ""}`}>新项目</span>}
         {showCategory && <span className="cat" style={{ "--ch": categoryHues[repo.category] ?? 190 } as CSSProperties}>{repo.category}</span>}
         <span className={`src ${repo.summary ? "" : "pending"}`}>{`✦ ${sourceLabels[repo.summarySource]}`}</span>
         {moved !== 0 && <span className={`move ${moved > 0 ? "up" : "down"}`}>{`${moved > 0 ? "↑" : "↓"}${Math.abs(moved)}`}</span>}
       </div>
       <div className="gain">
-        <b>{repo.periodStars === null ? "—" : `+${compact(repo.periodStars)}`}</b>
-        <small>{labels[period]}</small>
+        {repo.periodStars === null && age !== null
+          ? (
+              <>
+                <b className="age">{`${age} 天`}</b>
+                <small>前新建</small>
+              </>
+            )
+          : (
+              <>
+                <b>{repo.periodStars === null ? "—" : `+${compact(repo.periodStars)}`}</b>
+                <small>{labels[period]}</small>
+              </>
+            )}
       </div>
       <button type="button" className={`bm ${saved ? "on" : ""}`} aria-label={`${saved ? "取消收藏" : "收藏"} ${repo.fullName}`} aria-pressed={saved} onClick={() => onSave(repo)}><Icon name="bookmark" /></button>
     </li>
@@ -380,7 +395,7 @@ export function Discovery() {
             中文速览来自 GithubTrending；首批资料速览按项目公开资料整理，README 深度解读单独标注。还没有中文的英文项目会先显示「机器翻译」，只翻译项目自己的简介，可能不够准确。
             {!data?.enrichment.aiConfigured && "本预览尚未配置独立 AI 服务，缺少的深度解读不会用模板内容代替。"}
             {" "}
-            排名与 Star 增量来自 GitHub Trending；标着「语言榜」的项目来自各编程语言自己的 Trending 榜，排在总榜之后，用来补足总榜覆盖不到的方向。收藏仅存于当前浏览器。「爆发」表示周期新增 Star 占总数的比例和增量都很高。项目图标为仓库所有者的 GitHub 头像。
+            排名与 Star 增量来自 GitHub Trending；标着「语言榜」的项目来自各编程语言自己的 Trending 榜；标着「新项目」的来自 GitHub 搜索，是近期新建、Star 增长很快的项目，按总 Star 排序，没有周期增量。两者都排在总榜之后，用来补足总榜覆盖不到的方向。收藏仅存于当前浏览器。「爆发」表示周期新增 Star 占总数的比例和增量都很高。项目图标为仓库所有者的 GitHub 头像。
           </p>
         </aside>
         <footer className="radar-footer">
