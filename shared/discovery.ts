@@ -14,8 +14,10 @@ export interface Repository {
   techStack: string[]
   highlights: string[]
   category: string
-  summarySource: "ai-readme" | "upstream" | "editorial" | "pending"
+  summarySource: "ai-readme" | "upstream" | "editorial" | "machine" | "pending"
   summaryAt: string | null
+  /** "language": picked from a language's own Trending page to widen coverage; absent in older snapshots. */
+  origin?: "trending" | "language"
 }
 export interface DiscoverySnapshot {
   schemaVersion: 1
@@ -50,7 +52,7 @@ export function isBreakout(repo: Pick<Repository, "stars" | "periodStars">, peri
   const rule = breakoutRules[period]
   return gain >= rule.min && gain / repo.stars >= rule.share
 }
-export const categoryNames =["全部", "AI 与智能体", "开发工具", "自托管", "数据与基础设施", "学习与研究", "其他"]
+export const categoryNames = ["全部", "AI 与智能体", "开发工具", "前端与界面", "自托管", "数据与基础设施", "安全与隐私", "移动与桌面", "学习与研究", "其他"]
 export function compact(n: number) {
   return new Intl.NumberFormat("en-US", { notation: "compact", maximumFractionDigits: 1 }).format(n)
 }

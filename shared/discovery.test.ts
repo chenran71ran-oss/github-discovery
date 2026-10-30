@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs"
 import { describe, expect, it } from "vitest"
-import { type DiscoverySnapshot, breakoutRules, filterRepositories, isBreakout, isSnapshot, periods } from "./discovery"
+import { type DiscoverySnapshot, breakoutRules, categoryNames, filterRepositories, isBreakout, isSnapshot, periods } from "./discovery"
 
 const data = JSON.parse(readFileSync("public/data/latest.json", "utf8")) as DiscoverySnapshot
 
@@ -22,6 +22,16 @@ describe("discovery data contract", () => {
     const result = filterRepositories(data.periods.daily, repo.summary!.slice(0, 4), repo.language, repo.category, [repo.fullName])
     expect(result.map(r => r.fullName)).toEqual([repo.fullName])
     expect(filterRepositories(data.periods.daily, "", "", "", [])).toEqual([])
+  })
+})
+
+describe("categories", () => {
+  it("offers a filter for every category the collector can assign", () => {
+    const source = readFileSync("collector/collect.py", "utf8")
+    const tuple = source.match(/^CATEGORIES = \(([^)]*)\)/m)![1]
+    const assigned = [...tuple.matchAll(/"([^"]+)"/g)].map(m => m[1])
+    expect(assigned.length).toBeGreaterThan(5)
+    expect(categoryNames.slice(1)).toEqual(assigned)
   })
 })
 

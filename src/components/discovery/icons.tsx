@@ -2,6 +2,7 @@ import { type CSSProperties, useState } from "react"
 
 /** 内联 SVG 图标：不依赖图标集的按需生成，iPhone 上首屏也不会出现空白图标。 */
 const paths = {
+  bot: ["M12 8V4H8", "M4 10a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z", "M2 14h2", "M20 14h2", "M15 13v2", "M9 13v2"],
   radar: ["M3 12a9 9 0 1 0 18 0a9 9 0 1 0-18 0", "M7.5 12a4.5 4.5 0 1 0 9 0a4.5 4.5 0 1 0-9 0", "M12 12 19 5"],
   compass: ["M2 12a10 10 0 1 0 20 0a10 10 0 1 0-20 0", "m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36z"],
   bookmark: ["m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"],
@@ -35,6 +36,9 @@ export function Icon({ name, className = "" }: { name: IconName, className?: str
   )
 }
 
+/** 本次访问里已经加载过的头像：列表重新入场时直接显示，不再闪一下字母色块 */
+const loaded = new Set<string>()
+
 function hash(text: string) {
   let h = 0
   for (const char of text) h = (h * 31 + char.charCodeAt(0)) >>> 0
@@ -47,7 +51,7 @@ function hash(text: string) {
  */
 export function RepoIcon({ fullName }: { fullName: string }) {
   const [owner, name = ""] = fullName.split("/")
-  const [state, setState] = useState<"loading" | "ready" | "failed">("loading")
+  const [state, setState] = useState<"loading" | "ready" | "failed">(() => loaded.has(owner) ? "ready" : "loading")
   return (
     <span className={`repo-icon ${state}`} style={{ "--h": hash(owner) % 360 } as CSSProperties} aria-hidden="true">
       <span className="repo-icon-letter">{name.charAt(0).toUpperCase() || "#"}</span>
@@ -60,7 +64,10 @@ export function RepoIcon({ fullName }: { fullName: string }) {
           loading="lazy"
           decoding="async"
           referrerPolicy="no-referrer"
-          onLoad={() => setState("ready")}
+          onLoad={() => {
+            loaded.add(owner)
+            setState("ready")
+          }}
           onError={() => setState("failed")}
         />
       )}
