@@ -16,8 +16,13 @@ export interface Repository {
   category: string
   summarySource: "ai-readme" | "upstream" | "editorial" | "machine" | "pending"
   summaryAt: string | null
-  /** "language": picked from a language's own Trending page to widen coverage; absent in older snapshots. */
-  origin?: "trending" | "language"
+  /**
+   * Where the row came from; absent in older snapshots.
+   * "language": a language's own Trending page. "search": recently created and gaining stars fast (GitHub search).
+   */
+  origin?: "trending" | "language" | "search"
+  /** Creation time, only known for "search" rows. */
+  createdAt?: string
 }
 export interface DiscoverySnapshot {
   schemaVersion: 1

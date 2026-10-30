@@ -26,6 +26,8 @@ jobs:
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
           # Optional: an email raises the free machine-translation quota from 5,000 to 50,000 characters a day.
           MYMEMORY_EMAIL: ${{ secrets.MYMEMORY_EMAIL }}
+          # Search API for recently created repositories: 30 requests a minute with a token, 10 without.
+          GITHUB_TOKEN: ${{ github.token }}
       - run: python -m unittest discover -s collector -p 'test_*.py'
       - name: Commit snapshots
         run: |

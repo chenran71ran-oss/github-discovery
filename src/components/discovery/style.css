@@ -228,6 +228,8 @@
 .radar-app .card:active { transform: scale(0.985); border-radius: 30px; background: var(--card-hover); transition-duration: 0.18s; }
 .radar-app .row.card:has(.name:focus-visible) { outline-offset: 2px; border-radius: 22px; }
 .radar-app .card.skeleton { min-height: 118px; }
+/* 榜单变长后，屏幕外的卡片跳过排版和绘制 */
+.radar-app .rows.cards > .card:nth-child(n + 13) { content-visibility: auto; contain-intrinsic-size: auto 140px; }
 @keyframes card-in { from { opacity: 0; transform: translateY(18px) scale(0.955); border-radius: 36px; } }
 .radar-app .rk { grid-area: rk; padding-top: 3px; color: var(--muted); font: 650 13px/1.7 var(--mono); }
 .radar-app .rk.hi { color: color-mix(in srgb, var(--accent) 65%, var(--ink)); }
@@ -252,11 +254,13 @@
 .radar-app .stars .i { width: 12px; height: 12px; }
 .radar-app .cat { color: hsl(var(--ch) 82% var(--cl)); }
 .radar-app .pool { padding: 0 7px; border-radius: 99px; box-shadow: inset 0 0 0 1px var(--line); color: var(--muted); font-size: 11px; }
+.radar-app .pool.new { box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 40%, transparent); color: color-mix(in srgb, var(--accent) 60%, var(--ink)); }
 .radar-app .move.up { color: hsl(150 70% var(--cl)); }
 .radar-app .move.down { color: hsl(8 82% var(--cl)); }
 .radar-app .gain { grid-area: gain; display: flex; flex-direction: column; align-items: flex-end; align-self: start; line-height: 1.25; }
 .radar-app .gain b { color: var(--accent); font: 700 17px var(--mono); letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
 .radar-app .gain small { color: var(--faint); font-size: 11px; }
+.radar-app .gain b.age { color: color-mix(in srgb, var(--accent) 60%, var(--ink)); font-size: 15px; }
 .radar-app .bm { grid-area: bm; position: relative; z-index: 2; justify-self: end; align-self: end; display: grid; place-items: center; width: 40px; height: 40px; margin: 2px -8px -10px 0; border: 0; border-radius: 12px; background: none; color: var(--faint); transition: background 0.2s, color 0.2s; }
 .radar-app .bm .i { width: 18px; height: 18px; }
 .radar-app .bm.on { color: var(--accent); }
