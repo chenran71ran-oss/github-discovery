@@ -1,6 +1,7 @@
-import { useEffect, useRef } from "react"
-import { type Repository, compact } from "@shared/discovery"
+import { type PointerEvent, useEffect, useRef } from "react"
+import { type Period, type Repository, compact } from "@shared/discovery"
 import { Icon, RepoIcon } from "./icons"
+import { Gain, labels, languageColors } from "./row"
 import { useScrollLock } from "./use-scroll-lock"
 
 export function time(date: string) {
@@ -12,65 +13,73 @@ const sourceNotes: Record<Repository["summarySource"], string> = {
   "upstream": "GithubTrending 中文速览 · 尚非 README 深读",
   "editorial": "基于项目公开资料整理 · 不代表 AI 深度分析",
   "machine": "机器翻译 · 只翻译了项目简介，可能不够准确",
-  "pending": "原始信息",
+  "pending": "中文解读尚未生成，以下为原始简介",
 }
 
-/** 项目详情：桌面端是居中的玻璃卡片，手机上是贴底的面板。 */
-export function RepoDetail({ repo, onClose, saved, onSave }: { repo: Repository, onClose: () => void, saved: boolean, onSave: () => void }) {
-  const ref = useRef<HTMLDialogElement>(null)
+interface InsightProps {
+  repo: Repository
+  period: Period
+  saved: boolean
+  onSave: () => void
+  onClose: () => void
+}
+
+/** 项目解读正文：桌面端放在右侧栏，手机上放进底部面板，两处内容一致。 */
+export function RepoInsight({ repo, period, saved, onSave, onClose }: InsightProps) {
   const [owner, name] = repo.fullName.split("/")
-  useScrollLock(true)
-  useEffect(() => {
-    const previous = document.activeElement as HTMLElement | null
-    ref.current?.showModal()
-    return () => previous?.focus()
-  }, [])
+  const moved = repo.previousRank ? repo.previousRank - repo.rank : 0
+  const translated = repo.summary && repo.summary !== repo.description
   return (
-    <dialog
-      ref={ref}
-      className="radar-dialog glass"
-      aria-label={`${repo.fullName} 项目解读`}
-      onCancel={onClose}
-      onClick={(e) => {
-        // 面板自身的内边距和段落间空白也算 dialog 本身，只有点在面板矩形外（背景遮罩）才关闭
-        if (e.target !== e.currentTarget) return
-        const r = e.currentTarget.getBoundingClientRect()
-        if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) onClose()
-      }}
-    >
-      <div className="grabber" aria-hidden="true" />
-      <div className="detail-top">
-        <span className="eyebrow">PROJECT INSIGHT / 项目解读</span>
-        <button type="button" className="icon-btn" aria-label="关闭项目解读" onClick={onClose}><Icon name="x" /></button>
-      </div>
-      <div className="detail-title">
+    <article className="insight" aria-label={`${repo.fullName} 项目解读`}>
+      <header className="ins-head">
         <RepoIcon fullName={repo.fullName} />
-        <div>
-          <span className="repo-owner">{owner}</span>
+        <div className="ins-title">
+          <span className="own">{owner}</span>
           <h2>{name}</h2>
         </div>
-      </div>
-      <div className="detail-numbers">
-        <span><Icon name="star" />{`${compact(repo.stars)} Stars`}</span>
-        <span><Icon name="fork" />{`${compact(repo.forks)} Forks`}</span>
-        <span>{repo.language}</span>
+        <button type="button" className="icon-btn" aria-label="关闭项目解读" onClick={onClose}><Icon name="x" /></button>
+      </header>
+      <dl className="ins-stats">
+        <div>
+          <dt>{`${labels[period]}名次`}</dt>
+          <dd>
+            {repo.rank || "—"}
+            {moved !== 0 && <small className={`move ${moved > 0 ? "up" : "down"}`}>{`${moved > 0 ? "↑" : "↓"}${Math.abs(moved)}`}</small>}
+          </dd>
+        </div>
+        <div>
+          <dt>{`${labels[period]}新增`}</dt>
+          <dd><Gain repo={repo} period={period} /></dd>
+        </div>
+        <div>
+          <dt>Star</dt>
+          <dd>{compact(repo.stars)}</dd>
+        </div>
+        <div>
+          <dt>Fork</dt>
+          <dd>{compact(repo.forks)}</dd>
+        </div>
+      </dl>
+      <div className="ins-tags">
+        <span className="lang">
+          <i style={{ backgroundColor: languageColors[repo.language] || "#9b8ca9" }} />
+          {repo.language}
+        </span>
+        <span>{repo.category}</span>
+        {repo.techStack.map(s => <span key={s}>{s}</span>)}
       </div>
       <section>
-        <h3>它是什么？</h3>
-        <p>{repo.summary || "中文解读尚未生成。下方保留项目原始描述，便于查看真实信息。"}</p>
-        <small className="summary-origin">
+        <h3>它是什么</h3>
+        <p>{repo.summary || repo.description}</p>
+        <small className="origin">
           {sourceNotes[repo.summarySource]}
           {repo.summaryAt ? ` · ${time(repo.summaryAt)}` : ""}
         </small>
       </section>
-      <section>
-        <h3>适用场景</h3>
-        <p>{repo.useCase || "暂无经过校验的适用场景，请先查看项目文档与使用条件。"}</p>
-      </section>
-      {repo.techStack.length > 0 && (
+      {repo.useCase && (
         <section>
-          <h3>技术栈</h3>
-          <div className="detail-tags">{repo.techStack.map(s => <span key={s}>{s}</span>)}</div>
+          <h3>适用场景</h3>
+          <p>{repo.useCase}</p>
         </section>
       )}
       {repo.highlights.length > 0 && (
@@ -79,20 +88,80 @@ export function RepoDetail({ repo, onClose, saved, onSave }: { repo: Repository,
           <ul>{repo.highlights.map(s => <li key={s}>{s}</li>)}</ul>
         </section>
       )}
-      <details className="original">
-        <summary>查看原始项目简介</summary>
-        <p>{repo.description}</p>
-      </details>
-      <div className="detail-buttons">
-        <a className="primary-btn" href={`https://github.com/${repo.fullName}#readme`} target="_blank" rel="noreferrer">
-          阅读 README
-          <Icon name="arrowUpRight" />
+      {translated && (
+        <details className="original">
+          <summary>原始简介</summary>
+          <p>{repo.description}</p>
+        </details>
+      )}
+      <div className="ins-actions">
+        <a className="act primary" href={`https://github.com/${repo.fullName}`} target="_blank" rel="noreferrer">
+          <Icon name="github" />
+          在 GitHub 打开
         </a>
-        <button type="button" className="secondary-btn" onClick={onSave} aria-pressed={saved}>
-          <Icon name="bookmark" className={saved ? "filled" : ""} />
-          {saved ? "已收藏" : "收藏项目"}
+        <button type="button" className={`act ${saved ? "on" : ""}`} onClick={onSave} aria-pressed={saved}>
+          <Icon name="bookmark" />
+          {saved ? "已收藏" : "收藏"}
         </button>
       </div>
+    </article>
+  )
+}
+
+/** 手机与窄屏：贴底面板，按住顶部横条向下拖可关闭。 */
+export function RepoSheet(props: InsightProps) {
+  const ref = useRef<HTMLDialogElement>(null)
+  const drag = useRef<{ y: number, dy: number } | null>(null)
+  useScrollLock(true)
+  useEffect(() => {
+    const previous = document.activeElement as HTMLElement | null
+    ref.current?.showModal()
+    return () => previous?.focus({ preventScroll: true })
+  }, [])
+  const move = (e: PointerEvent<HTMLDivElement>) => {
+    if (!drag.current || !ref.current) return
+    drag.current.dy = Math.max(0, e.clientY - drag.current.y)
+    ref.current.style.transform = `translateY(${drag.current.dy}px)`
+  }
+  const end = () => {
+    if (!drag.current || !ref.current) return
+    const { dy } = drag.current
+    drag.current = null
+    ref.current.style.removeProperty("transition")
+    if (dy > 90) props.onClose()
+    else ref.current.style.removeProperty("transform")
+  }
+  return (
+    <dialog
+      ref={ref}
+      className="sheet"
+      aria-label={`${props.repo.fullName} 项目解读`}
+      onCancel={(e) => {
+        e.preventDefault()
+        props.onClose()
+      }}
+      onClick={(e) => {
+        // 只有点在面板矩形外（背景遮罩）才关闭
+        if (e.target !== e.currentTarget) return
+        const r = e.currentTarget.getBoundingClientRect()
+        if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) props.onClose()
+      }}
+    >
+      <div
+        className="grabber"
+        aria-hidden="true"
+        onPointerDown={(e) => {
+          drag.current = { y: e.clientY, dy: 0 }
+          e.currentTarget.setPointerCapture(e.pointerId)
+          ref.current?.style.setProperty("transition", "none")
+        }}
+        onPointerMove={move}
+        onPointerUp={end}
+        onPointerCancel={end}
+      >
+        <i />
+      </div>
+      <RepoInsight {...props} />
     </dialog>
   )
 }
