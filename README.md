@@ -23,9 +23,9 @@ README 深度解读的接口已经实现，但本预览**没有配置独立模�
 | 发现项目 | 理解用途 | 日常使用 |
 | :--- | :--- | :--- |
 | 日 / 周 / 月真实排名 | 中文简介与来源标注 | 中文搜索与组合筛选 |
-| 总 Star、周期新增、Fork | README 原文入口 | 本地收藏、卡片 / 列表 |
+| 总 Star、周期新增、Fork | README 原文入口 | 本地收藏、宽屏侧栏解读、键盘快捷键 |
 | 语言与用途分类 | 可选 README 结构化解读 | 深浅主题、手机适配 |
-| 历史快照、昨日排名比较 | 缓存避免重复生成 | URL 保存周期、搜索与筛选 |
+| 历史快照、昨日排名比较 | 缓存避免重复生成 | URL 保存周期、筛选与选中项目 |
 
 收藏保存在当前浏览器，不需要账号；不会自动同步 GitHub Star。初始分类来自关键词规则，配置模型后可由经过校验的 README 分析补充。尚未实现独立 Rising 算法、跨设备收藏和 GPT 推送。
 
@@ -98,7 +98,7 @@ python -m unittest discover -s collector -p 'test_*.py'
 
 ## 目录
 
-- `src/components/discovery/`：发现首页与响应式样式。
+- `src/components/discovery/`：发现首页与响应式样式，布局与交互约定见 `docs/DISCOVERY-UI.md`。
 - `shared/discovery.ts`：前后端共享数据契约、查询与校验。
 - `collector/`：采集、中文增强、原解析器与许可。
 - `public/data/`：可直接部署的榜单与历史快照。
@@ -121,7 +121,7 @@ python -m unittest discover -s collector -p 'test_*.py'
 | 页面布局与主题 | src/components/discovery/style.css | 排版、颜色、响应式，不改数据格式 |
 | 榜单与查询 | src/components/discovery/index.tsx、shared/discovery.ts | 周期、排序、搜索、分类与历史选择 |
 | 中文解读 | collector/collect.py、collector/editorial.json | README 获取、模型输出校验、内容来源与缓存 |
-| 收藏与详情 | src/components/discovery/index.tsx | 浏览器收藏、弹窗、项目阅读体验 |
+| 收藏与详情 | src/components/discovery/detail.tsx、row.tsx、overview.tsx | 浏览器收藏、侧栏 / 底部面板解读、项目阅读体验 |
 | 采集与发布 | collector/、.github/workflows/discovery-collect.yml | 定时任务、完整快照、异常保留与静态发布 |
 
 跨模块数据契约集中于 `shared/discovery.ts`；修改字段时同时更新采集输出、校验与前端读取。独立 Rising 排名、GPT 推送和跨设备收藏仍属于后续功能。
