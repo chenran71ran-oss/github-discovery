@@ -23,11 +23,11 @@ README 深度解读的接口已经实现，但本预览**没有配置独立模�
 | 发现项目 | 理解用途 | 日常使用 |
 | :--- | :--- | :--- |
 | 日 / 周 / 月真实排名 | 中文简介与来源标注 | 中文搜索与组合筛选 |
-| 总 Star、周期新增、Fork | README 原文入口 | 本地收藏、宽屏侧栏解读、键盘快捷键 |
-| 语言与用途分类 | 可选 README 结构化解读 | 深浅主题、手机适配 |
+| 总 Star、周期新增、Fork | README 原文入口 | 本地收藏、宽屏侧栏解读、滑动收起的悬浮玻璃栏 |
+| GIT Bot 分类：4 个领域、23 个细类 | 分类依据、置信度、用途与技术栈 | 深浅主题、手机适配 |
 | 历史快照、昨日排名比较 | 缓存避免重复生成 | URL 保存周期、筛选与选中项目 |
 
-收藏保存在当前浏览器，不需要账号；不会自动同步 GitHub Star。初始分类来自关键词规则，配置模型后可由经过校验的 README 分析补充。尚未实现独立 Rising 算法、跨设备收藏和 GPT 推送。
+收藏保存在当前浏览器，不需要账号；不会自动同步 GitHub Star。分类由 GIT Bot 分类引擎综合 GitHub 主题、关键词、README、语言和技术栈给出，每条结果都附带依据；配置模型后，经过校验的 README 分析也作为一项信号。详见 [架构文档](docs/ARCHITECTURE.md)。尚未实现独立 Rising 算法、跨设备收藏和 GPT 推送。
 
 ## 本地运行
 
@@ -60,7 +60,8 @@ pnpm exec vitest run shared/discovery.test.ts
 python -m venv .venv
 source .venv/bin/activate
 pip install -r collector/requirements.txt
-python collector/collect.py
+python -m collector run              # 采集、增强、分类、发布
+python -m collector evaluate --readme # 在人工标注集上比较分类策略
 python -m unittest discover -s collector -p 'test_*.py'
 ```
 
@@ -100,7 +101,8 @@ python -m unittest discover -s collector -p 'test_*.py'
 
 - `src/components/discovery/`：发现首页与响应式样式，布局与交互约定见 `docs/DISCOVERY-UI.md`。
 - `shared/discovery.ts`：前后端共享数据契约、查询与校验。
-- `collector/`：采集、中文增强、原解析器与许可。
+- `shared/taxonomy.json`：分类体系，前端与采集器共用。
+- `collector/`：按四层组织的采集器：`core` 类型与配置、`blocks` 积木、`lab` 实验与评估、`app` 外交层。分层说明见 `docs/ARCHITECTURE.md`。
 - `public/data/`：可直接部署的榜单与历史快照。
 - `server/`：保留的 NewsNow Nitro 聚合后端。
 
@@ -119,8 +121,9 @@ python -m unittest discover -s collector -p 'test_*.py'
 | 模块 | 当前代码入口 | 后续修改边界 |
 | :--- | :--- | :--- |
 | 页面布局与主题 | src/components/discovery/style.css | 排版、颜色、响应式，不改数据格式 |
-| 榜单与查询 | src/components/discovery/index.tsx、shared/discovery.ts | 周期、排序、搜索、分类与历史选择 |
-| 中文解读 | collector/collect.py、collector/editorial.json | README 获取、模型输出校验、内容来源与缓存 |
+| 榜单与查询 | src/components/discovery/index.tsx、model.ts、shared/discovery.ts | 周期、排序、搜索、分类与历史选择 |
+| GIT Bot 分类 | shared/taxonomy.json、collector/blocks/classify/、collector/lab/ | 分类体系、信号、策略与标注集评估 |
+| 中文解读 | collector/blocks/（llm、translate、upstream）、collector/editorial.json | README 获取、模型输出校验、内容来源与缓存 |
 | 收藏与详情 | src/components/discovery/detail.tsx、row.tsx、overview.tsx | 浏览器收藏、侧栏 / 底部面板解读、项目阅读体验 |
 | 采集与发布 | collector/、.github/workflows/discovery-collect.yml | 定时任务、完整快照、异常保留与静态发布 |
 

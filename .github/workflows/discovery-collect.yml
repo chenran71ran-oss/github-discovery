@@ -11,6 +11,7 @@ concurrency:
 jobs:
   collect:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
         with:
@@ -19,15 +20,17 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install -r collector/requirements.txt
-      - run: python collector/collect.py
+      - run: python -m collector run
         env:
           LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
           LLM_MODEL: ${{ secrets.LLM_MODEL }}
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
           # Optional: an email raises the free machine-translation quota from 5,000 to 50,000 characters a day.
           MYMEMORY_EMAIL: ${{ secrets.MYMEMORY_EMAIL }}
-          # Search API for recently created repositories: 30 requests a minute with a token, 10 without.
+          # Search streams (overall + per category) and repository topics: 30 searches a minute with a token.
           GITHUB_TOKEN: ${{ github.token }}
+          # Optional: one of the strategies in collector/lab/strategies.py (default: full).
+          CLASSIFIER_STRATEGY: ${{ vars.CLASSIFIER_STRATEGY }}
       - run: python -m unittest discover -s collector -p 'test_*.py'
       - name: Commit snapshots
         run: |

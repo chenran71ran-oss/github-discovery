@@ -1,23 +1,22 @@
+import type { CSSProperties } from "react"
 import { type DiscoverySnapshot, type Period, type Repository, compact, isBreakout } from "@shared/discovery"
 import { time } from "./detail"
 import { Icon, RepoIcon } from "./icons"
-import { labels, languageColors } from "./row"
+import { distribution } from "./model"
+import { categoryHues, labels } from "./row"
 
 interface Props {
   data: DiscoverySnapshot | undefined
   period: Period
-  language: string
-  onLanguage: (language: string) => void
   onOpen: (repo: Repository) => void
 }
 
-/** 右侧栏在没有选中项目时的内容：本期概况、爆发项目、语言分布与数据说明。 */
-export function Overview({ data, period, language, onLanguage, onOpen }: Props) {
+/** 右侧栏在没有选中项目时的内容：本期概况、GIT Bot 分类分布、刚冒头的项目与快捷键。 */
+export function Overview({ data, period, onOpen }: Props) {
   const rows = data?.periods[period] || []
   const breakout = rows.filter(r => isBreakout(r, period)).slice(0, 5)
-  const counts = new Map<string, number>()
-  for (const r of rows) counts.set(r.language, (counts.get(r.language) || 0) + 1)
-  const top = [...counts].sort((a, b) => b[1] - a[1]).slice(0, 8)
+  const spread = distribution(rows)
+  const most = Math.max(1, ...spread.map(d => d.count))
   return (
     <div className="overview">
       <section>
@@ -41,6 +40,27 @@ export function Overview({ data, period, language, onLanguage, onOpen }: Props) 
           {data ? `更新于 ${time(data.status[period].capturedAt)} · 每日 08:20 采集` : "正在读取榜单…"}
         </p>
       </section>
+      {spread.length > 0 && (
+        <section>
+          <h3>
+            <Icon name="bot" />
+            GIT Bot 分类
+          </h3>
+          <ul className="spread">
+            {spread.map(d => (
+              <li key={d.id}>
+                <span className="sp-label">{d.label}</span>
+                <i><b style={{ width: `${(d.count / most) * 100}%` }} /></i>
+                <span className="n">{d.count}</span>
+                <span className="sp-top">
+                  {d.top.map(t => <em key={t.label} style={{ "--ch": categoryHues[t.label] ?? 210 } as CSSProperties}>{`${t.label} ${t.count}`}</em>)}
+                </span>
+              </li>
+            ))}
+          </ul>
+          <p className="hint">按用途优先归类：同时看 GitHub 主题、简介关键词、README、语言和技术栈，技术类信号打折，所以「AI 修图工具」归到修图、带上 AI 标签。</p>
+        </section>
+      )}
       {breakout.length > 0 && (
         <section>
           <h3>
@@ -58,20 +78,6 @@ export function Overview({ data, period, language, onLanguage, onOpen }: Props) 
               </li>
             ))}
           </ul>
-        </section>
-      )}
-      {top.length > 0 && (
-        <section>
-          <h3>语言分布</h3>
-          <div className="lang-chips">
-            {top.map(([l, n]) => (
-              <button key={l} type="button" aria-pressed={language === l} onClick={() => onLanguage(language === l ? "" : l)}>
-                <i style={{ backgroundColor: languageColors[l] || "#9b8ca9" }} />
-                {l}
-                <span className="n">{n}</span>
-              </button>
-            ))}
-          </div>
         </section>
       )}
       <section>
@@ -106,7 +112,7 @@ export function DataNote({ aiConfigured }: { aiConfigured?: boolean }) {
     <aside id="data-note" className="data-note">
       <h3>关于数据</h3>
       <p>
-        排名与 Star 增量来自 GitHub Trending，每天北京时间 08:20 采集一次；「刷新」只读取已发布的快照。总榜之后依次补充「语言榜」（各语言自己的 Trending 榜）和「新项目」（GitHub 搜索到的近期新建、Star 涨得快的项目，没有周期增量）。
+        排名与 Star 增量来自 GitHub Trending，每天北京时间 08:20 采集一次；页面读取的是已发布的快照。总榜之后依次补充「语言榜」（各语言自己的 Trending 榜）和「新项目」（GitHub 搜索到的近期新建、Star 涨得快的项目，没有周期增量）。
       </p>
       <p>
         中文内容会标注来源：GithubTrending 中文速览、按公开资料整理、README 解读，或只翻译简介的「机翻」。

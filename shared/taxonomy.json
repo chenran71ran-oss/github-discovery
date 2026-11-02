@@ -1,0 +1,2045 @@
+{
+  "version": 2,
+  "domains": [
+    {
+      "id": "dev",
+      "label": "开发"
+    },
+    {
+      "id": "tools",
+      "label": "工具"
+    },
+    {
+      "id": "life",
+      "label": "生活"
+    },
+    {
+      "id": "learn",
+      "label": "学习"
+    }
+  ],
+  "categories": [
+    {
+      "id": "ai",
+      "label": "AI 与智能体",
+      "domain": "dev",
+      "facet": "tech",
+      "topics": [
+        "ai",
+        "llm",
+        "ai-agents",
+        "agent",
+        "agents",
+        "mcp",
+        "rag",
+        "machine-learning",
+        "deep-learning",
+        "generative-ai",
+        "chatgpt",
+        "openai",
+        "claude",
+        "langchain",
+        "ollama",
+        "transformers",
+        "stable-diffusion",
+        "computer-vision",
+        "nlp"
+      ],
+      "keywords": [
+        "ai",
+        "llm",
+        "gpt",
+        "agent",
+        "agentic",
+        "rag",
+        "mcp",
+        "ml",
+        "neural network",
+        "transformer",
+        "diffusion model",
+        "embedding",
+        "inference",
+        "prompt",
+        "chatbot",
+        "copilot",
+        "claude",
+        "codex",
+        "openai",
+        "ollama",
+        "whisper",
+        "multimodal",
+        "fine-tuning",
+        "fine-tune",
+        "text-to-image",
+        "text-to-speech",
+        "voice cloning",
+        "large language model",
+        "language model",
+        "vision model"
+      ],
+      "zh": [
+        "人工智能",
+        "大模型",
+        "智能体",
+        "机器学习",
+        "深度学习"
+      ],
+      "streamTopics": [
+        "ai-agents"
+      ]
+    },
+    {
+      "id": "devtools",
+      "label": "开发工具",
+      "domain": "dev",
+      "facet": "purpose",
+      "topics": [
+        "developer-tools",
+        "devtools",
+        "cli-tool",
+        "ide",
+        "vscode-extension",
+        "neovim",
+        "code-review",
+        "testing",
+        "debugging",
+        "linter",
+        "compiler",
+        "git",
+        "ci-cd",
+        "devops"
+      ],
+      "keywords": [
+        "sdk",
+        "ide",
+        "code editor",
+        "compiler",
+        "debugger",
+        "linter",
+        "formatter",
+        "build tool",
+        "package manager",
+        "git",
+        "devops",
+        "ci/cd",
+        "continuous integration",
+        "unit test",
+        "testing framework",
+        "code review",
+        "developer tool",
+        "vs code",
+        "vscode",
+        "neovim",
+        "vim plugin",
+        "codebase",
+        "coding agent",
+        "language server",
+        "static analysis",
+        "type checker",
+        "monorepo",
+        "programming language",
+        "coding agents",
+        "agent runtime"
+      ],
+      "zh": [
+        "开发者工具",
+        "代码审查",
+        "编译器"
+      ],
+      "streamTopics": [
+        "developer-tools"
+      ]
+    },
+    {
+      "id": "frontend",
+      "label": "前端与界面",
+      "domain": "dev",
+      "facet": "tech",
+      "topics": [
+        "react",
+        "vue",
+        "svelte",
+        "nextjs",
+        "tailwindcss",
+        "ui-components",
+        "design-system",
+        "css",
+        "frontend",
+        "web-components",
+        "animation",
+        "icons"
+      ],
+      "keywords": [
+        "ui",
+        "ux",
+        "component library",
+        "ui components",
+        "css",
+        "tailwind",
+        "react",
+        "vue",
+        "svelte",
+        "design system",
+        "frontend",
+        "front-end",
+        "animation",
+        "icon set",
+        "icons",
+        "web app",
+        "html",
+        "landing page",
+        "dashboard template",
+        "shadcn"
+      ],
+      "zh": [
+        "前端",
+        "组件库",
+        "界面"
+      ],
+      "streamTopics": [
+        "ui-components"
+      ]
+    },
+    {
+      "id": "backend",
+      "label": "后端与 API",
+      "domain": "dev",
+      "facet": "tech",
+      "topics": [
+        "backend",
+        "api",
+        "rest-api",
+        "graphql",
+        "microservices",
+        "web-framework",
+        "orm",
+        "grpc",
+        "authentication"
+      ],
+      "keywords": [
+        "backend",
+        "back-end",
+        "rest api",
+        "api server",
+        "graphql",
+        "grpc",
+        "microservice",
+        "web framework",
+        "http server",
+        "orm",
+        "authentication",
+        "oauth",
+        "rpc",
+        "websocket",
+        "api gateway",
+        "serverless function",
+        "web application framework",
+        "e-commerce"
+      ],
+      "zh": [
+        "后端",
+        "接口",
+        "微服务"
+      ],
+      "streamTopics": [
+        "backend"
+      ]
+    },
+    {
+      "id": "data",
+      "label": "数据与基础设施",
+      "domain": "dev",
+      "facet": "tech",
+      "topics": [
+        "database",
+        "sql",
+        "postgresql",
+        "kubernetes",
+        "cloud",
+        "infrastructure",
+        "observability",
+        "monitoring",
+        "data-engineering",
+        "etl",
+        "vector-database",
+        "big-data",
+        "analytics"
+      ],
+      "keywords": [
+        "database",
+        "sql",
+        "postgres",
+        "postgresql",
+        "mysql",
+        "sqlite",
+        "redis",
+        "kafka",
+        "object storage",
+        "kubernetes",
+        "k8s",
+        "infrastructure",
+        "observability",
+        "monitoring",
+        "etl",
+        "data pipeline",
+        "vector database",
+        "cache",
+        "distributed",
+        "knowledge graph",
+        "data warehouse",
+        "analytics",
+        "time series",
+        "stream processing",
+        "terraform",
+        "cloud native"
+      ],
+      "zh": [
+        "数据库",
+        "数据分析",
+        "云原生"
+      ],
+      "streamTopics": [
+        "database"
+      ]
+    },
+    {
+      "id": "security",
+      "label": "安全与隐私",
+      "domain": "dev",
+      "facet": "purpose",
+      "topics": [
+        "security",
+        "cybersecurity",
+        "pentesting",
+        "privacy",
+        "encryption",
+        "osint",
+        "ctf",
+        "malware-analysis",
+        "reverse-engineering",
+        "vulnerability",
+        "red-team"
+      ],
+      "keywords": [
+        "security",
+        "vulnerability",
+        "vulnerabilities",
+        "pentest",
+        "pentesting",
+        "penetration testing",
+        "malware",
+        "privacy",
+        "encryption",
+        "end-to-end encrypted",
+        "firewall",
+        "osint",
+        "ctf",
+        "zero trust",
+        "2fa",
+        "reverse engineering",
+        "jailbreak",
+        "exploit",
+        "red team",
+        "threat intelligence",
+        "sandbox",
+        "secret scanning",
+        "soc",
+        "incident response",
+        "secops",
+        "threat modeling",
+        "exploitation",
+        "decryption",
+        "vpn",
+        "tor",
+        "xray",
+        "wireguard",
+        "security scanner",
+        "proxy"
+      ],
+      "zh": [
+        "安全",
+        "隐私",
+        "渗透",
+        "逆向",
+        "漏洞"
+      ],
+      "streamTopics": [
+        "security"
+      ]
+    },
+    {
+      "id": "apps",
+      "label": "移动与桌面",
+      "domain": "dev",
+      "facet": "tech",
+      "topics": [
+        "android",
+        "ios",
+        "macos",
+        "flutter",
+        "react-native",
+        "electron",
+        "tauri",
+        "swiftui",
+        "jetpack-compose",
+        "desktop-app",
+        "windows"
+      ],
+      "keywords": [
+        "ios",
+        "android",
+        "macos",
+        "mac app",
+        "windows app",
+        "desktop app",
+        "mobile app",
+        "flutter",
+        "react native",
+        "electron",
+        "tauri",
+        "menu bar",
+        "menubar",
+        "swiftui",
+        "jetpack compose",
+        "expo",
+        "cross-platform app",
+        "linux desktop"
+      ],
+      "zh": [
+        "桌面",
+        "手机",
+        "安卓",
+        "苹果"
+      ],
+      "streamTopics": [
+        "android"
+      ]
+    },
+    {
+      "id": "gamedev",
+      "label": "游戏与图形",
+      "domain": "dev",
+      "facet": "purpose",
+      "topics": [
+        "game-engine",
+        "gamedev",
+        "game-development",
+        "graphics",
+        "webgl",
+        "opengl",
+        "vulkan",
+        "shader",
+        "3d",
+        "rendering",
+        "godot",
+        "unity",
+        "bevy"
+      ],
+      "keywords": [
+        "game engine",
+        "gamedev",
+        "game development",
+        "graphics",
+        "rendering",
+        "renderer",
+        "shader",
+        "webgl",
+        "webgpu",
+        "opengl",
+        "vulkan",
+        "ray tracing",
+        "3d engine",
+        "physics engine",
+        "godot",
+        "unity",
+        "unreal",
+        "bevy",
+        "voxel",
+        "gaussian splatting"
+      ],
+      "zh": [
+        "游戏引擎",
+        "图形学",
+        "渲染"
+      ],
+      "streamTopics": [
+        "game-engine"
+      ]
+    },
+    {
+      "id": "productivity",
+      "label": "效率与办公",
+      "domain": "tools",
+      "facet": "purpose",
+      "topics": [
+        "productivity",
+        "note-taking",
+        "notes",
+        "markdown",
+        "todo",
+        "calendar",
+        "pkm",
+        "knowledge-base",
+        "office",
+        "pdf",
+        "obsidian",
+        "notion",
+        "writing"
+      ],
+      "keywords": [
+        "productivity",
+        "note-taking",
+        "notes app",
+        "note taking",
+        "markdown editor",
+        "todo",
+        "to-do",
+        "task manager",
+        "calendar",
+        "personal knowledge",
+        "knowledge base",
+        "second brain",
+        "pdf",
+        "spreadsheet",
+        "office",
+        "document",
+        "obsidian",
+        "notion",
+        "whiteboard",
+        "mind map",
+        "writing app",
+        "time tracking",
+        "pomodoro",
+        "clipboard",
+        "launcher",
+        "workspace",
+        "file converter",
+        "convert",
+        "documents",
+        "docs",
+        "crm"
+      ],
+      "zh": [
+        "笔记",
+        "效率",
+        "办公",
+        "待办",
+        "知识库",
+        "文档"
+      ],
+      "streamTopics": [
+        "productivity"
+      ]
+    },
+    {
+      "id": "cli",
+      "label": "命令行与系统",
+      "domain": "tools",
+      "facet": "purpose",
+      "topics": [
+        "cli",
+        "terminal",
+        "shell",
+        "command-line",
+        "dotfiles",
+        "tui",
+        "zsh",
+        "linux",
+        "system-monitor",
+        "file-manager"
+      ],
+      "keywords": [
+        "cli",
+        "command line",
+        "command-line",
+        "terminal",
+        "shell",
+        "tui",
+        "zsh",
+        "bash",
+        "fish shell",
+        "dotfiles",
+        "system monitor",
+        "file manager",
+        "process manager",
+        "linux",
+        "package installer",
+        "window manager",
+        "tiling",
+        "disk usage",
+        "cleaner",
+        "terminal multiplexer"
+      ],
+      "zh": [
+        "命令行",
+        "终端",
+        "系统工具"
+      ],
+      "streamTopics": [
+        "terminal"
+      ]
+    },
+    {
+      "id": "media",
+      "label": "音视频与图像",
+      "domain": "tools",
+      "facet": "purpose",
+      "topics": [
+        "video",
+        "audio",
+        "image-processing",
+        "ffmpeg",
+        "video-editing",
+        "photo",
+        "ocr",
+        "screenshot",
+        "image-editor",
+        "video-downloader",
+        "speech-recognition",
+        "music-generation"
+      ],
+      "keywords": [
+        "video",
+        "audio",
+        "image",
+        "photo",
+        "ffmpeg",
+        "video editor",
+        "video editing",
+        "image editor",
+        "screenshot",
+        "screen recorder",
+        "screen recording",
+        "ocr",
+        "subtitle",
+        "transcription",
+        "speech recognition",
+        "speech-to-text",
+        "tts",
+        "upscale",
+        "background removal",
+        "video downloader",
+        "youtube downloader",
+        "gif",
+        "camera",
+        "photography",
+        "podcast",
+        "face swap",
+        "deepfake",
+        "dictation",
+        "voice-to-text",
+        "picture",
+        "watermark",
+        "reference images",
+        "converter"
+      ],
+      "zh": [
+        "视频",
+        "音频",
+        "图片",
+        "截图",
+        "录屏",
+        "字幕",
+        "剪辑",
+        "修图"
+      ],
+      "streamTopics": [
+        "video"
+      ]
+    },
+    {
+      "id": "browser",
+      "label": "浏览器与插件",
+      "domain": "tools",
+      "facet": "purpose",
+      "topics": [
+        "browser",
+        "browser-extension",
+        "chrome-extension",
+        "firefox-addon",
+        "userscript",
+        "tampermonkey",
+        "adblock",
+        "web-browser"
+      ],
+      "keywords": [
+        "browser",
+        "browser extension",
+        "chrome extension",
+        "firefox add-on",
+        "firefox extension",
+        "userscript",
+        "tampermonkey",
+        "ad blocker",
+        "adblock",
+        "headless browser",
+        "browser automation",
+        "new tab",
+        "bookmark",
+        "blocker",
+        "content blocker"
+      ],
+      "zh": [
+        "浏览器",
+        "插件",
+        "油猴",
+        "扩展",
+        "直链"
+      ],
+      "streamTopics": [
+        "browser-extension"
+      ]
+    },
+    {
+      "id": "selfhosted",
+      "label": "自托管",
+      "domain": "tools",
+      "facet": "purpose",
+      "topics": [
+        "self-hosted",
+        "selfhosted",
+        "homelab",
+        "docker-compose",
+        "nas",
+        "media-server",
+        "local-first",
+        "alternative"
+      ],
+      "keywords": [
+        "self-hosted",
+        "selfhosted",
+        "self hosted",
+        "homelab",
+        "home lab",
+        "docker compose",
+        "nas",
+        "media server",
+        "local-first",
+        "open source alternative",
+        "alternative to",
+        "your own server",
+        "on-premise",
+        "host your own",
+        "self-hostable",
+        "nextcloud",
+        "paas"
+      ],
+      "zh": [
+        "自托管",
+        "私有部署",
+        "自建"
+      ],
+      "streamTopics": [
+        "self-hosted"
+      ]
+    },
+    {
+      "id": "automation",
+      "label": "自动化与爬虫",
+      "domain": "tools",
+      "facet": "purpose",
+      "topics": [
+        "automation",
+        "workflow",
+        "scraper",
+        "web-scraping",
+        "crawler",
+        "bot",
+        "telegram-bot",
+        "rpa",
+        "n8n",
+        "zapier"
+      ],
+      "keywords": [
+        "automation",
+        "automate",
+        "workflow",
+        "scraper",
+        "scraping",
+        "crawler",
+        "spider",
+        "bot",
+        "telegram bot",
+        "discord bot",
+        "rpa",
+        "zapier",
+        "n8n",
+        "cron",
+        "scheduler",
+        "web automation",
+        "auto sign",
+        "notifications",
+        "app automation",
+        "automation framework"
+      ],
+      "zh": [
+        "自动化",
+        "爬虫",
+        "机器人",
+        "工作流",
+        "签到",
+        "部署"
+      ],
+      "streamTopics": [
+        "automation"
+      ]
+    },
+    {
+      "id": "finance",
+      "label": "理财与金融",
+      "domain": "life",
+      "facet": "purpose",
+      "topics": [
+        "finance",
+        "trading",
+        "stock",
+        "quantitative-finance",
+        "cryptocurrency",
+        "bitcoin",
+        "personal-finance",
+        "budgeting",
+        "accounting",
+        "fintech",
+        "investment"
+      ],
+      "keywords": [
+        "finance",
+        "financial",
+        "trading",
+        "trader",
+        "stock",
+        "stocks",
+        "quant",
+        "quantitative",
+        "backtest",
+        "backtesting",
+        "portfolio",
+        "crypto",
+        "cryptocurrency",
+        "bitcoin",
+        "ethereum",
+        "defi",
+        "blockchain",
+        "budget",
+        "budgeting",
+        "expense",
+        "accounting",
+        "bookkeeping",
+        "invoice",
+        "investment",
+        "investing",
+        "market data"
+      ],
+      "zh": [
+        "理财",
+        "金融",
+        "股票",
+        "量化",
+        "记账",
+        "交易",
+        "基金",
+        "加密货币"
+      ],
+      "streamTopics": [
+        "trading",
+        "personal-finance"
+      ]
+    },
+    {
+      "id": "health",
+      "label": "健康与运动",
+      "domain": "life",
+      "facet": "purpose",
+      "topics": [
+        "health",
+        "fitness",
+        "workout",
+        "medical",
+        "healthcare",
+        "sleep",
+        "meditation",
+        "nutrition",
+        "running",
+        "mental-health"
+      ],
+      "keywords": [
+        "health",
+        "healthcare",
+        "medical",
+        "fitness",
+        "workout",
+        "exercise",
+        "gym",
+        "running",
+        "sleep",
+        "meditation",
+        "nutrition",
+        "diet",
+        "calorie",
+        "mental health",
+        "habit tracker",
+        "habit",
+        "wellbeing",
+        "biomedical"
+      ],
+      "zh": [
+        "健康",
+        "运动",
+        "健身",
+        "医疗",
+        "睡眠",
+        "饮食"
+      ],
+      "streamTopics": [
+        "fitness",
+        "health"
+      ]
+    },
+    {
+      "id": "entertainment",
+      "label": "影音娱乐",
+      "domain": "life",
+      "facet": "purpose",
+      "topics": [
+        "music",
+        "music-player",
+        "anime",
+        "manga",
+        "streaming",
+        "iptv",
+        "jellyfin",
+        "spotify",
+        "ebook",
+        "comics",
+        "movies",
+        "netflix"
+      ],
+      "keywords": [
+        "music player",
+        "music",
+        "spotify",
+        "anime",
+        "manga",
+        "comic",
+        "comics",
+        "movie",
+        "movies",
+        "tv shows",
+        "streaming",
+        "iptv",
+        "jellyfin",
+        "plex",
+        "ebook reader",
+        "ebook",
+        "novel",
+        "lyrics",
+        "playlist",
+        "karaoke",
+        "bilibili",
+        "youtube client",
+        "short drama",
+        "tv",
+        "android tv",
+        "youtube music",
+        "短剧"
+      ],
+      "zh": [
+        "音乐",
+        "动漫",
+        "漫画",
+        "电影",
+        "追剧",
+        "小说",
+        "影视",
+        "播放器",
+        "短剧"
+      ],
+      "streamTopics": [
+        "music",
+        "anime"
+      ]
+    },
+    {
+      "id": "games",
+      "label": "游戏",
+      "domain": "life",
+      "facet": "purpose",
+      "topics": [
+        "game",
+        "games",
+        "emulator",
+        "minecraft",
+        "retro-games",
+        "steam",
+        "roguelike",
+        "puzzle-game",
+        "chess",
+        "nintendo-switch"
+      ],
+      "keywords": [
+        "game",
+        "games",
+        "emulator",
+        "minecraft",
+        "steam",
+        "roguelike",
+        "puzzle",
+        "chess",
+        "retro gaming",
+        "nintendo",
+        "playstation",
+        "xbox",
+        "mod",
+        "mods",
+        "speedrun",
+        "board game",
+        "pokemon",
+        "multiplayer",
+        "cheat",
+        "trainer",
+        "mod menu",
+        "recompilation"
+      ],
+      "zh": [
+        "游戏",
+        "模拟器",
+        "单机"
+      ],
+      "streamTopics": [
+        "emulator"
+      ]
+    },
+    {
+      "id": "smarthome",
+      "label": "智能家居与硬件",
+      "domain": "life",
+      "facet": "purpose",
+      "topics": [
+        "home-assistant",
+        "smart-home",
+        "iot",
+        "esp32",
+        "arduino",
+        "raspberry-pi",
+        "3d-printing",
+        "embedded",
+        "hardware",
+        "drone",
+        "robotics"
+      ],
+      "keywords": [
+        "home assistant",
+        "smart home",
+        "iot",
+        "esp32",
+        "arduino",
+        "raspberry pi",
+        "3d printing",
+        "3d printer",
+        "embedded",
+        "firmware",
+        "microcontroller",
+        "hardware",
+        "drone",
+        "robot",
+        "robotics",
+        "zigbee",
+        "matter",
+        "sensor",
+        "keyboard firmware",
+        "e-ink",
+        "home automation"
+      ],
+      "zh": [
+        "智能家居",
+        "硬件",
+        "物联网",
+        "单片机",
+        "机器人"
+      ],
+      "streamTopics": [
+        "home-assistant"
+      ]
+    },
+    {
+      "id": "social",
+      "label": "社交与通讯",
+      "domain": "life",
+      "facet": "purpose",
+      "topics": [
+        "chat",
+        "messaging",
+        "email",
+        "social-network",
+        "fediverse",
+        "mastodon",
+        "matrix",
+        "wechat",
+        "telegram",
+        "discord",
+        "rss"
+      ],
+      "keywords": [
+        "chat app",
+        "messaging",
+        "messenger",
+        "instant messaging",
+        "email client",
+        "email",
+        "social network",
+        "social media",
+        "fediverse",
+        "mastodon",
+        "activitypub",
+        "matrix",
+        "wechat",
+        "telegram client",
+        "discord",
+        "twitter",
+        "reddit",
+        "rss reader",
+        "rss",
+        "forum",
+        "community",
+        "video call",
+        "newsletter",
+        "group chat",
+        "chat",
+        "telegram",
+        "social media scheduling",
+        "chat exporter"
+      ],
+      "zh": [
+        "社交",
+        "聊天",
+        "通讯",
+        "邮件",
+        "微信",
+        "论坛",
+        "订阅"
+      ],
+      "streamTopics": [
+        "fediverse",
+        "rss"
+      ]
+    },
+    {
+      "id": "lifestyle",
+      "label": "出行与生活",
+      "domain": "life",
+      "facet": "purpose",
+      "topics": [
+        "travel",
+        "maps",
+        "weather",
+        "recipes",
+        "cooking",
+        "food",
+        "shopping",
+        "transportation",
+        "gps",
+        "family"
+      ],
+      "keywords": [
+        "travel",
+        "trip planner",
+        "map",
+        "maps",
+        "navigation",
+        "gps",
+        "weather",
+        "recipe",
+        "recipes",
+        "cooking",
+        "food",
+        "restaurant",
+        "grocery",
+        "shopping",
+        "price tracker",
+        "transit",
+        "train",
+        "flight",
+        "parenting",
+        "pet",
+        "garden",
+        "home inventory",
+        "wedding",
+        "astrology",
+        "fortune",
+        "horoscope",
+        "life guide"
+      ],
+      "zh": [
+        "出行",
+        "旅行",
+        "地图",
+        "天气",
+        "菜谱",
+        "美食",
+        "购物",
+        "生活",
+        "命理",
+        "人生指南"
+      ],
+      "streamTopics": [
+        "maps",
+        "weather"
+      ]
+    },
+    {
+      "id": "learning",
+      "label": "教程与资源",
+      "domain": "learn",
+      "facet": "purpose",
+      "topics": [
+        "awesome",
+        "awesome-list",
+        "tutorial",
+        "tutorials",
+        "course",
+        "roadmap",
+        "interview",
+        "cheatsheet",
+        "education",
+        "learning",
+        "books",
+        "leetcode",
+        "algorithms"
+      ],
+      "keywords": [
+        "awesome",
+        "curated list",
+        "tutorial",
+        "tutorials",
+        "course",
+        "courses",
+        "roadmap",
+        "cheat sheet",
+        "cheatsheet",
+        "interview",
+        "learn",
+        "learning",
+        "beginner",
+        "for beginners",
+        "guide",
+        "handbook",
+        "book",
+        "books",
+        "exercises",
+        "leetcode",
+        "algorithms",
+        "education",
+        "teaching",
+        "tutor",
+        "study",
+        "vocabulary",
+        "ielts",
+        "language learning",
+        "flashcards",
+        "spaced repetition",
+        "from scratch",
+        "step by step",
+        "fsrs"
+      ],
+      "zh": [
+        "教程",
+        "学习",
+        "面试",
+        "入门",
+        "课程",
+        "刷题",
+        "指南",
+        "资源",
+        "零基础",
+        "知识点",
+        "课标",
+        "小学",
+        "高中",
+        "单词"
+      ],
+      "streamTopics": [
+        "tutorial"
+      ]
+    },
+    {
+      "id": "research",
+      "label": "科研与论文",
+      "domain": "learn",
+      "facet": "purpose",
+      "topics": [
+        "research",
+        "paper",
+        "papers",
+        "arxiv",
+        "benchmark",
+        "dataset",
+        "science",
+        "bioinformatics",
+        "physics",
+        "mathematics",
+        "academic"
+      ],
+      "keywords": [
+        "research",
+        "paper",
+        "papers",
+        "arxiv",
+        "benchmark",
+        "dataset",
+        "datasets",
+        "official implementation",
+        "pytorch implementation",
+        "reproduction",
+        "scientific",
+        "science",
+        "bioinformatics",
+        "physics",
+        "mathematics",
+        "theorem",
+        "academic",
+        "thesis",
+        "simulation",
+        "neurips",
+        "iclr",
+        "cvpr",
+        "acl"
+      ],
+      "zh": [
+        "论文",
+        "科研",
+        "学术",
+        "数据集",
+        "基准"
+      ],
+      "streamTopics": [
+        "research"
+      ]
+    }
+  ],
+  "fallback": {
+    "id": "other",
+    "label": "其他",
+    "domain": "other"
+  },
+  "legacy": {
+    "学习与研究": "learning"
+  },
+  "languageHints": {
+    "Swift": "apps",
+    "Kotlin": "apps",
+    "Dart": "apps",
+    "Objective-C": "apps",
+    "HTML": "frontend",
+    "CSS": "frontend",
+    "Vue": "frontend",
+    "Svelte": "frontend",
+    "Astro": "frontend",
+    "SCSS": "frontend",
+    "Jupyter Notebook": "research",
+    "TeX": "research",
+    "R": "research",
+    "Julia": "research",
+    "GDScript": "gamedev",
+    "GLSL": "gamedev",
+    "HLSL": "gamedev",
+    "ShaderLab": "gamedev",
+    "Shell": "cli",
+    "PowerShell": "cli",
+    "Nix": "cli",
+    "Lua": "cli",
+    "C": "smarthome",
+    "Verilog": "smarthome",
+    "SystemVerilog": "smarthome",
+    "VHDL": "smarthome",
+    "Solidity": "finance",
+    "Pine Script": "finance"
+  },
+  "purposes": [
+    {
+      "label": "笔记",
+      "words": [
+        "note-taking",
+        "notes app",
+        "note taking",
+        "笔记"
+      ]
+    },
+    {
+      "label": "待办",
+      "words": [
+        "todo",
+        "to-do",
+        "task manager",
+        "待办"
+      ]
+    },
+    {
+      "label": "记账",
+      "words": [
+        "budget",
+        "budgeting",
+        "expense",
+        "bookkeeping",
+        "记账"
+      ]
+    },
+    {
+      "label": "量化交易",
+      "words": [
+        "quant",
+        "quantitative",
+        "backtest",
+        "backtesting",
+        "trading bot",
+        "量化"
+      ]
+    },
+    {
+      "label": "股票",
+      "words": [
+        "stock",
+        "stocks",
+        "股票"
+      ]
+    },
+    {
+      "label": "加密货币",
+      "words": [
+        "crypto",
+        "cryptocurrency",
+        "bitcoin",
+        "ethereum",
+        "defi"
+      ]
+    },
+    {
+      "label": "下载器",
+      "words": [
+        "downloader",
+        "video downloader",
+        "download manager",
+        "下载"
+      ]
+    },
+    {
+      "label": "播放器",
+      "words": [
+        "player",
+        "music player",
+        "video player",
+        "播放器"
+      ]
+    },
+    {
+      "label": "阅读器",
+      "words": [
+        "reader",
+        "ebook reader",
+        "rss reader",
+        "pdf reader",
+        "阅读"
+      ]
+    },
+    {
+      "label": "翻译",
+      "words": [
+        "translate",
+        "translation",
+        "translator",
+        "翻译"
+      ]
+    },
+    {
+      "label": "截图录屏",
+      "words": [
+        "screenshot",
+        "screen recorder",
+        "screen recording",
+        "截图",
+        "录屏"
+      ]
+    },
+    {
+      "label": "密码管理",
+      "words": [
+        "password manager",
+        "passwords",
+        "密码"
+      ]
+    },
+    {
+      "label": "备份同步",
+      "words": [
+        "backup",
+        "sync",
+        "file sync",
+        "备份",
+        "同步"
+      ]
+    },
+    {
+      "label": "监控告警",
+      "words": [
+        "monitoring",
+        "uptime",
+        "alerting",
+        "监控"
+      ]
+    },
+    {
+      "label": "爬虫",
+      "words": [
+        "scraper",
+        "scraping",
+        "crawler",
+        "spider",
+        "爬虫"
+      ]
+    },
+    {
+      "label": "聊天机器人",
+      "words": [
+        "chatbot",
+        "telegram bot",
+        "discord bot",
+        "聊天机器人"
+      ]
+    },
+    {
+      "label": "编程助手",
+      "words": [
+        "coding agent",
+        "code assistant",
+        "coding assistant",
+        "copilot",
+        "code generation",
+        "编程助手"
+      ]
+    },
+    {
+      "label": "知识库",
+      "words": [
+        "knowledge base",
+        "personal knowledge",
+        "second brain",
+        "wiki",
+        "知识库"
+      ]
+    },
+    {
+      "label": "搜索",
+      "words": [
+        "search engine",
+        "semantic search",
+        "full-text search",
+        "搜索引擎"
+      ]
+    },
+    {
+      "label": "语音识别",
+      "words": [
+        "speech recognition",
+        "speech-to-text",
+        "transcription",
+        "asr",
+        "语音识别"
+      ]
+    },
+    {
+      "label": "语音合成",
+      "words": [
+        "text-to-speech",
+        "tts",
+        "voice cloning",
+        "语音合成"
+      ]
+    },
+    {
+      "label": "图像生成",
+      "words": [
+        "text-to-image",
+        "image generation",
+        "stable diffusion",
+        "文生图"
+      ]
+    },
+    {
+      "label": "视频剪辑",
+      "words": [
+        "video editor",
+        "video editing",
+        "剪辑"
+      ]
+    },
+    {
+      "label": "OCR",
+      "words": [
+        "ocr",
+        "文字识别"
+      ]
+    },
+    {
+      "label": "文档转换",
+      "words": [
+        "pdf to markdown",
+        "document conversion",
+        "converter",
+        "格式转换"
+      ]
+    },
+    {
+      "label": "邮件",
+      "words": [
+        "email",
+        "email client",
+        "邮件"
+      ]
+    },
+    {
+      "label": "日历日程",
+      "words": [
+        "calendar",
+        "schedule",
+        "日历"
+      ]
+    },
+    {
+      "label": "健身",
+      "words": [
+        "workout",
+        "fitness",
+        "gym",
+        "健身"
+      ]
+    },
+    {
+      "label": "菜谱",
+      "words": [
+        "recipe",
+        "recipes",
+        "cooking",
+        "菜谱"
+      ]
+    },
+    {
+      "label": "地图导航",
+      "words": [
+        "map",
+        "maps",
+        "navigation",
+        "gps",
+        "地图"
+      ]
+    },
+    {
+      "label": "天气",
+      "words": [
+        "weather",
+        "天气"
+      ]
+    },
+    {
+      "label": "智能家居",
+      "words": [
+        "home assistant",
+        "smart home",
+        "智能家居"
+      ]
+    },
+    {
+      "label": "模拟器",
+      "words": [
+        "emulator",
+        "模拟器"
+      ]
+    },
+    {
+      "label": "输入法",
+      "words": [
+        "input method",
+        "keyboard layout",
+        "输入法"
+      ]
+    },
+    {
+      "label": "网盘",
+      "words": [
+        "cloud drive",
+        "file sharing",
+        "网盘"
+      ]
+    },
+    {
+      "label": "代理网络",
+      "words": [
+        "proxy",
+        "vpn",
+        "tunnel",
+        "代理"
+      ]
+    },
+    {
+      "label": "广告拦截",
+      "words": [
+        "ad blocker",
+        "adblock",
+        "去广告"
+      ]
+    },
+    {
+      "label": "博客建站",
+      "words": [
+        "blog",
+        "static site generator",
+        "website builder",
+        "博客"
+      ]
+    },
+    {
+      "label": "简历面试",
+      "words": [
+        "resume",
+        "interview",
+        "简历",
+        "面试"
+      ]
+    },
+    {
+      "label": "刷题",
+      "words": [
+        "leetcode",
+        "algorithms",
+        "刷题"
+      ]
+    },
+    {
+      "label": "壁纸美化",
+      "words": [
+        "wallpaper",
+        "theme",
+        "rice",
+        "壁纸"
+      ]
+    },
+    {
+      "label": "自动签到",
+      "words": [
+        "auto sign",
+        "check-in",
+        "签到"
+      ]
+    }
+  ],
+  "stacks": [
+    {
+      "label": "React",
+      "words": [
+        "react",
+        "reactjs"
+      ]
+    },
+    {
+      "label": "Vue",
+      "words": [
+        "vue",
+        "vuejs",
+        "vue3"
+      ]
+    },
+    {
+      "label": "Svelte",
+      "words": [
+        "svelte",
+        "sveltekit"
+      ]
+    },
+    {
+      "label": "Next.js",
+      "words": [
+        "next.js",
+        "nextjs"
+      ]
+    },
+    {
+      "label": "Nuxt",
+      "words": [
+        "nuxt",
+        "nuxtjs"
+      ]
+    },
+    {
+      "label": "Tailwind CSS",
+      "words": [
+        "tailwind",
+        "tailwindcss"
+      ]
+    },
+    {
+      "label": "Electron",
+      "words": [
+        "electron"
+      ]
+    },
+    {
+      "label": "Tauri",
+      "words": [
+        "tauri"
+      ]
+    },
+    {
+      "label": "Flutter",
+      "words": [
+        "flutter"
+      ]
+    },
+    {
+      "label": "React Native",
+      "words": [
+        "react native",
+        "react-native"
+      ]
+    },
+    {
+      "label": "SwiftUI",
+      "words": [
+        "swiftui"
+      ]
+    },
+    {
+      "label": "Jetpack Compose",
+      "words": [
+        "jetpack compose",
+        "jetpack-compose"
+      ]
+    },
+    {
+      "label": "Django",
+      "words": [
+        "django"
+      ]
+    },
+    {
+      "label": "FastAPI",
+      "words": [
+        "fastapi"
+      ]
+    },
+    {
+      "label": "Flask",
+      "words": [
+        "flask"
+      ]
+    },
+    {
+      "label": "Spring Boot",
+      "words": [
+        "spring boot",
+        "spring-boot"
+      ]
+    },
+    {
+      "label": "Express",
+      "words": [
+        "express.js",
+        "expressjs"
+      ]
+    },
+    {
+      "label": "NestJS",
+      "words": [
+        "nestjs"
+      ]
+    },
+    {
+      "label": "Ruby on Rails",
+      "words": [
+        "rails",
+        "ruby on rails"
+      ]
+    },
+    {
+      "label": "Laravel",
+      "words": [
+        "laravel"
+      ]
+    },
+    {
+      "label": "Gin",
+      "words": [
+        "gin-gonic"
+      ]
+    },
+    {
+      "label": "Node.js",
+      "words": [
+        "node.js",
+        "nodejs"
+      ]
+    },
+    {
+      "label": "Deno",
+      "words": [
+        "deno"
+      ]
+    },
+    {
+      "label": "Bun",
+      "words": [
+        "bun.sh",
+        "bun runtime"
+      ]
+    },
+    {
+      "label": "Docker",
+      "words": [
+        "docker",
+        "docker compose",
+        "dockerfile"
+      ]
+    },
+    {
+      "label": "Kubernetes",
+      "words": [
+        "kubernetes",
+        "k8s",
+        "helm"
+      ]
+    },
+    {
+      "label": "PostgreSQL",
+      "words": [
+        "postgres",
+        "postgresql"
+      ]
+    },
+    {
+      "label": "MySQL",
+      "words": [
+        "mysql"
+      ]
+    },
+    {
+      "label": "SQLite",
+      "words": [
+        "sqlite"
+      ]
+    },
+    {
+      "label": "Redis",
+      "words": [
+        "redis"
+      ]
+    },
+    {
+      "label": "MongoDB",
+      "words": [
+        "mongodb"
+      ]
+    },
+    {
+      "label": "PyTorch",
+      "words": [
+        "pytorch"
+      ]
+    },
+    {
+      "label": "TensorFlow",
+      "words": [
+        "tensorflow"
+      ]
+    },
+    {
+      "label": "Hugging Face",
+      "words": [
+        "hugging face",
+        "huggingface"
+      ]
+    },
+    {
+      "label": "LangChain",
+      "words": [
+        "langchain"
+      ]
+    },
+    {
+      "label": "Ollama",
+      "words": [
+        "ollama"
+      ]
+    },
+    {
+      "label": "MCP",
+      "words": [
+        "mcp",
+        "model context protocol"
+      ]
+    },
+    {
+      "label": "WebAssembly",
+      "words": [
+        "webassembly",
+        "wasm"
+      ]
+    },
+    {
+      "label": "Three.js",
+      "words": [
+        "three.js",
+        "threejs"
+      ]
+    },
+    {
+      "label": "Godot",
+      "words": [
+        "godot"
+      ]
+    },
+    {
+      "label": "Unity",
+      "words": [
+        "unity3d",
+        "unity engine"
+      ]
+    },
+    {
+      "label": "Bevy",
+      "words": [
+        "bevy"
+      ]
+    },
+    {
+      "label": "GraphQL",
+      "words": [
+        "graphql"
+      ]
+    },
+    {
+      "label": "gRPC",
+      "words": [
+        "grpc"
+      ]
+    },
+    {
+      "label": "FFmpeg",
+      "words": [
+        "ffmpeg"
+      ]
+    },
+    {
+      "label": "ESP32",
+      "words": [
+        "esp32"
+      ]
+    },
+    {
+      "label": "Arduino",
+      "words": [
+        "arduino"
+      ]
+    }
+  ],
+  "facets": {
+    "purpose": "用途：项目拿来做什么",
+    "tech": "技术：项目用什么做的"
+  }
+}

@@ -1,0 +1,945 @@
+[
+ {
+  "fullName": "ly05010419/MacNativeGames",
+  "description": "Play your own Tears of the Kingdom and Breath of the Wild natively on Apple silicon Mac, iPhone and iPad. Not an emulator: the game's ARM64 code runs directly, NVN rebuilt on Metal. Bring your own game.",
+  "language": "C",
+  "topics": [
+   "apple-silicon",
+   "arm64",
+   "breath-of-the-wild",
+   "game-port",
+   "ios",
+   "ipados",
+   "macos",
+   "metal",
+   "native-port",
+   "tears-of-the-kingdom",
+   "ultrawide",
+   "zelda"
+  ],
+  "label": "games"
+ },
+ {
+  "fullName": "DuarteSantos8/openGym",
+  "description": "Open-source gym & body-weight tracker, now in the App Store (iPhone + Apple Watch) and as an Android APK. Plan routines, log workouts, see which muscles are trained, import from Strong/Hevy/FitNotes. Self-host it or use it on the phone alone.",
+  "language": "JavaScript",
+  "topics": [
+   "apple-watch",
+   "bodyweight",
+   "docker",
+   "fitness",
+   "fitness-tracker",
+   "gym",
+   "health",
+   "ios",
+   "mcp",
+   "nodejs",
+   "passkeys",
+   "progressive-web-applications",
+   "pwa",
+   "react",
+   "self-hosted",
+   "self-hosting",
+   "vite",
+   "webauthn",
+   "weightlifting",
+   "workout-tracker"
+  ],
+  "label": "health"
+ },
+ {
+  "fullName": "tgeorgiadis/quiver-launcher",
+  "description": "A modern launcher for downloading, installing, and running apps from GitHub and GitLab releases. With a personal library, community catalog subscriptions, and flexible filtering.",
+  "language": "TypeScript",
+  "topics": [],
+  "label": "productivity"
+ },
+ {
+  "fullName": "oil-oil/oil-ui",
+  "description": "UI design skill for Claude Code, Codex and other AI agents: explore distinct directions, compare them side by side, refine against real screenshots. 给 AI Agent 用的 UI 设计 Skill。",
+  "language": "Python",
+  "topics": [
+   "agent-skills",
+   "ai-design",
+   "claude-code",
+   "claude-skills",
+   "codex",
+   "frontend",
+   "ui-design",
+   "ux-design"
+  ],
+  "label": "frontend"
+ },
+ {
+  "fullName": "cilium/cilium",
+  "description": "eBPF-based Networking, Security, and Observability",
+  "language": "Go",
+  "topics": [
+   "bpf",
+   "cncf",
+   "cni",
+   "containers",
+   "ebpf",
+   "k8s",
+   "kernel",
+   "kubernetes",
+   "kubernetes-networking",
+   "loadbalancing",
+   "monitoring",
+   "networking",
+   "observability",
+   "security",
+   "troubleshooting",
+   "xdp"
+  ],
+  "label": "data"
+ },
+ {
+  "fullName": "wangzan101/Mika",
+  "description": "An on-device AI agent for Android that operates apps and the web to get things done for you.",
+  "language": "Kotlin",
+  "topics": [
+   "accessibility",
+   "ai-agent",
+   "android",
+   "automation",
+   "jetpack-compose",
+   "kotlin",
+   "llm",
+   "mobile-agent"
+  ],
+  "label": "automation"
+ },
+ {
+  "fullName": "shaongitbd/doory",
+  "description": "Open source canva alternative",
+  "language": "TypeScript",
+  "topics": [
+   "canva-alternative",
+   "collaborative-editing",
+   "design-editor",
+   "design-tool",
+   "django",
+   "fabricjs",
+   "graphic-design",
+   "mcp-server",
+   "open-source",
+   "react",
+   "self-hosted",
+   "typescript",
+   "yjs"
+  ],
+  "label": "media"
+ },
+ {
+  "fullName": "ruvnet/ruflo",
+  "description": "🌊 The original agent harness. Deploy intelligent multi-player swarms, coordinate autonomous workflows, and build conversational AI systems. Features adaptive memory, self-learning intelligence, federation, vector RAG integration, and native Claude Code / Codex / Hermes and many more Integrated",
+  "language": "TypeScript",
+  "topics": [
+   "agentic-ai",
+   "agentic-framework",
+   "agentic-workflow",
+   "agents",
+   "ai-agents",
+   "ai-assistant",
+   "ai-skills",
+   "autonomous-agents",
+   "claude",
+   "codex",
+   "dsh-plugin",
+   "harness",
+   "mcp-server",
+   "multi-agent",
+   "multi-agent-systems",
+   "npm",
+   "skills",
+   "swarm",
+   "swarm-intelligence",
+   "typescript"
+  ],
+  "label": "ai"
+ },
+ {
+  "fullName": "pgrundev/pgx",
+  "description": "PGX — Lightweight Postgres for AI agents. Written in Rust. Thousands of isolated databases in one runtime🐘",
+  "language": "Rust",
+  "topics": [
+   "agents",
+   "ai-infrastructure",
+   "ai-infrastructure-development",
+   "ai-infrastructure-software",
+   "database",
+   "open-source",
+   "postgres",
+   "postgresql",
+   "rust",
+   "rust-lang"
+  ],
+  "label": "data"
+ },
+ {
+  "fullName": "anhao/ai-pose-gallery-zh",
+  "description": "中文版 AI 姿势参考图库 · 1439 组 / 2878 张图片 / 完整汉化 · 零依赖静态画廊",
+  "language": "TypeScript",
+  "topics": [
+   "ai-art",
+   "chinese",
+   "cloudflare-pages",
+   "gallery",
+   "i18n",
+   "pose",
+   "reference-images",
+   "static-site"
+  ],
+  "label": "media"
+ },
+ {
+  "fullName": "LaurieWired/GhidraMCP",
+  "description": "MCP Server for Ghidra",
+  "language": "Java",
+  "topics": [],
+  "label": "security"
+ },
+ {
+  "fullName": "FreshRSS/FreshRSS",
+  "description": "A free, self-hostable news aggregator…",
+  "language": "PHP",
+  "topics": [
+   "feed",
+   "freshrss",
+   "news-aggregator",
+   "php",
+   "rss",
+   "rss-aggregator",
+   "rss-reader",
+   "self-hosted",
+   "websub"
+  ],
+  "label": "social"
+ },
+ {
+  "fullName": "vxcontrol/pentagi",
+  "description": "Fully autonomous AI Agents system capable of performing complex penetration testing tasks",
+  "language": "Go",
+  "topics": [
+   "ai-agents",
+   "ai-security-tool",
+   "anthropic",
+   "autonomous-agents",
+   "golang",
+   "gpt",
+   "graphql",
+   "multi-agent-system",
+   "offensive-security",
+   "open-source",
+   "openai",
+   "penetration-testing",
+   "penetration-testing-tools",
+   "react",
+   "security-automation",
+   "security-testing",
+   "security-tools",
+   "self-hosted"
+  ],
+  "label": "security"
+ },
+ {
+  "fullName": "akitaonrails/ai-memory",
+  "description": "Solution for long term memory for agent coding CLIs and to facilitate handoff between different agent vendors",
+  "language": "Rust",
+  "topics": [],
+  "label": "devtools"
+ },
+ {
+  "fullName": "1lck/Lithe-IDEA",
+  "description": "A lightweight, cross-platform IDE for the AI era, with on-demand tools and services.",
+  "language": "Swift",
+  "topics": [],
+  "label": "devtools"
+ },
+ {
+  "fullName": "JulioFerrero/pocket-foundry",
+  "description": "Play your own copy of Factorio on Android: the official Linux ARM64 build, run without emulation on the phone's GPU, with an on-screen controller.",
+  "language": "Kotlin",
+  "topics": [
+   "adreno",
+   "android",
+   "factorio",
+   "linux-arm64",
+   "mesa",
+   "termux-x11",
+   "turnip",
+   "zink"
+  ],
+  "label": "games"
+ },
+ {
+  "fullName": "seedds/nxnative",
+  "description": "Switch games running natively on iPhone, iPad and Mac: an NSP folder becomes an unsigned IPA (NSO rewriter, Horizon HLE host, NVN→Metal)",
+  "language": "Python",
+  "topics": [],
+  "label": "games"
+ },
+ {
+  "fullName": "storytold/wordcraft",
+  "description": "An open-source, clean-room reimplementation of Microsoft Word in pure Rust",
+  "language": "Rust",
+  "topics": [],
+  "label": "productivity"
+ },
+ {
+  "fullName": "stranix79/cours-rust",
+  "description": "Rust de zéro à la prod, en français : 17 chapitres, 16 labos testés, pour qui vient du C, de Python ou de Go.",
+  "language": "Rust",
+  "topics": [
+   "cargo",
+   "cours",
+   "course",
+   "devops",
+   "french",
+   "labs",
+   "learning",
+   "ownership",
+   "rust",
+   "tutorial"
+  ],
+  "label": "learning"
+ },
+ {
+  "fullName": "qybaihe/bla",
+  "description": "🛡️ BLA (Blind LLM Agents) — Adversarial defense shield that protects binaries, Electron apps, JS bundles, Python, and WebAssembly against AI reverse-engineering agents like REA. Poison -> Exhaust -> Hallucinate.",
+  "language": "JavaScript",
+  "topics": [
+   "adversarial-ai",
+   "claude-code",
+   "cursor",
+   "electron-security",
+   "llm-security",
+   "mcp",
+   "mcp-server",
+   "obfuscation",
+   "reverse-engineering",
+   "webassembly"
+  ],
+  "label": "security"
+ },
+ {
+  "fullName": "Alejandros17487/ai-jailbreaks",
+  "description": "AI jailbreaks: 35 paste-ready AI jailbreak prompts for 25+ frontier and open-weight models - system prompts, AGENTS.md specs, and Ollama Modelfiles. Built for AI security research and red-team testing.",
+  "language": "未知",
+  "topics": [
+   "ai",
+   "ai-safety",
+   "jailbreak",
+   "jailbreaking",
+   "privacy",
+   "safety",
+   "security"
+  ],
+  "label": "security"
+ },
+ {
+  "fullName": "AienTech/dossier",
+  "description": "A self-hosted job search app that writes tailored resumes and cover letters from your profile.",
+  "language": "TypeScript",
+  "topics": [
+   "caprover",
+   "cover-letter",
+   "docker",
+   "job-application-tracker",
+   "job-search",
+   "llm",
+   "local-llm",
+   "nextjs",
+   "ollama",
+   "postgresql",
+   "resume",
+   "self-hosted",
+   "typescript"
+  ],
+  "label": "productivity"
+ },
+ {
+  "fullName": "Xpropel/Pi-Remote",
+  "description": "Remote control for your pi coding agent. Pi-Remote mirrors live pi terminal sessions to any browser, so you can watch runs, answer prompts, and send commands from your phone — end-to-end encrypted over a self-hosted relay.",
+  "language": "TypeScript",
+  "topics": [
+   "ai-agent",
+   "coding-agent",
+   "developer-tools",
+   "nodejs",
+   "pi",
+   "pi-coding-agent",
+   "react",
+   "relay",
+   "remote-control",
+   "self-hosted",
+   "terminal",
+   "typescript",
+   "web-terminal",
+   "websocket"
+  ],
+  "label": "devtools"
+ },
+ {
+  "fullName": "LiveContainer/LiveContainer",
+  "description": "Run iOS apps without actually installing them!",
+  "language": "Swift",
+  "topics": [],
+  "label": "apps"
+ },
+ {
+  "fullName": "interplains/Zero-Breach-Toolkit",
+  "description": "Free, open-source, offline checks for traces of known mercenary spyware. Works on Windows, macOS and Linux, Android phones and iPhone backups.",
+  "language": "Python",
+  "topics": [],
+  "label": "security"
+ },
+ {
+  "fullName": "ratomirjovanovic/pandaward",
+  "description": "Local, evidence-based application security assessment engine and Claude Code plugin",
+  "language": "Go",
+  "topics": [
+   "appsec",
+   "claudecode",
+   "claudecode-plugin",
+   "claudecode-skill",
+   "claudecode-skills",
+   "devsecops",
+   "go",
+   "golang",
+   "mcp",
+   "sast",
+   "security",
+   "security-tools",
+   "static-analysis"
+  ],
+  "label": "security"
+ },
+ {
+  "fullName": "smithjohn78390/tongjiang-lab",
+  "description": "Free interactive 3D science lessons for high school · 铜匠实验室 · https://lab.tongjiang.app",
+  "language": "HTML",
+  "topics": [
+   "3d",
+   "biology",
+   "chemistry",
+   "education",
+   "geography",
+   "high-school",
+   "interactive",
+   "open-educational-resources",
+   "physics",
+   "threejs",
+   "webgl"
+  ],
+  "label": "learning"
+ },
+ {
+  "fullName": "NationalSecurityAgency/ghidra",
+  "description": "Ghidra is a software reverse engineering (SRE) framework",
+  "language": "Java",
+  "topics": [
+   "disassembler",
+   "reverse-engineering",
+   "software-analysis"
+  ],
+  "label": "security"
+ },
+ {
+  "fullName": "simbasjungles/free-my-tv",
+  "description": "A fast, ad-free home screen for Google TV, LG webOS and Samsung Tizen. One button to undo.",
+  "language": "Java",
+  "topics": [
+   "android-tv",
+   "claude-code",
+   "google-tv",
+   "home-screen",
+   "launcher",
+   "no-ads",
+   "open-source",
+   "samsung-tizen",
+   "tizen",
+   "tmdb",
+   "webos"
+  ],
+  "label": "entertainment"
+ },
+ {
+  "fullName": "robbietilton/Compositor",
+  "description": "The Photoshop alternative for Mac",
+  "language": "Swift",
+  "topics": [],
+  "label": "media"
+ },
+ {
+  "fullName": "obra/superpowers",
+  "description": "An agentic skills framework & software development methodology that works.",
+  "language": "Shell",
+  "topics": [
+   "ai",
+   "brainstorming",
+   "coding",
+   "obra",
+   "sdlc",
+   "skills",
+   "subagent-driven-development",
+   "superpowers"
+  ],
+  "label": "devtools"
+ },
+ {
+  "fullName": "addyosmani/agent-skills",
+  "description": "Production-grade engineering skills for AI coding agents.",
+  "language": "JavaScript",
+  "topics": [
+   "agent-skills",
+   "antigravity",
+   "claude-code",
+   "codex",
+   "cursor",
+   "skills"
+  ],
+  "label": "devtools"
+ },
+ {
+  "fullName": "floci-io/floci",
+  "description": "Light, fluffy, and always free - The AWS Local Emulator alternative",
+  "language": "Java",
+  "topics": [
+   "aws",
+   "aws-emulation",
+   "devops",
+   "docker",
+   "ec2",
+   "ecs",
+   "localstack",
+   "s3",
+   "sqs",
+   "testcontainers"
+  ],
+  "label": "data"
+ },
+ {
+  "fullName": "RikkaApps/Shizuku",
+  "description": "Using system APIs directly with adb/root privileges from normal apps through a Java process started with app_process.",
+  "language": "Kotlin",
+  "topics": [],
+  "label": "apps"
+ },
+ {
+  "fullName": "lexmount/moli",
+  "description": "Best headless browser for AI agents. Lite, Fast, High-Compatibility. Built in Rust",
+  "language": "Rust",
+  "topics": [
+   "ai-agents",
+   "ai-tools",
+   "browser",
+   "browser-automation",
+   "cloud-browser",
+   "headless",
+   "headless-browser",
+   "kitesurf",
+   "playwright",
+   "puppeteer",
+   "rust",
+   "servo",
+   "web-crawler",
+   "web-crawling",
+   "web-scraper",
+   "web-scraping"
+  ],
+  "label": "browser"
+ },
+ {
+  "fullName": "aschmelyun/print-my-profile-pic",
+  "description": "Say cheese! Star this repo and your profile picture gets printed out on a receipt printer.",
+  "language": "未知",
+  "topics": [],
+  "label": "smarthome"
+ },
+ {
+  "fullName": "notinferred/halfnine",
+  "description": "A light TablePlus alternative for PostgreSQL that your AI agents can use too, over MCP. macOS and Windows.",
+  "language": "Rust",
+  "topics": [
+   "ai-agents",
+   "claude-code",
+   "database",
+   "database-management",
+   "desktop-app",
+   "developer-tools",
+   "gui",
+   "macos",
+   "mcp",
+   "mcp-server",
+   "postgres",
+   "postgresql",
+   "sql",
+   "tableplus-alternative",
+   "tauri",
+   "windows"
+  ],
+  "label": "data"
+ },
+ {
+  "fullName": "pengchujin/aerial-tv",
+  "description": "给国产电视的一块干净桌面：参照 tvOS 设计的开源 Android TV 桌面，没有广告，开机自动接管。A tvOS-style launcher for Xiaomi, TCL and other China-market TVs.",
+  "language": "Kotlin",
+  "topics": [],
+  "label": "entertainment"
+ },
+ {
+  "fullName": "storytold/photocraft",
+  "description": "PhotoCraft: An open-source, photo editor written by scratch in pure Rust",
+  "language": "Rust",
+  "topics": [
+   "art",
+   "image-editing",
+   "image-editing-software",
+   "image-editor",
+   "images",
+   "photo-editing",
+   "rust"
+  ],
+  "label": "media"
+ },
+ {
+  "fullName": "openai/codex",
+  "description": "Lightweight coding agent that runs in your terminal",
+  "language": "Rust",
+  "topics": [],
+  "label": "devtools"
+ },
+ {
+  "fullName": "D3voz/openjutsu",
+  "description": "One-click character swap for videos: an open-source, local Higgsfield Genjutsu alternative built on ComfyUI and MiniMax H3, with FLUX.3 Klein relighting.",
+  "language": "TypeScript",
+  "topics": [
+   "character-swap",
+   "comfyui",
+   "minimax-h3",
+   "nextjs",
+   "open-weights",
+   "opensourcehiggsfield",
+   "video-generation"
+  ],
+  "label": "media"
+ },
+ {
+  "fullName": "k3s-io/k3s",
+  "description": "Lightweight Kubernetes",
+  "language": "Go",
+  "topics": [
+   "k8s",
+   "kubernetes"
+  ],
+  "label": "data"
+ },
+ {
+  "fullName": "NyxFoundation/nyxis",
+  "description": "A Lean backend framework whose authorization safety is formally proven. The developer writes only a Cedar schema and policies; handlers are built on Supabase Auth and PostgreSQL.",
+  "language": "Lean",
+  "topics": [
+   "access-control",
+   "authorization",
+   "backend-framework",
+   "cedar",
+   "formal-verification",
+   "lean4",
+   "postgresql",
+   "security",
+   "supabase"
+  ],
+  "label": "backend"
+ },
+ {
+  "fullName": "microsoft/BitNet",
+  "description": "Official inference framework for 1-bit LLMs",
+  "language": "C++",
+  "topics": [],
+  "label": "ai"
+ },
+ {
+  "fullName": "hyprwm/Hyprland",
+  "description": "Hyprland is an independent, highly customizable, dynamic tiling Wayland compositor that doesn't sacrifice on its looks.",
+  "language": "C++",
+  "topics": [
+   "compositor",
+   "cpp26",
+   "wayland",
+   "wayland-compositor"
+  ],
+  "label": "cli"
+ },
+ {
+  "fullName": "Niko1221/Strata",
+  "description": "Qwen3.8-Flash-Next on any consumer hardware: one-click install for Windows / Linux. Strata inference engine, OpenAI/Anthropic API on localhost, optional image input.",
+  "language": "C++",
+  "topics": [],
+  "label": "ai"
+ },
+ {
+  "fullName": "storytold/filmcraft",
+  "description": "FilmCraft: An open-source, nonlinear video editor written by scratch in pure Rust",
+  "language": "Rust",
+  "topics": [
+   "art",
+   "rust",
+   "video",
+   "video-editing",
+   "video-editor",
+   "video-processing"
+  ],
+  "label": "media"
+ },
+ {
+  "fullName": "YuKongA/ghostlock-app",
+  "description": "GhostLock One-Tap Execution App (CVE-2026-43499)",
+  "language": "Kotlin",
+  "topics": [],
+  "label": "security"
+ },
+ {
+  "fullName": "jhaizhou-ops/d2r-mobile",
+  "description": "Open-source compatibility layer for Diablo II: Resurrected with the Reign of the Warlock expansion. Runs your own Switch copy natively on iPhone, iPad, Mac, Android and HarmonyOS — full touch controls, 60 fps, new endgame modes. Bring your own game files. 开源的《暗黑破坏神 II：狱火重生》术士君临 iOS / macOS / 安卓 / 鸿蒙兼容层",
+  "language": "C",
+  "topics": [
+   "android",
+   "compatibility-layer",
+   "diablo-2-resurrected",
+   "diablo2",
+   "game-port",
+   "harmonyos",
+   "ios",
+   "ipad",
+   "iphone",
+   "mac",
+   "macos",
+   "metal",
+   "reign-of-the-warlock",
+   "vulkan"
+  ],
+  "label": "games"
+ },
+ {
+  "fullName": "cjpais/Handy",
+  "description": "A free, open source, and extensible speech-to-text application that works completely offline.",
+  "language": "Rust",
+  "topics": [
+   "accessibility",
+   "cross-platform",
+   "speech-to-text",
+   "tauri-v2"
+  ],
+  "label": "media"
+ },
+ {
+  "fullName": "BryceYuuu/RUN",
+  "description": "RUN · 润：海外移居手册（欧洲 36 国 · 110 条路线 · 主要移民地区）",
+  "language": "Python",
+  "topics": [],
+  "label": "lifestyle"
+ },
+ {
+  "fullName": "xiaomoBoy/pi-bluebook",
+  "description": "Pi Coding Agent 中文学习蓝皮书：从安装与第一个可验收任务开始，逐步掌握 Session、Context、Skill、Extension、Subagent 与长期 Agent 工作流。",
+  "language": "Markdown",
+  "topics": [
+   "agent-harness",
+   "agent-skills",
+   "ai-agent",
+   "chinese",
+   "coding-agent",
+   "context-engineering",
+   "learning-path",
+   "pi",
+   "pi-agent",
+   "pi-coding-agent",
+   "tutorial",
+   "vitepress"
+  ],
+  "label": "learning"
+ },
+ {
+  "fullName": "mgba-emu/mgba",
+  "description": "mGBA Game Boy Advance Emulator",
+  "language": "C",
+  "topics": [
+   "emulator",
+   "game-boy",
+   "game-boy-advance",
+   "game-boy-color",
+   "game-boy-emulator",
+   "gameboy",
+   "gameboy-advance",
+   "gameboy-advance-emulator",
+   "gameboy-color-emulator",
+   "gameboy-emulator",
+   "gba",
+   "mgba"
+  ],
+  "label": "games"
+ },
+ {
+  "fullName": "mksglu/context-mode",
+  "description": "Context window optimization for AI coding agents. Sandboxes tool output (98% reduction), persists session memory, and enforces routing across 17 platforms via MCP + hooks.",
+  "language": "TypeScript",
+  "topics": [
+   "antigravity",
+   "claude",
+   "claude-code",
+   "claude-code-hooks",
+   "claude-code-plugins",
+   "claude-code-skill",
+   "codex",
+   "codex-cli",
+   "context-mode",
+   "copilot",
+   "cursor-plugin",
+   "kiro",
+   "mcp",
+   "mcp-server",
+   "mcp-tools",
+   "openclaw",
+   "opencode",
+   "pi-agent",
+   "skills",
+   "zed-extension"
+  ],
+  "label": "devtools"
+ },
+ {
+  "fullName": "mbm110/MSN-GUARD",
+  "description": "Device-wide Android VPN for difficult networks: WireGuard, MASQUE, WARP-on-WARP, Psiphon, Tor, Foxy and SHARD — with Rust core, endpoint discovery, MTU scanning, multiple TUN engines, profiles and verified connections.",
+  "language": "C",
+  "topics": [
+   "android",
+   "censorship-circumvention",
+   "dpi-bypass",
+   "http3",
+   "iran",
+   "kotlin",
+   "masque",
+   "psiphon",
+   "quic",
+   "rust",
+   "tun2socks",
+   "vpn",
+   "vpnservice",
+   "wireguard"
+  ],
+  "label": "security"
+ },
+ {
+  "fullName": "openssl/openssl",
+  "description": "General purpose TLS and crypto library",
+  "language": "C",
+  "topics": [
+   "cryptography",
+   "decryption",
+   "encryption",
+   "openssl",
+   "ssl",
+   "tls"
+  ],
+  "label": "security"
+ },
+ {
+  "fullName": "Noblereachdata/resocket-pixeljury",
+  "description": "Visual QA CLI for AI-built frontends that renders pages, finds design and accessibility issues, and writes agent-ready fix prompts.",
+  "language": "未知",
+  "topics": [
+   "accessibility",
+   "ai-slop",
+   "architecture-diagrams",
+   "cursor",
+   "design-qa",
+   "design-review",
+   "design-to-code",
+   "figma",
+   "frontend",
+   "frontend-qa",
+   "layout",
+   "pillow",
+   "playwright",
+   "pptx",
+   "qa",
+   "renderer",
+   "responsive-design",
+   "screenshot",
+   "visual-qa",
+   "web-testing"
+  ],
+  "label": "frontend"
+ },
+ {
+  "fullName": "invoiceninja/invoiceninja",
+  "description": "A source-available invoice, quote, project and time-tracking app built with Laravel",
+  "language": "PHP",
+  "topics": [
+   "einvoicing",
+   "expenses",
+   "flutter",
+   "hacktoberfest",
+   "invoice",
+   "invoiceninja",
+   "invoices",
+   "javascript",
+   "kanban",
+   "laravel",
+   "payments",
+   "php",
+   "projects",
+   "quotes",
+   "tasks",
+   "time-tracker"
+  ],
+  "label": "finance"
+ },
+ {
+  "fullName": "HarnessRouter/harnessrouter",
+  "description": "HarnessRouter Community Edition: the self-hosted, Apache-2.0 edition of the unified interface for agent harnesses. Run Codex, Claude Code, Hermes, PI, DSH, and more through one API, with sessions, streaming, files, cancellation, and failure handling. Implements the Unified Harness Protocol (UHP), an open standard. Your keys, your infrastructure.",
+  "language": "Python",
+  "topics": [
+   "agent-api",
+   "agent-framework",
+   "agent-harness",
+   "ai-agents",
+   "ai-infrastructure",
+   "coding-agent",
+   "conformance-testing",
+   "deepseek-harness",
+   "harness-engineering",
+   "hermes",
+   "llm",
+   "open-protocol",
+   "open-source",
+   "open-standard",
+   "pi-coding-agent",
+   "self-hosted",
+   "uhp",
+   "unified-api",
+   "unified-harness-protocol",
+   "unified-interface"
+  ],
+  "label": "ai"
+ },
+ {
+  "fullName": "elie222/rakazo",
+  "description": "Open-source Grok Bot alternative. Choose your own model and sandbox.",
+  "language": "TypeScript",
+  "topics": [
+   "ai-agents",
+   "chatgpt",
+   "docker",
+   "electron",
+   "expo",
+   "grok",
+   "llm",
+   "self-hosted",
+   "typescript"
+  ],
+  "label": "ai"
+ }
+]

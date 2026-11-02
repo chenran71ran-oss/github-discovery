@@ -18,3 +18,4 @@ vr/
 
 .venv/
 __pycache__/
+collector/lab/.readme-cache.json

@@ -1,3 +1,5 @@
+import { categories, categoryOf, fallback } from "./taxonomy"
+
 export const periods = ["daily", "weekly", "monthly"] as const
 export type Period = typeof periods[number]
 export interface Repository {
@@ -23,6 +25,22 @@ export interface Repository {
   origin?: "trending" | "language" | "search"
   /** Creation time, only known for "search" rows. */
   createdAt?: string
+  /** Search stream that found the row, e.g. "topic:self-hosted". */
+  stream?: string
+  /** GIT Bot classification (taxonomy v2+); absent in older snapshots. */
+  tags?: string[]
+  domain?: string
+  purposes?: string[]
+  topics?: string[]
+  classification?: Classification
+}
+export interface Classification {
+  by: "rules" | "ai"
+  strategy: string
+  /** 0–1: the winning category's share of all category scores. */
+  confidence: number
+  /** Evidence in Chinese, e.g. "主题 self-hosted", "关键词 budget". */
+  reasons: string[]
 }
 export interface DiscoverySnapshot {
   schemaVersion: 1
@@ -32,15 +50,25 @@ export interface DiscoverySnapshot {
   periods: Record<Period, Repository[]>
   status: Record<Period, { ok: boolean, capturedAt: string, error?: string }>
   enrichment: { ready: number, total: number, aiConfigured: boolean }
+  taxonomyVersion?: number
+  classifier?: string
 }
 export function isSnapshot(v: unknown): v is DiscoverySnapshot {
   if (!v || typeof v !== "object") return false
   const d = v as DiscoverySnapshot
   return d.schemaVersion === 1 && Number.isFinite(Date.parse(d.generatedAt)) && periods.every(p => Array.isArray(d.periods?.[p]) && d.periods[p].length > 0 && d.periods[p].every(r => /^[\w.-]+\/[\w.-]+$/.test(r.fullName) && Number.isFinite(r.stars) && typeof r.description === "string"))
 }
-export function filterRepositories(repos: Repository[], q: string, language: string, category: string, saved?: string[]) {
+/** Primary category and secondary tags, normalised to the current taxonomy. */
+export function labelsOf(r: Pick<Repository, "category" | "tags">) {
+  return [categoryOf(r.category).label, ...(r.tags || []).map(t => categoryOf(t).label)]
+}
+/**
+ * category filters by label and also matches secondary tags, so a fitness app tagged 移动与桌面
+ * shows up under both. domain filters by the primary category's domain.
+ */
+export function filterRepositories(repos: Repository[], q: string, language: string, category: string, saved?: string[], domain = "") {
   const term = q.trim().toLowerCase()
-  return repos.filter(r => (!language || r.language === language) && (!category || r.category === category) && (!saved || saved.includes(r.fullName)) && (!term || [r.fullName, r.description, r.summary, r.useCase, ...r.techStack].join(" ").toLowerCase().includes(term)))
+  return repos.filter(r => (!language || r.language === language) && (!category || labelsOf(r).includes(category)) && (!domain || categoryOf(r.category).domain === domain) && (!saved || saved.includes(r.fullName)) && (!term || [r.fullName, r.description, r.summary, r.useCase, ...r.techStack, ...labelsOf(r), ...(r.purposes || []), ...(r.topics || [])].join(" ").toLowerCase().includes(term)))
 }
 /**
  * 「爆发」：周期新增 Star 占当前总 Star 的比例，与绝对增量同时达标。
@@ -57,7 +85,7 @@ export function isBreakout(repo: Pick<Repository, "stars" | "periodStars">, peri
   const rule = breakoutRules[period]
   return gain >= rule.min && gain / repo.stars >= rule.share
 }
-export const categoryNames = ["全部", "AI 与智能体", "开发工具", "前端与界面", "自托管", "数据与基础设施", "安全与隐私", "移动与桌面", "学习与研究", "其他"]
+export const categoryNames = ["全部", ...categories.map(c => c.label), fallback.label]
 export function compact(n: number) {
   return new Intl.NumberFormat("en-US", { notation: "compact", maximumFractionDigits: 1 }).format(n)
 }

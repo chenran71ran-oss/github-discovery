@@ -1,43 +1,30 @@
 import { useEffect, useMemo, useRef, useState } from "react"
 import { useQuery } from "@tanstack/react-query"
 import { useMedia } from "react-use"
-import { type DiscoverySnapshot, type Period, type Repository, categoryNames, filterRepositories, isSnapshot } from "@shared/discovery"
+import type { Period, Repository } from "@shared/discovery"
+import { domains } from "@shared/taxonomy"
+import { isRepoName, loadDates, loadSnapshot, readSaved, savedKey, writeSaved } from "./api"
+import { CategoryFilter } from "./category-filter"
 import { RepoInsight, RepoSheet, time } from "./detail"
 import { Icon } from "./icons"
+import { type Sort, counts, sourceRows, visibleRows } from "./model"
 import { DataNote, Overview } from "./overview"
 import { Row, SkeletonRows, labels } from "./row"
 import { Segmented } from "./segmented"
 import { type RadarTheme, findTheme, readThemeId, saveThemeId, themeVars } from "./theme"
 import { ThemePicker } from "./theme-picker"
+import { useScrollChrome } from "./use-scroll-chrome"
 import { useDark } from "~/hooks/useDark"
 import "./style.css"
 
 const periods = ["daily", "weekly", "monthly"] as const
-const storageKey = "discovery-next-favorites-v1"
-const fullName = /^[\w.-]+\/[\w.-]+$/
-
-function readSaved(): Record<string, Repository> {
-  try {
-    const value = JSON.parse(localStorage.getItem(storageKey) || "{}")
-    return value && typeof value === "object" && !Array.isArray(value) ? Object.fromEntries(Object.entries(value).filter(([key, r]) => fullName.test(key) && r && typeof r === "object" && (r as Repository).fullName === key)) as Record<string, Repository> : {}
-  } catch {
-    return {}
-  }
-}
-async function loadSnapshot(date = "", signal?: AbortSignal): Promise<DiscoverySnapshot> {
-  const response = await fetch(date ? `/data/history/${date}.json` : "/data/latest.json", { signal, cache: "no-cache" })
-  if (!response.ok) throw new Error("榜单暂时没有加载成功，请稍后重试。")
-  const value: unknown = await response.json()
-  if (!isSnapshot(value)) throw new Error("榜单数据格式异常，暂时无法展示。")
-  return value
-}
 function typing(target: EventTarget | null) {
   const el = target as HTMLElement | null
   return !!el && (el.isContentEditable || ["INPUT", "SELECT", "TEXTAREA"].includes(el.tagName))
 }
 
 export function Discovery() {
-  const { isDark, colorScheme, setDark, toggleDark } = useDark()
+  const { isDark, colorScheme, setDark } = useDark()
   const [darkId, setDarkId] = useState(() => readThemeId("dark"))
   const [lightId, setLightId] = useState(() => readThemeId("light"))
   const theme = findTheme(isDark ? darkId : lightId, isDark ? "dark" : "light")
@@ -45,23 +32,22 @@ export function Discovery() {
   const [period, setPeriod] = useState<Period>((periods as readonly string[]).includes(initial.get("period") || "") ? initial.get("period") as Period : "daily")
   const [q, setQ] = useState(initial.get("q") || "")
   const [language, setLanguage] = useState(initial.get("language") || "")
+  const [domain, setDomain] = useState(domains.some(d => d.id === initial.get("domain")) ? initial.get("domain")! : "")
   const [category, setCategory] = useState(initial.get("category") || "")
-  const [sort, setSort] = useState("rank")
+  const [sort, setSort] = useState<Sort>("rank")
   const [view, setView] = useState<"discover" | "saved">(initial.get("view") === "saved" ? "saved" : "discover")
   const [date, setDate] = useState(/^\d{4}-\d{2}-\d{2}$/.test(initial.get("date") || "") ? initial.get("date")! : "")
   const [saved, setSaved] = useState(readSaved)
-  const [activeName, setActiveName] = useState(fullName.test(initial.get("repo") || "") ? initial.get("repo")! : "")
+  const [activeName, setActiveName] = useState(isRepoName(initial.get("repo")) ? initial.get("repo")! : "")
   const [pickerOpen, setPickerOpen] = useState(false)
   const [notice, setNotice] = useState("")
   const searchRef = useRef<HTMLInputElement>(null)
   const listRef = useRef<HTMLOListElement>(null)
   // 宽屏把解读放在右侧栏，窄屏用底部面板
   const wide = useMedia("(min-width: 1080px)", true)
+  const chromeHidden = useScrollChrome()
   const query = useQuery({ queryKey: ["discovery", date], queryFn: ({ signal }) => loadSnapshot(date, signal), staleTime: 60_000, retry: 1, refetchOnWindowFocus: false })
-  const dates = useQuery<string[]>({ queryKey: ["discovery-dates"], queryFn: async () => {
-    const r = await fetch("/data/dates.json")
-    return r.ok ? r.json() : []
-  }, staleTime: 300_000 })
+  const dates = useQuery({ queryKey: ["discovery-dates"], queryFn: loadDates, staleTime: 300_000 })
   const data = query.data
 
   useEffect(() => {
@@ -83,14 +69,15 @@ export function Discovery() {
     if (view === "saved") params.set("view", "saved")
     if (q) params.set("q", q)
     if (language) params.set("language", language)
+    if (domain) params.set("domain", domain)
     if (category) params.set("category", category)
     if (date) params.set("date", date)
     if (activeName) params.set("repo", activeName)
     window.history.replaceState(null, "", `${window.location.pathname}${params.size ? `?${params}` : ""}`)
-  }, [period, view, q, language, category, date, activeName])
+  }, [period, view, q, language, domain, category, date, activeName])
   useEffect(() => {
     const sync = (e: StorageEvent) => {
-      if (e.key === storageKey) setSaved(readSaved())
+      if (e.key === savedKey) setSaved(readSaved())
     }
     window.addEventListener("storage", sync)
     return () => window.removeEventListener("storage", sync)
@@ -106,11 +93,10 @@ export function Discovery() {
     const had = !!next[repo.fullName]
     if (had) delete next[repo.fullName]
     else next[repo.fullName] = repo
-    try {
-      localStorage.setItem(storageKey, JSON.stringify(next))
+    if (writeSaved(next)) {
       setSaved(next)
       setNotice(had ? "已移出收藏" : "已收藏，保存在当前浏览器")
-    } catch {
+    } else {
       setNotice("浏览器存储不可用，收藏未保存")
     }
   }
@@ -120,13 +106,10 @@ export function Discovery() {
     else setLightId(picked.id)
     setDark(picked.mode)
   }
-  // 收藏里不在当前周期榜单上的项目：没有这个周期的名次和增量，不能沿用收藏时另一个周期的数字
-  const source = useMemo(() => view === "saved" ? Object.values(saved).map(r => data?.periods[period].find(n => n.fullName === r.fullName) || { ...r, rank: 0, previousRank: null, periodStars: null }) : data?.periods[period] || [], [view, saved, data, period])
+  const source = useMemo(() => sourceRows(data, period, view === "saved" ? saved : null), [view, saved, data, period])
   const languages = useMemo(() => [...new Set(source.map(r => r.language))].sort(), [source])
-  const repos = useMemo(() => {
-    const rows = filterRepositories(source, q, language, category)
-    return sort === "stars" ? rows.sort((a, b) => b.stars - a.stars) : sort === "growth" ? rows.sort((a, b) => (b.periodStars ?? -1) - (a.periodStars ?? -1)) : rows.sort((a, b) => (a.rank || Infinity) - (b.rank || Infinity))
-  }, [source, q, language, category, sort])
+  const tally = useMemo(() => counts(source), [source])
+  const repos = useMemo(() => visibleRows(source, { q, language, domain, category, sort }), [source, q, language, domain, category, sort])
   // 选中的项目优先取当前周期的数据，周期切换后名次与增量跟着变
   const active = useMemo(() => {
     if (!activeName) return null
@@ -134,10 +117,11 @@ export function Discovery() {
   }, [activeName, data, period, source, saved])
 
   const open = (repo: Repository) => setActiveName(name => name === repo.fullName && wide ? "" : repo.fullName)
-  const filtered = !!(q || language || category)
+  const filtered = !!(q || language || domain || category)
   const reset = () => {
     setQ("")
     setLanguage("")
+    setDomain("")
     setCategory("")
   }
   const switchView = (next: "discover" | "saved") => {
@@ -185,8 +169,7 @@ export function Discovery() {
   const savedCount = Object.keys(saved).length
   const emptySaved = view === "saved" && !savedCount
   // 切换周期、视图、分类或排序时列表轻轻淡入；输入搜索词时不重放，避免打字时闪动
-  const listKey = `${view}-${period}-${category}-${language}-${sort}-${date}`
-  const categoryCount = (c: string) => c ? source.filter(r => r.category === c).length : source.length
+  const listKey = `${view}-${period}-${domain}-${category}-${language}-${sort}-${date}`
 
   const list = query.isPending
     ? <SkeletonRows />
@@ -216,38 +199,39 @@ export function Discovery() {
           </div>
         )
 
+  const discoverLabel = (
+    <>
+      <Icon name="compass" />
+      发现
+    </>
+  )
+  const savedLabel = (
+    <>
+      <Icon name="bookmark" />
+      收藏
+      {savedCount > 0 && <span className="badge-n">{savedCount}</span>}
+    </>
+  )
+
   return (
     <div className="radar-app" data-mode={theme.mode} style={themeVars(theme)}>
       <div className="backdrop" aria-hidden="true" />
-      <header className="topbar">
-        <div className="topbar-in">
-          <a className="brand" href="/" aria-label="GIT Bot 首页">
-            <span className="brand-mark"><Icon name="bot" /></span>
-            <span className="brand-name">
-              GIT
-              {" "}
-              <b>Bot</b>
-            </span>
-          </a>
-          <Segmented<Period>
-            className="period"
-            label="榜单周期"
-            value={period}
-            onChange={setPeriod}
-            options={periods.map(p => ({ value: p, label: labels[p] }))}
-          />
-          <div className="actions">
-            <button type="button" className={`saved-btn ${view === "saved" ? "on" : ""}`} aria-pressed={view === "saved"} onClick={() => switchView(view === "saved" ? "discover" : "saved")}>
-              <Icon name="bookmark" />
-              <span className="label">收藏</span>
-              {savedCount > 0 && <span className="badge-n">{savedCount}</span>}
-            </button>
-            <button type="button" className="icon-btn" aria-label="刷新榜单" title="刷新榜单" disabled={query.isFetching} onClick={() => void query.refetch()}><Icon name="refresh" className={query.isFetching ? "spin" : ""} /></button>
-            <button type="button" className="icon-btn" aria-label="选择配色" title="配色" aria-expanded={pickerOpen} onClick={() => setPickerOpen(o => !o)}><Icon name="palette" /></button>
-            <button type="button" className="icon-btn" aria-label={isDark ? "切换浅色主题" : "切换深色主题"} title={isDark ? "浅色" : "深色"} onClick={toggleDark}><Icon name={isDark ? "sun" : "moon"} /></button>
-            <a className="icon-btn hide-sm" href="https://github.com/chenran71ran-oss/github-discovery" target="_blank" rel="noreferrer" aria-label="查看项目源码" title="源码"><Icon name="github" /></a>
-          </div>
-        </div>
+      <header className={`chrome top glass ${chromeHidden ? "hidden" : ""}`}>
+        <a className="brand" href="/" aria-label="GIT Bot 首页">
+          <span className="brand-mark"><Icon name="bot" /></span>
+          <span className="brand-name">
+            GIT
+            {" "}
+            <b>Bot</b>
+          </span>
+        </a>
+        <Segmented<Period>
+          className="period"
+          label="榜单周期"
+          value={period}
+          onChange={setPeriod}
+          options={periods.map(p => ({ value: p, label: labels[p] }))}
+        />
       </header>
 
       <div className="layout">
@@ -268,7 +252,7 @@ export function Discovery() {
                 </select>
               </label>
               <label className={`select ${sort !== "rank" ? "set" : ""}`}>
-                <select aria-label="排序" value={sort} onChange={e => setSort(e.target.value)}>
+                <select aria-label="排序" value={sort} onChange={e => setSort(e.target.value as Sort)}>
                   <option value="rank">榜单顺序</option>
                   <option value="growth">新增最多</option>
                   <option value="stars">总 Star 最多</option>
@@ -282,19 +266,7 @@ export function Discovery() {
               </label>
             </div>
           </div>
-          <div className="chips" role="group" aria-label="项目分类">
-            {categoryNames.map((c, i) => {
-              const value = i ? c : ""
-              const count = categoryCount(value)
-              if (i && !count && category !== value) return null
-              return (
-                <button key={c} type="button" className="chip" aria-pressed={category === value} onClick={() => setCategory(value)}>
-                  {c}
-                  <span className="n">{count}</span>
-                </button>
-              )
-            })}
-          </div>
+          <CategoryFilter total={source.length} byDomain={tally.byDomain} byCategory={tally.byCategory} domain={domain} category={category} onDomain={setDomain} onCategory={setCategory} />
 
           <div className="list-head">
             <h1>
@@ -322,6 +294,10 @@ export function Discovery() {
               {" × "}
               <a href="https://github.com/Ibook000/GithubTrending" target="_blank" rel="noreferrer">GithubTrending</a>
             </span>
+            <a href="https://github.com/chenran71ran-oss/github-discovery" target="_blank" rel="noreferrer">
+              <Icon name="github" />
+              源码
+            </a>
             <a href="/data/latest.json" target="_blank" rel="noreferrer">
               开放数据
               <Icon name="arrowUpRight" />
@@ -333,13 +309,26 @@ export function Discovery() {
             <div className="pane-in" key={active?.fullName || "overview"}>
               {active
                 ? <RepoInsight repo={active} period={period} saved={!!saved[active.fullName]} onSave={() => toggleSave(active)} onClose={() => setActiveName("")} />
-                : <Overview data={data} period={period} language={language} onLanguage={setLanguage} onOpen={open} />}
+                : <Overview data={data} period={period} onOpen={open} />}
             </div>
           </aside>
         )}
       </div>
 
       {!wide && active && <RepoSheet key={active.fullName} repo={active} period={period} saved={!!saved[active.fullName]} onSave={() => toggleSave(active)} onClose={() => setActiveName("")} />}
+      <nav className={`chrome bottom ${chromeHidden ? "hidden" : ""}`} aria-label="底部导航">
+        <Segmented<"discover" | "saved">
+          className="tabs glass"
+          label="视图"
+          value={view}
+          onChange={switchView}
+          options={[
+            { value: "discover", label: discoverLabel },
+            { value: "saved", label: savedLabel },
+          ]}
+        />
+        <button type="button" className="orb glass" aria-label="配色与明暗" title="配色与明暗" aria-expanded={pickerOpen} onClick={() => setPickerOpen(o => !o)}><Icon name="palette" /></button>
+      </nav>
       <ThemePicker open={pickerOpen} scheme={colorScheme} activeId={theme.id} onPick={pickTheme} onAuto={() => setDark("auto")} onClose={() => setPickerOpen(false)} />
       <div role="status" aria-live="polite" className={`toast ${notice ? "visible" : ""}`}>{notice}</div>
     </div>
