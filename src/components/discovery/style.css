@@ -45,9 +45,10 @@
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
-/* 唯一的主题：深浅两套令牌。--o1~3 只用于背景柔光，强调色深浅模式各取对比度足够的一档 */
-.radar-app[data-mode="dark"] { --bg: #0b0d12; --ink: #e9ecf2; --accent: #5eead4; --accent-ink: #062a24; --o1: #2a6f8f; --o2: #1f8a74; --o3: #4b3f8f; }
-.radar-app[data-mode="light"] { --bg: #f5f6f8; --ink: #141821; --accent: #0f766e; --accent-ink: #ffffff; --o1: #a7d8f0; --o2: #b9ecdc; --o3: #d6d0f5; }
+/* 唯一的主题：深浅两套令牌。--o1~3 只用于背景柔光 */
+/* 强调色用 Windows 11 的系统蓝：深色模式 #4CC2FF，浅色模式 #0067C0 */
+.radar-app[data-mode="dark"] { --bg: #0b0d12; --ink: #e9ecf2; --accent: #4cc2ff; --accent-ink: #001a2c; --o1: #1d5f9e; --o2: #1a7fb8; --o3: #3b4a9a; }
+.radar-app[data-mode="light"] { --bg: #f5f6f8; --ink: #141821; --accent: #0067c0; --accent-ink: #ffffff; --o1: #a9d4f5; --o2: #b8e2fb; --o3: #cfd3f7; }
 .radar-app[data-mode="light"] {
   --muted: color-mix(in srgb, var(--ink) 74%, transparent);
   --faint: color-mix(in srgb, var(--ink) 69%, transparent);
@@ -109,13 +110,13 @@
 .radar-app .glass::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none; background: linear-gradient(150deg, rgba(255, 255, 255, 0.14), transparent 38%, transparent 66%, rgba(255, 255, 255, 0.06)); }
 .radar-app[data-mode="light"] .glass { background: rgba(255, 255, 255, 0.58); box-shadow: inset 0 1px 0 #fff, inset 0 0 0 1px rgba(20, 30, 60, 0.07), 0 12px 32px -14px rgba(20, 30, 60, 0.3); }
 .radar-app[data-mode="light"] .glass::before { background: linear-gradient(150deg, rgba(255, 255, 255, 0.7), transparent 40%, transparent 70%, rgba(255, 255, 255, 0.35)); }
-.radar-app .chrome { position: fixed; z-index: 30; left: 0; right: 0; margin: 0 auto; width: max-content; max-width: calc(100% - 24px); transition: transform 0.55s var(--spring-soft), opacity 0.3s ease; }
-/* 收起：快速、略带缩小地滑出；弹回：慢一点、带回弹 */
-.radar-app .chrome.hidden { opacity: 0; pointer-events: none; transition: transform 0.26s cubic-bezier(0.4, 0, 0.9, 0.5), opacity 0.22s ease; }
+.radar-app .chrome { position: fixed; z-index: 30; left: 0; right: 0; margin: 0 auto; width: max-content; max-width: calc(100% - 24px); will-change: transform, opacity; transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
+/* 收起与浮现以淡入淡出为主，只带一点位移和缩放；浮现比收起慢一点，没有回弹过冲，观感更柔和 */
+.radar-app .chrome.hidden { opacity: 0; pointer-events: none; transition: opacity 0.32s cubic-bezier(0.33, 0, 0.2, 1), transform 0.36s cubic-bezier(0.33, 0, 0.2, 1); }
 .radar-app .chrome.top { top: var(--gap-top); display: flex; align-items: center; gap: 14px; height: var(--top); padding: 0 6px 0 10px; border-radius: 999px; }
-.radar-app .chrome.top.hidden { transform: translateY(calc(-100% - var(--gap-top))) scale(0.92); }
+.radar-app .chrome.top.hidden { transform: translateY(-12px) scale(0.97); }
 .radar-app .chrome.bottom { bottom: var(--gap-bottom); display: flex; align-items: center; gap: 10px; }
-.radar-app .chrome.bottom.hidden { transform: translateY(calc(100% + var(--gap-bottom))) scale(0.9); }
+.radar-app .chrome.bottom.hidden { transform: translateY(14px) scale(0.97); }
 /* 键盘焦点在栏内时不收起：放在收起规则之后，并且选择器更具体 */
 .radar-app .chrome.chrome.hidden:focus-within { opacity: 1; pointer-events: auto; transform: none; }
 .radar-app .brand { display: inline-flex; align-items: center; gap: 9px; text-decoration: none; }

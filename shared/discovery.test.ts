@@ -26,6 +26,27 @@ describe("discovery data contract", () => {
   })
 })
 
+describe("search", () => {
+  const base = { ...data.periods.daily[0], tags: [] as string[], purposes: [] as string[], topics: [] as string[] }
+  const book = { ...base, fullName: "acme/ledger", description: "Self-hosted budgeting app", summary: "自托管的记账应用", language: "Go", techStack: ["Vue"], category: "理财与金融" }
+  const chat = { ...base, fullName: "acme/chat", description: "An AI chat client", summary: "AI 聊天客户端", language: "Rust", techStack: [], category: "社交与通讯" }
+  it("requires every space-separated word, in any order", () => {
+    expect(filterRepositories([book, chat], "记账 vue", "", "").map(r => r.fullName)).toEqual(["acme/ledger"])
+    expect(filterRepositories([book, chat], "vue 记账", "", "").map(r => r.fullName)).toEqual(["acme/ledger"])
+    expect(filterRepositories([book, chat], "记账 rust", "", "")).toEqual([])
+  })
+  it("ignores case and full-width input", () => {
+    expect(filterRepositories([book, chat], "ＡＩ", "", "").map(r => r.fullName)).toEqual(["acme/chat"])
+    expect(filterRepositories([book, chat], "LEDGER", "", "").map(r => r.fullName)).toEqual(["acme/ledger"])
+  })
+  it("matches language, category labels and the owner/name", () => {
+    expect(filterRepositories([book, chat], "go", "", "").map(r => r.fullName)).toEqual(["acme/ledger"])
+    expect(filterRepositories([book, chat], "社交", "", "").map(r => r.fullName)).toEqual(["acme/chat"])
+    expect(filterRepositories([book, chat], "acme/", "", "")).toHaveLength(2)
+    expect(filterRepositories([book, chat], "   ", "", "")).toHaveLength(2)
+  })
+})
+
 describe("categories", () => {
   it("offers a filter for every category the collector can assign", () => {
     const doc = JSON.parse(readFileSync("shared/taxonomy.json", "utf8"))
