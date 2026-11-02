@@ -20,7 +20,7 @@
 
   28 个分类搜索流都有结果，296 个项目带次要标签。采集器这一步用时 434 秒；首次运行要抓取全部 README，之后 README 摘要缓存 14 天，耗时会下降。
 - **未配置模型**：没有配置 `LLM_*` 密钥，所以没有 README 解读；中文简介来自上游速览、资料整理和机器翻译，页面都有标注。
-- **旧采集 Worker**：保留用于回滚的 `github-discovery-collector` 曾关联本仓库，导致每次提交都多一个失败的构建检查；2026-11-02 已在 Cloudflare 控制台断开它的 Git 关联。Worker 本身仍保留，回滚不受影响。
+- **旧采集 Worker**：保留用于回滚的 `github-discovery-collector` 曾关联本仓库，每次推送到 `main` 都会多一个失败的构建检查；2026-11-02 已在 Cloudflare 控制台断开它的 Git 关联。Worker 本身仍保留，回滚不受影响。
 - **需要关注**：`latest.json` 从约 350 KB 增长到约 1.05 MB（压缩传输约 200 KB），每次打开页面都会下载。项目数继续增加时，可以考虑按周期拆分文件；只去掉缩进能省的不多（压缩后约 10%）。`feature-cache.json` 约 0.7 MB，每天只提交有变化的条目。
 
 ## 配置
@@ -65,6 +65,11 @@ GitHub 的定时任务经常延后，2026-10-27 至 11-02 实际都在北京时�
 前端与 JSON 同源部署，不依赖跨域代理、Worker 或数据库。
 
 如果要保留 NewsNow 的其他实时聚合源，使用 `CF_PAGES=1 npm run build`、输出 `dist/output/public`，并按 NewsNow 原说明配置 Nitro / D1、`nodejs_compat` 与兼容日期。这条路径只做过本地构建验证，没有部署到生产。
+
+## 部署记录
+
+- **2026-11-02 Pages 的 Git 关联被误断开**：本想断开旧采集 Worker，实际断开的是 Pages 项目 `github-discovery`。断开期间网站继续提供最后一次部署（当天 08:14），但新的提交不再部署，PR #11 的分支提交也没有预览。在 **Settings → Build → Git repository → Connect** 重新连接后，合并 #11 的提交（`9417482`）部署成功。
+- **注意**：在 Workers & Pages 列表里，Pages 项目 `github-discovery` 和旧 Worker `github-discovery-collector` 是两个独立条目，修改 Git 关联前先确认名字。断开 Pages 的 Git 关联后，可以在同一位置重新连接，构建设置见上方「部署」。
 
 ## 上线基线与回滚
 
