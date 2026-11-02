@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react"
+import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { useQuery } from "@tanstack/react-query"
 import { useMedia } from "react-use"
 import type { Period, Repository } from "@shared/discovery"
@@ -11,9 +11,9 @@ import { type Sort, counts, sourceRows, visibleRows } from "./model"
 import { DataNote, Overview } from "./overview"
 import { Row, SkeletonRows, labels } from "./row"
 import { Segmented } from "./segmented"
-import { type RadarTheme, findTheme, readThemeId, saveThemeId, themeVars } from "./theme"
-import { ThemePicker } from "./theme-picker"
-import { useScrollChrome } from "./use-scroll-chrome"
+import { ModeToggle } from "./mode-toggle"
+import { pageBackground, switchMode } from "./theme"
+import { holdChrome, useScrollChrome } from "./use-scroll-chrome"
 import { useDark } from "~/hooks/useDark"
 import "./style.css"
 
@@ -22,12 +22,14 @@ function typing(target: EventTarget | null) {
   const el = target as HTMLElement | null
   return !!el && (el.isContentEditable || ["INPUT", "SELECT", "TEXTAREA"].includes(el.tagName))
 }
+/** 有弹层打开时，快捷键不能穿透到后面的榜单 */
+function modalOpen() {
+  return !!document.querySelector(".radar-app dialog[open]")
+}
 
 export function Discovery() {
-  const { isDark, colorScheme, setDark } = useDark()
-  const [darkId, setDarkId] = useState(() => readThemeId("dark"))
-  const [lightId, setLightId] = useState(() => readThemeId("light"))
-  const theme = findTheme(isDark ? darkId : lightId, isDark ? "dark" : "light")
+  const { isDark, setDark } = useDark()
+  const mode = isDark ? "dark" : "light"
   const [initial] = useState(() => new URLSearchParams(window.location.search))
   const [period, setPeriod] = useState<Period>((periods as readonly string[]).includes(initial.get("period") || "") ? initial.get("period") as Period : "daily")
   const [q, setQ] = useState(initial.get("q") || "")
@@ -39,7 +41,6 @@ export function Discovery() {
   const [date, setDate] = useState(/^\d{4}-\d{2}-\d{2}$/.test(initial.get("date") || "") ? initial.get("date")! : "")
   const [saved, setSaved] = useState(readSaved)
   const [activeName, setActiveName] = useState(isRepoName(initial.get("repo")) ? initial.get("repo")! : "")
-  const [pickerOpen, setPickerOpen] = useState(false)
   const [notice, setNotice] = useState("")
   const searchRef = useRef<HTMLInputElement>(null)
   const listRef = useRef<HTMLOListElement>(null)
@@ -56,13 +57,13 @@ export function Discovery() {
     const meta = document.querySelector("meta[name=\"theme-color\"]")
     const previous = meta?.getAttribute("content")
     root.classList.toggle("dark", isDark)
-    root.style.backgroundColor = theme.bg
-    meta?.setAttribute("content", theme.bg)
+    root.style.backgroundColor = pageBackground[mode]
+    meta?.setAttribute("content", pageBackground[mode])
     return () => {
       root.style.removeProperty("background-color")
       if (previous) meta?.setAttribute("content", previous)
     }
-  }, [isDark, theme.bg])
+  }, [isDark, mode])
   useEffect(() => {
     const params = new URLSearchParams()
     if (period !== "daily") params.set("period", period)
@@ -88,8 +89,11 @@ export function Discovery() {
     return () => clearTimeout(id)
   }, [notice])
 
-  const toggleSave = (repo: Repository) => {
-    const next = { ...saved }
+  // 回调保持稳定，榜单行（memo）在切换明暗、打开解读时不必全部重新渲染
+  const savedRef = useRef(saved)
+  savedRef.current = saved
+  const toggleSave = useCallback((repo: Repository) => {
+    const next = { ...savedRef.current }
     const had = !!next[repo.fullName]
     if (had) delete next[repo.fullName]
     else next[repo.fullName] = repo
@@ -99,13 +103,8 @@ export function Discovery() {
     } else {
       setNotice("浏览器存储不可用，收藏未保存")
     }
-  }
-  const pickTheme = (picked: RadarTheme) => {
-    saveThemeId(picked)
-    if (picked.mode === "dark") setDarkId(picked.id)
-    else setLightId(picked.id)
-    setDark(picked.mode)
-  }
+  }, [])
+  const toggleMode = (origin: { x: number, y: number }) => switchMode(() => setDark(isDark ? "light" : "dark"), origin)
   const source = useMemo(() => sourceRows(data, period, view === "saved" ? saved : null), [view, saved, data, period])
   const languages = useMemo(() => [...new Set(source.map(r => r.language))].sort(), [source])
   const tally = useMemo(() => counts(source), [source])
@@ -116,7 +115,9 @@ export function Discovery() {
     return data?.periods[period].find(r => r.fullName === activeName) || source.find(r => r.fullName === activeName) || (saved[activeName] ? { ...saved[activeName], rank: 0, previousRank: null, periodStars: null } : null) || periods.map(p => data?.periods[p].find(r => r.fullName === activeName)).find(Boolean) || null
   }, [activeName, data, period, source, saved])
 
-  const open = (repo: Repository) => setActiveName(name => name === repo.fullName && wide ? "" : repo.fullName)
+  const wideRef = useRef(wide)
+  wideRef.current = wide
+  const open = useCallback((repo: Repository) => setActiveName(name => name === repo.fullName && wideRef.current ? "" : repo.fullName), [])
   const filtered = !!(q || language || domain || category)
   const reset = () => {
     setQ("")
@@ -132,32 +133,38 @@ export function Discovery() {
   // 键盘：/ 或 ⌘K 搜索，J/K 上下切换，S 收藏，Esc 关闭
   const keys = useRef({ repos, active, wide })
   keys.current = { repos, active, wide }
-  const saveRef = useRef(toggleSave)
-  saveRef.current = toggleSave
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
-      if ((e.ctrlKey || e.metaKey) && e.key === "k") {
+      // 中文输入法组字时的按键不是快捷键
+      if (e.isComposing || e.key === "Process") return
+      const key = e.key.length === 1 ? e.key.toLowerCase() : e.key
+      if ((e.ctrlKey || e.metaKey) && key === "k") {
         e.preventDefault()
         searchRef.current?.focus()
         return
       }
       if (typing(e.target)) {
-        if (e.key === "Escape") (e.target as HTMLElement).blur()
+        if (key === "Escape") (e.target as HTMLElement).blur()
         return
       }
-      if (e.metaKey || e.ctrlKey || e.altKey) return
+      if (e.metaKey || e.ctrlKey || e.altKey || modalOpen()) return
       const { repos, active, wide } = keys.current
-      if (e.key === "/") {
+      if (key === "/") {
         e.preventDefault()
         searchRef.current?.focus()
-      } else if ((e.key === "j" || e.key === "k") && repos.length && wide) {
+      } else if ((key === "j" || key === "k") && repos.length && wide) {
+        e.preventDefault()
         const i = active ? repos.findIndex(r => r.fullName === active.fullName) : -1
-        const next = repos[Math.min(repos.length - 1, Math.max(0, i < 0 ? 0 : i + (e.key === "j" ? 1 : -1)))]
+        const next = repos[Math.min(repos.length - 1, Math.max(0, i < 0 ? 0 : i + (key === "j" ? 1 : -1)))]
         setActiveName(next.fullName)
-        listRef.current?.querySelector<HTMLElement>(`[data-name="${CSS.escape(next.fullName)}"]`)?.scrollIntoView({ block: "nearest", behavior: "smooth" })
-      } else if (e.key === "s" && active) {
-        saveRef.current(active)
-      } else if (e.key === "Escape" && active && wide) {
+        // 焦点跟着高亮走：之后按 Enter / 空格作用在同一行；滚动时悬浮栏不收起
+        holdChrome(600)
+        const row = listRef.current?.querySelector<HTMLElement>(`[data-name="${CSS.escape(next.fullName)}"]`)
+        row?.querySelector<HTMLElement>(".row-main")?.focus({ preventScroll: true })
+        row?.scrollIntoView({ block: "nearest" })
+      } else if (key === "s" && active) {
+        toggleSave(active)
+      } else if (key === "Escape" && active && wide) {
         setActiveName("")
       }
     }
@@ -214,7 +221,7 @@ export function Discovery() {
   )
 
   return (
-    <div className="radar-app" data-mode={theme.mode} style={themeVars(theme)}>
+    <div className="radar-app" data-mode={mode}>
       <div className="backdrop" aria-hidden="true" />
       <header className={`chrome top glass ${chromeHidden ? "hidden" : ""}`}>
         <a className="brand" href="/" aria-label="GIT Bot 首页">
@@ -232,6 +239,8 @@ export function Discovery() {
           onChange={setPeriod}
           options={periods.map(p => ({ value: p, label: labels[p] }))}
         />
+        <i className="chrome-sep" aria-hidden="true" />
+        <ModeToggle dark={isDark} onToggle={toggleMode} />
       </header>
 
       <div className="layout">
@@ -306,9 +315,9 @@ export function Discovery() {
         </main>
         {wide && (
           <aside className="pane" aria-label={active ? "项目解读" : "榜单概况"}>
-            <div className="pane-in" key={active?.fullName || "overview"}>
+            <div className="pane-in" key={active ? "detail" : "overview"}>
               {active
-                ? <RepoInsight repo={active} period={period} saved={!!saved[active.fullName]} onSave={() => toggleSave(active)} onClose={() => setActiveName("")} />
+                ? <RepoInsight key={active.fullName} repo={active} period={period} saved={!!saved[active.fullName]} onSave={() => toggleSave(active)} onClose={() => setActiveName("")} />
                 : <Overview data={data} period={period} onOpen={open} />}
             </div>
           </aside>
@@ -327,9 +336,7 @@ export function Discovery() {
             { value: "saved", label: savedLabel },
           ]}
         />
-        <button type="button" className="orb glass" aria-label="配色与明暗" title="配色与明暗" aria-expanded={pickerOpen} onClick={() => setPickerOpen(o => !o)}><Icon name="palette" /></button>
       </nav>
-      <ThemePicker open={pickerOpen} scheme={colorScheme} activeId={theme.id} onPick={pickTheme} onAuto={() => setDark("auto")} onClose={() => setPickerOpen(false)} />
       <div role="status" aria-live="polite" className={`toast ${notice ? "visible" : ""}`}>{notice}</div>
     </div>
   )

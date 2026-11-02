@@ -1,4 +1,4 @@
-import type { CSSProperties } from "react"
+import { type CSSProperties, memo } from "react"
 import { type Period, type Repository, compact, isBreakout } from "@shared/discovery"
 import { categories, categoryOf, fallback } from "@shared/taxonomy"
 import { Icon, RepoIcon } from "./icons"
@@ -47,7 +47,7 @@ interface RowProps {
 }
 
 /** 榜单一行：整行可点开解读，书签独立；名次、增量、简介一眼可读。 */
-export function Row({ repo, period, index, showCategory, selected, saved, onSave, onOpen }: RowProps) {
+export const Row = memo(({ repo, period, index, showCategory, selected, saved, onSave, onOpen }: RowProps) => {
   const [owner, name] = repo.fullName.split("/")
   const moved = repo.previousRank ? repo.previousRank - repo.rank : 0
   return (
@@ -90,7 +90,8 @@ export function Row({ repo, period, index, showCategory, selected, saved, onSave
       <button type="button" className={`bm ${saved ? "on" : ""}`} aria-label={`${saved ? "取消收藏" : "收藏"} ${repo.fullName}`} aria-pressed={saved} onClick={() => onSave(repo)}><Icon name="bookmark" /></button>
     </li>
   )
-}
+})
+Row.displayName = "Row"
 
 export function SkeletonRows() {
   return (

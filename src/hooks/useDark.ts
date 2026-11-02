@@ -4,7 +4,8 @@ import { useMedia, useUpdateEffect } from "react-use"
 export declare type ColorScheme = "dark" | "light" | "auto"
 
 // getOnInit：首帧就读出用户存的明暗设置，浅色用户不会先看到一帧深色再渐变过去
-const colorSchemeAtom = atomWithStorage("color-scheme", "dark", undefined, { getOnInit: true })
+// 没有存过时跟随系统；手动切换后记住选择
+const colorSchemeAtom = atomWithStorage<ColorScheme>("color-scheme", "auto", undefined, { getOnInit: true })
 
 export function useDark() {
   const [colorScheme, setColorScheme] = useAtom(colorSchemeAtom)

@@ -4,6 +4,7 @@ import { time } from "./detail"
 import { Icon, RepoIcon } from "./icons"
 import { distribution } from "./model"
 import { categoryHues, labels } from "./row"
+import { Section } from "./section"
 
 interface Props {
   data: DiscoverySnapshot | undefined
@@ -11,16 +12,20 @@ interface Props {
   onOpen: (repo: Repository) => void
 }
 
-/** 右侧栏在没有选中项目时的内容：本期概况、GIT Bot 分类分布、刚冒头的项目与快捷键。 */
+/** 右侧栏在没有选中项目时的内容：本期概况、GIT Bot 分类分布、刚冒头的项目与快捷键，每块各自一张小卡片。 */
 export function Overview({ data, period, onOpen }: Props) {
   const rows = data?.periods[period] || []
-  const breakout = rows.filter(r => isBreakout(r, period)).slice(0, 5)
+  const breakouts = rows.filter(r => isBreakout(r, period))
   const spread = distribution(rows)
   const most = Math.max(1, ...spread.map(d => d.count))
+  const status = data?.status[period]
   return (
     <div className="overview">
-      <section>
-        <h3>{`${labels[period]}概况`}</h3>
+      <Section
+        title={`${labels[period]}概况`}
+        chip={status ? `${status.ok ? "已更新" : "沿用上次"} ${time(status.capturedAt)}` : "读取中"}
+        tone={!status ? "neutral" : status.ok ? "ok" : "warn"}
+      >
         <dl className="ins-stats three">
           <div>
             <dt>项目</dt>
@@ -32,20 +37,12 @@ export function Overview({ data, period, onOpen }: Props) {
           </div>
           <div>
             <dt>爆发</dt>
-            <dd>{rows.filter(r => isBreakout(r, period)).length}</dd>
+            <dd>{breakouts.length}</dd>
           </div>
         </dl>
-        <p className="hint">
-          <Icon name="clock" />
-          {data ? `更新于 ${time(data.status[period].capturedAt)} · 每天采集一次` : "正在读取榜单…"}
-        </p>
-      </section>
+      </Section>
       {spread.length > 0 && (
-        <section>
-          <h3>
-            <Icon name="bot" />
-            GIT Bot 分类
-          </h3>
+        <Section title="GIT Bot 分类" icon={<Icon name="bot" />} chip="用途优先" tone="accent">
           <ul className="spread">
             {spread.map(d => (
               <li key={d.id}>
@@ -58,17 +55,12 @@ export function Overview({ data, period, onOpen }: Props) {
               </li>
             ))}
           </ul>
-          <p className="hint">按用途优先归类：同时看 GitHub 主题、简介关键词、README、语言和技术栈，技术类信号打折，所以「AI 修图工具」归到修图、带上 AI 标签。</p>
-        </section>
+        </Section>
       )}
-      {breakout.length > 0 && (
-        <section>
-          <h3>
-            <Icon name="flame" />
-            刚冒头的项目
-          </h3>
+      {breakouts.length > 0 && (
+        <Section title="刚冒头的项目" icon={<Icon name="flame" />} chip={breakouts.length > 5 ? `前 5 / ${breakouts.length}` : `${breakouts.length} 个`} tone="warn">
           <ul className="mini">
-            {breakout.map(r => (
+            {breakouts.slice(0, 5).map(r => (
               <li key={r.fullName}>
                 <button type="button" onClick={() => onOpen(r)}>
                   <RepoIcon fullName={r.fullName} />
@@ -78,10 +70,9 @@ export function Overview({ data, period, onOpen }: Props) {
               </li>
             ))}
           </ul>
-        </section>
+        </Section>
       )}
-      <section>
-        <h3>快捷键</h3>
+      <Section title="快捷键" chip="键盘">
         <p className="keys">
           <span>
             <kbd>J</kbd>
@@ -101,7 +92,7 @@ export function Overview({ data, period, onOpen }: Props) {
             关闭
           </span>
         </p>
-      </section>
+      </Section>
     </div>
   )
 }
