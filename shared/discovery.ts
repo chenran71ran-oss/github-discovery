@@ -66,9 +66,22 @@ export function labelsOf(r: Pick<Repository, "category" | "tags">) {
  * category filters by label and also matches secondary tags, so a fitness app tagged 移动与桌面
  * shows up under both. domain filters by the primary category's domain.
  */
+/** 全角转半角、统一大小写：输入法全角模式下打出的「ＡＩ」也能匹配 AI。 */
+export function normalizeText(text: string) {
+  return text.normalize("NFKC").toLowerCase()
+}
+/** 搜索词按空格拆开，每个词都要命中（「AI 记账」= 同时包含 AI 和 记账）。 */
+export function searchTerms(q: string) {
+  return normalizeText(q).split(/[\s,，、]+/).filter(Boolean)
+}
+export function matchesSearch(r: Repository, terms: string[]) {
+  if (!terms.length) return true
+  const text = normalizeText([r.fullName, r.description, r.summary, r.useCase, r.language, ...r.techStack, ...labelsOf(r), ...(r.purposes || []), ...(r.topics || [])].join(" "))
+  return terms.every(t => text.includes(t))
+}
 export function filterRepositories(repos: Repository[], q: string, language: string, category: string, saved?: string[], domain = "") {
-  const term = q.trim().toLowerCase()
-  return repos.filter(r => (!language || r.language === language) && (!category || labelsOf(r).includes(category)) && (!domain || categoryOf(r.category).domain === domain) && (!saved || saved.includes(r.fullName)) && (!term || [r.fullName, r.description, r.summary, r.useCase, ...r.techStack, ...labelsOf(r), ...(r.purposes || []), ...(r.topics || [])].join(" ").toLowerCase().includes(term)))
+  const terms = searchTerms(q)
+  return repos.filter(r => (!language || r.language === language) && (!category || labelsOf(r).includes(category)) && (!domain || categoryOf(r.category).domain === domain) && (!saved || saved.includes(r.fullName)) && matchesSearch(r, terms))
 }
 /**
  * 「爆发」：周期新增 Star 占当前总 Star 的比例，与绝对增量同时达标。

@@ -109,6 +109,8 @@ export function Discovery() {
   const languages = useMemo(() => [...new Set(source.map(r => r.language))].sort(), [source])
   const tally = useMemo(() => counts(source), [source])
   const repos = useMemo(() => visibleRows(source, { q, language, domain, category, sort }), [source, q, language, domain, category, sort])
+  // 搜索时，被领域 / 分类 / 语言筛选挡住的匹配项数量，提示用户不要漏看
+  const hiddenMatches = useMemo(() => q.trim() && (language || domain || category) ? visibleRows(source, { q, language: "", domain: "", category: "", sort }).length - repos.length : 0, [source, q, language, domain, category, sort, repos.length])
   // 选中的项目优先取当前周期的数据，周期切换后名次与增量跟着变
   const active = useMemo(() => {
     if (!activeName) return null
@@ -135,9 +137,10 @@ export function Discovery() {
   keys.current = { repos, active, wide }
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
-      // 中文输入法组字时的按键不是快捷键
-      if (e.isComposing || e.key === "Process") return
-      const key = e.key.length === 1 ? e.key.toLowerCase() : e.key
+      // 中文输入法组字时的按键不是快捷键；但输入法开着时按 / 键（报成 Process 或「、」）仍然打开搜索
+      if (e.isComposing) return
+      const key = e.code === "Slash" && !typing(e.target) ? "/" : e.key.length === 1 ? e.key.toLowerCase() : e.key
+      if (key === "Process") return
       if ((e.ctrlKey || e.metaKey) && key === "k") {
         e.preventDefault()
         searchRef.current?.focus()
@@ -282,7 +285,21 @@ export function Discovery() {
               {view === "saved" ? "我的收藏" : `${labels[period]}榜单`}
               <span className="count">{query.isPending ? "" : repos.length}</span>
             </h1>
-            {filtered && <button type="button" className="link" onClick={reset}>清除筛选</button>}
+            {hiddenMatches > 0
+              ? (
+                  <button
+                    type="button"
+                    className="link"
+                    onClick={() => {
+                      setLanguage("")
+                      setDomain("")
+                      setCategory("")
+                    }}
+                  >
+                    {`筛选之外还有 ${hiddenMatches} 个匹配，查看全部`}
+                  </button>
+                )
+              : filtered && <button type="button" className="link" onClick={reset}>清除筛选</button>}
             <span className="updated">{data ? `${date ? "历史快照" : "更新于"} ${time(data.status[period].capturedAt)}` : ""}</span>
           </div>
           {query.isError && (
