@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs"
 import { describe, expect, it } from "vitest"
 import { type DiscoverySnapshot, breakoutRules, categoryNames, filterRepositories, isBreakout, isSnapshot, periods } from "./discovery"
+import { categories, categoryOf, domains, fallback } from "./taxonomy"
 
 const data = JSON.parse(readFileSync("public/data/latest.json", "utf8")) as DiscoverySnapshot
 
@@ -27,11 +28,25 @@ describe("discovery data contract", () => {
 
 describe("categories", () => {
   it("offers a filter for every category the collector can assign", () => {
-    const source = readFileSync("collector/collect.py", "utf8")
-    const tuple = source.match(/^CATEGORIES = \(([^)]*)\)/m)![1]
-    const assigned = [...tuple.matchAll(/"([^"]+)"/g)].map(m => m[1])
-    expect(assigned.length).toBeGreaterThan(5)
-    expect(categoryNames.slice(1)).toEqual(assigned)
+    const doc = JSON.parse(readFileSync("shared/taxonomy.json", "utf8"))
+    expect(categoryNames.slice(1)).toEqual([...doc.categories.map((c: { label: string }) => c.label), doc.fallback.label])
+    expect(categoryNames.length).toBeGreaterThan(20)
+  })
+  it("maps renamed labels from older snapshots", () => {
+    expect(categoryOf("学习与研究").label).toBe("教程与资源")
+    expect(categoryOf("not a label")).toBe(fallback)
+  })
+  it("filters by domain and matches secondary tags", () => {
+    const base = { ...data.periods.daily[0], tags: [] as string[] }
+    const fit = { ...base, fullName: "a/fit", category: "健康与运动", tags: ["移动与桌面"] }
+    const vpn = { ...base, fullName: "a/vpn", category: "安全与隐私", tags: [] }
+    expect(filterRepositories([fit, vpn], "", "", "移动与桌面").map(r => r.fullName)).toEqual(["a/fit"])
+    expect(filterRepositories([fit, vpn], "", "", "", undefined, "life").map(r => r.fullName)).toEqual(["a/fit"])
+    expect(filterRepositories([fit, vpn], "健康", "", "").map(r => r.fullName)).toEqual(["a/fit"])
+  })
+  it("every category belongs to a known domain", () => {
+    const ids = new Set(domains.map(d => d.id))
+    expect(categories.every(c => ids.has(c.domain))).toBe(true)
   })
 })
 

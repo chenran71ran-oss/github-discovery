@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react"
 import { type Period, type Repository, compact, isBreakout } from "@shared/discovery"
+import { categories, categoryOf, fallback } from "@shared/taxonomy"
 import { Icon, RepoIcon } from "./icons"
 
 export const labels = { daily: "今日", weekly: "本周", monthly: "本月" } as const
@@ -18,7 +19,8 @@ export const languageColors: Record<string, string> = {
   "Shell": "#89e051",
   "Swift": "#f05138",
 }
-export const categoryHues: Record<string, number> = { "AI 与智能体": 262, "开发工具": 212, "前端与界面": 290, "自托管": 152, "数据与基础设施": 32, "安全与隐私": 0, "移动与桌面": 180, "学习与研究": 330, "其他": 210 }
+/** 每个分类一个色相：按分类在分类体系里的顺序，用黄金角间隔分开，相邻分类颜色不会太近。 */
+export const categoryHues: Record<string, number> = Object.fromEntries([...categories.map((c, i) => [c.label, Math.round((i * 137.5 + 210) % 360)]), [fallback.label, 210]])
 
 /** 搜索来的新项目没有周期增量，改为显示建了几天 */
 export function ageInDays(repo: Repository) {
@@ -77,7 +79,8 @@ export function Row({ repo, period, index, showCategory, selected, saved, onSave
               <Icon name="star" />
               {compact(repo.stars)}
             </span>
-            {showCategory && <span className="cat" style={{ "--ch": categoryHues[repo.category] ?? 190 } as CSSProperties}>{repo.category}</span>}
+            {showCategory && <span className="cat" style={{ "--ch": categoryHues[categoryOf(repo.category).label] ?? 210 } as CSSProperties}>{categoryOf(repo.category).label}</span>}
+            {repo.purposes?.[0] && <span className="purpose">{repo.purposes[0]}</span>}
             {repo.summarySource === "machine" && <span className="src" title="只翻译了项目简介，可能不够准确">机翻</span>}
             {moved !== 0 && <span className={`move ${moved > 0 ? "up" : "down"}`} title="与昨日名次相比">{`${moved > 0 ? "↑" : "↓"}${Math.abs(moved)}`}</span>}
           </span>

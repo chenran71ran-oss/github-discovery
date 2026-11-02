@@ -1,6 +1,7 @@
 import { type PointerEvent, useEffect, useRef } from "react"
 import { type Period, type Repository, compact } from "@shared/discovery"
 import { Icon, RepoIcon } from "./icons"
+import { Classified } from "./classified"
 import { Gain, labels, languageColors } from "./row"
 import { useScrollLock } from "./use-scroll-lock"
 
@@ -65,9 +66,9 @@ export function RepoInsight({ repo, period, saved, onSave, onClose }: InsightPro
           <i style={{ backgroundColor: languageColors[repo.language] || "#9b8ca9" }} />
           {repo.language}
         </span>
-        <span>{repo.category}</span>
         {repo.techStack.map(s => <span key={s}>{s}</span>)}
       </div>
+      <Classified repo={repo} />
       <section>
         <h3>它是什么</h3>
         <p>{repo.summary || repo.description}</p>

@@ -2,7 +2,7 @@
 
 - `main` 为生产基线；模块功能使用 `feat/<module>`，修复使用 `fix/<issue>`，维护使用 `chore/<task>`。从当前 main 创建，经 PR 和 CI 通过后合并；不强推生产历史。
 - `backup/radar-before-newsnow-20261026` 为旧版回滚备份；已合入的 `codex/newsnow-discovery-preview` 仅保留首次改版记录，后续开发从 main 开始。
-- 数据契约在 `shared/discovery.ts`，采集与中文增强在 `collector/`，交互在 `src/components/discovery/`，自动发布在 `.github/workflows/`。跨模块字段修改同步更新生产者、校验、消费者与测试。
+- 数据契约在 `shared/discovery.ts`，分类体系在 `shared/taxonomy.json`，采集与中文增强在 `collector/`（四层结构见 `docs/ARCHITECTURE.md`，下层不依赖上层），交互在 `src/components/discovery/`，自动发布在 `.github/workflows/`。跨模块字段修改同步更新生产者、校验、消费者与测试。改分类词表后运行 `python -m collector evaluate --readme`，留出集准确率不能下降。
 - 采集机器人只允许在 main 直接更新 `public/data/**`，并先运行采集测试。开启强制 PR 分支保护前，必须先把数据写入改为独立 data 分支或数据 PR，避免阻断自动采集。以上是维护约定，不宣称已启用服务端分支保护规则。
 - 每次发布核对构建、线上数据时间与失败状态；抓取源成功、中文深读成功、页面更新成功分别验收。更换 UI 不代表采集已长期稳定。
 

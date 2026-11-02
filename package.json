@@ -25,7 +25,9 @@
     "test": "vitest -c vitest.config.ts",
     "build:preview": "npm run presource && cross-env DISCOVERY_STATIC=1 vite build",
     "dev:preview": "cross-env DISCOVERY_STATIC=1 vite dev --host 0.0.0.0",
-    "collect": "python collector/collect.py",
+    "collect": "python -m collector run",
+    "classify": "python -m collector classify",
+    "evaluate": "python -m collector evaluate --readme",
     "dev:full": "npm run presource && vite dev"
   },
   "dependencies": {

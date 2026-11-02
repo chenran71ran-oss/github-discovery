@@ -1,0 +1,1989 @@
+[
+ {
+  "fullName": "agentgateway/agentgateway",
+  "description": "Next Generation Agentic Proxy for AI Agents and MCP servers",
+  "language": "Rust",
+  "topics": [
+   "agents",
+   "ai",
+   "ai-gateway",
+   "api-gateway",
+   "gateway-api",
+   "kubernetes",
+   "mcp",
+   "mcp-gateway",
+   "reverse-proxy",
+   "rust",
+   "service-mesh"
+  ],
+  "label": "ai"
+ },
+ {
+  "fullName": "coollabsio/coolify",
+  "description": "An open-source, self-hostable PaaS alternative to Vercel, Heroku & Netlify that lets you easily deploy static sites, databases, full-stack applications and 360+ one-click services on your own servers.",
+  "language": "PHP",
+  "topics": [
+   "coolify",
+   "databases",
+   "deployment",
+   "docker",
+   "docker-compose",
+   "inertiajs",
+   "laravel",
+   "mariadb",
+   "mysql",
+   "nextjs",
+   "nodejs",
+   "php",
+   "postgres",
+   "redis",
+   "self-hosted",
+   "self-hosting",
+   "server",
+   "static-site",
+   "svelte",
+   "svelte5"
+  ],
+  "label": "selfhosted"
+ },
+ {
+  "fullName": "danielmiessler/SecLists",
+  "description": "SecLists is the security tester's companion. It's a collection of multiple types of lists used during security assessments, collected in one place. List types include usernames, passwords, URLs, sensitive data patterns, fuzzing payloads, web shells, and many more.",
+  "language": "PHP",
+  "topics": [],
+  "label": "security"
+ },
+ {
+  "fullName": "mw00/project-maya",
+  "description": "Project Maya - run GLM-5.3-Flash (321B MoE), DeepSeek-V4.1-Flash-1017 (748B MoE) and MiniMax-M3.1-Flash (428B MoE) privately on your own GPU(s), from one card to 16, NVIDIA or AMD, Linux or Windows. Engine, server, dashboard, OpenAI- and Anthropic-compatible API, quant tools.",
+  "language": "Cuda",
+  "topics": [
+   "cuda",
+   "deepseek",
+   "deepseek-v4",
+   "glm",
+   "glm-5",
+   "llm",
+   "llm-inference",
+   "local-llm",
+   "minimax",
+   "minimax-m3",
+   "mixture-of-experts",
+   "moe",
+   "openai-api",
+   "quantization",
+   "rocm",
+   "self-hosted"
+  ],
+  "label": "ai"
+ },
+ {
+  "fullName": "anthropics/skills",
+  "description": "Public repository for Agent Skills",
+  "language": "Python",
+  "topics": [
+   "agent-skills"
+  ],
+  "label": "ai"
+ },
+ {
+  "fullName": "guillaumemeyer/watermarks-remover",
+  "description": "A privacy-first app that strips AI watermarks from content you own.",
+  "language": "Python",
+  "topics": [
+   "agent-skill",
+   "ai",
+   "anthropic",
+   "c2pa",
+   "chatgpt",
+   "claude",
+   "gemini",
+   "openai",
+   "provenance",
+   "synthid",
+   "watermark",
+   "watermark-detection",
+   "watermark-tools",
+   "watermarking",
+   "watermarks"
+  ],
+  "label": "media"
+ },
+ {
+  "fullName": "nano-muse/nanoMuse",
+  "description": "nanoMuse: an open-source personal agent for every device you own. One agent with a name and a look of its own that does things, keeps working while the app is closed, remembers you, and asks before anything you cannot undo. On Android, iPhone and iPad, Windows / macOS / Linux and in the browser; your phone's screen and your computer as its hands.",
+  "language": "Swift",
+  "topics": [
+   "agent-skills",
+   "ai-agent",
+   "android",
+   "computer-use",
+   "cross-device",
+   "desktop-app",
+   "gui-agent",
+   "ios",
+   "linux",
+   "llm",
+   "mcp",
+   "meta-muse",
+   "mobile-agent",
+   "muse",
+   "nanomuse",
+   "openminis",
+   "openmuse",
+   "personal-agent"
+  ],
+  "label": "ai"
+ },
+ {
+  "fullName": "bregman-arie/devops-exercises",
+  "description": "Linux, Jenkins, AWS, SRE, Prometheus, Docker, Python, Ansible, Git, Kubernetes, Terraform, OpenStack, SQL, NoSQL, Azure, GCP, DNS, Elastic, Network, Virtualization. DevOps Interview Questions",
+  "language": "Python",
+  "topics": [
+   "ansible",
+   "aws",
+   "azure",
+   "coding",
+   "containers",
+   "devops",
+   "docker",
+   "git",
+   "interview",
+   "interview-questions",
+   "kubernetes",
+   "linux",
+   "openstack",
+   "production-engineer",
+   "prometheus",
+   "python",
+   "sql",
+   "sre",
+   "terraform"
+  ],
+  "label": "learning"
+ },
+ {
+  "fullName": "whiteRabbit1313/awesome-digital-public-infrastructure",
+  "description": "Curated tools and frameworks for digital public infrastructure and open-source digital public goods",
+  "language": "Rust",
+  "topics": [
+   "activator",
+   "awesome",
+   "c",
+   "circuit",
+   "collections",
+   "digital-license",
+   "digital-transformation",
+   "dpi",
+   "education",
+   "hacktoberfest",
+   "interoperability",
+   "logisim",
+   "python",
+   "python-library",
+   "python-resources",
+   "tutorial",
+   "unicorns",
+   "win-10",
+   "win-11",
+   "window-manager"
+  ],
+  "label": "learning"
+ },
+ {
+  "fullName": "strands-agents/box",
+  "description": "Run AI agents in a sandbox that restricts what they can execute, read, write, and reach on the network. Box combines OS isolation with default-deny Dogwood policies and credential injection that keeps secrets outside the agent. Written in Rust. Supports macOS on Apple silicon, with Linux support planned.",
+  "language": "Rust",
+  "topics": [
+   "agentic-ai",
+   "agents",
+   "ai",
+   "ai-agents",
+   "ai-safety",
+   "containment",
+   "egress",
+   "harness",
+   "linux",
+   "llm",
+   "macos",
+   "mcp",
+   "policy",
+   "rust",
+   "sandbox",
+   "sandboxing",
+   "seatbelt",
+   "security",
+   "strands-agents",
+   "zero-trust"
+  ],
+  "label": "security"
+ },
+ {
+  "fullName": "deeplethe/utopia",
+  "description": "World's first open-source enterprise world model.",
+  "language": "Rust",
+  "topics": [
+   "agent-memory",
+   "bitemporal",
+   "graphrag",
+   "knowledge-base",
+   "knowledge-graph",
+   "llm",
+   "ontology",
+   "pgvector",
+   "postgresql",
+   "rag",
+   "rust",
+   "self-hosted",
+   "semantic-search",
+   "temporal-knowledge-graph",
+   "world-model"
+  ],
+  "label": "ai"
+ },
+ {
+  "fullName": "dataelement/dsh-desktop",
+  "description": "DSHDesktop：DeepSeek Harness Desktop / DeepSeek Harness 桌面版",
+  "language": "JavaScript",
+  "topics": [
+   "agent",
+   "apps",
+   "deepseek",
+   "deepseek-harness",
+   "deepseek-harness-desktop",
+   "desktop",
+   "dsh-desktop",
+   "dsh-plugin",
+   "dsh-plugin-desktop",
+   "dshdesktop",
+   "harness"
+  ],
+  "label": "ai"
+ },
+ {
+  "fullName": "juliobsz/skills",
+  "description": "An agent skill that builds award-caliber websites from one line",
+  "language": "JavaScript",
+  "topics": [
+   "agent-skills",
+   "astro",
+   "awwwards",
+   "claude-code",
+   "claude-skills",
+   "codex",
+   "creative-coding",
+   "frontend",
+   "gsap",
+   "nextjs",
+   "web-design",
+   "webgl"
+  ],
+  "label": "frontend"
+ },
+ {
+  "fullName": "Renhuai123/ziwei-doushu",
+  "description": "紫微斗数开源排盘引擎 — 基于倪海厦《天纪》体系，含完整排盘算法、四化系统、格局知识库、古籍原文数据",
+  "language": "TypeScript",
+  "topics": [
+   "bazi",
+   "chinese-astrology",
+   "divination",
+   "fortune-telling",
+   "nextjs",
+   "open-source",
+   "purple-star-astrology",
+   "typescript",
+   "zi-wei-dou-shu",
+   "ziwei-doushu"
+  ],
+  "label": "lifestyle"
+ },
+ {
+  "fullName": "HRuiCcc/RuiC-PoseAtlas",
+  "description": "RuiC-PoseAtlas｜姿态 + 衣装双图鉴：288 组人体姿态 × 5 视角 × 1,439 张人台线稿，加 1,407 套无人物衣装 × 8 分类 × 86 个三语标签。中/英/日切换、搜索筛选、键盘浏览、原图下载，纯静态零依赖。",
+  "language": "JavaScript",
+  "topics": [
+   "3d-modeling",
+   "ai-art",
+   "art-reference",
+   "gallery",
+   "photography",
+   "pose-reference",
+   "ruic",
+   "static-site",
+   "trilingual",
+   "vanilla-javascript"
+  ],
+  "label": "media"
+ },
+ {
+  "fullName": "morluto/awesome-reverse-engineering",
+  "description": "Curated reverse-engineering tools and learning resources for binaries, apps, firmware, formats, and protocols.",
+  "language": "Python",
+  "topics": [
+   "agent-skills",
+   "ai-agents",
+   "awesome",
+   "awesome-list",
+   "binary-analysis",
+   "ctf",
+   "cybersecurity",
+   "debugging",
+   "decompiler",
+   "disassembler",
+   "dynamic-analysis",
+   "frida",
+   "ghidra",
+   "malware-analysis",
+   "mcp",
+   "rea",
+   "reverse-engineering",
+   "security",
+   "security-tools",
+   "static-analysis"
+  ],
+  "label": "security"
+ },
+ {
+  "fullName": "Arjun-Ingole/hop",
+  "description": "Install Linux next to Windows without a USB stick",
+  "language": "PowerShell",
+  "topics": [],
+  "label": "cli"
+ },
+ {
+  "fullName": "Ebullioscopic/Atoll",
+  "description": "Dynamic Island for macOS",
+  "language": "Swift",
+  "topics": [
+   "dynamicisland",
+   "hacktoberfest",
+   "macbook",
+   "macos"
+  ],
+  "label": "apps"
+ },
+ {
+  "fullName": "microsoft/power-platform-skills",
+  "description": "A plugin marketplace for GitHub Copilot and other AI agents that provides Power Platform development plugins, including reusable skills, agents, and commands for building and deploying solutions.",
+  "language": "JavaScript",
+  "topics": [
+   "claude-code-plugin",
+   "claude-code-skills",
+   "code-apps",
+   "github-copilot-plugin",
+   "power-apps",
+   "power-pages",
+   "power-platform"
+  ],
+  "label": "ai"
+ },
+ {
+  "fullName": "cdyforever/how-to-live-better",
+  "description": "《高性价比人生指南》全书 528 条的在线单页阅读版：手机可读、可搜索、零依赖、支持离线",
+  "language": "HTML",
+  "topics": [],
+  "label": "lifestyle"
+ },
+ {
+  "fullName": "Paradigm-Study/claude-share",
+  "description": "Multiplayer sessions for Claude Code. Share a link, work together live, and review the same replies, tools and previews.",
+  "language": "TypeScript",
+  "topics": [
+   "claude-code",
+   "claude-code-plugin",
+   "collaboration",
+   "developer-tools",
+   "multiplayer",
+   "pair-programming",
+   "remote-collaboration",
+   "self-hosted"
+  ],
+  "label": "devtools"
+ },
+ {
+  "fullName": "yaojingang/GEOInflow",
+  "description": "Self-hosted web and AI crawler analytics for Generative Engine Optimization (GEO). Track visitors, AI search referrals, crawl logs, content coverage, and conversions. Jointly published by 猎看科技 · 北京日报社智源GEO. MIT licensed.",
+  "language": "TypeScript",
+  "topics": [
+   "ai-analytics",
+   "geo",
+   "mit",
+   "postgresql",
+   "self-hosted",
+   "web-analytics"
+  ],
+  "label": "selfhosted"
+ },
+ {
+  "fullName": "apache/arrow",
+  "description": "Apache Arrow is the universal columnar format and multi-language toolbox for fast data interchange and in-memory analytics",
+  "language": "C++",
+  "topics": [
+   "arrow",
+   "parquet"
+  ],
+  "label": "data"
+ },
+ {
+  "fullName": "router-for-me/CLIProxyAPI",
+  "description": "Wrap Antigravity, ChatGPT Codex, Claude Code, Grok Build, Muse Code, Devin as an OpenAI/Gemini/Claude/Codex compatible API service, allowing you to enjoy the free Gemini Series, GPT Series, Grok Series, Claude model through API",
+  "language": "Go",
+  "topics": [
+   "antigravity",
+   "claude-code",
+   "cluade",
+   "codex",
+   "devin",
+   "gemini",
+   "muse",
+   "openai"
+  ],
+  "label": "ai"
+ },
+ {
+  "fullName": "guiroc0204-pixel/ios-app-decryption-automation",
+  "description": "CrackBot2: macOS bash automation for iOS app decryption via jailbroken device",
+  "language": "JavaScript",
+  "topics": [
+   "activator",
+   "autotouch",
+   "bash",
+   "bfdecrypt",
+   "decrypt",
+   "ios",
+   "ipa",
+   "macos"
+  ],
+  "label": "security"
+ },
+ {
+  "fullName": "marclou/mailcheap",
+  "description": "Newsletters where you pay for the emails you send, not for dormant subscribers, at a fraction of the price of beehiiv and the like. Open source: self-host it, or use mailcheap.ai.",
+  "language": "JavaScript",
+  "topics": [
+   "ai-agents",
+   "amazon-ses",
+   "beehiiv-alternative",
+   "email",
+   "email-marketing",
+   "mailchimp-alternative",
+   "mcp",
+   "mcp-server",
+   "mongodb",
+   "newsletter",
+   "nextjs",
+   "self-hosted",
+   "substack-alternative"
+  ],
+  "label": "social"
+ },
+ {
+  "fullName": "jev-chat/jev-chat-jarvis",
+  "description": "The chat decision assistant: before you reply, Jev reads the chat, judges intent and risk, and drafts replies you fill in with one tap. You press send. Android · Windows · macOS · iOS | 聊天辅助决策工具：先看懂对方再回复，发不发由你。",
+  "language": "Kotlin",
+  "topics": [
+   "accessibility-service",
+   "ai-assistant",
+   "android",
+   "chat-assistant",
+   "chat-copilot",
+   "llm",
+   "ocr",
+   "qq",
+   "whatsapp"
+  ],
+  "label": "social"
+ },
+ {
+  "fullName": "DenisSergeevitch/ex-ussr-kinship-research",
+  "description": "Evidence-first genealogy skill for AI agents (Codex, Claude Code): church books, civil, military, deportation and repression records across the former USSR. Replies in your language.",
+  "language": "Python",
+  "topics": [
+   "agent-skills",
+   "archives",
+   "claude-code",
+   "codex",
+   "family-history",
+   "familysearch",
+   "genealogy",
+   "ussr"
+  ],
+  "label": "research"
+ },
+ {
+  "fullName": "firecrawl/anydoc",
+  "description": "Convert Word, PowerPoint, Excel, OpenDocument, RTF, EPUB, CSV, and PDF to clean Markdown. Built in Rust, with Node.js and Python bindings.",
+  "language": "Rust",
+  "topics": [],
+  "label": "productivity"
+ },
+ {
+  "fullName": "opentrap/opentrap",
+  "description": "A free, open-source alternative to Burp Suite: an intercepting proxy and web app security testing suite with Repeater, Intruder, Collaborator and a built-in OWASP ZAP scanner. Linux, AGPL-3.0.",
+  "language": "Java",
+  "topics": [
+   "application-security",
+   "appsec",
+   "bug-bounty",
+   "burp-alternative",
+   "burp-suite",
+   "dast",
+   "http-proxy",
+   "infosec",
+   "intercepting-proxy",
+   "java",
+   "owasp",
+   "owasp-zap",
+   "penetration-testing",
+   "pentesting",
+   "security",
+   "security-tools",
+   "vulnerability-scanner",
+   "web-application-security",
+   "web-security"
+  ],
+  "label": "security"
+ },
+ {
+  "fullName": "edisonmbli/refactoring-ui-skill",
+  "description": "Unofficial Claude Skill derived from the book Refactoring UI — a design rulebook and diagnostic layer for web UI. 151 tracked rules, design token generation, and Tailwind mappings.",
+  "language": "Python",
+  "topics": [
+   "ai-agent",
+   "claude-code",
+   "claude-skill",
+   "design-system",
+   "design-tokens",
+   "frontend",
+   "refactoring-ui",
+   "tailwindcss",
+   "ui-design"
+  ],
+  "label": "frontend"
+ },
+ {
+  "fullName": "awesome-dsh-plugin/awesome-dsh-plugin",
+  "description": "A curated list of plugins for DeepSeek Harness (dsh) · DeepSeek Harness 插件精选列表",
+  "language": "JavaScript",
+  "topics": [
+   "awesome",
+   "awesome-list",
+   "deepseek-harness",
+   "dsh",
+   "dsh-plugin"
+  ],
+  "label": "learning"
+ },
+ {
+  "fullName": "0x0funky/agent-sprite-forge",
+  "description": "Agent Skill for generating 2D sprite sheets and map, transparent PNG frames, and animated GIFs from prompts.",
+  "language": "Python",
+  "topics": [
+   "agent-skills",
+   "codex",
+   "pixel-art",
+   "sprite-generator"
+  ],
+  "label": "gamedev"
+ },
+ {
+  "fullName": "bitcoinquantico-a11y/unsplash-walls",
+  "description": "Random Unsplash wallpapers on your iOS lock screen with a simple gesture. See screenshots inside.",
+  "language": "Python",
+  "topics": [
+   "activator",
+   "cydia",
+   "ios",
+   "jailbreak",
+   "springboard",
+   "theos",
+   "tweak",
+   "tweaks",
+   "unsplash",
+   "unsplash-api",
+   "wallpaper"
+  ],
+  "label": "apps"
+ },
+ {
+  "fullName": "nextcloud/all-in-one",
+  "description": "📦 The official Nextcloud installation method. Provides easy deployment and maintenance with most features included in this one Nextcloud instance.",
+  "language": "PHP",
+  "topics": [
+   "backup",
+   "docker",
+   "nextcloud",
+   "restore"
+  ],
+  "label": "selfhosted"
+ },
+ {
+  "fullName": "gitroomhq/postiz-app",
+  "description": "📨 The ultimate agentic social media scheduling tool 🤖",
+  "language": "TypeScript",
+  "topics": [
+   "nextjs",
+   "open-source",
+   "open-source-social-media-scheduling-tool",
+   "oss",
+   "postiz-cloud",
+   "postiz-hosted",
+   "redis",
+   "scheduling-tool",
+   "social-media-scheduling-tool",
+   "typescript"
+  ],
+  "label": "social"
+ },
+ {
+  "fullName": "hmjz100/LinkSwift",
+  "description": "一个基于 JavaScript 的网盘文件下载地址获取工具。基于【网盘直链下载助手】修改 ，支持 百度网盘 / 阿里云盘 / 中国移动云盘 / 天翼云盘 / 迅雷云盘 / 夸克网盘 / UC网盘 / 123云盘 八大网盘",
+  "language": "JavaScript",
+  "topics": [
+   "123pan",
+   "aliyun-drive",
+   "aliyunpan",
+   "aria2",
+   "baidu",
+   "baidu-netdisk",
+   "baidunetdisk",
+   "baidupan",
+   "baiduyun",
+   "guangya-netdisk",
+   "motrix",
+   "quark-netdisk",
+   "tampermonkey",
+   "tampermonkey-script",
+   "tampermonkey-userscript",
+   "tianyi-netdisk",
+   "uc-netdisk",
+   "userscript",
+   "xunlei-netdisk",
+   "yidong-netdisk"
+  ],
+  "label": "browser"
+ },
+ {
+  "fullName": "infiniflow/ragflow",
+  "description": "RAGFlow is a leading open-source Retrieval-Augmented Generation (RAG) engine that fuses cutting-edge RAG with Agent capabilities to create a superior context layer for LLMs",
+  "language": "Go",
+  "topics": [
+   "agent-harness",
+   "agentic-ai",
+   "agentic-nagive",
+   "agentic-retrieval",
+   "agentic-search",
+   "ai",
+   "ai-agents",
+   "context-engine",
+   "context-engineering",
+   "context-management",
+   "harness-engineering",
+   "knowledge-compilation",
+   "rag",
+   "retrieval-augmented-generation",
+   "search-harness"
+  ],
+  "label": "ai"
+ },
+ {
+  "fullName": "litmers-dev/litpage",
+  "description": "Open-source, self-hosted workspace for pages, databases and AI. One Node.js process with SQLite.",
+  "language": "TypeScript",
+  "topics": [
+   "ai",
+   "block-editor",
+   "database",
+   "knowledge-base",
+   "nodejs",
+   "open-source",
+   "react",
+   "self-hosted",
+   "sqlite",
+   "workspace"
+  ],
+  "label": "productivity"
+ },
+ {
+  "fullName": "HKUDS/DeepTutor",
+  "description": "DeepTutor: Lifelong Personalized Tutoring. https://deeptutor.info/ .",
+  "language": "Python",
+  "topics": [
+   "ai-agents",
+   "ai-tutor",
+   "clawbot",
+   "cli-tool",
+   "deepresearch",
+   "interactive-learning",
+   "learning",
+   "multi-agent-systems",
+   "rag"
+  ],
+  "label": "learning"
+ },
+ {
+  "fullName": "momenbasel/PureMac",
+  "description": "Free, open-source macOS cleaner. CleanMyMac alternative with zero telemetry. Native SwiftUI, scheduled auto-cleaning, Xcode/Homebrew/system cache cleanup. MIT licensed.",
+  "language": "Swift",
+  "topics": [
+   "cache-cleaner",
+   "cleanmymac",
+   "cleanup",
+   "disk-cleaner",
+   "disk-space",
+   "homebrew",
+   "mac-utility",
+   "macos",
+   "macos-app",
+   "macos-cleaner",
+   "macosx",
+   "native",
+   "oss",
+   "osx",
+   "privacy",
+   "swift",
+   "swiftui",
+   "system-cleaner",
+   "xcode-cleaner"
+  ],
+  "label": "cli"
+ },
+ {
+  "fullName": "lacvietanh/aki-mcp-sv",
+  "description": "Custom MCP [Connector] for AI chat web [Claude|ChatGPT|Grok...] use Files/Shell on your computer directly",
+  "language": "JavaScript",
+  "topics": [
+   "dev",
+   "dev-central",
+   "developer",
+   "developer-tools",
+   "development",
+   "devops-tools",
+   "devtools"
+  ],
+  "label": "ai"
+ },
+ {
+  "fullName": "designfuchen/word-atlas",
+  "description": "词光 · Word Atlas — Illustrated IELTS vocabulary with 7,298 words, UK/US audio and FSRS review. Open-source app + CC BY 4.0 dataset.",
+  "language": "TypeScript",
+  "topics": [
+   "chinese",
+   "dataset",
+   "english-learning",
+   "flashcards",
+   "fsrs",
+   "ielts",
+   "language-learning",
+   "pwa",
+   "react",
+   "spaced-repetition",
+   "vocabulary",
+   "webgl"
+  ],
+  "label": "learning"
+ },
+ {
+  "fullName": "PCL-Community/PCL-CE",
+  "description": "PCL 社区版 由社区开发者维护与管理",
+  "language": "C#",
+  "topics": [
+   "community-edition",
+   "csharp",
+   "csharp-app",
+   "dotnet",
+   "dotnet-core",
+   "game-launcher",
+   "java",
+   "launcher",
+   "minecraft",
+   "minecraft-java-edition",
+   "minecraft-launcher",
+   "pcl2",
+   "plain-craft-launcher"
+  ],
+  "label": "games"
+ },
+ {
+  "fullName": "datawhalechina/zero-to-sglang",
+  "description": "Official SGLang x Datawhale course on LLM inference: understand inference, build a mini-sglang from scratch, then read the real SGLang source and land your first PR. Available in English and Chinese.",
+  "language": "Python",
+  "topics": [
+   "cuda",
+   "datawhale",
+   "inference-engine",
+   "infra",
+   "kv-cache",
+   "llm",
+   "llm-inference",
+   "sglang",
+   "tutorial"
+  ],
+  "label": "learning"
+ },
+ {
+  "fullName": "Problem99-io/kodeblue",
+  "description": "SOC, incident response and SecOps for Linux servers in one agent: learns each host, watches it with zero-token sensors, triages with a small model, and contains attacks under a root-owned policy. Optional hub for fleets.",
+  "language": "Go",
+  "topics": [
+   "ai-agents",
+   "blue-team",
+   "go",
+   "incident-response",
+   "intrusion-detection",
+   "linux",
+   "llm",
+   "secops",
+   "security",
+   "server-monitoring",
+   "soc"
+  ],
+  "label": "security"
+ },
+ {
+  "fullName": "vercel-labs/skills",
+  "description": "The open agent skills tool - npx skills",
+  "language": "TypeScript",
+  "topics": [],
+  "label": "ai"
+ },
+ {
+  "fullName": "ZiChuanLan/agent-purge",
+  "description": "One persona, many coding agents. Replace or inject system prompts across codex, claude, opencode, grok, omp, hermes, pi, zcode - with a local web console.",
+  "language": "JavaScript",
+  "topics": [
+   "claude-code",
+   "codex",
+   "coding-agent",
+   "deepseek-harness",
+   "harness",
+   "omp",
+   "opencode",
+   "pi",
+   "system-prompt"
+  ],
+  "label": "devtools"
+ },
+ {
+  "fullName": "KnifeLemon/Filee",
+  "description": "Free, open-source file converter. Convert 263 formats offline by drag & drop — images, PDF, Word, Excel, PowerPoint, HWP/HWPX, video, audio, e-books and archives. No upload, no Office needed.",
+  "language": "C#",
+  "topics": [
+   "audio-converter",
+   "avalonia",
+   "batch-conversion",
+   "converter",
+   "csharp",
+   "document-converter",
+   "docx-to-pdf",
+   "dotnet",
+   "drag-and-drop",
+   "file-conversion",
+   "file-converter",
+   "heic-converter",
+   "hwp",
+   "hwpx",
+   "image-converter",
+   "linux",
+   "macos",
+   "pdf-converter",
+   "video-converter",
+   "windows"
+  ],
+  "label": "productivity"
+ },
+ {
+  "fullName": "aws/agent-toolkit-for-aws",
+  "description": "Official, AWS-supported MCP servers, skills, and plugins to help AI agents build on AWS",
+  "language": "Python",
+  "topics": [],
+  "label": "ai"
+ },
+ {
+  "fullName": "lightpanda-io/browser",
+  "description": "Lightpanda: the headless browser designed for AI and automation",
+  "language": "Zig",
+  "topics": [
+   "browser",
+   "browser-automation",
+   "cdp",
+   "headless",
+   "lightpanda",
+   "playwright",
+   "puppeteer",
+   "zig"
+  ],
+  "label": "browser"
+ },
+ {
+  "fullName": "RoUntoBlizzard/resocket-elden-ring-cheat-2026-trainer-mod-menu-tools",
+  "description": "Elden Ring Cheat 2026 — Single-player modding and gameplay toolkit concept featuring character build optimization, rune planning, weapon upgrades, boss strategies, save management and offline trainer research.",
+  "language": "HTML",
+  "topics": [
+   "dear-imgui",
+   "libsodium",
+   "security"
+  ],
+  "label": "games"
+ },
+ {
+  "fullName": "mrdoob/three.js",
+  "description": "JavaScript 3D Library.",
+  "language": "JavaScript",
+  "topics": [
+   "3d",
+   "augmented-reality",
+   "canvas",
+   "html5",
+   "javascript",
+   "svg",
+   "virtual-reality",
+   "webaudio",
+   "webgl",
+   "webgl2",
+   "webgpu",
+   "webxr"
+  ],
+  "label": "gamedev"
+ },
+ {
+  "fullName": "peach-mitao/peach",
+  "description": "Peach: Local-first video metadata scraper and media manager.",
+  "language": "Python",
+  "topics": [
+   "local-first",
+   "media-library",
+   "media-manager",
+   "python",
+   "react",
+   "self-hosted",
+   "video-player"
+  ],
+  "label": "entertainment"
+ },
+ {
+  "fullName": "sunreview/GetChatGPTPlusPaper",
+  "description": "ChatGPT Plus 充值订阅保姆级教程（卡密 + Token 自助充值，免国际信用卡） | How to subscribe to ChatGPT Plus without an international card — step-by-step guide | Как оплатить подписку ChatGPT Plus без зарубежной карты — пошаговое руководство",
+  "language": "未知",
+  "topics": [],
+  "label": "learning"
+ },
+ {
+  "fullName": "Gathin23/cleanyourtv",
+  "description": "Debloat any Android or Google TV over Wi-Fi and get an Apple TV-style home.",
+  "language": "Python",
+  "topics": [
+   "adb",
+   "adblock",
+   "android-tv",
+   "android-tv-launcher",
+   "apple-tv",
+   "bloatware-removal",
+   "claude-code",
+   "debloat",
+   "fire-tv",
+   "google-tv",
+   "launcher",
+   "privacy",
+   "smart-tv",
+   "sony-bravia",
+   "tcl",
+   "vibe-coding",
+   "xiaomi"
+  ],
+  "label": "entertainment"
+ },
+ {
+  "fullName": "matank001/clodfarm",
+  "description": "clodfarm (say it out loud): a farm of Claude Code agents. Plant a mission, they split it into sub-agents, open the work, and pace themselves on each account's real 5-hour and weekly usage. Steer it from the Claude app.",
+  "language": "Python",
+  "topics": [
+   "agent-orchestration",
+   "ai",
+   "ai-agents",
+   "anthropic",
+   "automation",
+   "autonomous-agents",
+   "aws",
+   "claude",
+   "claude-code",
+   "coding-agent",
+   "devtools",
+   "docker",
+   "dynamodb",
+   "llm",
+   "multi-agent",
+   "python",
+   "rate-limiting",
+   "remote-control",
+   "self-hosted",
+   "subagents"
+  ],
+  "label": "devtools"
+ },
+ {
+  "fullName": "Chuloo/mural",
+  "description": "The language app you eventually delete. A native iPhone companion for learning through conversation.",
+  "language": "TypeScript",
+  "topics": [
+   "ios",
+   "language-learning",
+   "open-source",
+   "swiftui"
+  ],
+  "label": "learning"
+ },
+ {
+  "fullName": "deepseek-ai/deepseek-harness",
+  "description": "DeepSeek Harness: Everything is a Plugin.",
+  "language": "TypeScript",
+  "topics": [
+   "ai-agents",
+   "cordis",
+   "dsh",
+   "dsh-plugin"
+  ],
+  "label": "ai"
+ },
+ {
+  "fullName": "zhongerxin/iPhone-use",
+  "description": "让 Codex 通过 USB 操作真实 iPhone：引导安装、App 自动化、实时屏幕与截图回退。",
+  "language": "Python",
+  "topics": [],
+  "label": "automation"
+ },
+ {
+  "fullName": "salihcantekin/ruvio",
+  "description": "In-memory key-value server in Rust that speaks RESP, so redis-cli and Redis clients connect. Locks, rate limits, job queues and a change feed are single commands; Raft-based failover. Clients for Rust, .NET, Go, Java, Python and Node.js.",
+  "language": "Rust",
+  "topics": [
+   "cache",
+   "database",
+   "distributed-lock",
+   "distributed-systems",
+   "dotnet",
+   "failover",
+   "in-memory-database",
+   "job-queue",
+   "key-value-store",
+   "nosql-database",
+   "raft",
+   "rate-limiting",
+   "redis",
+   "resp",
+   "rust",
+   "ruvio"
+  ],
+  "label": "data"
+ },
+ {
+  "fullName": "Sheltercosmo/jev4pg",
+  "description": "Established strong JEV based natural language to SQL performance and well-covered semantic operators for PostgreSQL with optimized cost and latency. Reusable evidence, with native execution, parallel plans and explainable embeddings in development preview.",
+  "language": "Python",
+  "topics": [
+   "database",
+   "embeddings",
+   "jev",
+   "jev-ai",
+   "llm",
+   "natural-language-query",
+   "nl2sql",
+   "pg",
+   "postgres",
+   "postgresql",
+   "python",
+   "rust",
+   "semantic-database",
+   "semantic-search",
+   "semantic-sql",
+   "text-to-sql"
+  ],
+  "label": "data"
+ },
+ {
+  "fullName": "haydenschmitty/floorplan",
+  "description": "See how your app actually fits together. An interactive, plain-English map of your codebase, drawn by Claude or Codex.",
+  "language": "JavaScript",
+  "topics": [
+   "ai-coding",
+   "architecture-diagram",
+   "claude",
+   "claude-code",
+   "claude-code-plugin",
+   "codebase-visualization",
+   "codex",
+   "codex-plugin",
+   "developer-tools",
+   "onboarding",
+   "openai",
+   "vibe-coding"
+  ],
+  "label": "devtools"
+ },
+ {
+  "fullName": "PrestaShop/PrestaShop",
+  "description": "PrestaShop is the universal open-source software platform to build your e-commerce solution.",
+  "language": "PHP",
+  "topics": [
+   "cms",
+   "ecommerce",
+   "ecommerce-framework",
+   "ecommerce-platform",
+   "hacktoberfest",
+   "php",
+   "php-framework",
+   "prestashop"
+  ],
+  "label": "backend"
+ },
+ {
+  "fullName": "nicnac599/tr4mpass",
+  "description": "tr4mpass: Multi-path iOS exploitation framework for A5-A17 with bootloader, dyld, and SparseRestore",
+  "language": "Rust",
+  "topics": [],
+  "label": "security"
+ },
+ {
+  "fullName": "NVIDIA/OpenShell",
+  "description": "OpenShell is the safe, private runtime for autonomous AI agents.",
+  "language": "Rust",
+  "topics": [],
+  "label": "ai"
+ },
+ {
+  "fullName": "Donchitos/Claude-Code-Game-Studios",
+  "description": "Turn Claude Code into a full game dev studio — 49 AI agents, 72 workflow skills, and a complete coordination system mirroring real studio hierarchy.",
+  "language": "Shell",
+  "topics": [
+   "ai-agents",
+   "ai-assisted-development",
+   "anthropic",
+   "claude",
+   "claude-code",
+   "game-design",
+   "game-development",
+   "gamedev",
+   "godot",
+   "indie-game-dev",
+   "unity",
+   "unreal-engine"
+  ],
+  "label": "gamedev"
+ },
+ {
+  "fullName": "earthtojake/text-to-cad",
+  "description": "Design physical products with AI",
+  "language": "Python",
+  "topics": [
+   "agents",
+   "ai-agents",
+   "cad",
+   "mechanical-engineering",
+   "robotics",
+   "step",
+   "stl",
+   "stp",
+   "text-to-cad"
+  ],
+  "label": "ai"
+ },
+ {
+  "fullName": "laravel/framework",
+  "description": "Laravel is a web application framework with expressive, elegant syntax.",
+  "language": "PHP",
+  "topics": [
+   "framework",
+   "laravel",
+   "php"
+  ],
+  "label": "backend"
+ },
+ {
+  "fullName": "aa1143/NamiGPT",
+  "description": "零基础入门大模型（LLM）的基础教程：从零手写 GPT-2，一行行看懂大模型是怎么工作的 | Build GPT-2 from scratch in PyTorch, step by step",
+  "language": "Python",
+  "topics": [
+   "attention",
+   "chinese",
+   "deep-learning",
+   "from-scratch",
+   "gpt-2",
+   "large-language-models",
+   "llm",
+   "pytorch",
+   "transformer",
+   "tutorial"
+  ],
+  "label": "learning"
+ },
+ {
+  "fullName": "laoma528/GPTplusSub",
+  "description": "ChatGPT 会员订阅与充值教程（国内）：支付宝代充、Apple 礼品卡、海外银行卡，以及付款失败、续费与退款问题处理。",
+  "language": "Python",
+  "topics": [
+   "alipay",
+   "apple-gift-card",
+   "chatgpt",
+   "chatgpt-plus",
+   "chinese",
+   "subscription-guide",
+   "tutorial"
+  ],
+  "label": "learning"
+ },
+ {
+  "fullName": "spring-projects/spring-boot",
+  "description": "Spring Boot helps you to create Spring-powered, production-grade applications and services with absolute minimum fuss.",
+  "language": "Java",
+  "topics": [
+   "framework",
+   "java",
+   "spring",
+   "spring-boot"
+  ],
+  "label": "backend"
+ },
+ {
+  "fullName": "horizon-rust/horizon",
+  "description": "Minecraft: Java Edition 26.3 rewritten from scratch in Rust, checked against vanilla with 281 differential harnesses. Get it with the Horizon launcher.",
+  "language": "Rust",
+  "topics": [
+   "differential-testing",
+   "game-engine",
+   "gamedev",
+   "linux",
+   "minecraft",
+   "minecraft-java",
+   "reimplementation",
+   "rust",
+   "voxel",
+   "vulkan",
+   "wgpu"
+  ],
+  "label": "games"
+ },
+ {
+  "fullName": "ARahim3/DigUp",
+  "description": "Search your computer by what's in your files: photos, PDFs, documents, recordings, videos and code. On-device on Mac, Windows and Linux, built on Google DeepMind's EmbeddingGemma 2.",
+  "language": "Swift",
+  "topics": [
+   "embeddinggemma",
+   "embeddings",
+   "file-search",
+   "linux",
+   "llama-cpp",
+   "local-first",
+   "macos",
+   "menubar-app",
+   "multimodal",
+   "on-device",
+   "semantic-search",
+   "swift",
+   "tauri",
+   "windows"
+  ],
+  "label": "productivity"
+ },
+ {
+  "fullName": "subhra74/xdm",
+  "description": "Fast, reliable download accelerator and video downloader since 2013",
+  "language": "Kotlin",
+  "topics": [
+   "batch",
+   "batchdownloading",
+   "browser-extension",
+   "chrome",
+   "download-accelerator",
+   "download-manager",
+   "downloader",
+   "firefox",
+   "hls",
+   "hls-downloader",
+   "hls-stream",
+   "linux",
+   "macosx",
+   "mpeg-dash",
+   "mpeg-dash-protocol",
+   "streaming-video",
+   "video-downloader",
+   "windows"
+  ],
+  "label": "media"
+ },
+ {
+  "fullName": "JunWan666/astrbot-for-android",
+  "description": "在 Android 手机上本地部署和管理 AstrBot 与 NapCat，内置 PRoot Ubuntu 运行环境，支持原生管理界面、WebUI、日志、备份恢复和独立更新，无需 Root。",
+  "language": "Kotlin",
+  "topics": [
+   "ai",
+   "android",
+   "astrbot",
+   "chatbot",
+   "jetpack-compose",
+   "kotlin",
+   "llm",
+   "napcat",
+   "napcatqq",
+   "onebot",
+   "proot",
+   "qq-bot",
+   "self-hosted",
+   "ubuntu"
+  ],
+  "label": "automation"
+ },
+ {
+  "fullName": "lakeday-org/perch",
+  "description": "Semantic code and security scanner",
+  "language": "JavaScript",
+  "topics": [
+   "ai",
+   "cli",
+   "code-quality",
+   "code-review",
+   "devtools",
+   "linter",
+   "static-analysis",
+   "tree-sitter"
+  ],
+  "label": "security"
+ },
+ {
+  "fullName": "jwuthri-cloud/Tracely-ai",
+  "description": "Trace-native CI/CD for AI agents: grade production traces, cluster failures, freeze them into replayable regression tests, and block PRs that regress. Self-hostable.",
+  "language": "Python",
+  "topics": [
+   "agent-evaluation",
+   "ai-agents",
+   "ai-testing",
+   "ci-cd",
+   "clickhouse",
+   "developer-tools",
+   "llm-evaluation",
+   "llm-observability",
+   "llmops",
+   "mcp",
+   "observability",
+   "python",
+   "regression-testing",
+   "self-hosted",
+   "tracing"
+  ],
+  "label": "devtools"
+ },
+ {
+  "fullName": "mlmvpn/mlmvpn_android",
+  "description": "Multi-engine Android VPN — Xray, WARP, Psiphon, Tor, Geph, OpenVPN, MASQUE/AmneziaWG, and the MLM Adaptive Engine that routes each app by its own best path; Cloudflare panels, Config Studio, game booster. Kotlin + Jetpack Compose. | اپلیکیشن VPN چندموتورهٔ اندروید با موتور تطبیقی",
+  "language": "Kotlin",
+  "topics": [
+   "amneziawg",
+   "android",
+   "censorship-circumvention",
+   "gplv3",
+   "jetpack-compose",
+   "kotlin",
+   "network-scanner",
+   "vpn",
+   "wireguard",
+   "xray"
+  ],
+  "label": "security"
+ },
+ {
+  "fullName": "jmanico/grim-prompter",
+  "description": "Threat modeling for AI coding agents: point Claude Code, Codex or any agent at your repo and get an evidence-traced threat model. 36 architectures, 29 methods, MIT.",
+  "language": "未知",
+  "topics": [
+   "ai-agents",
+   "appsec",
+   "claude-code",
+   "codex",
+   "linddun",
+   "llm",
+   "pasta",
+   "prompt-engineering",
+   "security",
+   "stride",
+   "threat-modeling"
+  ],
+  "label": "security"
+ },
+ {
+  "fullName": "Venomsphinx/pursr-rpocket",
+  "description": "Visual QA, browser automation, accessibility auditing, screenshot diffing, and MCP tooling for coding agents.",
+  "language": "HTML",
+  "topics": [
+   "codex-skill",
+   "cursor",
+   "devtools",
+   "engineering-workflow",
+   "llm-review",
+   "markdown",
+   "markdown-to-pptx",
+   "mdpr",
+   "model-context-protocol",
+   "openai-codex",
+   "pixel-diff",
+   "playwright",
+   "powerpoint",
+   "pptx",
+   "presentation-tools",
+   "presentations",
+   "screenshot-testing",
+   "visual-qa",
+   "visual-regression",
+   "wcag"
+  ],
+  "label": "devtools"
+ },
+ {
+  "fullName": "78/xiaozhi-esp32",
+  "description": "An MCP-based chatbot | 一个基于MCP的聊天机器人",
+  "language": "C++",
+  "topics": [
+   "chatbot",
+   "esp32",
+   "mcp"
+  ],
+  "label": "smarthome"
+ },
+ {
+  "fullName": "electron/electron",
+  "description": "Build cross-platform desktop apps with JavaScript, HTML, and CSS",
+  "language": "C++",
+  "topics": [
+   "c-plus-plus",
+   "chrome",
+   "css",
+   "electron",
+   "html",
+   "javascript",
+   "nodejs",
+   "v8",
+   "works-with-codespaces"
+  ],
+  "label": "apps"
+ },
+ {
+  "fullName": "pollen-robotics/microduck",
+  "description": "A Tiny biped duck robot 🦆",
+  "language": "Rust",
+  "topics": [],
+  "label": "smarthome"
+ },
+ {
+  "fullName": "unstablebuild/rune",
+  "description": "a fast, GPU-accelerated, full-featured IDE and terminal multiplexer, suitable both for automatic and manual programming.",
+  "language": "Go",
+  "topics": [
+   "agent-orchestration",
+   "ai",
+   "cli",
+   "coding-agents",
+   "developer-tool",
+   "devtools",
+   "go",
+   "golang",
+   "ide",
+   "rune",
+   "terminal-multiplexer",
+   "text-editor",
+   "tmux",
+   "tui",
+   "workspace-manager"
+  ],
+  "label": "cli"
+ },
+ {
+  "fullName": "LambdaLabsHQ/xmatrix",
+  "description": "Group chat for humans and coding agents. Mention @claude, @codex, @cursor or @gemini in a channel: the agent runs on your machine with your own subscription and keeps the team's pages current.",
+  "language": "TypeScript",
+  "topics": [
+   "agent-orchestration",
+   "ai-agents",
+   "claude-code",
+   "cli",
+   "codex",
+   "coding-agents",
+   "collaboration",
+   "cursor-agent",
+   "developer-tools",
+   "devtools",
+   "gemini-cli",
+   "living-docs",
+   "multi-agent",
+   "opencode",
+   "parallel-agents",
+   "rust",
+   "source-available",
+   "team-chat",
+   "typescript",
+   "worktrees"
+  ],
+  "label": "social"
+ },
+ {
+  "fullName": "farzaa/clicky",
+  "description": "The open-source project HeyClicky grew out of. The official HeyClicky app, an AI buddy for Mac and Windows: heyclicky.com",
+  "language": "Swift",
+  "topics": [],
+  "label": "ai"
+ },
+ {
+  "fullName": "herdrdev/herdr",
+  "description": "the runtime your coding agents live on",
+  "language": "Rust",
+  "topics": [
+   "agent",
+   "agent-orchestration",
+   "ai",
+   "ai-agents",
+   "claude-code",
+   "cli",
+   "codex",
+   "coding-agents",
+   "developer-tools",
+   "devtools",
+   "multiplexer",
+   "rust",
+   "terminal",
+   "terminal-multiplexer",
+   "terminal-ui",
+   "tmux",
+   "tui",
+   "workspace-manager"
+  ],
+  "label": "devtools"
+ },
+ {
+  "fullName": "waligoraamodio288-rgb/hongguo-desktop-releases",
+  "description": "红果短剧第三方客户端｜Windows 正式版、Mac M系列测试版、Android TV ARM32/ARM64 测试版。找剧、收藏、本机续播与电视遥控操作；免费使用，由渠道有数独立维护。",
+  "language": "未知",
+  "topics": [
+   "ai-drama",
+   "android",
+   "android-tv",
+   "apk",
+   "arm64",
+   "desktop-app",
+   "hongguo",
+   "tv-app",
+   "video-player",
+   "windows"
+  ],
+  "label": "entertainment"
+ },
+ {
+  "fullName": "macro-inc/macro",
+  "description": "Macro is a unified workspace for teams: email, chat, docs, tasks, agents, calls, and CRM — @-linked together with shared AI memory.",
+  "language": "Rust",
+  "topics": [
+   "agent",
+   "ai",
+   "ai-agents",
+   "all-in-one",
+   "crm",
+   "crm-system",
+   "email",
+   "linear",
+   "mcp",
+   "messaging",
+   "notes",
+   "notion",
+   "office",
+   "rust",
+   "slack",
+   "slack-alternative",
+   "startup",
+   "startup-tools",
+   "typescript",
+   "workspace"
+  ],
+  "label": "productivity"
+ },
+ {
+  "fullName": "xiaoyang111222/cn-math-taxonomy",
+  "description": "数学（小学到高中）、英语（三年级到高中）、初中物理的知识图谱：1644 个知识点、2403 条先修边、6723 道题，对齐课标，附自适应前置诊断。",
+  "language": "Python",
+  "topics": [
+   "chinese",
+   "curriculum",
+   "diagnostic",
+   "edtech",
+   "education",
+   "elementary-school",
+   "english",
+   "high-school",
+   "junior-high-school",
+   "k12",
+   "knowledge-graph",
+   "math",
+   "mathematics",
+   "middle-school",
+   "open-data",
+   "primary-school"
+  ],
+  "label": "learning"
+ },
+ {
+  "fullName": "Nutlope/hallmark",
+  "description": "Anti-AI-slop design skill for Claude Code, Cursor, and Codex.",
+  "language": "CSS",
+  "topics": [],
+  "label": "frontend"
+ },
+ {
+  "fullName": "Zagitta/gpu-unlock",
+  "description": "Your GeForce runs AI at half speed. This fixes it for 20/30/40 series cards. Up to 2× FP16 / BF16 / TF32 tensor throughput",
+  "language": "C",
+  "topics": [],
+  "label": "ai"
+ },
+ {
+  "fullName": "deepseek-ai/DeepInfer",
+  "description": "DeepInfer: High-performance, large-scale inference framework for DeepSeek models",
+  "language": "Python",
+  "topics": [],
+  "label": "ai"
+ },
+ {
+  "fullName": "yuyuanweb/ai-picture-editor",
+  "description": "2026 年编程导航 AI 编程实战新项目，基于 React 19 + FastAPI + LangChain + LangGraph + Konva 的 AI 修图智能体，支持自然语言驱动修图、21 种编辑工具、文生图、智能抠图、图层拆分、区域编辑、多步计划。覆盖 AI Agent 架构、SSE 实时推送、异步任务队列、Canvas 画布引擎。用一套教程掌握 AI Agent 全栈开发，不到一周学完，给你的简历增加竞争力",
+  "language": "Python",
+  "topics": [
+   "ai",
+   "ai-agent",
+   "ai-image",
+   "async-queue",
+   "canvas-editor",
+   "fastapi",
+   "full-stack",
+   "image-editing",
+   "inpainting",
+   "konva",
+   "langchain",
+   "langgraph",
+   "layer-system",
+   "python",
+   "react",
+   "segment-anything",
+   "sse",
+   "text-to-image",
+   "tutorial",
+   "typescript"
+  ],
+  "label": "media"
+ },
+ {
+  "fullName": "Orkas-AI/Orkas",
+  "description": "Orkas is an open-source (MIT), local-first AI team for your desktop: a Commander turns your goal into to-dos and coordinates 16 built-in specialist agents plus Claude Code, Codex, OpenCode, OpenClaw and Hermes, with projects, scheduled automations and connectors. Free app for macOS & Windows; built-in models or your own keys.",
+  "language": "JavaScript",
+  "topics": [
+   "agent-collaboration",
+   "agent-harness",
+   "agent-orchestration",
+   "agent-team",
+   "agent-workflow",
+   "ai-assistant",
+   "ai-automation",
+   "ai-employee",
+   "ai-productivity",
+   "ai-team",
+   "ai-workflow",
+   "autonomous-agents",
+   "claude-code-gui",
+   "claude-cowork",
+   "desktop-agent",
+   "local-first",
+   "multi-agent",
+   "multi-agent-system",
+   "self-evolving-agents",
+   "task-automation"
+  ],
+  "label": "ai"
+ },
+ {
+  "fullName": "valentderah/totk-pc-recomp",
+  "description": "Static recompilation of The Legend of Zelda: Tears of the Kingdom to native Windows x86-64, with a Vulkan renderer. Game files not included.",
+  "language": "C",
+  "topics": [],
+  "label": "games"
+ },
+ {
+  "fullName": "manaflow-ai/cmux",
+  "description": "Open source Ghostty-based macOS terminal with vertical tabs and notifications for AI coding agents. Built for multitasking, organization, and programmability.",
+  "language": "Swift",
+  "topics": [
+   "amp",
+   "claude-code",
+   "cli",
+   "codex",
+   "coding-agents",
+   "gemini",
+   "ghostty",
+   "macos",
+   "multiplexer",
+   "multitasking",
+   "opencode",
+   "organization",
+   "parallel-agents",
+   "programmability",
+   "terminal",
+   "terminal-multiplexer",
+   "tmux",
+   "workspace-manager"
+  ],
+  "label": "cli"
+ },
+ {
+  "fullName": "alpcanaydin/tusk",
+  "description": "A fast, native, keyboard-driven database client for macOS. 20 databases, an AI assistant that shows its work, free and open source.",
+  "language": "Rust",
+  "topics": [
+   "ai-assistant",
+   "clickhouse",
+   "database",
+   "database-client",
+   "database-gui",
+   "developer-tools",
+   "duckdb",
+   "gpui",
+   "macos",
+   "mongodb",
+   "mysql",
+   "native-app",
+   "open-source",
+   "postgresql",
+   "redis",
+   "rust",
+   "snowflake",
+   "sql-client",
+   "sqlite",
+   "tableplus-alternative"
+  ],
+  "label": "data"
+ },
+ {
+  "fullName": "CYQawa/YunX",
+  "description": "✨一个安卓 网盘解析 + 视频平台解析 下载app✨",
+  "language": "Kotlin",
+  "topics": [],
+  "label": "media"
+ },
+ {
+  "fullName": "LNPANDY/NX2Apple",
+  "description": "Play your own Switch games on iPhone/iPad — one-click macOS app, no terminal. | 把 Switch 游戏装进 iPhone：图形界面一键构建，不用命令行。Bring your own game.",
+  "language": "Swift",
+  "topics": [
+   "apple-silicon",
+   "custom-format",
+   "homebrew",
+   "ios",
+   "ipa",
+   "ipad",
+   "ipados",
+   "iphone",
+   "metal",
+   "native-port",
+   "nintendo-switch",
+   "nxnative",
+   "romfs",
+   "switch-games"
+  ],
+  "label": "games"
+ },
+ {
+  "fullName": "phishdestroy/TgWitness",
+  "description": "Open-source Telegram chat exporter, deleted & edited message logger, and OSINT forensics archiver. Save chat history, capture deleted messages, compare edit versions, and export signed HTML/JSON/CSV evidence.",
+  "language": "Python",
+  "topics": [
+   "chain-of-custody",
+   "chat-export",
+   "deleted-messages",
+   "dfir",
+   "digital-evidence",
+   "digital-forensics",
+   "evidence",
+   "evidence-collection",
+   "evidence-preservation",
+   "forensics",
+   "incident-response",
+   "osint",
+   "osint-tools",
+   "rfc3161",
+   "telegram",
+   "telegram-export",
+   "telegram-forensics",
+   "telegram-scraper",
+   "telethon",
+   "threat-intelligence"
+  ],
+  "label": "social"
+ },
+ {
+  "fullName": "Gaurav-Gosain/tuios",
+  "description": "A terminal window manager that knows what your agents are doing. Tiling panes, workspaces, sessions that survive restarts, and one Inbox for every coding agent. Official only at tuios.dev and this repo. tuios has no X/Twitter account.",
+  "language": "Go",
+  "topics": [
+   "ai-agents",
+   "bubbletea",
+   "charm",
+   "claude-code",
+   "codex",
+   "coding-agents",
+   "developer-tools",
+   "go",
+   "golang",
+   "multiplexer",
+   "omarchy",
+   "ssh",
+   "terminal",
+   "terminal-emulator",
+   "terminal-multiplexer",
+   "tiling-window-manager",
+   "tmux-alternative",
+   "tui",
+   "window-manager",
+   "zellij-alternative"
+  ],
+  "label": "cli"
+ },
+ {
+  "fullName": "anthropics/claude-plugins-official",
+  "description": "Official, Anthropic-managed directory of high quality Claude Code Plugins.",
+  "language": "Python",
+  "topics": [
+   "claude-code",
+   "mcp",
+   "skills"
+  ],
+  "label": "ai"
+ },
+ {
+  "fullName": "babalae/better-genshin-impact",
+  "description": "📦BetterGI · 更好的原神 - 自动拾取 | 自动剧情 | 全自动钓鱼(AI) | 全自动七圣召唤 | 自动伐木 | 自动刷本 | 自动采集/挖矿/锄地 | 一条龙 | 全连音游 | 自动烹饪 | 桌面分身 - UI Automation Testing Tools For Genshin Impact",
+  "language": "C#",
+  "topics": [
+   "auto-play-game",
+   "automatic",
+   "genius-invokation-tcg",
+   "genshin",
+   "genshin-impact",
+   "yuanshen"
+  ],
+  "label": "games"
+ },
+ {
+  "fullName": "hacksider/Deep-Live-Cam",
+  "description": "real time face swap and one-click video deepfake with only a single image",
+  "language": "Python",
+  "topics": [
+   "ai",
+   "ai-deep-fake",
+   "ai-face",
+   "ai-webcam",
+   "artificial-intelligence",
+   "deep-fake",
+   "deepfake",
+   "deepfake-webcam",
+   "faceswap",
+   "fake-webcam",
+   "gan",
+   "real-time-deepfake",
+   "realtime",
+   "realtime-deepfake",
+   "realtime-face-changer",
+   "video-deepfake",
+   "webcam",
+   "webcamera"
+  ],
+  "label": "media"
+ },
+ {
+  "fullName": "SukiSU-Ultra/SukiSU-Ultra",
+  "description": "Kernel-based Android Root Solution & KPM",
+  "language": "Kotlin",
+  "topics": [],
+  "label": "apps"
+ },
+ {
+  "fullName": "EpicGames/raddebugger",
+  "description": "A native, user-mode, multi-process, graphical debugger.",
+  "language": "C",
+  "topics": [],
+  "label": "devtools"
+ },
+ {
+  "fullName": "OpenWhispr/openwhispr",
+  "description": "Voice-to-text dictation app with local (Nvidia Parakeet/Whisper) and cloud models (BYOK). Privacy-first and available cross-platform.",
+  "language": "JavaScript",
+  "topics": [
+   "ai",
+   "anthropic",
+   "cross-platform",
+   "gemini",
+   "groq",
+   "linux",
+   "macos",
+   "nvidia",
+   "open-source",
+   "openai",
+   "parakeet",
+   "speech-to-text",
+   "transcribe",
+   "whisper",
+   "windows"
+  ],
+  "label": "media"
+ },
+ {
+  "fullName": "d2r-mobile/d2r-mobile",
+  "description": "Diablo II: Resurrected on iPhone, iPad, Apple silicon Mac, Android and HarmonyOS. Offline play with touch or a controller. One-tap Runewords, 100-level Greater Rifts and Reign of the Warlock. Native ARM, Metal and Vulkan. Open source; bring your own Switch game files. 暗黑2重制版.",
+  "language": "C",
+  "topics": [
+   "agent-skills",
+   "apple-silicon",
+   "arm64",
+   "claude-code",
+   "codex",
+   "compatibility-layer",
+   "d2r",
+   "diablo",
+   "diablo-2-resurrected",
+   "diablo2",
+   "game-port",
+   "ios",
+   "ipad",
+   "iphone",
+   "macos",
+   "metal",
+   "offline-game",
+   "reign-of-the-warlock",
+   "touch-controls",
+   "tvos"
+  ],
+  "label": "games"
+ },
+ {
+  "fullName": "kushagrasinghx/BitChord",
+  "description": "BitChord - A modern YouTube music client with clean aesthetics inspired from Apple Music",
+  "language": "Kotlin",
+  "topics": [],
+  "label": "entertainment"
+ },
+ {
+  "fullName": "Djihads80/Eglantine",
+  "description": "VERY experimental Nintendo Switch 2 emulator",
+  "language": "C++",
+  "topics": [],
+  "label": "games"
+ },
+ {
+  "fullName": "aardappel/goose",
+  "description": "The Goose Programming Language",
+  "language": "C++",
+  "topics": [],
+  "label": "devtools"
+ }
+]

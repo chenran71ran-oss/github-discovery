@@ -1,7 +1,9 @@
+import type { CSSProperties } from "react"
 import { type DiscoverySnapshot, type Period, type Repository, compact, isBreakout } from "@shared/discovery"
 import { time } from "./detail"
 import { Icon, RepoIcon } from "./icons"
-import { labels } from "./row"
+import { distribution } from "./model"
+import { categoryHues, labels } from "./row"
 
 interface Props {
   data: DiscoverySnapshot | undefined
@@ -9,10 +11,12 @@ interface Props {
   onOpen: (repo: Repository) => void
 }
 
-/** 右侧栏在没有选中项目时的内容：本期概况、刚冒头的项目与快捷键。 */
+/** 右侧栏在没有选中项目时的内容：本期概况、GIT Bot 分类分布、刚冒头的项目与快捷键。 */
 export function Overview({ data, period, onOpen }: Props) {
   const rows = data?.periods[period] || []
   const breakout = rows.filter(r => isBreakout(r, period)).slice(0, 5)
+  const spread = distribution(rows)
+  const most = Math.max(1, ...spread.map(d => d.count))
   return (
     <div className="overview">
       <section>
@@ -36,6 +40,27 @@ export function Overview({ data, period, onOpen }: Props) {
           {data ? `更新于 ${time(data.status[period].capturedAt)} · 每日 08:20 采集` : "正在读取榜单…"}
         </p>
       </section>
+      {spread.length > 0 && (
+        <section>
+          <h3>
+            <Icon name="bot" />
+            GIT Bot 分类
+          </h3>
+          <ul className="spread">
+            {spread.map(d => (
+              <li key={d.id}>
+                <span className="sp-label">{d.label}</span>
+                <i><b style={{ width: `${(d.count / most) * 100}%` }} /></i>
+                <span className="n">{d.count}</span>
+                <span className="sp-top">
+                  {d.top.map(t => <em key={t.label} style={{ "--ch": categoryHues[t.label] ?? 210 } as CSSProperties}>{`${t.label} ${t.count}`}</em>)}
+                </span>
+              </li>
+            ))}
+          </ul>
+          <p className="hint">按用途优先归类：同时看 GitHub 主题、简介关键词、README、语言和技术栈，技术类信号打折，所以「AI 修图工具」归到修图、带上 AI 标签。</p>
+        </section>
+      )}
       {breakout.length > 0 && (
         <section>
           <h3>
