@@ -2,7 +2,7 @@
 
 ## 分支与发布
 
-- `main` 为生产基线，Cloudflare Pages 从 `main` 自动部署；PR 会得到独立的预览地址。
+- `main` 为生产基线，Cloudflare Pages 从 `main` 自动部署；PR 会得到独立的预览地址。部署参数、回滚与发布验收见 `docs/OPERATIONS.md`。
 - 模块功能使用 `feat/<module>`，修复使用 `fix/<issue>`，维护使用 `chore/<task>`。从当前 main 创建，经 PR 和 CI 通过后合并；不强推生产历史。
 - `backup/radar-before-newsnow-20261026` 为旧版回滚备份；已合入的 `codex/newsnow-discovery-preview` 仅保留首次改版记录。
 
@@ -31,7 +31,7 @@ pnpm build:preview
 
 - 采集机器人只在 main 直接更新 `public/data/**`，提交前先运行采集测试。功能 PR 不提交数据文件，避免与每日数据提交冲突。
 - 开启强制 PR 分支保护前，必须先把数据写入改为独立 data 分支或数据 PR，避免阻断自动采集。以上是维护约定，不宣称已启用服务端分支保护规则。
-- 每次发布分别验收构建、线上数据时间与失败状态：抓取源成功、中文内容成功、分类成功、页面更新成功。更换 UI 不代表采集已长期稳定。
+- 每次发布按 `docs/OPERATIONS.md` 的「发布验收」逐项确认。更换 UI 不代表采集已长期稳定。
 
 以下保留 NewsNow 的聚合源扩展说明，适用于保留的 Nitro 后端；当前雷达首页读取同源榜单 JSON。
 
