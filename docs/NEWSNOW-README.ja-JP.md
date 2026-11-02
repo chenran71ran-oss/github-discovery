@@ -1,6 +1,6 @@
-![](/public/og-image.png)
+![](../public/og-image.png)
 
-[English](./README.md) | [简体中文](README.zh-CN.md) | 日本語
+[English](NEWSNOW-README.md) | [简体中文](NEWSNOW-README.zh-CN.md) | 日本語
 
 > [!NOTE]
 > NewsNext, the next gen of NewsNow, is coming soon, join the [waitlist](https://tally.so/r/yPBBYg).
@@ -106,10 +106,10 @@ pnpm dev
 新バージョンは近日公開予定のため、現在のバージョンではコントリビューションの受付を終了します。
 
 ## ライセンス
-[MIT](./LICENSE) © ourongxing
+[MIT](../LICENSE) © ourongxing
 
 ## スポンサー
 
 このサービスをご利用いただいている場合、長期的な運営を支援するスポンサーを歓迎します。カスタマイズやその他のサポートが必要な場合も、以下の連絡方法から備考を添えてお問い合わせください。
 
-![](./screenshots/reward.gif)
+![](../screenshots/reward.gif)

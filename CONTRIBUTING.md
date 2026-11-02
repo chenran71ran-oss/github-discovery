@@ -1,10 +1,37 @@
 # GitHub Discovery 维护约定
 
-- `main` 为生产基线；模块功能使用 `feat/<module>`，修复使用 `fix/<issue>`，维护使用 `chore/<task>`。从当前 main 创建，经 PR 和 CI 通过后合并；不强推生产历史。
-- `backup/radar-before-newsnow-20261026` 为旧版回滚备份；已合入的 `codex/newsnow-discovery-preview` 仅保留首次改版记录，后续开发从 main 开始。
-- 数据契约在 `shared/discovery.ts`，分类体系在 `shared/taxonomy.json`，采集与中文增强在 `collector/`（四层结构见 `docs/ARCHITECTURE.md`，下层不依赖上层），交互在 `src/components/discovery/`，自动发布在 `.github/workflows/`。跨模块字段修改同步更新生产者、校验、消费者与测试。改分类词表后运行 `python -m collector evaluate --readme`，留出集准确率不能下降。
-- 采集机器人只允许在 main 直接更新 `public/data/**`，并先运行采集测试。开启强制 PR 分支保护前，必须先把数据写入改为独立 data 分支或数据 PR，避免阻断自动采集。以上是维护约定，不宣称已启用服务端分支保护规则。
-- 每次发布核对构建、线上数据时间与失败状态；抓取源成功、中文深读成功、页面更新成功分别验收。更换 UI 不代表采集已长期稳定。
+## 分支与发布
+
+- `main` 为生产基线，Cloudflare Pages 从 `main` 自动部署；PR 会得到独立的预览地址。部署参数、回滚与发布验收见 `docs/OPERATIONS.md`。
+- 模块功能使用 `feat/<module>`，修复使用 `fix/<issue>`，维护使用 `chore/<task>`。从当前 main 创建，经 PR 和 CI 通过后合并；不强推生产历史。
+- `backup/radar-before-newsnow-20261026` 为旧版回滚备份；已合入的 `codex/newsnow-discovery-preview` 仅保留首次改版记录。
+
+## 合并前检查
+
+CI（`.github/workflows/discovery-ci.yml`）依次运行以下命令，本地可以先跑一遍：
+
+```bash
+CF_PAGES=1 pnpm build
+pnpm typecheck
+pnpm exec vitest run shared/discovery.test.ts
+python -m unittest discover -s collector -p 'test_*.py'
+pnpm build:preview
+```
+
+提交时 `lint-staged` 会对暂存文件运行 `eslint --fix`。
+
+## 模块边界
+
+- 数据契约在 `shared/discovery.ts`，分类体系在 `shared/taxonomy.json`，两者前端与采集器共用。跨模块修改字段时，同步更新生产者（采集器）、校验（`isSnapshot`）、消费者（前端）与测试。
+- 采集器按四层组织（`core` → `blocks` → `lab` → `app`），下层不依赖上层，说明见 `docs/ARCHITECTURE.md`。
+- 前端发现页在 `src/components/discovery/`：只有 `api.ts` 读写网络与浏览器存储，`model.ts` 只放纯函数。界面约定见 `docs/DISCOVERY-UI.md`；不要使用与 `uno.config.ts` 快捷类同名的类名（如 `btn`）。
+- 改分类词表后，运行 `python -m collector evaluate --readme`，留出集（holdout）准确率不能下降；只加通用的词，不为单个仓库加专门的词。
+
+## 数据与采集
+
+- 采集机器人只在 main 直接更新 `public/data/**`，提交前先运行采集测试。功能 PR 不提交数据文件，避免与每日数据提交冲突。
+- 开启强制 PR 分支保护前，必须先把数据写入改为独立 data 分支或数据 PR，避免阻断自动采集。以上是维护约定，不宣称已启用服务端分支保护规则。
+- 每次发布按 `docs/OPERATIONS.md` 的「发布验收」逐项确认。更换 UI 不代表采集已长期稳定。
 
 以下保留 NewsNow 的聚合源扩展说明，适用于保留的 Nitro 后端；当前雷达首页读取同源榜单 JSON。
 

@@ -318,7 +318,7 @@
 .radar-app .spread i { display: block; height: 6px; overflow: hidden; border-radius: 3px; background: var(--line); }
 .radar-app .cls-meter b,
 .radar-app .spread b { display: block; height: 100%; border-radius: 3px; background: var(--accent); transition: width 0.4s var(--ease); }
-.radar-app .cls-why { display: flex; flex-wrap: wrap; gap: 4px; margin: 0; padding: 0; list-style: none; }
+.radar-app .insight .cls-why { display: flex; flex-wrap: wrap; gap: 4px; margin: 0; padding: 0; list-style: none; }
 .radar-app .cls-why li { padding: 1px 8px; border-radius: 6px; background: var(--hover); color: var(--muted); font-size: 12px; }
 .radar-app .cls-line { margin: 0 !important; color: var(--muted); font-size: 13px !important; line-height: 1.6 !important; }
 .radar-app .cls-line span { margin-right: 8px; color: var(--faint); font-size: 12px; }

@@ -37,7 +37,7 @@ export function Overview({ data, period, onOpen }: Props) {
         </dl>
         <p className="hint">
           <Icon name="clock" />
-          {data ? `更新于 ${time(data.status[period].capturedAt)} · 每日 08:20 采集` : "正在读取榜单…"}
+          {data ? `更新于 ${time(data.status[period].capturedAt)} · 每天采集一次` : "正在读取榜单…"}
         </p>
       </section>
       {spread.length > 0 && (
@@ -112,7 +112,7 @@ export function DataNote({ aiConfigured }: { aiConfigured?: boolean }) {
     <aside id="data-note" className="data-note">
       <h3>关于数据</h3>
       <p>
-        排名与 Star 增量来自 GitHub Trending，每天北京时间 08:20 采集一次；页面读取的是已发布的快照。总榜之后依次补充「语言榜」（各语言自己的 Trending 榜）和「新项目」（GitHub 搜索到的近期新建、Star 涨得快的项目，没有周期增量）。
+        排名与 Star 增量来自 GitHub Trending，每天采集一次，页面读取的是已发布的快照；更新时间以页面上显示的为准。总榜之后依次补充「语言榜」（各语言自己的 Trending 榜）和「新项目」（GitHub 搜索到的近期新建、Star 涨得快的项目，包括按每个分类的 GitHub 主题搜到的工具类、生活类项目；这类项目没有周期增量）。分类由 GIT Bot 根据 GitHub 主题、简介、README、语言和技术栈判断，项目详情里列出依据，可能分错。
       </p>
       <p>
         中文内容会标注来源：GithubTrending 中文速览、按公开资料整理、README 解读，或只翻译简介的「机翻」。
