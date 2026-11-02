@@ -37,7 +37,8 @@ const pwaOption: Partial<VitePWAOptions> = {
     ],
   },
   workbox: {
-    navigateFallbackDenylist: [/^\/api/],
+    // /login 由服务端返回，不能被离线缓存的单页应用顶替
+    navigateFallbackDenylist: [/^\/api/, /^\/login/],
     // sw.js 是旧版本的自销毁 SW，必须始终从网络获取，不能被预缓存
     globIgnores: ["**/sw.js"],
   },

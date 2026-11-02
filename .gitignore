@@ -19,3 +19,7 @@ vr/
 .venv/
 __pycache__/
 collector/lab/.readme-cache.json
+
+# local Cloudflare runtime state and secrets
+.wrangler/
+.dev.vars

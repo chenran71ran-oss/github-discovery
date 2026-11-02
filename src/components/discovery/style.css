@@ -414,6 +414,48 @@
   .radar-app .seg.tabs button { padding: 0 16px; }
 }
 
+/* ================= 账号：状态栏头像、账号菜单、成员管理 ================= */
+.radar-app .account { position: relative; }
+.radar-app .account-btn { display: grid; place-items: center; width: 38px; height: 38px; padding: 0; border: 0; border-radius: 50%; background: none; transition: transform 0.2s var(--spring); }
+.radar-app .account-btn:active { transform: scale(0.9); }
+.radar-app .account-btn[aria-expanded="true"] .avatar { box-shadow: 0 0 0 2px var(--accent); }
+.radar-app .avatar { display: grid; place-items: center; flex: none; border-radius: 50%; object-fit: cover; background: var(--field); box-shadow: inset 0 0 0 1px var(--line-strong); color: var(--ink); font: 700 12px/1 var(--mono); }
+.radar-app .account-menu { position: absolute; z-index: 40; top: calc(100% + 12px); right: -6px; width: 264px; display: grid; gap: 2px; padding: 8px; border-radius: 14px; background: var(--surface-solid); box-shadow: inset 0 0 0 1px var(--line-strong), var(--pop); transform-origin: top right; animation: pop-in 0.18s var(--ease) both; }
+.radar-app[data-mode="light"] .account-menu { background: #fff; }
+.radar-app .am-who { display: flex; align-items: center; gap: 10px; padding: 6px 6px 10px; margin-bottom: 4px; border-bottom: 1px solid var(--line); }
+.radar-app .am-who > span:nth-child(2) { flex: 1; min-width: 0; display: grid; }
+.radar-app .am-who b { overflow: hidden; font-size: 14px; text-overflow: ellipsis; white-space: nowrap; }
+.radar-app .am-who small { overflow: hidden; color: var(--faint); font-size: 12px; text-overflow: ellipsis; white-space: nowrap; }
+.radar-app .account-menu button { display: flex; align-items: center; gap: 9px; width: 100%; height: 36px; padding: 0 8px; border: 0; border-radius: 9px; background: none; color: var(--ink); font-size: 13.5px; text-align: left; }
+.radar-app .account-menu button:hover,
+.radar-app .account-menu button:focus-visible { background: var(--hover); }
+.radar-app .account-menu .i { width: 16px; height: 16px; color: var(--muted); }
+.radar-app .sheet.members { max-width: 560px; }
+.radar-app .mp-head { position: sticky; top: 0; z-index: 2; display: flex; align-items: center; justify-content: space-between; margin: 0 -18px; padding: 14px 18px 10px; background: inherit; }
+.radar-app .mp-head h2 { margin: 0; font-size: 18px; }
+.radar-app .mp-body { display: grid; gap: 10px; padding-bottom: 6px; }
+.radar-app .mp-body[aria-busy="true"] { opacity: 0.7; }
+.radar-app .mp-invite { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 8px; }
+.radar-app .mp-invite input,
+.radar-app .mp-list select,
+.radar-app .mp-invite select { min-width: 0; height: 36px; padding: 0 10px; border: 0; border-radius: 9px; background: var(--surface-solid); box-shadow: inset 0 0 0 1px var(--line-strong); color: var(--ink); font: inherit; font-size: 14px; }
+.radar-app .mp-invite input:focus,
+.radar-app .mp-list select:focus,
+.radar-app .mp-invite select:focus { outline: 2px solid var(--accent); outline-offset: 0; }
+.radar-app .mp-list { display: grid; gap: 2px; margin: 0; padding: 0; list-style: none; }
+.radar-app .mp-list li { display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 4px 2px; border-top: 1px solid var(--line); }
+.radar-app .mp-list li:first-child { border-top: 0; }
+.radar-app .mp-list li.off { opacity: 0.6; }
+.radar-app .mp-list select { height: 30px; font-size: 13px; }
+.radar-app .mp-name { flex: 1; min-width: 0; display: grid; overflow: hidden; font-size: 14px; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+.radar-app .mp-name small { color: var(--faint); font-size: 12px; font-weight: 450; }
+.radar-app .mp-empty,
+.radar-app .mp-note { margin: 0; color: var(--faint); font-size: 12.5px; line-height: 1.6; }
+.radar-app .act.sm { min-height: 30px; padding: 0 12px; font-size: 13px; }
+.radar-app .link:disabled { opacity: 0.5; cursor: default; }
+.radar-app .link.danger { color: #e5484d; }
+.radar-app[data-mode="light"] .link.danger { color: #c62a2f; }
+
 /* ================= 动效 ================= */
 /* 切换明暗时，暂停所有元素自己的颜色过渡，避免几百个元素同时做动画 */
 html.theme-switching .radar-app *,
