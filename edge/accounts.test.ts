@@ -139,7 +139,14 @@ describe("middleware", () => {
   it("fails closed when configuration is missing", async () => {
     env.SESSION_SECRET = "short"
     const c = ctx("/", { headers: { Accept: "text/html" } })
-    expect((await middleware(c)).status).toBe(503)
+    const res = await middleware(c)
+    expect(res.status).toBe(503)
+    expect(await res.text()).toContain("SESSION_SECRET shorter than 32")
+    delete env.DB
+    delete env.GITHUB_CLIENT_ID
+    const missing = await (await middleware(ctx("/"))).text()
+    expect(missing).toContain("missing GITHUB_CLIENT_ID, DB")
+    expect(missing).not.toContain("csecret")
     expect(c.nextCalled()).toBe(false)
   })
   it("sends visitors to the login page and refuses data without a session", async () => {

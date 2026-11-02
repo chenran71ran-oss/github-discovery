@@ -3,7 +3,7 @@
  * 会话每 10 分钟回数据库核对一次，被移除或停用的成员最迟 10 分钟后失去访问。
  */
 import { guard } from "../edge/access"
-import { clearCookie, configProblem, isNavigation, json, log, needsRecheck, nowSeconds, readSession, redirect, sessionCookie, withCookie } from "../edge/http"
+import { clearCookie, configProblem, configUnavailable, isNavigation, json, log, needsRecheck, nowSeconds, readSession, redirect, sessionCookie, withCookie } from "../edge/http"
 import { SESSION_COOKIE } from "../edge/config"
 import { createStore, ensureSchema } from "../edge/store"
 import type { Context } from "../edge/types"
@@ -14,7 +14,7 @@ export async function onRequest(ctx: Context) {
   const problem = configProblem(env)
   if (problem) {
     log("config.missing", { problem })
-    return new Response("登录服务尚未配置完成，请联系站长。", { status: 503, headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store" } })
+    return configUnavailable(problem)
   }
   let session = await readSession(request, env)
   let refreshed: string | undefined

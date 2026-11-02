@@ -2,14 +2,15 @@
 import { admit } from "../../../edge/access"
 import { STATE_COOKIE } from "../../../edge/config"
 import { exchangeCode, fetchUser } from "../../../edge/github"
-import { clearCookie, configProblem, log, readCookie, redirect, sessionCookie } from "../../../edge/http"
+import { clearCookie, configProblem, configUnavailable, log, readCookie, redirect, sessionCookie } from "../../../edge/http"
 import { verify } from "../../../edge/session"
 import { createStore, ensureSchema } from "../../../edge/store"
 import type { Context } from "../../../edge/types"
 
 export async function onRequestGet(ctx: Context) {
   const { request, env } = ctx
-  if (configProblem(env)) return new Response("登录服务尚未配置完成", { status: 503 })
+  const problem = configProblem(env)
+  if (problem) return configUnavailable(problem)
   const url = new URL(request.url)
   const clearState = clearCookie(STATE_COOKIE)
   const fail = (status: string) => redirect(`/login?status=${status}`, [clearState])

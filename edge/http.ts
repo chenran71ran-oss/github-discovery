@@ -12,6 +12,14 @@ export function log(event: string, fields: Record<string, unknown> = {}) {
   console.log(JSON.stringify({ event, at: new Date().toISOString(), ...fields }))
 }
 
+/**
+ * 缺少配置时拒绝服务的响应。列出缺的是哪几项（只有名字，不含任何值），
+ * 方便站长对照 Cloudflare Pages 的 Production / Preview 环境检查。
+ */
+export function configUnavailable(problem: string) {
+  return new Response(`登录服务尚未配置完成：${problem}\n\n请在 Cloudflare Pages → Settings 里检查当前环境（Production 或 Preview）的 Variables and secrets 与 D1 绑定 DB，修改后需要重新部署才会生效。`, { status: 503, headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store" } })
+}
+
 /** 缺少配置时拒绝服务（fail closed），而不是不设防地放行 */
 export function configProblem(env: Env) {
   const missing = (["GITHUB_CLIENT_ID", "GITHUB_CLIENT_SECRET", "SESSION_SECRET", "ADMIN_GITHUB_LOGIN"] as const).filter(k => !env[k])
