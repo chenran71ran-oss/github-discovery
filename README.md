@@ -8,7 +8,9 @@
 
 [在线体验](https://radar.chenran71ran.cc/) · [亮点](#亮点) · [GIT Bot 分类](#git-bot-分类) · [工作原理](#工作原理) · [快速开始](#快速开始) · [文档](#文档)
 
-<!-- SCREENSHOTS -->
+<img src="docs/screenshots/desktop.jpg" alt="桌面端：生活领域的榜单，右侧是项目解读与 GIT Bot 分类" width="100%">
+
+<img src="docs/screenshots/phone-list.jpg" alt="手机端榜单" width="30%"> &nbsp; <img src="docs/screenshots/phone-detail.jpg" alt="手机端项目解读" width="30%">
 
 </div>
 
@@ -21,7 +23,7 @@ GIT Bot 每天从更多地方收集正在升温的项目，给每个项目配上
 ## 亮点
 
 **更广的发现范围**
-除了 Trending 总榜，还收集 12 种编程语言各自的榜单，以及 GitHub 搜索到的近期新建、Star 涨得快的项目；23 个分类各有自己的搜索流，专门找出工具类、生活类这些很少登上总榜的项目。<!-- SCALE -->
+除了 Trending 总榜，还收集 12 种编程语言各自的榜单，以及 GitHub 搜索到的近期新建、Star 涨得快的项目；23 个分类各有自己的搜索流，专门找出工具类、生活类这些很少登上总榜的项目。以 2026-11-02 为例：日榜 256、周榜 250、月榜 245 个项目，去重后 563 个，其中工具类 144 个、生活类 116 个。
 
 **GIT Bot 分类引擎**
 4 个领域、23 个细类。综合 GitHub 主题、简介、README、编程语言和技术栈判断，**用途优先**：「AI 修图工具」归到音视频与图像，再带上 AI 标签。每个项目都附带次要标签、置信度和判断依据，分错了也看得出原因。
