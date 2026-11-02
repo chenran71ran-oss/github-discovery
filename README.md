@@ -1,33 +1,103 @@
 <div align="center">
 
+<img src="public/icon.svg" width="88" alt="GIT Bot">
+
 # GIT Bot · GitHub Discovery
 
-**从开源趋势到中文解读，找到下一个想动手的项目。**
+**用中文发现 GitHub 上正在升温的开源项目，不只是 AI，还有工具和生活类项目。**
 
-基于 [NewsNow](https://github.com/newsnext/newsnow) 二次开发，整合 [GithubTrending](https://github.com/Ibook000/GithubTrending) 采集与中文速览。
-
-[功能](#功能) · [本地运行](#本地运行) · [采集与中文解读](#采集与中文解读) · [Cloudflare 部署](#cloudflare-部署) · [来源与许可](UPSTREAM.md)
+[在线访问](https://radar.chenran71ran.cc/) · [功能](#功能) · [数据从哪来](#数据从哪来) · [GIT Bot 分类](#git-bot-分类) · [本地运行](#本地运行) · [配置](#配置) · [部署](#部署) · [目录与架构](#目录与架构)
 
 </div>
 
+## 简介
+
+GIT Bot 每天汇总 GitHub 上的热门与新兴项目，按日榜、周榜、月榜展示，给每个项目配上中文简介、分类和来源标注，帮你快速判断它能做什么、值不值得一试。
+
+整个站点是纯静态的：GitHub Actions 每天把数据采集成 JSON，前端直接读取同源文件，不需要数据库或后端服务。
+
+项目基于 [NewsNow](https://github.com/newsnext/newsnow)（MIT）二次开发，复用 [GithubTrending](https://github.com/Ibook000/GithubTrending)（Apache-2.0）的榜单解析器，详见 [UPSTREAM.md](UPSTREAM.md)。
+
 ## 当前状态
 
-2026-10-26 已上线至 **[radar.chenran71ran.cc](https://radar.chenran71ran.cc/)**。新版已合入 `main`，沿用原 Cloudflare Pages 项目 `github-discovery` 与原域名；生产基线提交为 `cfe50089821e60b09a65e2b1a26e3a7acd03d5cc`。
+*核对于 2026-11-02*
 
-已接入真实 GitHub Trending 日榜、周榜、月榜，首批数据日期为 2026-10-26：14 / 15 / 21 条，合计 40 个独立项目，均有中文简介。历史列表当前只有首日，后续采集会逐日积累。
-
-README 深度解读的接口已经实现，但本预览**没有配置独立模型密钥**。首批中文内容由 GithubTrending 速览和有来源记录的资料整理组成，页面明确标注；没有用模板冒充 AI 分析。自动采集工作流已合入默认分支，每日北京时间 08:20 执行；首次定时运行及后续 Pages 联动仍需依据任务日志验收。
+- **已上线**：[radar.chenran71ran.cc](https://radar.chenran71ran.cc/)，Cloudflare Pages 从 `main` 自动部署；机器人的每日数据提交也会触发重新部署（约 1 分钟后完成）。
+- **每日采集**：2026-10-27 起每天都成功运行，历史快照从 2026-10-26 开始，共 8 天。
+- **最近一次旧流程采集**（2026-11-02 14:27）：日榜 149、周榜 157、月榜 168，去重后 397 个项目，其中 331 个有中文简介（83%）：机器翻译 302、上游中文速览 21、资料整理 8，其余 66 个显示原始简介。
+- **新流程**：GIT Bot 分类引擎与分类搜索流已在 #9 合入，首次完整运行（Actions 第 10 次）正在进行；在它完成之前，线上数据还是旧的 9 类分类，页面会把旧分类映射到新体系后显示。
+- **未配置模型**：目前没有配置 `LLM_*` 密钥，所以没有 README 解读；中文简介来自上游速览、资料整理和机器翻译，页面都有标注。
+- **已知问题**：Cloudflare 上保留用于回滚的旧采集 Worker（`github-discovery-collector`）仍关联本仓库，每次提交都会构建失败。不影响网站，可以在 Cloudflare 控制台断开它的 Git 关联。
 
 ## 功能
 
-| 发现项目 | 理解用途 | 日常使用 |
-| :--- | :--- | :--- |
-| 日 / 周 / 月真实排名 | 中文简介与来源标注 | 中文搜索与组合筛选 |
-| 总 Star、周期新增、Fork | README 原文入口 | 本地收藏、宽屏侧栏解读、滑动收起的悬浮玻璃栏 |
-| GIT Bot 分类：4 个领域、23 个细类 | 分类依据、置信度、用途与技术栈 | 深浅主题、手机适配 |
-| 历史快照、昨日排名比较 | 缓存避免重复生成 | URL 保存周期、筛选与选中项目 |
+**浏览**
+- 日榜 / 周榜 / 月榜单列排行，名次从上往下读；可选历史日期，查看过去的快照。
+- 每行包含名次、项目图标、两行中文简介、语言、Star、分类、名次变化和周期新增 Star。
+- 「爆发」标记：周期新增 Star 占总数的比例与绝对增量都很高的项目。
+- 宽屏点击某行，项目解读显示在右侧栏，不遮挡列表；手机上改为贴底面板，向下拖可关闭。
 
-收藏保存在当前浏览器，不需要账号；不会自动同步 GitHub Star。分类由 GIT Bot 分类引擎综合 GitHub 主题、关键词、README、语言和技术栈给出，每条结果都附带依据；配置模型后，经过校验的 README 分析也作为一项信号。详见 [架构文档](docs/ARCHITECTURE.md)。尚未实现独立 Rising 算法、跨设备收藏和 GPT 推送。
+**筛选**
+- 中文搜索（`/` 或 `⌘K`），可以搜项目名、简介、用途、技术栈、分类和 GitHub 主题。
+- 两级分类：先选领域（开发 / 工具 / 生活 / 学习），再选细类；细类自动换行，不需要横向滑动。
+- 按编程语言筛选；按榜单名次、周期新增或总 Star 排序。
+- 周期、筛选条件和选中的项目都会写进网址，可以直接分享。
+
+**理解项目**
+- 中文简介都标注来源：README 解读、上游中文速览、资料整理或「机翻」。
+- 「GIT Bot 分类」卡片：领域与主分类、次要标签、置信度、判断依据、用途、GitHub 主题。
+
+**日常使用**
+- 收藏保存在当前浏览器，不需要账号，不会同步到 GitHub Star。
+- 快捷键：`J` / `K` 上下切换项目，`S` 收藏，`Esc` 关闭。
+- 液态玻璃风格的悬浮栏，滑动时收起、停下后弹回；10 套配色，也可以跟随系统深浅色。
+- 适配 iPhone：安全区避让，可以添加到主屏幕；支持系统的「减弱动态效果」和「降低透明度」。
+
+界面细节见 [docs/DISCOVERY-UI.md](docs/DISCOVERY-UI.md)。
+
+## 数据从哪来
+
+采集器 `python -m collector run` 为每个周期从三类来源取数，按仓库去重后依次排列：
+
+| 来源 | 内容 | 页面标签 |
+| :--- | :--- | :--- |
+| GitHub Trending 总榜 | 全语言 Trending 的完整列表，保留原始名次与周期新增 Star | — |
+| 语言榜 | 12 种语言（Python、TypeScript、JavaScript、Go、Rust、Java、C++、C、C#、Swift、Kotlin、PHP）各自的 Trending，每种最多取 5 个总榜没有的项目 | 语言榜 |
+| GitHub 搜索 | 总体流：近期新建、Star 增长快的项目（日榜近 7 天、周榜近 30 天、月榜近 90 天）。分类流：按每个分类的 GitHub 主题搜索近期新项目，共 28 个，需要 token | 新项目 |
+
+GitHub Trending 每页只列出约 8–20 个项目，而且大多是 AI 项目，所以语言榜和搜索是主要的补充；分类流专门补上工具类、生活类等很少登上总榜的项目。
+
+为了分类，采集器还会读取：
+- **仓库主题**：Trending 页面不显示主题，有 token 时通过 REST 补全，缓存 3 天。
+- **README 开头**：只用作分类信号，不发布原文；摘要缓存在 `public/data/feature-cache.json`，14 天刷新一次。
+
+**中文简介**按可信程度依次选用：
+
+1. 配置了模型时，经过校验的 README 解读（`ai-readme`）
+2. GithubTrending 每天发布的中文速览，只接受 7 天内的（`upstream`）
+3. 有来源记录的资料整理，简介变化后不再沿用（`editorial`）
+4. 只翻译项目自己简介的机器翻译，页面标为「机翻」（`machine`）
+
+都没有时显示原始英文简介。机器翻译按简介哈希缓存，同一段简介只翻译一次。
+
+**失败处理**：任何一个来源失败都只跳过它本身；某个周期的总榜抓不到时，保留该周期上一次的完整榜单并在页面上标出；第一次采集就失败时直接报错，不会发布空站。
+
+## GIT Bot 分类
+
+分类体系有 4 个领域、23 个细类，外加「其他」：
+
+| 领域 | 细类 |
+| :--- | :--- |
+| 开发 | AI 与智能体、开发工具、前端与界面、后端与 API、数据与基础设施、安全与隐私、移动与桌面、游戏与图形 |
+| 工具 | 效率与办公、命令行与系统、音视频与图像、浏览器与插件、自托管、自动化与爬虫 |
+| 生活 | 理财与金融、健康与运动、影音娱乐、游戏、智能家居与硬件、社交与通讯、出行与生活 |
+| 学习 | 教程与资源、科研与论文 |
+
+分类体系只有一份 `shared/taxonomy.json`，前端与采集器共用。分类引擎综合 GitHub 主题、简介关键词、README、编程语言和技术栈五类信号；配置了模型时，经过校验的 README 解读也作为一项信号。判断时**用途优先**：「AI 修图工具」归到音视频与图像、带上 AI 标签，而不是反过来。
+
+每条结果都附带次要标签（最多 2 个）、置信度和判断依据（例如「主题 self-hosted」「关键词 budget」），在项目详情里可以看到。
+
+**准确率**：在 60 个人工标注、未参与调参的真实仓库上，旧的关键词规则为 28%，新引擎的主分类为 53%，主分类或次要标签命中为 72%。很多项目本来就跨类，所以界面同时展示次要标签和依据，分错了也看得出原因。评估方法、调参规则与修改分类的步骤见 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)。
 
 ## 本地运行
 
@@ -38,54 +108,57 @@ corepack pnpm install --frozen-lockfile
 pnpm dev
 ```
 
-已有首批 JSON 数据，可直接打开前端，不需要数据库或密钥。
+仓库里已有采集好的 JSON 数据，可以直接打开前端，不需要数据库或密钥。`pnpm dev` 默认是静态数据模式；`pnpm dev:full` 会启动保留的 NewsNow 后端。
 
 ```bash
-# 纯静态构建；产物 dist/
-pnpm build:preview
-
-# 保留 NewsNow Nitro 后端的 Cloudflare Pages 构建
-CF_PAGES=1 pnpm build
-
-# 完整类型检查前须先构建，生成自动导入声明及 Nitro 类型
-pnpm typecheck
+pnpm build:preview          # 纯静态构建，产物在 dist/（生产环境使用）
+CF_PAGES=1 pnpm build       # 保留 NewsNow Nitro 后端的构建
+pnpm typecheck              # 完整类型检查，需先构建以生成自动导入声明
 pnpm exec vitest run shared/discovery.test.ts
 ```
 
-`pnpm dev` 默认启动静态数据模式。`pnpm dev:full` 启动保留的 NewsNow 后端；原有聚合页面仍在源码内，本次首页专注 GitHub 发现。
-
-## 采集与中文解读
+采集器：
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
+python -m venv .venv && source .venv/bin/activate
 pip install -r collector/requirements.txt
-python -m collector run              # 采集、增强、分类、发布
-python -m collector evaluate --readme # 在人工标注集上比较分类策略
+
+python -m collector run                 # 采集、中文增强、分类、发布到 public/data/
+python -m collector classify            # 不重新抓榜，只用当前分类体系重新分类最新快照
+python -m collector evaluate --readme   # 在人工标注集上比较分类策略
 python -m unittest discover -s collector -p 'test_*.py'
 ```
 
-采集器直接读取 GitHub Trending，复用 GithubTrending 的解析器，并将每榜上限从默认 10 改为完整榜单。按仓库去重后统一补充简介，再生成 `public/data/latest.json`、`history/YYYY-MM-DD.json`、`dates.json` 和分析缓存。任一榜采集异常时保留该榜上次完整快照并标注时间；首次采集没有有效数据时直接失败，防止发布空站。
+也可以用 `pnpm collect`、`pnpm classify`、`pnpm evaluate`。没有 token 时只运行总体搜索流，不补仓库主题；本地访问 GitHub Trending 页面失败时，会保留上一次的榜单。
 
-中文内容依次使用：经过校验的 README 分析缓存、七天内的上游中文速览、简介哈希匹配的资料整理。没有可用内容时明确显示待处理。`collector/editorial.json` 保存首批资料整理的依据和来源；简介变化后不会继续套用旧整理。
+## 配置
 
-可选模型环境变量：
+都通过环境变量传给采集器；在 GitHub Actions 里，密钥放 Secrets，其余放 Variables。都是可选的。
 
-| 变量 | 用途 |
+| 变量 | 作用 |
 | :--- | :--- |
-| `LLM_BASE_URL` | 支持 OpenAI Chat Completions 的 HTTPS 接口地址 |
-| `LLM_MODEL` | 模型标识 |
-| `LLM_API_KEY` | 密钥，仅配置于采集任务 Secrets |
+| `GITHUB_TOKEN` | 开启 28 个分类搜索流，补全仓库主题。Actions 自动提供 |
+| `LLM_BASE_URL`、`LLM_MODEL`、`LLM_API_KEY` | 支持 OpenAI Chat Completions 格式的 HTTPS 接口。三项都配置后，读取 README 生成中文简介、适用场景、技术栈、亮点与分类；校验失败不会覆盖已有内容。密钥只用于采集，不会写进前端或 JSON |
+| `MYMEMORY_EMAIL` | 机器翻译的每日额度从约 5,000 字符提高到约 50,000 字符 |
+| `MACHINE_TRANSLATION` | 设为 `0` 关闭机器翻译 |
+| `README_SIGNALS` | 设为 `0` 不读取 README 作为分类信号 |
+| `CLASSIFIER_STRATEGY` | 分类策略，可选 `full`（默认）、`flat`、`topics`、`keywords`，见 `collector/lab/strategies.py` |
+| `LOG_LEVEL` | 日志级别，默认 `INFO` |
+| `DISCOVERY_DATA_DIR` | 数据目录，默认 `public/data` |
 
-配置后读取 README，输出中文简介、适用场景、技术栈与亮点；校验失败或模型请求失败不会覆盖已有有效内容。密钥不会写入前端或 JSON。不要求购买特定模型服务；暂未直连 Workers AI Binding。
+## 自动采集
 
-`.github/workflows/discovery-collect.yml` 每日 00:20 UTC（北京时间 08:20）采集，在工作流所在分支提交数据。**GitHub schedule 仅在默认分支生效**；将来启用新版时，再把工作流合入默认分支并配置所需 Secrets。Actions 机器人提交通常不会触发其他 GitHub Actions，Cloudflare Git 集成的构建需在接入后验证。
+`.github/workflows/discovery-collect.yml` 在 `main` 上运行：计划每天 00:20 UTC（北京时间 08:20）触发，也可以在 Actions 页面手动运行（Run workflow）。
 
-## Cloudflare 部署
+GitHub 的定时任务经常延后，过去一周实际都在北京时间 13:00–14:30 之间才开始，页面上的更新时间以数据里记录的为准。
 
-当前生产 Pages 项目为 `github-discovery`，生产分支为 `main`，原域名绑定保持不变。独立测试部署可以使用以下相同参数：
+每次运行依次是：运行采集器 → 运行采集测试 → 测试通过后把 `public/data/` 的变化提交到 `main`。Cloudflare Pages 检测到新提交后会重新部署。超时 30 分钟。
 
-| 配置项 | 纯静态预览 |
+## 部署
+
+生产环境是 Cloudflare Pages 项目 `github-discovery`，生产分支为 `main`，域名 [radar.chenran71ran.cc](https://radar.chenran71ran.cc/)。每个 PR 会得到独立的预览地址。
+
+| 配置项 | 值 |
 | :--- | :--- |
 | 构建命令 | `npx --yes pnpm@10.30.3 install --frozen-lockfile && npm run build:preview` |
 | 输出目录 | `dist` |
@@ -93,38 +166,47 @@ python -m unittest discover -s collector -p 'test_*.py'
 | Node 版本 | `24` |
 | 数据库 / API 密钥 | 不需要 |
 
-静态前端与 JSON 同源部署，读取不依赖跨域代理、Worker 在线状态或 D1。自动采集由 GitHub Actions 执行，更新后重新构建；页面“刷新”读取已发布快照，不会现场触发采集或模型。
+前端与 JSON 同源部署，不依赖跨域代理、Worker 或数据库。
 
-若需要保留 NewsNow 其他实时聚合源，使用 `CF_PAGES=1 npm run build`、输出 `dist/output/public`，按 NewsNow 原说明配置 Nitro/D1、`nodejs_compat` 与兼容日期。这条完整后端路径已做本地构建验证，完整 Nitro 后端未部署至生产。当前生产采用上表的纯静态构建；旧 D1、采集 Worker 与其 Cron 保留用于回滚，新页面读取同源 JSON，不读取旧 D1。
+如果要保留 NewsNow 的其他实时聚合源，使用 `CF_PAGES=1 npm run build`、输出 `dist/output/public`，并按 NewsNow 原说明配置 Nitro / D1、`nodejs_compat` 与兼容日期。这条路径只做过本地构建验证，没有部署到生产。
 
-## 目录
+### 上线基线与回滚
 
-- `src/components/discovery/`：发现首页与响应式样式，布局与交互约定见 `docs/DISCOVERY-UI.md`。
-- `shared/discovery.ts`：前后端共享数据契约、查询与校验。
-- `shared/taxonomy.json`：分类体系，前端与采集器共用。
-- `collector/`：按四层组织的采集器：`core` 类型与配置、`blocks` 积木、`lab` 实验与评估、`app` 外交层。分层说明见 `docs/ARCHITECTURE.md`。
-- `public/data/`：可直接部署的榜单与历史快照。
-- `server/`：保留的 NewsNow Nitro 聚合后端。
+- 2026-10-26 北京时间 21:13，生产部署 `27d3d4d9-2f6c-4002-99a0-0392e09c0220` 首次上线新版。之后的改版都经 PR 合入 `main` 发布（#4 液态玻璃、#5 改版、#6 采集扩容、#8 界面重构、#9 分类引擎与悬浮栏）。
+- 旧版源码保留在分支 [backup/radar-before-newsnow-20261026](https://github.com/chenran71ran-oss/github-discovery/tree/backup/radar-before-newsnow-20261026)（提交 `50ab15a`），旧生产部署 `39e3297c-d641-4b26-9068-8293bd02c93c` 仍保留。
+- 回滚优先在 Pages 的部署列表里对目标部署执行 Rollback，不需要删除数据库或重新绑定域名。旧 D1 与采集 Worker 保留用于回滚，新页面不读取它们。
+
+## 目录与架构
+
+```
+shared/                 数据契约 discovery.ts、分类体系 taxonomy.json / taxonomy.ts（前端与采集器共用）
+src/components/discovery/
+  api.ts                唯一读写网络与浏览器存储的地方
+  model.ts              筛选、排序、统计（纯函数）
+  *.tsx、style.css      界面组件与样式
+collector/
+  core/                 第 1 层：类型、静态配置、分类体系加载
+  blocks/               第 2 层：抓取器、分类信号、翻译、模型等积木
+  lab/                  第 3 层：分类策略、采集流水线、标注集与评估
+  app/                  第 4 层：环境配置、日志、阶段计时、发布、命令行
+  vendor/               GithubTrending 原解析器（Apache-2.0，未修改）
+public/data/            已发布的榜单、历史快照与缓存
+server/                 保留的 NewsNow Nitro 聚合后端（生产未使用）
+docs/                   架构、界面约定与上游原说明
+```
+
+采集器与前端都按「类型与配置 → 积木 → 实验 → 外交」四层组织，下层不依赖上层。详见 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)。
+
+## 开发约定
+
+从 `main` 开分支（`feat/`、`fix/`、`chore/`），经 PR 和 CI 检查后合并；功能 PR 不提交数据文件。合并前检查、模块边界与改分类的规则见 [CONTRIBUTING.md](CONTRIBUTING.md)。
+
+## 还没有做的
+
+- 独立的 Rising 排名算法
+- 跨设备同步收藏
+- 推送订阅
 
 ## 来源与许可
 
-请阅读 [UPSTREAM.md](UPSTREAM.md)。NewsNow MIT 许可和 GithubTrending Apache-2.0 许可保留在仓库中。本分支是源码引入与二次开发，不冒充 GitHub 平台的正式 Fork 关系，也不宣称上游认可本项目。上游文档保留于 `docs/NEWSNOW-README.md`。
-
-## 上线基线、回滚与模块维护
-
-2026-10-26 北京时间 21:13，Cloudflare Pages 生产部署 `27d3d4d9-2f6c-4002-99a0-0392e09c0220` 成功，别名为 `radar.chenran71ran.cc`。线上已验证中文日榜、周榜切换与中文关键词搜索。
-
-旧版源码保留在 [backup/radar-before-newsnow-20261026](https://github.com/chenran71ran-oss/github-discovery/tree/backup/radar-before-newsnow-20261026)，提交 `50ab15af4cc08db3d58c74b9e6a4295691b267da`。旧生产部署 `39e3297c-d641-4b26-9068-8293bd02c93c` 仍保留。需要回滚时，优先在 Pages 的旧部署菜单执行 Rollback，不需要删除数据库或重新绑定域名；恢复旧源码构建时，将构建命令改回 `npm run build`、输出目录保持 `dist`。
-
-后续修改以 main 上的新版为基线，按功能开独立分支、经过 PR 检查后发布；不把所有新功能同时混入一次改动。当前首页组件仍有集中状态管理，下面是逐步拆分与维护边界，不表示所有模块已完成组件拆分。
-
-| 模块 | 当前代码入口 | 后续修改边界 |
-| :--- | :--- | :--- |
-| 页面布局与主题 | src/components/discovery/style.css | 排版、颜色、响应式，不改数据格式 |
-| 榜单与查询 | src/components/discovery/index.tsx、model.ts、shared/discovery.ts | 周期、排序、搜索、分类与历史选择 |
-| GIT Bot 分类 | shared/taxonomy.json、collector/blocks/classify/、collector/lab/ | 分类体系、信号、策略与标注集评估 |
-| 中文解读 | collector/blocks/（llm、translate、upstream）、collector/editorial.json | README 获取、模型输出校验、内容来源与缓存 |
-| 收藏与详情 | src/components/discovery/detail.tsx、row.tsx、overview.tsx | 浏览器收藏、侧栏 / 底部面板解读、项目阅读体验 |
-| 采集与发布 | collector/、.github/workflows/discovery-collect.yml | 定时任务、完整快照、异常保留与静态发布 |
-
-跨模块数据契约集中于 `shared/discovery.ts`；修改字段时同时更新采集输出、校验与前端读取。独立 Rising 排名、GPT 推送和跨设备收藏仍属于后续功能。
+见 [UPSTREAM.md](UPSTREAM.md)。NewsNow 的 MIT 许可（根目录 `LICENSE`）与 GithubTrending 的 Apache-2.0 许可（`collector/vendor/LICENSE`）都保留在仓库中。本项目是源码引入与二次开发，不是 GitHub 平台上的正式 Fork，也不代表上游认可本项目。NewsNow 原说明及其中、日文译本保留在 `docs/NEWSNOW-README*.md`。

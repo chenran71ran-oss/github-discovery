@@ -1,6 +1,6 @@
-![](/public/og-image.png)
+![](../public/og-image.png)
 
-English | [简体中文](README.zh-CN.md) | [日本語](README.ja-JP.md)
+English | [简体中文](NEWSNOW-README.zh-CN.md) | [日本語](NEWSNOW-README.ja-JP.md)
 
 > [!NOTE]
 > NewsNext, the next gen of NewsNow, is coming soon, join the [waitlist](https://tally.so/r/yPBBYg).
@@ -107,7 +107,7 @@ pnpm dev
 
 Refer to `shared/sources` and `server/sources` directories. The project provides complete type definitions and a clean architecture.
 
-For detailed instructions on how to add new sources, see [CONTRIBUTING.md](CONTRIBUTING.md).
+For detailed instructions on how to add new sources, see [CONTRIBUTING.md](../CONTRIBUTING.md).
 
 ## Roadmap
 
@@ -124,14 +124,14 @@ For detailed instructions on how to add new sources, see [CONTRIBUTING.md](CONTR
 
 The new version is coming soon and we will no longer accept contributions
 
-~~See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines on how to contribute, especially for adding new data sources.~~
+~~See [CONTRIBUTING.md](../CONTRIBUTING.md) for detailed guidelines on how to contribute, especially for adding new data sources.~~
 
 ## License
 
-[MIT](./LICENSE) © ourongxing
+[MIT](../LICENSE) © ourongxing
 
 ## Sponsorship
 
 If you rely on this service, sponsorship is welcome to help it run for the long term. If you need customization or other help, you can also use the contact method below and include a note.
 
-![](./screenshots/reward.gif)
+![](../screenshots/reward.gif)
