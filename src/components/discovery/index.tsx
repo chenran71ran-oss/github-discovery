@@ -9,6 +9,7 @@ import { Row, SkeletonRows, labels } from "./row"
 import { Segmented } from "./segmented"
 import { type RadarTheme, findTheme, readThemeId, saveThemeId, themeVars } from "./theme"
 import { ThemePicker } from "./theme-picker"
+import { useScrollChrome } from "./use-scroll-chrome"
 import { useDark } from "~/hooks/useDark"
 import "./style.css"
 
@@ -37,7 +38,7 @@ function typing(target: EventTarget | null) {
 }
 
 export function Discovery() {
-  const { isDark, colorScheme, setDark, toggleDark } = useDark()
+  const { isDark, colorScheme, setDark } = useDark()
   const [darkId, setDarkId] = useState(() => readThemeId("dark"))
   const [lightId, setLightId] = useState(() => readThemeId("light"))
   const theme = findTheme(isDark ? darkId : lightId, isDark ? "dark" : "light")
@@ -57,6 +58,7 @@ export function Discovery() {
   const listRef = useRef<HTMLOListElement>(null)
   // 宽屏把解读放在右侧栏，窄屏用底部面板
   const wide = useMedia("(min-width: 1080px)", true)
+  const chromeHidden = useScrollChrome()
   const query = useQuery({ queryKey: ["discovery", date], queryFn: ({ signal }) => loadSnapshot(date, signal), staleTime: 60_000, retry: 1, refetchOnWindowFocus: false })
   const dates = useQuery<string[]>({ queryKey: ["discovery-dates"], queryFn: async () => {
     const r = await fetch("/data/dates.json")
@@ -216,38 +218,39 @@ export function Discovery() {
           </div>
         )
 
+  const discoverLabel = (
+    <>
+      <Icon name="compass" />
+      发现
+    </>
+  )
+  const savedLabel = (
+    <>
+      <Icon name="bookmark" />
+      收藏
+      {savedCount > 0 && <span className="badge-n">{savedCount}</span>}
+    </>
+  )
+
   return (
     <div className="radar-app" data-mode={theme.mode} style={themeVars(theme)}>
       <div className="backdrop" aria-hidden="true" />
-      <header className="topbar">
-        <div className="topbar-in">
-          <a className="brand" href="/" aria-label="GIT Bot 首页">
-            <span className="brand-mark"><Icon name="bot" /></span>
-            <span className="brand-name">
-              GIT
-              {" "}
-              <b>Bot</b>
-            </span>
-          </a>
-          <Segmented<Period>
-            className="period"
-            label="榜单周期"
-            value={period}
-            onChange={setPeriod}
-            options={periods.map(p => ({ value: p, label: labels[p] }))}
-          />
-          <div className="actions">
-            <button type="button" className={`saved-btn ${view === "saved" ? "on" : ""}`} aria-pressed={view === "saved"} onClick={() => switchView(view === "saved" ? "discover" : "saved")}>
-              <Icon name="bookmark" />
-              <span className="label">收藏</span>
-              {savedCount > 0 && <span className="badge-n">{savedCount}</span>}
-            </button>
-            <button type="button" className="icon-btn" aria-label="刷新榜单" title="刷新榜单" disabled={query.isFetching} onClick={() => void query.refetch()}><Icon name="refresh" className={query.isFetching ? "spin" : ""} /></button>
-            <button type="button" className="icon-btn" aria-label="选择配色" title="配色" aria-expanded={pickerOpen} onClick={() => setPickerOpen(o => !o)}><Icon name="palette" /></button>
-            <button type="button" className="icon-btn" aria-label={isDark ? "切换浅色主题" : "切换深色主题"} title={isDark ? "浅色" : "深色"} onClick={toggleDark}><Icon name={isDark ? "sun" : "moon"} /></button>
-            <a className="icon-btn hide-sm" href="https://github.com/chenran71ran-oss/github-discovery" target="_blank" rel="noreferrer" aria-label="查看项目源码" title="源码"><Icon name="github" /></a>
-          </div>
-        </div>
+      <header className={`chrome top glass ${chromeHidden ? "hidden" : ""}`}>
+        <a className="brand" href="/" aria-label="GIT Bot 首页">
+          <span className="brand-mark"><Icon name="bot" /></span>
+          <span className="brand-name">
+            GIT
+            {" "}
+            <b>Bot</b>
+          </span>
+        </a>
+        <Segmented<Period>
+          className="period"
+          label="榜单周期"
+          value={period}
+          onChange={setPeriod}
+          options={periods.map(p => ({ value: p, label: labels[p] }))}
+        />
       </header>
 
       <div className="layout">
@@ -322,6 +325,10 @@ export function Discovery() {
               {" × "}
               <a href="https://github.com/Ibook000/GithubTrending" target="_blank" rel="noreferrer">GithubTrending</a>
             </span>
+            <a href="https://github.com/chenran71ran-oss/github-discovery" target="_blank" rel="noreferrer">
+              <Icon name="github" />
+              源码
+            </a>
             <a href="/data/latest.json" target="_blank" rel="noreferrer">
               开放数据
               <Icon name="arrowUpRight" />
@@ -333,13 +340,26 @@ export function Discovery() {
             <div className="pane-in" key={active?.fullName || "overview"}>
               {active
                 ? <RepoInsight repo={active} period={period} saved={!!saved[active.fullName]} onSave={() => toggleSave(active)} onClose={() => setActiveName("")} />
-                : <Overview data={data} period={period} language={language} onLanguage={setLanguage} onOpen={open} />}
+                : <Overview data={data} period={period} onOpen={open} />}
             </div>
           </aside>
         )}
       </div>
 
       {!wide && active && <RepoSheet key={active.fullName} repo={active} period={period} saved={!!saved[active.fullName]} onSave={() => toggleSave(active)} onClose={() => setActiveName("")} />}
+      <nav className={`chrome bottom ${chromeHidden ? "hidden" : ""}`} aria-label="底部导航">
+        <Segmented<"discover" | "saved">
+          className="tabs glass"
+          label="视图"
+          value={view}
+          onChange={switchView}
+          options={[
+            { value: "discover", label: discoverLabel },
+            { value: "saved", label: savedLabel },
+          ]}
+        />
+        <button type="button" className="orb glass" aria-label="配色与明暗" title="配色与明暗" aria-expanded={pickerOpen} onClick={() => setPickerOpen(o => !o)}><Icon name="palette" /></button>
+      </nav>
       <ThemePicker open={pickerOpen} scheme={colorScheme} activeId={theme.id} onPick={pickTheme} onAuto={() => setDark("auto")} onClose={() => setPickerOpen(false)} />
       <div role="status" aria-live="polite" className={`toast ${notice ? "visible" : ""}`}>{notice}</div>
     </div>
