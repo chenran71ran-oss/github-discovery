@@ -3,12 +3,20 @@ import { type Period, type Repository, compact } from "@shared/discovery"
 import { Icon, RepoIcon } from "./icons"
 import { Classified } from "./classified"
 import { Gain, labels, languageColors } from "./row"
+import { Section } from "./section"
 import { useScrollLock } from "./use-scroll-lock"
 
 export function time(date: string) {
   return new Date(date).toLocaleString("zh-CN", { timeZone: "Asia/Shanghai", month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit", hour12: false })
 }
 
+const sourceChips: Record<Repository["summarySource"], string> = {
+  "ai-readme": "README 解读",
+  "upstream": "上游速览",
+  "editorial": "资料整理",
+  "machine": "机翻",
+  "pending": "原始简介",
+}
 const sourceNotes: Record<Repository["summarySource"], string> = {
   "ai-readme": "基于 README 的 AI 解读",
   "upstream": "GithubTrending 中文速览 · 尚非 README 深读",
@@ -69,25 +77,22 @@ export function RepoInsight({ repo, period, saved, onSave, onClose }: InsightPro
         {repo.techStack.map(s => <span key={s}>{s}</span>)}
       </div>
       <Classified repo={repo} />
-      <section>
-        <h3>它是什么</h3>
+      <Section title="它是什么" chip={sourceChips[repo.summarySource]} tone={repo.summarySource === "ai-readme" ? "ok" : repo.summarySource === "machine" || repo.summarySource === "pending" ? "warn" : "neutral"}>
         <p>{repo.summary || repo.description}</p>
         <small className="origin">
           {sourceNotes[repo.summarySource]}
           {repo.summaryAt ? ` · ${time(repo.summaryAt)}` : ""}
         </small>
-      </section>
+      </Section>
       {repo.useCase && (
-        <section>
-          <h3>适用场景</h3>
+        <Section title="适用场景">
           <p>{repo.useCase}</p>
-        </section>
+        </Section>
       )}
       {repo.highlights.length > 0 && (
-        <section>
-          <h3>值得关注</h3>
+        <Section title="值得关注" chip={`${repo.highlights.length} 条`}>
           <ul>{repo.highlights.map(s => <li key={s}>{s}</li>)}</ul>
-        </section>
+        </Section>
       )}
       {translated && (
         <details className="original">
@@ -117,6 +122,8 @@ export function RepoSheet(props: InsightProps) {
   useEffect(() => {
     const previous = document.activeElement as HTMLElement | null
     ref.current?.showModal()
+    // 焦点放在面板本身，而不是自动落到关闭按钮上（否则一打开就显示焦点框）
+    ref.current?.focus()
     return () => previous?.focus({ preventScroll: true })
   }, [])
   const move = (e: PointerEvent<HTMLDivElement>) => {
@@ -136,6 +143,7 @@ export function RepoSheet(props: InsightProps) {
     <dialog
       ref={ref}
       className="sheet"
+      tabIndex={-1}
       aria-label={`${props.repo.fullName} 项目解读`}
       onCancel={(e) => {
         e.preventDefault()

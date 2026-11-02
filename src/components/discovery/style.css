@@ -5,9 +5,6 @@
  * 结构：令牌 → 背景 → 顶栏 → 工具栏 → 榜单 → 右侧栏 / 解读 → 弹层 → 响应式 → 动效与回退。
  * 动效原则：只在状态变化时出现、时长 120–320ms、只动 opacity 与 transform；系统要求减少动态时全部关闭。
  */
-@property --bg { syntax: "<color>"; inherits: true; initial-value: #060a18; }
-@property --ink { syntax: "<color>"; inherits: true; initial-value: #eef2ff; }
-@property --accent { syntax: "<color>"; inherits: true; initial-value: #6ee7c8; }
 
 /* ================= 令牌 ================= */
 .radar-app {
@@ -47,8 +44,10 @@
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  transition: --bg 0.4s ease, --ink 0.4s ease, --accent 0.4s ease;
 }
+/* 唯一的主题：深浅两套令牌。--o1~3 只用于背景柔光，强调色深浅模式各取对比度足够的一档 */
+.radar-app[data-mode="dark"] { --bg: #0b0d12; --ink: #e9ecf2; --accent: #5eead4; --accent-ink: #062a24; --o1: #2a6f8f; --o2: #1f8a74; --o3: #4b3f8f; }
+.radar-app[data-mode="light"] { --bg: #f5f6f8; --ink: #141821; --accent: #0f766e; --accent-ink: #ffffff; --o1: #a7d8f0; --o2: #b9ecdc; --o3: #d6d0f5; }
 .radar-app[data-mode="light"] {
   --muted: color-mix(in srgb, var(--ink) 74%, transparent);
   --faint: color-mix(in srgb, var(--ink) 69%, transparent);
@@ -133,11 +132,18 @@
 .radar-app .seg.tabs .i { width: 18px; height: 18px; }
 .radar-app .seg.tabs button[aria-pressed="true"] { color: var(--accent-text); }
 .radar-app .seg.tabs button[aria-pressed="true"] .i { fill: color-mix(in srgb, currentColor 22%, transparent); }
-.radar-app .orb { display: grid; place-items: center; width: 54px; height: 54px; flex: none; border: 0; border-radius: 50%; color: var(--ink); transition: transform 0.3s var(--spring); }
-.radar-app .orb .i { width: 21px; height: 21px; }
-.radar-app .orb:active,
 .radar-app .seg.tabs button:active { transform: scale(0.92); }
-.radar-app .orb[aria-expanded="true"] { color: var(--accent-text); }
+.radar-app .chrome-sep { width: 1px; height: 22px; background: var(--line-strong); }
+/* 明暗切换：太阳与月亮是同一个图形，切换时圆心缩放、月牙咬口滑入、光芒旋转收起 */
+.radar-app .mode-toggle { position: relative; display: grid; place-items: center; width: 38px; height: 38px; flex: none; border: 0; border-radius: 50%; background: none; color: var(--ink); transition: background 0.15s, transform 0.3s var(--spring); }
+.radar-app .mode-toggle:active { transform: scale(0.88); }
+.radar-app .mode-toggle svg { width: 22px; height: 22px; overflow: visible; }
+.radar-app .mode-toggle .mt-core { transform-origin: 12px 12px; transform: scale(0.62); transition: transform 0.5s var(--spring-soft); }
+.radar-app .mode-toggle .mt-bite { transform: translate(14px, -14px); transition: transform 0.5s var(--spring-soft); }
+.radar-app .mode-toggle .mt-rays { transform-origin: 12px 12px; transition: transform 0.5s var(--spring-soft), opacity 0.25s; }
+.radar-app .mode-toggle[data-dark="true"] .mt-core { transform: scale(1); }
+.radar-app .mode-toggle[data-dark="true"] .mt-bite { transform: translate(5px, -4px); }
+.radar-app .mode-toggle[data-dark="true"] .mt-rays { transform: rotate(-90deg) scale(0.4); opacity: 0; }
 .radar-app .badge-n { min-width: 18px; height: 18px; padding: 0 5px; border-radius: 9px; background: var(--accent); color: var(--accent-ink); font: 700 11px/18px var(--mono); text-align: center; }
 
 /* ================= 布局：榜单 + 右侧栏 ================= */
@@ -183,7 +189,7 @@
 .radar-app .banner.error { background: color-mix(in srgb, #ef4444 13%, transparent); box-shadow: inset 0 0 0 1px color-mix(in srgb, #ef4444 30%, transparent); }
 
 .radar-app .rows { margin: 0; padding: 4px; list-style: none; border-radius: 16px; background: var(--surface); box-shadow: inset 0 0 0 1px var(--line), var(--shadow); }
-.radar-app .row { position: relative; display: flex; align-items: stretch; border-radius: 12px; }
+.radar-app .row { position: relative; display: flex; align-items: stretch; border-radius: 12px; content-visibility: auto; contain-intrinsic-size: auto 110px; scroll-margin: calc(var(--gap-top) + var(--top) + 14px) 0 calc(var(--gap-bottom) + 84px); }
 .radar-app .row + .row::before { content: ""; position: absolute; top: 0; left: 64px; right: 14px; height: 1px; background: var(--line); transition: opacity 0.15s; }
 .radar-app .row:hover::before,
 .radar-app .row:hover + .row::before,
@@ -261,14 +267,26 @@
 .radar-app .foot .i { width: 13px; height: 13px; }
 
 /* ================= 右侧栏：概况 / 项目解读 ================= */
-.radar-app .pane { position: sticky; top: calc(var(--gap-top) + var(--top) + 18px); max-height: calc(100dvh - var(--gap-top) - var(--top) - var(--gap-bottom) - 96px); overflow: auto; overscroll-behavior: contain; border-radius: 16px; background: var(--surface); box-shadow: inset 0 0 0 1px var(--line), var(--shadow); scrollbar-width: thin; }
-.radar-app .pane-in { padding: 18px; }
+.radar-app .pane { position: sticky; top: calc(var(--gap-top) + var(--top) + 18px); max-height: calc(100dvh - var(--gap-top) - var(--top) - var(--gap-bottom) - 96px); overflow: auto; overscroll-behavior: contain; border-radius: 16px; background: var(--surface-solid); box-shadow: inset 0 0 0 1px var(--line), var(--shadow); scrollbar-width: none; }
+.radar-app .pane::-webkit-scrollbar { display: none; }
+/* 内容比侧栏长时，底部渐隐提示还能往下滚，代替滚动条 */
+.radar-app .pane::after { content: ""; position: sticky; bottom: 0; display: block; height: 22px; margin-top: -22px; border-radius: 0 0 16px 16px; background: linear-gradient(transparent, var(--surface-solid)); pointer-events: none; }
+.radar-app .pane-in { padding: 14px; }
 .radar-app .insight,
-.radar-app .overview { display: grid; gap: 18px; }
-.radar-app .insight section h3,
-.radar-app .overview h3 { display: flex; align-items: center; gap: 6px; margin: 0 0 6px; color: var(--faint); font-size: 12px; font-weight: 650; letter-spacing: 0.04em; }
-.radar-app .overview h3 .i { width: 14px; height: 14px; color: #f97316; }
-.radar-app .insight section p { margin: 0; font-size: 14.5px; line-height: 1.7; }
+.radar-app .overview { display: grid; gap: 10px; }
+/* 每一块内容是一张小卡片：左上小标题，右上状态框 */
+.radar-app .sec { display: grid; gap: 10px; padding: 12px 12px 13px; border-radius: 12px; background: var(--field); box-shadow: inset 0 0 0 1px var(--line); }
+.radar-app .sec-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 22px; }
+.radar-app .sec-head h3 { display: flex; align-items: center; gap: 6px; margin: 0; color: var(--muted); font-size: 12.5px; font-weight: 700; letter-spacing: 0.03em; }
+.radar-app .sec-head h3 .i { width: 14px; height: 14px; color: var(--accent-text); }
+.radar-app .sec-head h3 .i[data-flame], .radar-app .sec:has(.mini) .sec-head h3 .i { color: #f97316; }
+.radar-app .sec-chip { display: inline-flex; align-items: center; gap: 5px; height: 22px; padding: 0 8px; border-radius: 6px; background: var(--surface-solid); box-shadow: inset 0 0 0 1px var(--line-strong); color: var(--muted); font-size: 11.5px; font-weight: 600; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.radar-app .sec-chip::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--faint); }
+.radar-app .sec-chip.ok::before { background: #22c55e; }
+.radar-app .sec-chip.warn::before { background: #f59e0b; }
+.radar-app .sec-chip.accent::before { background: var(--accent); }
+.radar-app .sec-chip.neutral::before { display: none; }
+.radar-app .insight .sec p { margin: 0; font-size: 14px; line-height: 1.7; }
 .radar-app .insight ul { margin: 0; padding-left: 18px; line-height: 1.7; }
 .radar-app .ins-head { display: grid; grid-template-columns: 48px minmax(0, 1fr) auto; align-items: center; gap: 12px; }
 .radar-app .ins-head .repo-icon { width: 48px; height: 48px; border-radius: 12px; }
@@ -277,6 +295,7 @@
 .radar-app .ins-title h2 { margin: 0; overflow: hidden; font-size: 20px; line-height: 1.25; text-overflow: ellipsis; white-space: nowrap; }
 .radar-app .ins-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 0; border-radius: 12px; box-shadow: inset 0 0 0 1px var(--line); }
 .radar-app .ins-stats.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.radar-app .sec .ins-stats { background: var(--surface-solid); }
 .radar-app .ins-stats > div { padding: 10px 12px; }
 .radar-app .ins-stats > div + div { box-shadow: inset 1px 0 0 var(--line); }
 .radar-app .ins-stats dt { color: var(--faint); font-size: 11.5px; }
@@ -290,6 +309,12 @@
 .radar-app .original summary { color: var(--muted); font-size: 13px; cursor: pointer; }
 .radar-app .original p { margin: 6px 0 0; color: var(--muted); font-size: 13.5px; }
 .radar-app .ins-actions { display: grid; grid-template-columns: 1fr auto; gap: 8px; }
+/* 主要操作固定在侧栏 / 面板底部，内容再长也不用滚到底才看得到 */
+.radar-app .pane .ins-actions,
+.radar-app .sheet .ins-actions { position: sticky; bottom: 0; z-index: 1; margin: 0 -14px -14px; padding: 12px 14px 14px; background: linear-gradient(color-mix(in srgb, var(--surface-solid) 0%, transparent), var(--surface-solid) 34%); }
+.radar-app .sheet .ins-actions { margin: 0 -18px; padding: 12px 18px calc(4px + env(safe-area-inset-bottom)); }
+.radar-app[data-mode="light"] .sheet .ins-actions { background: linear-gradient(rgba(255, 255, 255, 0), #fff 34%); }
+.radar-app .sheet:focus { outline: none; }
 .radar-app .hint { display: flex; align-items: center; gap: 6px; margin: 10px 0 0; color: var(--faint); font-size: 12.5px; }
 .radar-app .hint .i { width: 14px; height: 14px; }
 .radar-app .mini { display: grid; margin: 0; padding: 0; list-style: none; }
@@ -303,10 +328,7 @@
 .radar-app .keys span { display: inline-flex; align-items: center; gap: 4px; }
 
 /* GIT Bot 分类卡片与分布 */
-.radar-app .classified { display: grid; gap: 8px; padding: 12px; border-radius: 12px; background: var(--field); box-shadow: inset 0 0 0 1px var(--line); }
-.radar-app .classified h3 .i,
-.radar-app .overview h3 .i[data-bot] { color: var(--accent-text); }
-.radar-app .classified h3 { margin: 0 !important; }
+.radar-app .classified { gap: 9px; }
 .radar-app .cls-main { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
 .radar-app .cls-domain { color: var(--faint); font-size: 12.5px; }
 .radar-app .cls-domain::after { content: " /"; }
@@ -329,7 +351,6 @@
 .radar-app .sp-top { grid-column: 2 / -1; display: flex; flex-wrap: wrap; gap: 4px 10px; }
 .radar-app .sp-top em { color: hsl(var(--ch) 55% var(--cat-l, 72%)); font-size: 12px; font-style: normal; }
 .radar-app[data-mode="light"] .sp-top em { --cat-l: 36%; }
-.radar-app .overview .hint { align-items: flex-start; line-height: 1.6; }
 
 /* ================= 弹层：解读面板、配色、提示 ================= */
 .radar-app .sheet { position: fixed; inset: auto 0 0; width: 100%; max-width: 640px; max-height: 86dvh; margin: 0 auto; padding: 0 18px calc(18px + env(safe-area-inset-bottom)); overflow: auto; overscroll-behavior: contain; border: 0; border-radius: 20px 20px 0 0; background: var(--surface-solid); color: var(--ink); box-shadow: var(--pop); transition: transform 0.28s var(--ease); animation: sheet-up 0.32s var(--ease) both; }
@@ -337,30 +358,6 @@
 .radar-app .sheet::backdrop { background: rgba(4, 8, 20, 0.45); animation: fade 0.25s both; }
 .radar-app .grabber { position: sticky; top: 0; z-index: 1; display: grid; place-items: center; height: 26px; margin: 0 -18px 4px; background: inherit; cursor: grab; touch-action: none; }
 .radar-app .grabber i { width: 38px; height: 5px; border-radius: 3px; background: var(--line-strong); }
-.radar-app .scrim { position: fixed; inset: 0; z-index: 50; background: rgba(4, 8, 20, 0.3); animation: fade 0.2s both; }
-.radar-app .picker { position: fixed; z-index: 60; left: 0; right: 0; bottom: calc(var(--gap-bottom) + 70px); width: 360px; margin: 0 auto; max-height: calc(100dvh - var(--gap-top) - var(--gap-bottom) - 90px); display: grid; gap: 12px; align-content: start; overflow: auto; padding: 14px; border-radius: 16px; background: var(--surface-solid); box-shadow: inset 0 0 0 1px var(--line-strong), var(--pop); overscroll-behavior: contain; transform-origin: bottom center; animation: pop-in 0.24s var(--spring-soft) both; }
-.radar-app[data-mode="light"] .picker { background: #fff; }
-.radar-app .picker .grabber { display: none; }
-.radar-app .picker-head { display: flex; align-items: center; justify-content: space-between; }
-.radar-app .picker-head h3 { margin: 0; font-size: 15px; }
-.radar-app .auto-card { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border: 0; border-radius: 12px; background: var(--field); box-shadow: inset 0 0 0 1px var(--line); color: var(--ink); font-weight: 600; text-align: left; }
-.radar-app .auto-card .i { width: 18px; height: 18px; color: var(--accent-text); }
-.radar-app .auto-card span { flex: 1; }
-.radar-app .auto-card small { display: block; color: var(--muted); font-size: 12px; font-weight: 450; }
-.radar-app .auto-card.on { box-shadow: inset 0 0 0 1.5px var(--accent); }
-.radar-app .picker-filter { width: 100%; }
-.radar-app .picker-filter button { flex: 1; }
-.radar-app .theme-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
-.radar-app .theme-card { display: block; padding: 0; overflow: hidden; border: 0; border-radius: 12px; background: none; box-shadow: inset 0 0 0 1px var(--line-strong); color: var(--ink); text-align: left; transition: transform 0.15s, box-shadow 0.15s; }
-.radar-app .theme-card:active { transform: scale(0.97); }
-.radar-app .theme-card.on { box-shadow: 0 0 0 2px var(--accent); }
-.radar-app .theme-preview { position: relative; display: block; height: 52px; }
-.radar-app .theme-preview i { position: absolute; left: 12px; height: 5px; border-radius: 3px; }
-.radar-app .theme-preview i:nth-child(1) { top: 16px; width: 34%; }
-.radar-app .theme-preview i:nth-child(2) { top: 28px; width: 60%; opacity: 0.55; }
-.radar-app .theme-name { display: flex; align-items: center; gap: 6px; padding: 8px 11px; background: var(--field); font-size: 13px; font-weight: 600; }
-.radar-app .theme-name .i { width: 13px; height: 13px; color: var(--muted); }
-.radar-app .theme-name .theme-check { margin-left: auto; color: var(--accent-text); }
 .radar-app .toast { position: fixed; z-index: 70; left: 50%; bottom: calc(var(--gap-bottom) + 72px); padding: 9px 16px; border-radius: 10px; background: var(--ink); color: var(--bg); font-size: 13px; font-weight: 600; box-shadow: var(--pop); opacity: 0; pointer-events: none; transform: translate(-50%, 8px); transition: opacity 0.2s, transform 0.2s var(--ease); }
 .radar-app .toast.visible { opacity: 1; transform: translate(-50%, 0); }
 
@@ -407,8 +404,6 @@
   .radar-app .m-gain .gain { font-size: 13px; }
   .radar-app .bm { width: 40px; opacity: 1; }
   .radar-app .meta { flex-wrap: nowrap; gap: 12px; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 16px), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 16px), transparent); }
-  .radar-app .picker { inset: auto 0 0; width: auto; max-height: 86dvh; padding: 0 16px calc(16px + env(safe-area-inset-bottom)); border-radius: 20px 20px 0 0; transform-origin: bottom center; animation: sheet-up 0.32s var(--ease) both; }
-  .radar-app .picker .grabber { display: grid; margin: 0 -16px; }
   .radar-app .ins-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .radar-app .ins-stats > div:nth-child(3) { box-shadow: inset 0 1px 0 var(--line); }
   .radar-app .ins-stats > div:nth-child(4) { box-shadow: inset 1px 0 0 var(--line), inset 0 1px 0 var(--line); }
@@ -419,6 +414,15 @@
 }
 
 /* ================= 动效 ================= */
+/* 切换明暗时，暂停所有元素自己的颜色过渡，避免几百个元素同时做动画 */
+html.theme-switching .radar-app *,
+html.theme-switching .radar-app *::before,
+html.theme-switching .radar-app *::after { transition: none !important; }
+/* View Transitions：旧画面不动，新主题从按钮位置圆形展开 */
+html.theme-vt::view-transition-old(root),
+html.theme-vt::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+html.theme-vt::view-transition-new(root) { animation: theme-reveal 0.55s cubic-bezier(0.2, 0.8, 0.2, 1); }
+@keyframes theme-reveal { from { clip-path: circle(0 at var(--vt-x) var(--vt-y)); } to { clip-path: circle(var(--vt-r) at var(--vt-x) var(--vt-y)); } }
 /* 系统要求减少动态时，悬浮栏只淡入淡出、不位移 */
 @media (prefers-reduced-motion: reduce) {
   .radar-app .chrome.hidden { transform: none !important; }
@@ -427,6 +431,7 @@
   /* 列表切换：整组轻轻淡入，前十行依次错开 18ms */
   .radar-app .rows > .row:not(.skeleton) { animation: row-in 0.26s var(--ease) both; animation-delay: calc(var(--i, 0) * 18ms); }
   .radar-app .pane-in { animation: pane-in 0.22s var(--ease) both; }
+  .radar-app .insight { animation: fade 0.16s ease both; }
 }
 @keyframes row-in { from { opacity: 0; transform: translateY(6px); } }
 @keyframes pane-in { from { opacity: 0; transform: translateX(8px); } }

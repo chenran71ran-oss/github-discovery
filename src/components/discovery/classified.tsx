@@ -3,13 +3,7 @@ import type { Repository } from "@shared/discovery"
 import { categoryOf, domainLabel } from "@shared/taxonomy"
 import { Icon } from "./icons"
 import { categoryHues } from "./row"
-
-const strategyNotes: Record<string, string> = {
-  full: "综合主题、关键词、README、语言与技术栈五类信号",
-  topics: "主题与关键词",
-  keywords: "关键词",
-  flat: "五类信号等权",
-}
+import { Section } from "./section"
 
 /**
  * GIT Bot 分类卡片：主分类、次要标签、置信度和判断依据。
@@ -20,11 +14,7 @@ export function Classified({ repo }: { repo: Repository }) {
   const c = repo.classification
   const confidence = c ? Math.round(c.confidence * 100) : null
   return (
-    <section className="classified" aria-label="GIT Bot 分类">
-      <h3>
-        <Icon name="bot" />
-        GIT Bot 分类
-      </h3>
+    <Section className="classified" title="GIT Bot 分类" icon={<Icon name="bot" />} chip={c ? (c.by === "ai" ? "模型判断" : "规则判断") : "旧快照"} tone={c ? "accent" : "neutral"}>
       <div className="cls-main">
         <span className="cls-domain">{domainLabel(main.domain)}</span>
         <span className="cls-cat" style={{ "--ch": categoryHues[main.label] ?? 210 } as CSSProperties}>{main.label}</span>
@@ -32,7 +22,7 @@ export function Classified({ repo }: { repo: Repository }) {
       </div>
       {confidence !== null && (
         <div className="cls-meter" title="主分类得分占全部分类得分的比例">
-          <span>{c!.by === "ai" ? "模型判断" : "规则判断"}</span>
+          <span title={c ? `策略 ${c.strategy}` : undefined}>置信度</span>
           <i><b style={{ width: `${Math.max(6, confidence)}%` }} /></i>
           <span className="n">{`${confidence}%`}</span>
         </div>
@@ -54,8 +44,7 @@ export function Classified({ repo }: { repo: Repository }) {
           {repo.topics.map(t => `#${t}`).join("  ")}
         </p>
       )}
-      {c && <small className="origin">{`策略 ${c.strategy} · ${strategyNotes[c.strategy] || "自定义策略"}`}</small>}
       {!c && <small className="origin">这份快照早于 GIT Bot 分类引擎，只有主分类。</small>}
-    </section>
+    </Section>
   )
 }
