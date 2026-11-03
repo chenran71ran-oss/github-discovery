@@ -55,9 +55,9 @@
     "at": "2026-10-30T13:49:17.238303+08:00"
   },
   "p-e-w/heretic": {
-    "hash": "dc92f2670e7f806529b1f29e739783b2f13afb3eb54d16dae968c91340b3bfdf",
-    "summary": "语言模型的全自动审查删除",
-    "at": "2026-10-30T13:49:17.238303+08:00"
+    "hash": "d1926a3706c5f5b1d6b3f851b43b801fe1d68092a68de23d5468fdca5fb2bea0",
+    "summary": "无需培训的语言模型修改：消除审查、抑制SLOP、减少嘲讽等",
+    "at": "2026-11-03T14:59:32.314123+08:00"
   },
   "agentscope-ai/QwenPaw": {
     "hash": "5d756bd99610a8750821ca6226d8dd97a85438a40f83ea2ef7c8e2b23e973f49",
@@ -360,9 +360,9 @@
     "at": "2026-10-30T13:49:17.238303+08:00"
   },
   "valentderah/totk-pc-recomp": {
-    "hash": "781dd06519f55461e0ada3e413caf707e22f5e5dabd4f53e8dd7375b4d7be554",
-    "summary": "使用Vulkan渲染器将《塞尔达传说：王国之泪》静态重新编译为本机Windows x86-64。游戏文件不包括在内。",
-    "at": "2026-10-30T13:49:17.238303+08:00"
+    "hash": "208f2d23f539bf6bf045afe420101cab59e2a34f6724d2b5c19417136b5536cb",
+    "summary": "使用Vulkan渲染器将《塞尔达传说：王国之泪》静态重新编译为本机Windows和Linux x86-64。游戏文件不包括在内。",
+    "at": "2026-11-03T14:59:32.314123+08:00"
   },
   "blakeandersonw/ai-app-playbook": {
     "hash": "f7df8bd1b34eb451b2dcc3ff7289309ee3cb7617be2c43e236d71de324b91756",
@@ -2170,9 +2170,9 @@
     "at": "2026-11-01T14:25:35.010873+08:00"
   },
   "mksglu/context-mode": {
-    "hash": "5c4969aa4f3452d68faf5e4a7ed5d3323a0717f17782be323caf02f7952f7751",
-    "summary": "人工智能编码代理的上下文窗口优化。沙盒工具输出（减少98 ％ ） ，保持会话内存，并通过MCP +钩子在17个平台上强制路由。",
-    "at": "2026-11-01T14:25:35.010873+08:00"
+    "hash": "91e5f11e4110ec459c7e3f96204da3e8cc9a45ffaf31bce4bf228e0d37e26fc2",
+    "summary": "免费的本地插件，可将工具输出排除在编码代理的上下文窗口之外。沙盒和SQLite FTS5搜索，在上下文中减少99%的字节。适用于Claude Code、Codex、Pi、OpenCode、Gemini CLI、Copilot CLI和其他4个代理。零遥测。",
+    "at": "2026-11-03T14:59:32.314123+08:00"
   },
   "cursor/plugins": {
     "hash": "123e541a1b6d4c06144e9e03384162a2c0cff80eb2877982c3131f4a59d5b58b",
@@ -2640,9 +2640,9 @@
     "at": "2026-11-02T15:58:39.387747+08:00"
   },
   "cutetailbud/ff-ruyijs": {
-    "hash": "b55f2fa4c89642d5969af09d816d9b32eb38928516968cabc3de8c31cdb19eb7",
-    "summary": "使用真正的Firefox引擎从Python运行任何站点JavaScript。无头蜘蛛猴+ Necko ，用于自动化和刮擦。",
-    "at": "2026-11-02T15:58:39.387747+08:00"
+    "hash": "df03288ff607fbbf1e667eb6c78974fcff2aa354f87ced06e73e34ef3c7cc057",
+    "summary": "AI浏览器使用真正的Firefox引擎从Python运行任何站点JavaScript。无头蜘蛛猴+ Necko ，用于自动化和刮擦。",
+    "at": "2026-11-03T14:59:32.314123+08:00"
   },
   "opennookorg/betterwispr": {
     "hash": "126414e1863c56c721b060bee1be74c283ec932efce12eb30a3961162cd8603f",
@@ -2735,9 +2735,9 @@
     "at": "2026-11-02T15:58:39.387747+08:00"
   },
   "guregodevo/memdoor": {
-    "hash": "f0b0939e772d58092f2b4304e2af4c07d68a38ab2bb09d6d9f989f6ce048c476",
-    "summary": "一个CLI二进制文件中的轻量级编码和自动化代理。多智能体线束。在本地或通过SSH运行。",
-    "at": "2026-11-02T15:58:39.387747+08:00"
+    "hash": "6368b3684ceb8981a67b12f3b4550d3211c37783c38f21acc6c48448a0cf90ba",
+    "summary": "编码工作流程利用，使小模型胜过前沿模型",
+    "at": "2026-11-03T14:59:32.314123+08:00"
   },
   "mornyeapp/Mornye-Desktop": {
     "hash": "3f994d12d63080c096a85e9d01556a1a6525b69fd54489b40eb72affeebeaf41",
@@ -3478,5 +3478,315 @@
     "hash": "a3d51673185659f92383eac475e9e8b5c7e81bae0b7f6809db2ffcbf842f1a84",
     "summary": "家庭助理的天气预报卡",
     "at": "2026-11-02T15:58:39.387747+08:00"
+  },
+  "vercel-labs/agent-desktop": {
+    "hash": "03ce3308114d809b5451c726557509ac0da8ee0cd873e4c6aeca2aff75f8a8b4",
+    "summary": "AI代理的计算机使用CLI",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "karpathy/nanochat": {
+    "hash": "fdd3f7ce175d3b71f21851fd5d00b982d6cd5a34f1ae61633374fff404f344f1",
+    "summary": "$ 100可以买到的最好的ChatGPT。",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "warmbly/warmbly": {
+    "hash": "836ee679c8aee89c7e899f95a592dfea487d161b960644ba367841490d2153db",
+    "summary": "最大的开源B2B冷联系和电子邮件预热服务。",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "derv82/wifit3": {
+    "hash": "6906e771f30bb5c659d472e88b30b2180022f12a8d9fac8ba0402211d39ee851",
+    "summary": "无线网络，但仅限USB和跨平台。",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "AprilNEA/OpenLogi": {
+    "hash": "7cbf544decf22d9db0ac026eab9eb9020874c5e2389173e4caa7b7e4def71f4a",
+    "summary": "⚡️用Rust编写的Logitech Options +的本地本地优先替代方案🦀—在HID + +上重新映射按钮、DPI和SmartShift。无帐户，无遥测。",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "SimoHypers/limusic": {
+    "hash": "3e44034abc120228271cddc03a003d9e1e79b73dfefdc023492a4b638c107752",
+    "summary": "功能丰富、原生桌面、YouTube音乐客户端。",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "koala73/worldmonitor": {
+    "hash": "1b28072ecdac53ff8c45595a27947aafee805b212b0581f48c29e31ba009d7b9",
+    "summary": "实时全球智能仪表板。在统一的态势感知界面中进行人工智能驱动的新闻聚合、地缘政治监控和基础设施跟踪",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "topjohnwu/Magisk": {
+    "hash": "25418866f8f70be18cef46e116d26cc316ea1e9204c28ab5d18f2d2c0fc6c2c2",
+    "summary": "Android版魔术面具",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "Davidona/StreamVault-IPTV": {
+    "hash": "c3138d85e94b182b713d1976d3c22f3333c7d1586bf81c4441e1a7dc40b4af37",
+    "summary": "StreamVault是首款适用于Android TV的电视免费IPTV播放器，使用Kotlin、Jetpack Compose、Room、Hilt和Media3构建。",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "mealie-recipes/mealie": {
+    "hash": "ee51c0e72581824480f953c78246017a326d83b9924e7051f011a78cddcb826d",
+    "summary": "Mealie是一个自托管的食谱管理器和膳食计划工具，在Vue中构建了RestAPI后端和反应式前端应用程序，为整个家庭提供愉快的用户体验。通过提供网址轻松将食谱添加到数据库中， Mealie将使用UI编辑器自动导入相关数据或添加家庭食谱",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "fleetbase/fleetbase": {
+    "hash": "a536420d4fc9bd698334238f8aafb3c6b4160d2fcd2d298a871786cef6727b02",
+    "summary": "模块化物流和供应链操作系统（ LSO ）",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "egoist/kero": {
+    "hash": "26c3b014a0b3c2172cccda58cb4057afdd3192cb6515a1112528ac637b0bf2e2",
+    "summary": "针对座席优化的跨平台本机终端应用",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "LibreHardwareMonitor/LibreHardwareMonitor": {
+    "hash": "54c8881f4205975e526463ae0a77672b2a1665322887bc00b1658917d3daac0d",
+    "summary": "Libre Hardware Monitor是一款免费软件，可以监控计算机的温度传感器、风扇速度、电压、负载和时钟速度。",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "aria2/aria2": {
+    "hash": "a5802b255630fc18d7bf1f30c79cf09ed914d32e006705d6caf878c3efb01d74",
+    "summary": "aria2是一个在命令行中操作的轻量级多协议和多源、跨平台下载实用程序。它支持HTTP/HTTPS、FTP、SFTP、BitTorrent和Metalink。",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "NotHarshhaa/DevOps-Projects": {
+    "hash": "0612a024f7607284fb008fa4c8ee6c75337b1af9ec05a0ecc79b7d7d938efaf1",
+    "summary": "面向有抱负的工程师🚀的现实世界DevOps项目—从初级到高级。涵盖AWS、Kubernetes、Docker、CI/CD、Terraform、Jenkins等。通过分步指南进行实践学习。",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "termux/termux-api": {
+    "hash": "dee6d925e1e15bbcf223582f682a6e82cbe3f0102f303bb9aea394d6cd476d8a",
+    "summary": "Termux附加应用程序，将设备功能作为API提供给命令行程序。",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "techjarves/Mobile-Harness": {
+    "hash": "6cc9b23465ec639f5e5da790aa16f0d2c7ef6a670b5b2dd2ba5fdcc8bf4fd3d7",
+    "summary": "Android上的Claude Code ：基于AI的Android移动编码IDE —与编码代理聊天、运行Linux命令、编辑文件、查看差异以及直接从手机预览Web应用。无需根。",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "karatektus/pl_mail": {
+    "hash": "5467599cb241d74f31cae618e51a4e8b5b7197e63a7d664d5586cb6691936f32",
+    "summary": "自托管的Gmail风格邮件客户端。多帐户IMAP、线程对话、通过IMAP IDLE + Mercure的实时推送。使用Symfony、FrankenPHP、Hotwire Turbo构建。克隆和docker合成。",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "RankFTW/RHI": {
+    "hash": "db8ebd087e3eda31f0c06d5a807381844422440b5fee7f1a76219de9e5c5b4f1",
+    "summary": "ReShade HDR安装程序",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "evcc-io/evcc": {
+    "hash": "99403c9ee7f400815d92dbd128f4cee2b38b9ee50d779c72c385d89425f7cf71",
+    "summary": "智能充电 ☀️🚘",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "UE4SS-RE/RE-UE4SS": {
+    "hash": "ba271212a22960f8c44c9480ab0bbbda9fc330899f42d9500e02cb48e2a61dea",
+    "summary": "用于UE4/5游戏的可注入LUA脚本系统、SDK生成器、实时属性编辑器和其他转储实用程序",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "nothings/stb": {
+    "hash": "f581156d6edd28b68ab22183176ee652fb7a07d0ff98bcac8498dc7de2e44bf3",
+    "summary": "stb适用于C/C + +的单文件公共域库",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "ellite/Wallos": {
+    "hash": "a756f4e336e0c1538de55784fca7e72a21ce8247b4aaa16a3be9041059a09e6d",
+    "summary": "Wallos ：开源、自托管的个人订阅跟踪器。可视化您的经常性费用，管理您的预算，并节省资金。",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "immortalwrt/immortalwrt": {
+    "hash": "6c98f43143f8980191921d30ffb0fc67809f602f4a525ec2b60c16dbc8616536",
+    "summary": "面向中国大陆用户的开源OpenWrt变体。",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "armel/uv-k1-k5v3-firmware-custom": {
+    "hash": "eee7ae35c306db82a767a5ee73d707d3aea5b741c709d78ace8fee14c1990538",
+    "summary": "这是@ muzkr和@ armel的F4HWN固件https://github.com/armel/uv-k5-firmware-custom的分支",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "YangJiiii/3105": {
+    "hash": "7cb9f115e2635a9df1ec425382b5286f0dfbba1801879ba5e4dc40887aa3de42",
+    "summary": "本机iOS应用程序数据浏览器、便携式补丁管理器、有限的清洁器和PosterBoard壁纸实验室。",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "hugeBlack/GetMoreRam": {
+    "hash": "fb87c5f2ffcb1f36a6b8a0fed89b31b2f0dcb3cd34fec97700943f8fa2e9d66b",
+    "summary": "一个简单的AltSign包装应用程序，允许您在不使用Xcode的情况下为旁加载的应用程序启用“增加的内存限制”",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "caru-ini/stack-diagram": {
+    "hash": "b35b80141e9979b03931fe1189646746e37288fd874e49e0c1d230486ea0a1f5",
+    "summary": "代理技能：在句子中描述您的堆栈，获取带有官方徽标的架构图",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "mromidev/claude-animated-shorts": {
+    "hash": "8827df6b06a637a32435b83b0619bbe085e75773b8100d287619f141cc0f11b9",
+    "summary": "免费Claude技能：带有three.js + Remotion的病毒式动画故事短片（ 3D世界中的2D角色）",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "hyz317/HairDeck": {
+    "hash": "b29c15f30a67b8aeba7d7688077b027b4c7ec8d51c2cf197c37ef9588de83a50",
+    "summary": "HairDeck ：单张图像中的动画风格发卡",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "benderandrew069/deepseek-api-pricing-2026": {
+    "hash": "69dcc97635e5d97d682e99e07f7a862461877ba5648af2a80b6b97f93b4a2900",
+    "summary": "DeepSeek API模型、缓存命中率和高峰时段定价指南（ 2026年）。",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "Bridgeyaprovide/roblox-game-copier": {
+    "hash": "bf1a2e0550ac10e9fd757b8326c5aa61f9c2d3eec36a80ef44ae25e991160aef",
+    "summary": "Roblox Game Copier 2026 ：预激活的桌面版，启用了所有功能，便于安装和使用。",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "rivetpelicanstir/total-commander": {
+    "hash": "97451f24dbb2f3d2fa84615b5b38b0de17a989e9d446966e96d404568af0f7cd",
+    "summary": "Total Commander 10.5 -完全正常工作的安装程序，包括所有插件和设置，以实现无缝的桌面体验。",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "stalkerswifthub/discord-quest-completer": {
+    "hash": "6849969473f741c65a67e7b6fd5a776fda98c495402a75a2d202736dd6e58557",
+    "summary": "Discord Quest Completer 2026 ：完成独立设置，准备好在激活所有功能的情况下运行。",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "lordbasex/LordOS": {
+    "hash": "370376905e18f03be695633fc094dfcb87e3d62347b45681cd27dacff77a4638",
+    "summary": "LordOS —一个基于Debian的免费、快速和安全的GNU/Linux发行版，拥有自己的桌面环境： C中的显示服务器和Wayland合成器， QuickJS上的React UI引擎以及私有本地应用程序。",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "ymusic-io/YMusicV4": {
+    "hash": "199919bb2d801ec63c8d5e3123aeef732b621047c0901d7e173188b9d1217c4e",
+    "summary": "多平台音乐播放器。",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "justjake/fujimod": {
+    "hash": "edd4075d5d5de8ad157bf30a306954f0abd5a19c1356919047e541fc1dbf3346",
+    "summary": "Fujifilm相机修改工具。未经双重启动，请勿将自定义固件闪存到相机",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "kitao/playload": {
+    "hash": "c4428cf9453d38c972d27413885fd2e52b91a2c6a01f4295e1d506a5ec764479",
+    "summary": "一个小巧的游戏引擎，可让您以网址的形式分享游戏",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "MarkusSela/IW4-Pocket": {
+    "hash": "957fd0b83a646a2c6ae31be9e3a062e0bacaf855f4a20d8bf023032511766d63",
+    "summary": "IW4 Pocket ： Modern Warfare 2 （ 2009 ）开源IW4L运行时的非官方iOS端口。实验。不包括游戏文件。",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "tigin-backwards/oni-moono": {
+    "hash": "e2f16512eec23f53c1b4e51b31a110ed76cc0084e1f952ff28c0218f9d011c04",
+    "summary": "Oxygen Not Included的残酷框架上的Unity层， .NET 10 CoreCLR。在后期游戏殖民地，游戏运行速度约为原始帧速率的8倍",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "medium-gh/scancore": {
+    "hash": "dc70c97e6ebead3e5e1a1e2a3d53ff4aa14016caaeae2182fd820a18869980e6",
+    "summary": "SCANCORE ：在自己的电脑上阅读漫画和小说，观看动漫。原生C + +/Qt桌面应用程序。",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "diip3sh/exploded": {
+    "hash": "579daec11b354c4fcec5ed98b5d878eda9c9df3f7105810407709b123013f37c",
+    "summary": "将真实的UI组件拆开。Claude Code技能+运行时，将实时组件分解为油漆层、状态和令牌。没有重绘任何内容，也没有键入任何数字。",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "simonro/edge-trader-for-schwab": {
+    "hash": "543b55f752068c3dc8177e83a6cedfc8a0c92d069162fec80728d4c246086e0c",
+    "summary": "基于Schwab Trader API和Schwabdev构建的Charles Schwab本地日间交易仪表板和一键式括号订单。每个订单都可供您轻松下单。",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "0xCodez/pulsr": {
+    "hash": "7e79264417f8ad76d9e5de48986e81fef2a5034db358fdea147bc61ed175f48f",
+    "summary": "Pulsr — Apple Watch的开源恢复、紧张和睡眠教练。液晶玻璃用户界面，设备上，无订阅。",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "cplj/axiocairn-mcp": {
+    "hash": "af582d016c61ea64ece81d622a7da882507127b27bb14080bb22cf8f50c61d80",
+    "summary": "持仓敞口、假设情景、成本和容量、回溯测试检查以及已发表的研究。",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "Leonxlnx/taste-skill": {
+    "hash": "4df70089be2cffd3eeea38b37740d7f02a09fe168b1b4dfdda5f06840535454e",
+    "summary": "提供编码代理品味的代理技能：艺术指导、参考图像和浏览器检查，而不是通用AI页面",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "heygen-com/hyperframes": {
+    "hash": "c2acab8414e0cd4d310185bc491d2d9a4728df72d9fba80bff586d4de508f97c",
+    "summary": "编写HTML。渲染视频。专为客服代表打造。",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "Graphify-Labs/graphify": {
+    "hash": "c7ccf748895b558bba7d60192f39d5c96461fcdfb6674e3709eabe3264d47d40",
+    "summary": "将任何代码库及其文档、SQL架构、配置和PDF转换为可查询的知识图。Claude Code、Cursor、Codex和Gemini CLI的A/graphify技能：本地确定性AST解析，解释每个边缘，没有矢量存储。",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "blader/humanizer": {
+    "hash": "d154454314df59d3e73cc7ccf652deb03815fcf4d048a8cf576e29c6fe34580c",
+    "summary": "从文本中删除人工智能生成文字的迹象的代理技能",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "metadist/synaplan-nextcloud": {
+    "hash": "a393e14ad6fdc3043a3e6f7d56124cb2463c98b74cccf3fc6115a7647272d528",
+    "summary": "Synaplan AI集成到nextcloud中，用于RAG驱动的讨论、翻译和摘要。在您的nextcloud旁边运行您自己的AI平台！",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "ossrs/srs": {
+    "hash": "a47ab60857f7983959fbd2640633ca9a38af3d9fe0179d0d3b851a33ad88e902",
+    "summary": "SRS是一款简单、高性能、AI驱动的实时媒体服务器，支持RTMP、WebRTC、HLS、HTTP-FLV、HTTP-TS、SRT、MPEG-DASH和GB28181 ，支持H.264、H.265、AV1、VP9、AAC、OPUS和G.711编解码器。",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "kimai/kimai": {
+    "hash": "cf887b1e01cd27adf2e972fab5ca9ef0a16aa619e6d5414ed3da3bb93cd691fd",
+    "summary": "Kimai是首屈一指的开源时间跟踪应用程序。从自由职业者到公司和组织--每个人都可以管理时间表、生成报告、创建发票等等……基于Web的多用户应用程序，提供内部部署或SaaS版本： https://www.kimai.org",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "morluto/rea": {
+    "hash": "9c4976a8aa665860ce75d67babc2a8993bcbf378b4ae6c02159702dc67af99fe",
+    "summary": "使用代理对任何内容进行反向工程，从应用行为到本机二进制文件。",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "tester-army/e2e": {
+    "hash": "29d57f87e2d6c31797fc962849a207cc5945684721e7c2d20f1b7ac105557b93",
+    "summary": "适用于网络和移动应用程序的下一代e2e测试框架。",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "anthropics/knowledge-work-plugins": {
+    "hash": "8addc7591a238ebd497cbeea1f86eb4b107bab6156e59f34da852bd77b542c02",
+    "summary": "主要供知识工作者在Claude Cowork中使用的插件的开源存储库",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "michael-denyer/pstack-claude": {
+    "hash": "35fadb1c63f35dce947448f0b75d51ab51c9cf91adacfadff6dbb217221c2355",
+    "summary": "Poteto pstack的Claude Code、Codex、Copilot、Pi、OpenCode、Muse、Gemini和Prime Agent版本。严格的代理工作流程，将Cursor基元转换为其他线束。",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "HKUDS/DeepTutor": {
+    "hash": "aac65fe757ff28e7a2615584700d4cf6ff1ea108948879d7a2ce1e0a474edd64",
+    "summary": "DeepTutor ：终身个性化辅导。https://deeptutor.info/。",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "M-Abozaid/esp32-c3-adblock": {
+    "hash": "c5f27d12c81ef21fab38e0107acae2e55642b9b43e4ff0645e3ec56280139e99",
+    "summary": "$ 2 ESP32-C3 （无PSRAM ）上的Pi-hole级DNS广告拦截器：闪存中的537k域作为40位FNV-1a哈希，二进制搜索。UDP DNS sinkhole +网络仪表板。https://youtube.com/shorts/RaxszOUMi8E?feature=share",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "gosom/google-maps-scraper": {
+    "hash": "0b3bc108f9d9f77eccaed5e53bee79bba128a596a31024fdbd13ba43a015b0cd",
+    "summary": "从谷歌地图中抓取数据。提取每个地点的姓名、地址、电话号码、网站网址、评分、评价数量、经纬度、评价、电子邮件等数据",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "Vincentwei1021/video-shotcraft": {
+    "hash": "2e9758321ce57821c0ed3c6d1083e8946cea2838055e3c0b7a5e3a56b4faeb12",
+    "summary": "适用于Claude Code & Codex的人工智能视频技能—带有Remotion的电影、可编辑的产品促销： 124张配方卡、150个动作预览、节拍同步、声音设计、Motion Workbench和JianYing (CapCut CN)导出。",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "zenbu-labs/terminal-code": {
+    "hash": "f1cd980ff703e24283940fed4abdaa2f34f2e5b270138e33a9e8ebdda8afde9c",
+    "summary": "终端中的VS代码",
+    "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "Prism-Shadow/awesome-rsi": {
+    "hash": "3877e3f71e51579c9177cc65f56c979b110b312ef454e99930db4cd298ff082f",
+    "summary": "RSI论文公开索引",
+    "at": "2026-11-03T14:59:32.314123+08:00"
   }
 }
