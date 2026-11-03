@@ -2,7 +2,7 @@
  * 全站访问保护：除登录页与登录接口外，所有请求（包括榜单数据 JSON）都要求有效的登录。
  * 会话每 10 分钟回数据库核对一次，被移除或停用的成员最迟 10 分钟后失去访问。
  */
-import { guard } from "../edge/access"
+import { guard, isPublicPath } from "../edge/access"
 import { clearCookie, configProblem, configUnavailable, isNavigation, json, log, needsRecheck, nowSeconds, readSession, redirect, sessionCookie, withCookie } from "../edge/http"
 import { SESSION_COOKIE } from "../edge/config"
 import { createStore, ensureSchema } from "../edge/store"
@@ -16,6 +16,9 @@ export async function onRequest(ctx: Context) {
     log("config.missing", { problem })
     return configUnavailable(problem)
   }
+  // 登录页与登录接口不做会话续期：否则续期的 Cookie 会排在退出登录的「清除 Cookie」之后，
+  // 浏览器就留住了会话（PR #15 评审发现的问题）
+  if (isPublicPath(url.pathname)) return ctx.next()
   let session = await readSession(request, env)
   let refreshed: string | undefined
   if (session && needsRecheck(session)) {
@@ -43,5 +46,7 @@ export async function onRequest(ctx: Context) {
     response = new Response(response.body, response)
     response.headers.set("X-Robots-Tag", "noindex")
   }
-  return refreshed ? withCookie(response, refreshed) : response
+  // 下游已经设置或清除了会话 Cookie 时，不再追加续期
+  const downstreamSetsSession = response.headers.getSetCookie().some(h => h.startsWith(`${SESSION_COOKIE}=`))
+  return refreshed && !downstreamSetsSession ? withCookie(response, refreshed) : response
 }

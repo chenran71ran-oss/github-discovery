@@ -11,6 +11,6 @@ export async function onRequestGet(ctx: Context) {
   const url = new URL(ctx.request.url)
   const state = randomToken()
   const next = safeNext(url.searchParams.get("next"))
-  const token = await sign({ state, next, exp: nowSeconds() + STATE_TTL }, ctx.env.SESSION_SECRET!)
+  const token = await sign({ state, next, exp: nowSeconds() + STATE_TTL }, ctx.env.SESSION_SECRET!, "oauth-state")
   return redirect(authorizeUrl(ctx.env.GITHUB_CLIENT_ID!, `${url.origin}/api/auth/callback`, state), [cookie(STATE_COOKIE, token, STATE_TTL)])
 }

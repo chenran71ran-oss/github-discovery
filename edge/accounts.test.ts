@@ -76,14 +76,17 @@ const json = { "Content-Type": "application/json", "Origin": ORIGIN }
 describe("signed session cookie", () => {
   it("round-trips and rejects tampering, wrong keys, expiry and junk", async () => {
     const now = 1_000_000
-    const token = await sign({ gid: 1, exp: now + 10 }, SECRET)
-    expect(await verify(token, SECRET, now)).toMatchObject({ gid: 1 })
+    const token = await sign({ gid: 1, exp: now + 10 }, SECRET, "session")
+    expect(await verify(token, SECRET, "session", now)).toMatchObject({ gid: 1 })
     const [body, sig] = token.split(".")
     const forged = `${btoa(JSON.stringify({ gid: 99, exp: now + 10 })).replace(/=+$/, "")}.${sig}`
-    expect(await verify(forged, SECRET, now)).toBeNull()
-    expect(await verify(token, "y".repeat(40), now)).toBeNull()
-    expect(await verify(token, SECRET, now + 11)).toBeNull()
-    for (const junk of [undefined, "", "abc", `${body}`, `${body}.${sig}.x`, `${body}.!!!`]) expect(await verify(junk, SECRET, now)).toBeNull()
+    expect(await verify(forged, SECRET, "session", now)).toBeNull()
+    expect(await verify(token, "y".repeat(40), "session", now)).toBeNull()
+    expect(await verify(token, SECRET, "session", now + 11)).toBeNull()
+    for (const junk of [undefined, "", "abc", `${body}`, `${body}.${sig}.x`, `${body}.!!!`]) expect(await verify(junk, SECRET, "session", now)).toBeNull()
+    // 同一个主密钥下，不同用途的令牌互不通用
+    expect(await verify(token, SECRET, "oauth-state", now)).toBeNull()
+    expect(await verify(await sign({ gid: 1, exp: now + 10 }, SECRET, "oauth-state"), SECRET, "session", now)).toBeNull()
   })
 })
 
@@ -174,8 +177,43 @@ describe("middleware", () => {
     expect(active.headers.get("Set-Cookie")).toContain(SESSION_COOKIE)
   })
   it("rejects a forged cookie", async () => {
-    const forged = `${SESSION_COOKIE}=${await sign({ gid: 1, login: "owner-name", role: "admin", exp: 9e9, chk: 9e9 } satisfies Session, "z".repeat(40))}`
+    const forged = `${SESSION_COOKIE}=${await sign({ gid: 1, login: "owner-name", role: "admin", exp: 9e9, chk: 9e9 } satisfies Session, "z".repeat(40), "session")}`
     expect((await middleware(ctx("/api/me", { cookie: forged }))).status).toBe(401)
+  })
+})
+
+describe("review findings (Codex, PR #15)", () => {
+  it("an OAuth state cookie cannot be used as a session cookie", async () => {
+    const res = await startLogin(ctx("/api/auth/login?next=/"))
+    const stateValue = cookiePair(res.headers.get("Set-Cookie")!).split("=")[1]
+    const data = ctx("/data/latest.json", { cookie: `${SESSION_COOKIE}=${stateValue}` })
+    expect((await middleware(data)).status).toBe(401)
+    expect(data.nextCalled()).toBe(false)
+  })
+  it("a session cookie cannot be used as an OAuth state", async () => {
+    const session = (await sessionFor(owner, "admin")).split("=")[1]
+    const res = await callback(ctx("/api/auth/callback?code=x&state=anything", { cookie: `${STATE_COOKIE}=${session}` }))
+    expect(res.headers.get("Location")).toBe("/login?status=expired")
+  })
+  it("a session without a valid check time is re-checked, not trusted", async () => {
+    await ensureSchema(env.DB!)
+    const noChk = `${SESSION_COOKIE}=${await sign({ gid: friend.id, login: friend.login, role: "member", exp: 9e9 }, SECRET, "session")}`
+    expect((await middleware(ctx("/data/latest.json", { cookie: noChk }))).status).toBe(401)
+  })
+  it("logging out after the re-check interval really clears the session", async () => {
+    await ensureSchema(env.DB!)
+    await store().saveProfile(friend, "member", "active", "t")
+    const c = ctx("/api/auth/logout", { method: "POST", headers: json, cookie: await sessionFor(friend, "member", RECHECK_AFTER + 5) })
+    c.next = async () => logout(c)
+    const res = await middleware(c)
+    const sessionCookies = res.headers.getSetCookie().filter(h => h.startsWith(`${SESSION_COOKIE}=`))
+    expect(sessionCookies).toHaveLength(1)
+    expect(sessionCookies[0]).toMatch(/Max-Age=0/)
+  })
+  it("refuses redirect targets with control characters, spaces or backslashes", () => {
+    for (const bad of ["/\t/evil.example", "/\n/evil.example", "/\r//evil.example", "/ /evil.example", "/\\/evil.example", "/x\\..\\..\\evil", "/\u0000/evil"]) expect(safeNext(bad)).toBe("/")
+    expect(safeNext("/?q=AI%20%E8%AE%B0%E8%B4%A6")).toBe("/?q=AI%20%E8%AE%B0%E8%B4%A6")
+    expect(safeNext("/?repo=a/b#top")).toBe("/?repo=a/b#top")
   })
 })
 
