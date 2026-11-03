@@ -47,6 +47,13 @@ export interface Invite {
 }
 
 /** 会话 Cookie 里签名保存的内容；时间单位都是秒 */
+export interface Favorite {
+  repo: string
+  /** 收藏时的项目快照（JSON） */
+  data: string
+  saved_at: string
+}
+
 export interface Session {
   gid: number
   login: string

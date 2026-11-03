@@ -23,3 +23,9 @@ export const GITHUB_LOGIN = /^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i
 export const GITHUB_AUTHORIZE = "https://github.com/login/oauth/authorize"
 export const GITHUB_TOKEN = "https://github.com/login/oauth/access_token"
 export const GITHUB_API = "https://api.github.com"
+
+/** 每人最多收藏的项目数，以及单条收藏（项目快照 JSON）的大小上限 */
+export const MAX_FAVORITES = 1000
+export const MAX_FAVORITE_BYTES = 16 * 1024
+/** 仓库全名 owner/name：用户名只有字母数字和连字符，仓库名不能是 . 或 .. */
+export const REPO_NAME = /^[a-z\d-]{1,39}\/(?!\.\.?$)[\w.-]{1,100}$/i

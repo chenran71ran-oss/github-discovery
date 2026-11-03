@@ -108,7 +108,7 @@ export function DataNote({ aiConfigured }: { aiConfigured?: boolean }) {
       <p>
         中文内容会标注来源：GithubTrending 中文速览、按公开资料整理、README 解读，或只翻译简介的「机翻」。
         {aiConfigured === false && "当前未配置独立 AI 服务，缺少的深度解读不会用模板内容代替。"}
-        「爆发」表示周期新增 Star 占总数的比例和增量都很高。收藏仅保存在当前浏览器。
+        「爆发」表示周期新增 Star 占总数的比例和增量都很高。登录后收藏保存在你的账号里，换设备也能看到。
       </p>
     </aside>
   )

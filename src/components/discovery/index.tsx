@@ -4,7 +4,7 @@ import { useMedia } from "react-use"
 import type { Period, Repository } from "@shared/discovery"
 import { domains } from "@shared/taxonomy"
 import { AccountButton, MembersPanel } from "./account"
-import { isRepoName, loadDates, loadMe, loadSnapshot, readSaved, savedKey, writeSaved } from "./api"
+import { favoritesApi, isRepoName, loadDates, loadMe, loadSnapshot, markImported, readSaved, savedKey, wasImported, writeSaved } from "./api"
 import { CategoryFilter } from "./category-filter"
 import { RepoInsight, RepoSheet, time } from "./detail"
 import { Icon } from "./icons"
@@ -40,7 +40,9 @@ export function Discovery() {
   const [sort, setSort] = useState<Sort>("rank")
   const [view, setView] = useState<"discover" | "saved">(initial.get("view") === "saved" ? "saved" : "discover")
   const [date, setDate] = useState(/^\d{4}-\d{2}-\d{2}$/.test(initial.get("date") || "") ? initial.get("date")! : "")
-  const [saved, setSaved] = useState(readSaved)
+  const [local, setLocal] = useState(readSaved)
+  // 账号里的收藏；null 表示还没读到（或没有账号层），这时显示浏览器里的
+  const [remote, setRemote] = useState<Record<string, Repository> | null>(null)
   const [activeName, setActiveName] = useState(isRepoName(initial.get("repo")) ? initial.get("repo")! : "")
   const [notice, setNotice] = useState("")
   const [managing, setManaging] = useState(false)
@@ -54,6 +56,31 @@ export function Discovery() {
   // 账号层（Pages Functions）不存在时为 null，例如本地纯静态开发
   const me = useQuery({ queryKey: ["me"], queryFn: loadMe, staleTime: 300_000, retry: false, refetchOnWindowFocus: false })
   const data = query.data
+  const login = me.data?.login || ""
+  const remoteQuery = useQuery({ queryKey: ["favorites", login], queryFn: favoritesApi.list, enabled: !!login, staleTime: 60_000, retry: 1, refetchOnWindowFocus: false })
+  const saved = login && remote ? remote : local
+  useEffect(() => {
+    if (!login || !remoteQuery.data) return
+    let alive = true
+    const fromBrowser = Object.values(readSaved())
+    if (wasImported(login) || !fromBrowser.length) {
+      markImported(login)
+      setRemote(remoteQuery.data)
+      return
+    }
+    // 第一次登录：把这台浏览器里的收藏并进账号（账号里已有的不覆盖）
+    favoritesApi.import(fromBrowser).then((result) => {
+      if (!alive) return
+      markImported(login)
+      setRemote(result.saved)
+      if (result.imported) setNotice(`已把本机的 ${result.imported} 个收藏同步到账号`)
+    }, () => {
+      if (alive) setRemote(remoteQuery.data)
+    })
+    return () => {
+      alive = false
+    }
+  }, [login, remoteQuery.data])
 
   useEffect(() => {
     // 让 iOS 的状态栏、过度滚动区域跟随当前配色
@@ -82,7 +109,7 @@ export function Discovery() {
   }, [period, view, q, language, domain, category, date, activeName])
   useEffect(() => {
     const sync = (e: StorageEvent) => {
-      if (e.key === savedKey) setSaved(readSaved())
+      if (e.key === savedKey) setLocal(readSaved())
     }
     window.addEventListener("storage", sync)
     return () => window.removeEventListener("storage", sync)
@@ -96,13 +123,32 @@ export function Discovery() {
   // 回调保持稳定，榜单行（memo）在切换明暗、打开解读时不必全部重新渲染
   const savedRef = useRef(saved)
   savedRef.current = saved
+  const accountRef = useRef(false)
+  accountRef.current = !!(login && remote)
   const toggleSave = useCallback((repo: Repository) => {
-    const next = { ...savedRef.current }
+    const previous = savedRef.current
+    const next = { ...previous }
     const had = !!next[repo.fullName]
     if (had) delete next[repo.fullName]
     else next[repo.fullName] = repo
+    if (accountRef.current) {
+      // 先更新界面，失败时恢复
+      setRemote(next)
+      setNotice(had ? "已移出收藏" : "已收藏，已同步到账号")
+      const done = had ? favoritesApi.remove(repo.fullName) : favoritesApi.save(repo)
+      done.catch((error: Error) => {
+        setRemote((current) => {
+          const restored = { ...current }
+          if (had) restored[repo.fullName] = previous[repo.fullName]
+          else delete restored[repo.fullName]
+          return restored
+        })
+        setNotice(error.message || "收藏没有同步成功，请稍后重试")
+      })
+      return
+    }
     if (writeSaved(next)) {
-      setSaved(next)
+      setLocal(next)
       setNotice(had ? "已移出收藏" : "已收藏，保存在当前浏览器")
     } else {
       setNotice("浏览器存储不可用，收藏未保存")
