@@ -69,6 +69,7 @@ GitHub 的定时任务经常延后，2026-10-27 至 11-02 实际都在北京时�
 ## 部署记录
 
 - **2026-11-02 Pages 的 Git 关联被误断开**：本想断开旧采集 Worker，实际断开的是 Pages 项目 `github-discovery`。断开期间网站继续提供最后一次部署（当天 08:14），但新的提交不再部署，PR #11 的分支提交也没有预览。在 **Settings → Build → Git repository → Connect** 重新连接后，合并 #11 的提交（`9417482`）部署成功。
+- **2026-11-03 账号模块上线（#15）**：生产部署后首页报「榜单暂时没有加载成功」。原因有两个：浏览器离线缓存里还是旧版页面，旧版不认识 401，不会跳到登录页；另外生产环境的 `GITHUB_CLIENT_ID` 前面多了一个空格，授权地址变成 `client_id=+Iv23…`，GitHub 返回 404。去掉空格、重新部署、强制刷新后登录成功。之后代码会自动去掉这两个值的首尾空格，加载失败时页面也会显示 HTTP 状态和服务端给出的原因。
 - **注意**：在 Workers & Pages 列表里，Pages 项目 `github-discovery` 和旧 Worker `github-discovery-collector` 是两个独立条目，修改 Git 关联前先确认名字。断开 Pages 的 Git 关联后，可以在同一位置重新连接，构建设置见上方「部署」。
 
 ## 账号与成员
@@ -84,6 +85,8 @@ GitHub 的定时任务经常延后，2026-10-27 至 11-02 实际都在北京时�
 | `SESSION_SECRET` | Secret | 至少 32 个字符的随机串，用于签名登录 Cookie。更换它会让所有人重新登录 |
 | `ADMIN_GITHUB_LOGIN` | Text | 站长的 GitHub 用户名，始终是管理员 |
 | `DB`（绑定） | D1 | 账号数据所在的数据库，表名为 `gb_members`、`gb_invites` |
+
+以前打开过网站的人可能还在用缓存里的旧页面：先打开 `/login` 登录，再强制刷新首页即可。
 
 GitHub App 的 Callback URL 需要包含 `https://radar.chenran71ran.cc/api/auth/callback`；在 PR 预览上测试时，还要加上预览地址对应的 `/api/auth/callback`（例如 `https://feat-accounts.github-discovery.pages.dev/api/auth/callback`）。缺少任何一项配置时整站返回 503。
 

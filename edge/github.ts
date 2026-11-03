@@ -9,7 +9,8 @@ type Fetch = typeof fetch
 
 export function authorizeUrl(clientId: string, redirectUri: string, state: string) {
   const url = new URL(GITHUB_AUTHORIZE)
-  url.searchParams.set("client_id", clientId)
+  // 控制台粘贴的值常带首尾空格（会被编码成 "+"，GitHub 就认不出这个 App）
+  url.searchParams.set("client_id", clientId.trim())
   url.searchParams.set("redirect_uri", redirectUri)
   url.searchParams.set("state", state)
   url.searchParams.set("allow_signup", "false")
@@ -20,7 +21,7 @@ export async function exchangeCode(code: string, redirectUri: string, clientId: 
   const response = await fetcher(GITHUB_TOKEN, {
     method: "POST",
     headers: { "Accept": "application/json", "Content-Type": "application/json", "User-Agent": "git-bot-radar" },
-    body: JSON.stringify({ client_id: clientId, client_secret: clientSecret, code, redirect_uri: redirectUri }),
+    body: JSON.stringify({ client_id: clientId.trim(), client_secret: clientSecret.trim(), code, redirect_uri: redirectUri }),
   })
   const data = await response.json().catch(() => ({})) as { access_token?: string, error?: string }
   if (!response.ok || !data.access_token) throw new Error(`token exchange failed: ${data.error || response.status}`)

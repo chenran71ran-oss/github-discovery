@@ -13,10 +13,18 @@ export function toLogin(): never {
   throw new Error("需要重新登录")
 }
 
+/** 读取失败时给出服务端的原因（例如 503「登录服务尚未配置完成：missing DB」），便于直接定位 */
+async function failureReason(response: Response) {
+  const base = `榜单暂时没有加载成功（HTTP ${response.status}），请稍后重试。`
+  if (response.status !== 503) return base
+  const text = (await response.text().catch(() => "")).split("\n")[0]?.trim()
+  return text ? `${text}（HTTP 503）` : base
+}
+
 export async function loadSnapshot(date = "", signal?: AbortSignal): Promise<DiscoverySnapshot> {
   const response = await fetch(date ? `/data/history/${date}.json` : "/data/latest.json", { signal, cache: "no-cache" })
   if (response.status === 401) toLogin()
-  if (!response.ok) throw new Error("榜单暂时没有加载成功，请稍后重试。")
+  if (!response.ok) throw new Error(await failureReason(response))
   const value: unknown = await response.json()
   if (!isSnapshot(value)) throw new Error("榜单数据格式异常，暂时无法展示。")
   return value
