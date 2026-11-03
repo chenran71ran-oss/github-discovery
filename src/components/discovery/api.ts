@@ -1,5 +1,5 @@
 /**
- * 外交层：页面与外部的全部交互——读取同源 JSON 快照、浏览器存储里的收藏。
+ * 外交层：页面与外部的全部交互——读取同源 JSON 快照、账号接口、收藏（账号或浏览器存储）。
  * 组件不直接 fetch 或读写 localStorage，换数据源时只改这里。
  */
 import { type DiscoverySnapshot, type Repository, isSnapshot } from "@shared/discovery"
@@ -89,6 +89,39 @@ export const accountApi = {
     await send("POST", "/api/auth/logout", {})
     window.location.assign("/login?status=signedout")
   },
+}
+
+// ---------- 收藏：有账号时存在账号里（D1），否则存在浏览器 ----------
+
+type SavedMap = Record<string, Repository>
+const toMap = (items: Repository[]): SavedMap => Object.fromEntries(items.filter(r => r && typeof r.fullName === "string" && fullName.test(r.fullName)).map(r => [r.fullName, r]))
+
+export const favoritesApi = {
+  list: async () => toMap((await send<{ items: Repository[] }>("GET", "/api/favorites")).items),
+  save: (repo: Repository) => send("PUT", "/api/favorites", { repo }),
+  remove: (name: string) => send("DELETE", "/api/favorites", { fullName: name }),
+  /** 把浏览器里的收藏导入账号，返回导入条数和导入后的完整收藏 */
+  import: async (items: Repository[]) => {
+    const r = await send<{ imported: number, items: Repository[] }>("POST", "/api/favorites/import", { items })
+    return { imported: r.imported, saved: toMap(r.items) }
+  },
+}
+
+/** 每个账号只自动导入一次本机收藏 */
+const importedKey = (login: string) => `discovery-favorites-imported:${login.toLowerCase()}`
+export function wasImported(login: string) {
+  try {
+    return localStorage.getItem(importedKey(login)) === "1"
+  } catch {
+    return true
+  }
+}
+export function markImported(login: string) {
+  try {
+    localStorage.setItem(importedKey(login), "1")
+  } catch {
+    // 存储不可用时下次再试，导入本身不会重复写入
+  }
 }
 
 export function readSaved(): Record<string, Repository> {

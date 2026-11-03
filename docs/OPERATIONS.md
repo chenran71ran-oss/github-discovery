@@ -84,7 +84,7 @@ GitHub 的定时任务经常延后，2026-10-27 至 11-02 实际都在北京时�
 | `GITHUB_CLIENT_SECRET` | Secret | GitHub App 的 client secret |
 | `SESSION_SECRET` | Secret | 至少 32 个字符的随机串，用于签名登录 Cookie。更换它会让所有人重新登录 |
 | `ADMIN_GITHUB_LOGIN` | Text | 站长的 GitHub 用户名，始终是管理员 |
-| `DB`（绑定） | D1 | 账号数据所在的数据库，表名为 `gb_members`、`gb_invites` |
+| `DB`（绑定） | D1 | 账号数据所在的数据库，表名为 `gb_members`、`gb_invites`、`gb_favorites`（首次访问自动创建） |
 
 以前打开过网站的人可能还在用缓存里的旧页面：先打开 `/login` 登录，再强制刷新首页即可。
 
@@ -97,7 +97,7 @@ GitHub App 的 Callback URL 需要包含 `https://radar.chenran71ran.cc/api/auth
 
 **用量**：Pages Functions 免费额度是每天 10 万次请求。带哈希的脚本、样式、图标和图片已通过 `public/_routes.json` 绕过 Functions，打开一次页面大约只计 3–5 次。
 
-**说明**：仓库本身是公开的，代码和 `public/data/` 里的榜单数据在 GitHub 上任何人都能看到；账号模块保护的是这个网站，以及之后按成员保存的收藏等数据。
+**说明**：仓库本身是公开的，代码和 `public/data/` 里的榜单数据在 GitHub 上任何人都能看到；账号模块保护的是这个网站，以及每个成员保存在账号里的收藏。
 
 **临时关闭登录**：在 Pages 的部署列表里对上一个版本执行 Rollback；或者回滚引入账号模块的提交。删掉环境变量不能关闭登录，只会让整站返回 503。
 

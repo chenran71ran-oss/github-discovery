@@ -9,6 +9,8 @@ import { onRequestGet as listMembers } from "../functions/api/admin/members"
 import { onRequestPatch as changeMember, onRequestDelete as removeMember } from "../functions/api/admin/members/[id]"
 import { onRequestGet as loginPage } from "../functions/login"
 import { onRequestGet as meHandler } from "../functions/api/me"
+import { onRequestPut as favorite, onRequestGet as listFavorites, onRequestDelete as unfavorite } from "../functions/api/favorites/index"
+import { onRequestPost as importFavorites } from "../functions/api/favorites/import"
 import { admit, guard } from "./access"
 import { RECHECK_AFTER, SESSION_COOKIE, STATE_COOKIE } from "./config"
 import { safeNext, sessionCookie } from "./http"
@@ -362,5 +364,58 @@ describe("environment values pasted with whitespace", () => {
     const { authorizeUrl } = await import("./github")
     const url = new URL(authorizeUrl(" Iv23abc \n", "https://example.com/api/auth/callback", "s"))
     expect(url.searchParams.get("client_id")).toBe("Iv23abc")
+  })
+})
+
+describe("favorites API", () => {
+  async function as(user: GitHubUser, status: "active" | "pending" | "blocked" = "active") {
+    await ensureSchema(env.DB!)
+    await store().saveProfile(user, "member", status, "t")
+    await store().setAccess(user.id, "member", status)
+    return (path: string, init: Parameters<typeof ctx>[1] = {}) => {
+      const x = ctx(path, init)
+      x.data.session = { gid: user.id, login: user.login, role: "member", exp: 9e9, chk: 9e9 }
+      return x
+    }
+  }
+  const repo = (fullName: string, extra: Record<string, unknown> = {}) => ({ fullName, description: "d", stars: 1, ...extra })
+  const send = (method: string, data: unknown, headers: HeadersInit = json) => ({ method, body: JSON.stringify(data), headers })
+  const items = async (r: Response) => ((await r.json()) as { items: { fullName: string }[] }).items.map(i => i.fullName)
+
+  it("saves, lists and removes favorites, scoped to each member", async () => {
+    const me = await as(friend)
+    const other = await as(stranger)
+    expect((await favorite(me("/api/favorites", send("PUT", { repo: repo("a/one") })))).status).toBe(200)
+    expect((await favorite(me("/api/favorites", send("PUT", { repo: repo("b/two") })))).status).toBe(200)
+    expect((await favorite(me("/api/favorites", send("PUT", { repo: repo("a/one", { stars: 9 }) })))).status).toBe(200)
+    expect((await items(await listFavorites(me("/api/favorites")))).sort()).toEqual(["a/one", "b/two"])
+    expect(await items(await listFavorites(other("/api/favorites")))).toEqual([])
+    expect((await unfavorite(me("/api/favorites", send("DELETE", { fullName: "a/one" })))).status).toBe(200)
+    expect(await items(await listFavorites(me("/api/favorites")))).toEqual(["b/two"])
+  })
+  it("rejects cross-site writes, bad input, oversized items and inactive members", async () => {
+    const me = await as(friend)
+    expect((await favorite(me("/api/favorites", send("PUT", { repo: repo("a/one") }, { "Content-Type": "application/json", "Origin": "https://evil.example" })))).status).toBe(400)
+    expect((await favorite(me("/api/favorites", send("PUT", { repo: repo("not a repo") })))).status).toBe(400)
+    expect((await favorite(me("/api/favorites", send("PUT", { repo: repo("a/big", { description: "x".repeat(20_000) }) })))).status).toBe(400)
+    expect((await unfavorite(me("/api/favorites", send("DELETE", { fullName: "../x" })))).status).toBe(400)
+    const blocked = await as(stranger, "blocked")
+    expect((await listFavorites(blocked("/api/favorites"))).status).toBe(401)
+  })
+  it("imports browser favorites once without overwriting the account copy", async () => {
+    const me = await as(friend)
+    await favorite(me("/api/favorites", send("PUT", { repo: repo("a/one", { stars: 5 }) })))
+    const r = await importFavorites(me("/api/favorites/import", send("POST", { items: [repo("a/one", { stars: 1 }), repo("c/three"), repo("bad name"), "junk"] })))
+    expect(r.status).toBe(200)
+    const body = await r.json() as { imported: number, items: { fullName: string, stars: number }[] }
+    expect(body.imported).toBe(1)
+    expect(body.items.find(i => i.fullName === "a/one")?.stars).toBe(5)
+    expect(body.items.map(i => i.fullName).sort()).toEqual(["a/one", "c/three"])
+  })
+  it("deletes a member's favorites when the member is removed", async () => {
+    const me = await as(friend)
+    await favorite(me("/api/favorites", send("PUT", { repo: repo("a/one") })))
+    await store().removeMember(friend.id)
+    expect(await store().countFavorites(friend.id)).toBe(0)
   })
 })

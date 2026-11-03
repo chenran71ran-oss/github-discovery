@@ -7,7 +7,7 @@
 | 1 类型与配置 | 数据结构、静态配置，不含逻辑 | `core/types.py`、`core/settings.py`、`core/taxonomy.py` | `shared/discovery.ts`、`shared/taxonomy.ts` |
 | 2 积木 | 单一职责、可替换的模块与算法 | `blocks/`：抓取、解析、分类信号、翻译、模型 | `src/components/discovery/` 下的界面组件 |
 | 3 实验 | 把积木组装成策略与流程，并评估效果 | `lab/`：分类策略、采集流水线、标注集评估 | `model.ts`：筛选、排序、统计的组合 |
-| 4 外交 | 与外部交互：配置、日志、调度、读写 | `app/`：环境变量、日志、阶段计时、发布、命令行 | `api.ts`：读取快照、浏览器收藏 |
+| 4 外交 | 与外部交互：配置、日志、调度、读写 | `app/`：环境变量、日志、阶段计时、发布、命令行 | `api.ts`：读取快照、账号接口、收藏 |
 
 两边共用的分类体系只有一份：`shared/taxonomy.json`。环境变量、自动采集、部署与回滚见 [OPERATIONS.md](OPERATIONS.md)。
 
@@ -95,7 +95,7 @@ GitHub 搜索 ───┘   （总体 + 每个分类的主题流）            
 | :--- | :--- | :--- |
 | 类型与配置 | `edge/types.ts`、`edge/config.ts` | 成员、会话、Cookie 名、有效期、公开路径 |
 | 积木 | `edge/session.ts`、`edge/github.ts`、`edge/store.ts` | HMAC 签名 Cookie、GitHub 登录、D1 存储（表名带 `gb_` 前缀，首次访问自动建表） |
-| 策略 | `edge/access.ts`、`edge/admin.ts` | 登录后的准入、每个请求的放行规则、管理操作的边界 |
+| 策略 | `edge/access.ts`、`edge/admin.ts`、`edge/favorites.ts` | 登录后的准入、每个请求的放行规则、管理操作的边界、收藏的读写规则 |
 | 外交 | `edge/http.ts`、`edge/pages.ts`、`functions/**` | HTTP 工具、日志、登录页，以及很薄的路由文件 |
 
 **请求怎么走**
@@ -119,12 +119,14 @@ GitHub 搜索 ───┘   （总体 + 每个分类的主题流）            
 - 不能修改自己的账号，也不能修改站长账号。
 - 日志一行一个 JSON，不记录 Cookie、令牌或密钥。
 
+**收藏**：`gb_favorites` 按（GitHub ID，仓库全名）保存收藏时的项目快照，项目掉出榜单后仍能显示。接口是 `/api/favorites`（GET 读取、PUT 收藏、DELETE 取消）和 `/api/favorites/import`（第一次登录时导入浏览器里的收藏，已有的不覆盖）。每人只能读写自己的收藏，管理员也看不到别人的；写操作同样要求同源 JSON；每人最多 1000 个，单条不超过 16 KB；移除成员时一并删除其收藏。
+
 **测试**：`edge/accounts.test.ts` 用真正的 SQLite 模拟 D1，覆盖签名、准入、放行规则、中间件、完整的 GitHub 登录回调（GitHub 接口用桩替代）和管理接口的权限。另外在本地用 `wrangler pages dev` 跑过真实的 Workers 运行时，见 `docs/OPERATIONS.md`。
 
 ## 前端
 
 - `shared/taxonomy.ts` 读取同一份分类体系，并把旧快照里改过名的分类映射到新分类（例如「学习与研究」→「教程与资源」）。没有分类字段的旧快照照常显示。
-- `api.ts` 是唯一会 `fetch` 或读写 `localStorage` 的文件；收到 401 时跳到登录页。`/api/me` 返回 404 说明没有账号层（本地纯静态开发），界面不显示账号入口。
+- `api.ts` 是唯一会 `fetch` 或读写 `localStorage` 的文件；收到 401 时跳到登录页。登录后收藏读写账号接口，没有账号层时读写浏览器存储。`/api/me` 返回 404 说明没有账号层（本地纯静态开发），界面不显示账号入口。
 - `account.tsx` 是状态栏里的头像菜单和成员管理面板。
 - `model.ts` 是纯函数：收藏视图的数据来源、筛选与排序、领域和分类计数、分类分布。
 - 组件只负责展示：`category-filter.tsx` 是两级分类筛选，`classified.tsx` 是 GIT Bot 分类卡片，其余见 `docs/DISCOVERY-UI.md`。
