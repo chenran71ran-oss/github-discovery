@@ -1,0 +1,5 @@
+{
+  "version": 1,
+  "include": ["/*"],
+  "exclude": ["/assets/*", "/icons/*", "/*.png", "/*.ttf", "/manifest.webmanifest", "/sw.js", "/swx.js", "/workbox-*.js"]
+}

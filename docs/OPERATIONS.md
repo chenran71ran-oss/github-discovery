@@ -71,6 +71,42 @@ GitHub 的定时任务经常延后，2026-10-27 至 11-02 实际都在北京时�
 - **2026-11-02 Pages 的 Git 关联被误断开**：本想断开旧采集 Worker，实际断开的是 Pages 项目 `github-discovery`。断开期间网站继续提供最后一次部署（当天 08:14），但新的提交不再部署，PR #11 的分支提交也没有预览。在 **Settings → Build → Git repository → Connect** 重新连接后，合并 #11 的提交（`9417482`）部署成功。
 - **注意**：在 Workers & Pages 列表里，Pages 项目 `github-discovery` 和旧 Worker `github-discovery-collector` 是两个独立条目，修改 Git 关联前先确认名字。断开 Pages 的 Git 关联后，可以在同一位置重新连接，构建设置见上方「部署」。
 
+## 账号与成员
+
+网站只对受邀成员开放，原理见 [ARCHITECTURE.md](ARCHITECTURE.md) 的「账号模块」。
+
+**配置**（Cloudflare Pages → `github-discovery` → Settings → Variables and secrets，Production 与 Preview 都要有）：
+
+| 变量 | 类型 | 说明 |
+| :--- | :--- | :--- |
+| `GITHUB_CLIENT_ID` | Text | GitHub App 的 Client ID |
+| `GITHUB_CLIENT_SECRET` | Secret | GitHub App 的 client secret |
+| `SESSION_SECRET` | Secret | 至少 32 个字符的随机串，用于签名登录 Cookie。更换它会让所有人重新登录 |
+| `ADMIN_GITHUB_LOGIN` | Text | 站长的 GitHub 用户名，始终是管理员 |
+| `DB`（绑定） | D1 | 账号数据所在的数据库，表名为 `gb_members`、`gb_invites` |
+
+GitHub App 的 Callback URL 需要包含 `https://radar.chenran71ran.cc/api/auth/callback`；在 PR 预览上测试时，还要加上预览地址对应的 `/api/auth/callback`（例如 `https://feat-accounts.github-discovery.pages.dev/api/auth/callback`）。缺少任何一项配置时整站返回 503。
+
+**管理成员**：站长用 GitHub 登录后，点状态栏的头像 →「成员管理」：
+- 邀请：填对方的 GitHub 用户名，对方登录后直接成为成员；
+- 待审批：没被邀请的人登录后会出现在这里，可以通过或拒绝；
+- 成员：修改角色、停用 / 恢复、移除。停用或移除最迟 10 分钟后生效。
+
+**用量**：Pages Functions 免费额度是每天 10 万次请求。带哈希的脚本、样式、图标和图片已通过 `public/_routes.json` 绕过 Functions，打开一次页面大约只计 3–5 次。
+
+**说明**：仓库本身是公开的，代码和 `public/data/` 里的榜单数据在 GitHub 上任何人都能看到；账号模块保护的是这个网站，以及之后按成员保存的收藏等数据。
+
+**临时关闭登录**：在 Pages 的部署列表里对上一个版本执行 Rollback；或者回滚引入账号模块的提交。删掉环境变量不能关闭登录，只会让整站返回 503。
+
+**本地测试真实运行时**：
+
+```bash
+npx pnpm@10.30.3 build:preview
+npx wrangler pages dev dist --d1 DB=local-accounts --compatibility-date 2026-09-22 --binding GITHUB_CLIENT_ID=test --binding GITHUB_CLIENT_SECRET=test --binding SESSION_SECRET=<至少 32 位的测试串> --binding ADMIN_GITHUB_LOGIN=<你的用户名>
+```
+
+本地无法完成真正的 GitHub 登录；可以用测试密钥签出会话 Cookie 来模拟已登录（见 `edge/http.ts` 的 `sessionCookie`）。
+
 ## 上线基线与回滚
 
 - 2026-10-26 北京时间 21:13，生产部署 `27d3d4d9-2f6c-4002-99a0-0392e09c0220` 首次上线新版。之后的改版都经 PR 合入 `main` 发布：#4 液态玻璃、#5 改版、#6 采集扩容、#8 界面重构、#9 分类引擎与悬浮栏。

@@ -3,7 +3,8 @@ import { useQuery } from "@tanstack/react-query"
 import { useMedia } from "react-use"
 import type { Period, Repository } from "@shared/discovery"
 import { domains } from "@shared/taxonomy"
-import { isRepoName, loadDates, loadSnapshot, readSaved, savedKey, writeSaved } from "./api"
+import { AccountButton, MembersPanel } from "./account"
+import { isRepoName, loadDates, loadMe, loadSnapshot, readSaved, savedKey, writeSaved } from "./api"
 import { CategoryFilter } from "./category-filter"
 import { RepoInsight, RepoSheet, time } from "./detail"
 import { Icon } from "./icons"
@@ -42,6 +43,7 @@ export function Discovery() {
   const [saved, setSaved] = useState(readSaved)
   const [activeName, setActiveName] = useState(isRepoName(initial.get("repo")) ? initial.get("repo")! : "")
   const [notice, setNotice] = useState("")
+  const [managing, setManaging] = useState(false)
   const searchRef = useRef<HTMLInputElement>(null)
   const listRef = useRef<HTMLOListElement>(null)
   // 宽屏把解读放在右侧栏，窄屏用底部面板
@@ -49,6 +51,8 @@ export function Discovery() {
   const chromeHidden = useScrollChrome()
   const query = useQuery({ queryKey: ["discovery", date], queryFn: ({ signal }) => loadSnapshot(date, signal), staleTime: 60_000, retry: 1, refetchOnWindowFocus: false })
   const dates = useQuery({ queryKey: ["discovery-dates"], queryFn: loadDates, staleTime: 300_000 })
+  // 账号层（Pages Functions）不存在时为 null，例如本地纯静态开发
+  const me = useQuery({ queryKey: ["me"], queryFn: loadMe, staleTime: 300_000, retry: false, refetchOnWindowFocus: false })
   const data = query.data
 
   useEffect(() => {
@@ -244,6 +248,7 @@ export function Discovery() {
         />
         <i className="chrome-sep" aria-hidden="true" />
         <ModeToggle dark={isDark} onToggle={toggleMode} />
+        {me.data && <AccountButton me={me.data} onManage={() => setManaging(true)} />}
       </header>
 
       <div className="layout">
@@ -341,6 +346,7 @@ export function Discovery() {
         )}
       </div>
 
+      {managing && <MembersPanel onClose={() => setManaging(false)} notify={setNotice} />}
       {!wide && active && <RepoSheet key={active.fullName} repo={active} period={period} saved={!!saved[active.fullName]} onSave={() => toggleSave(active)} onClose={() => setActiveName("")} />}
       <nav className={`chrome bottom ${chromeHidden ? "hidden" : ""}`} aria-label="底部导航">
         <Segmented<"discover" | "saved">

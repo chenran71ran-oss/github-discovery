@@ -5,7 +5,7 @@ on:
     paths-ignore: ['public/data/**', '**/*.md']
   pull_request:
     branches: [main]
-    paths: ['src/**', 'shared/**', 'collector/**', '.github/**', package.json, pnpm-lock.yaml, '*.config.*']
+    paths: ['src/**', 'shared/**', 'collector/**', 'edge/**', 'functions/**', public/_routes.json, '.github/**', package.json, pnpm-lock.yaml, '*.config.*', 'tsconfig*.json']
 permissions:
   contents: read
 concurrency:
@@ -31,7 +31,7 @@ jobs:
       - run: pip install -r collector/requirements.txt
       - run: CF_PAGES=1 pnpm build
       - run: pnpm typecheck
-      - run: pnpm exec vitest run shared/discovery.test.ts
+      - run: pnpm exec vitest run shared/discovery.test.ts edge
       - run: python -m unittest discover -s collector -p 'test_*.py'
       - run: pnpm build:preview
       - uses: actions/upload-artifact@v4

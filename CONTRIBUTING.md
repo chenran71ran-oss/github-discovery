@@ -13,7 +13,7 @@ CI（`.github/workflows/discovery-ci.yml`）依次运行以下命令，本地可
 ```bash
 CF_PAGES=1 pnpm build
 pnpm typecheck
-pnpm exec vitest run shared/discovery.test.ts
+pnpm exec vitest run shared/discovery.test.ts edge
 python -m unittest discover -s collector -p 'test_*.py'
 pnpm build:preview
 ```
@@ -24,6 +24,7 @@ pnpm build:preview
 
 - 数据契约在 `shared/discovery.ts`，分类体系在 `shared/taxonomy.json`，两者前端与采集器共用。跨模块修改字段时，同步更新生产者（采集器）、校验（`isSnapshot`）、消费者（前端）与测试。
 - 采集器按四层组织（`core` → `blocks` → `lab` → `app`），下层不依赖上层，说明见 `docs/ARCHITECTURE.md`。
+- 账号模块在 `edge/`（逻辑）与 `functions/`（Pages Functions 路由，只做转发）。改动后运行 `pnpm exec vitest run edge`；涉及登录、会话或权限的改动，还要用 `wrangler pages dev` 在真实运行时里走一遍。
 - 前端发现页在 `src/components/discovery/`：只有 `api.ts` 读写网络与浏览器存储，`model.ts` 只放纯函数。界面约定见 `docs/DISCOVERY-UI.md`；不要使用与 `uno.config.ts` 快捷类同名的类名（如 `btn`）。
 - 改分类词表后，运行 `python -m collector evaluate --readme`，留出集（holdout）准确率不能下降；只加通用的词，不为单个仓库加专门的词。
 

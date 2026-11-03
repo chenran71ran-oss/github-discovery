@@ -7,8 +7,15 @@ import { type DiscoverySnapshot, type Repository, isSnapshot } from "@shared/dis
 export const savedKey = "discovery-next-favorites-v1"
 const fullName = /^[\w.-]+\/[\w.-]+$/
 
+/** 登录过期或被移除：回到登录页，登录后回到当前位置 */
+export function toLogin(): never {
+  window.location.assign(`/login?next=${encodeURIComponent(window.location.pathname + window.location.search)}`)
+  throw new Error("需要重新登录")
+}
+
 export async function loadSnapshot(date = "", signal?: AbortSignal): Promise<DiscoverySnapshot> {
   const response = await fetch(date ? `/data/history/${date}.json` : "/data/latest.json", { signal, cache: "no-cache" })
+  if (response.status === 401) toLogin()
   if (!response.ok) throw new Error("榜单暂时没有加载成功，请稍后重试。")
   const value: unknown = await response.json()
   if (!isSnapshot(value)) throw new Error("榜单数据格式异常，暂时无法展示。")
@@ -17,7 +24,63 @@ export async function loadSnapshot(date = "", signal?: AbortSignal): Promise<Dis
 
 export async function loadDates(): Promise<string[]> {
   const response = await fetch("/data/dates.json")
+  if (response.status === 401) toLogin()
   return response.ok ? response.json() : []
+}
+
+// ---------- 账号（Cloudflare Pages Functions，见 functions/ 与 edge/） ----------
+
+export type Role = "admin" | "member"
+export interface Me {
+  login: string
+  name: string | null
+  avatar: string | null
+  role: Role
+}
+export interface MemberRow {
+  id: number
+  login: string
+  name: string | null
+  avatar: string | null
+  role: Role
+  status: "active" | "pending" | "blocked"
+  createdAt: string
+  lastLoginAt: string | null
+  owner: boolean
+}
+export interface InviteRow {
+  login: string
+  role: Role
+  invitedBy: string
+  createdAt: string
+}
+
+/** 当前成员。没有账号层（本地纯静态开发）时返回 null，界面不显示账号入口。 */
+export async function loadMe(): Promise<Me | null> {
+  const response = await fetch("/api/me", { cache: "no-store" })
+  if (response.status === 401) toLogin()
+  if (!response.ok || !(response.headers.get("Content-Type") || "").includes("application/json")) return null
+  return response.json()
+}
+
+async function send<T>(method: string, url: string, body?: unknown): Promise<T> {
+  const response = await fetch(url, { method, headers: { "Content-Type": "application/json" }, body: body === undefined ? undefined : JSON.stringify(body) })
+  if (response.status === 401) toLogin()
+  const data = await response.json().catch(() => ({})) as T & { error?: string }
+  if (!response.ok) throw new Error(data.error || "操作没有成功，请稍后重试")
+  return data
+}
+
+export const accountApi = {
+  members: () => send<{ me: number, members: MemberRow[], invites: InviteRow[] }>("GET", "/api/admin/members"),
+  invite: (login: string, role: Role) => send("POST", "/api/admin/invites", { login, role }),
+  revokeInvite: (login: string) => send("DELETE", "/api/admin/invites", { login }),
+  update: (id: number, change: { role?: Role, status?: MemberRow["status"] }) => send("PATCH", `/api/admin/members/${id}`, change),
+  remove: (id: number) => send("DELETE", `/api/admin/members/${id}`),
+  logout: async () => {
+    await send("POST", "/api/auth/logout", {})
+    window.location.assign("/login?status=signedout")
+  },
 }
 
 export function readSaved(): Record<string, Repository> {

@@ -87,9 +87,44 @@ GitHub 搜索 ───┘   （总体 + 每个分类的主题流）            
 3. 确认 holdout 没有变差，再提交。
 4. 新增分类时，同时在 gold 或 holdout 里标注几个样本。
 
+## 账号模块（`edge/` + `functions/`）
+
+网站只对受邀成员开放：用 GitHub 登录，站长与管理员负责邀请、审批和停用成员。它跑在 Cloudflare Pages Functions 上，数据存在 Pages 绑定的 D1（`DB`），同样按四层组织：
+
+| 层 | 文件 | 内容 |
+| :--- | :--- | :--- |
+| 类型与配置 | `edge/types.ts`、`edge/config.ts` | 成员、会话、Cookie 名、有效期、公开路径 |
+| 积木 | `edge/session.ts`、`edge/github.ts`、`edge/store.ts` | HMAC 签名 Cookie、GitHub 登录、D1 存储（表名带 `gb_` 前缀，首次访问自动建表） |
+| 策略 | `edge/access.ts`、`edge/admin.ts` | 登录后的准入、每个请求的放行规则、管理操作的边界 |
+| 外交 | `edge/http.ts`、`edge/pages.ts`、`functions/**` | HTTP 工具、日志、登录页，以及很薄的路由文件 |
+
+**请求怎么走**
+- `functions/_middleware.ts` 拦在所有请求前面：没有有效会话时，打开页面跳到 `/login`，数据与接口返回 401。榜单数据 JSON 同样受保护。
+- `public/_routes.json` 让带哈希的 JS / CSS、图标和图片不经过 Functions（它们就是仓库里公开的代码），减少调用次数；页面、数据和接口都经过。
+- 缺少任何一个环境变量或 D1 绑定时，整站返回 503，而不是不设防地放行。
+
+**登录与准入**
+1. `/api/auth/login` 生成一次性 state（签名后放在 10 分钟有效的 Cookie 里），跳到 GitHub 授权页。
+2. `/api/auth/callback` 核对 state，用 code 换取令牌、读取 GitHub 用户，令牌随即丢弃（第一步不保存任何 GitHub 令牌）。
+3. 准入：`ADMIN_GITHUB_LOGIN` 指定的站长总是管理员；被邀请的人直接成为成员（邀请随即作废）；其他人进入「待审批」；被停用的人进不来。
+4. 写入会话 Cookie：`__Host-` 前缀、HttpOnly、Secure、SameSite=Lax，HMAC-SHA256 签名，有效 7 天。
+
+**会话核对**：会话每 10 分钟回 D1 核对一次成员状态，停用或移除最迟 10 分钟后生效。管理接口每次都以 D1 里的当前角色为准，不信任 Cookie 里的角色。
+
+**防护**
+- 改数据的请求必须同源（`Origin`，或浏览器写的 `Sec-Fetch-Site: same-origin`）且是 JSON，防跨站请求伪造。
+- 会话令牌与登录过程中的 state 令牌用不同的密钥签名（主密钥加上用途派生），并带有用途字段，二者不能互相冒充；会话还要求字段齐全，核对时间缺失或异常时一律回数据库核对。
+- 登录后的跳转先拒绝控制字符、空白和反斜杠，再按浏览器的方式解析，结果必须仍在本站，防开放重定向。
+- 登录页与登录接口不做会话续期，下游已设置或清除会话 Cookie 时也不追加续期，保证退出登录一定生效。
+- 不能修改自己的账号，也不能修改站长账号。
+- 日志一行一个 JSON，不记录 Cookie、令牌或密钥。
+
+**测试**：`edge/accounts.test.ts` 用真正的 SQLite 模拟 D1，覆盖签名、准入、放行规则、中间件、完整的 GitHub 登录回调（GitHub 接口用桩替代）和管理接口的权限。另外在本地用 `wrangler pages dev` 跑过真实的 Workers 运行时，见 `docs/OPERATIONS.md`。
+
 ## 前端
 
 - `shared/taxonomy.ts` 读取同一份分类体系，并把旧快照里改过名的分类映射到新分类（例如「学习与研究」→「教程与资源」）。没有分类字段的旧快照照常显示。
-- `api.ts` 是唯一会 `fetch` 或读写 `localStorage` 的文件。
+- `api.ts` 是唯一会 `fetch` 或读写 `localStorage` 的文件；收到 401 时跳到登录页。`/api/me` 返回 404 说明没有账号层（本地纯静态开发），界面不显示账号入口。
+- `account.tsx` 是状态栏里的头像菜单和成员管理面板。
 - `model.ts` 是纯函数：收藏视图的数据来源、筛选与排序、领域和分类计数、分类分布。
 - 组件只负责展示：`category-filter.tsx` 是两级分类筛选，`classified.tsx` 是 GIT Bot 分类卡片，其余见 `docs/DISCOVERY-UI.md`。
