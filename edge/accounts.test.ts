@@ -8,6 +8,7 @@ import { onRequestPost as invite } from "../functions/api/admin/invites"
 import { onRequestGet as listMembers } from "../functions/api/admin/members"
 import { onRequestPatch as changeMember, onRequestDelete as removeMember } from "../functions/api/admin/members/[id]"
 import { onRequestGet as loginPage } from "../functions/login"
+import { onRequestGet as meHandler } from "../functions/api/me"
 import { admit, guard } from "./access"
 import { RECHECK_AFTER, SESSION_COOKIE, STATE_COOKIE } from "./config"
 import { safeNext, sessionCookie } from "./http"
@@ -210,6 +211,26 @@ describe("review findings (Codex, PR #15)", () => {
     expect(sessionCookies).toHaveLength(1)
     expect(sessionCookies[0]).toMatch(/Max-Age=0/)
   })
+  it("a removed member is sent to the login page instead of looping back into the app", async () => {
+    await ensureSchema(env.DB!)
+    const fresh = await sessionFor(friend, "member")
+    // removed before the 10-minute re-check: the session cookie is still validly signed
+    const me = ctx("/api/me", { cookie: fresh })
+    me.next = async () => meHandler(me)
+    const meRes = await middleware(me)
+    expect(meRes.status).toBe(401)
+    expect(meRes.headers.getSetCookie().some(h => h.startsWith(`${SESSION_COOKIE}=;`))).toBe(true)
+    // the login page must not trust the signature alone and bounce them back
+    const page = await loginPage(ctx("/login?next=/", { cookie: fresh }))
+    expect(page.status).toBe(200)
+    expect(page.headers.get("Set-Cookie")).toContain(`${SESSION_COOKIE}=;`)
+    // a blocked member is treated the same way
+    await store().saveProfile(friend, "member", "blocked", "t")
+    const blocked = ctx("/api/me", { cookie: fresh })
+    blocked.next = async () => meHandler(blocked)
+    expect((await middleware(blocked)).status).toBe(401)
+    expect((await loginPage(ctx("/login?next=/", { cookie: fresh }))).status).toBe(200)
+  })
   it("refuses redirect targets with control characters, spaces or backslashes", () => {
     for (const bad of ["/\t/evil.example", "/\n/evil.example", "/\r//evil.example", "/ /evil.example", "/\\/evil.example", "/x\\..\\..\\evil", "/\u0000/evil"]) expect(safeNext(bad)).toBe("/")
     expect(safeNext("/?q=AI%20%E8%AE%B0%E8%B4%A6")).toBe("/?q=AI%20%E8%AE%B0%E8%B4%A6")
@@ -271,6 +292,9 @@ describe("gitHub login flow", () => {
     const html = await page.text()
     expect(html).toContain("/api/auth/login?next=%2Fx")
     expect(html).toContain("站长通过之后")
+    // 只有数据库里仍是有效成员时，登录页才直接放回站内
+    await ensureSchema(env.DB!)
+    await store().saveProfile(friend, "member", "active", "t")
     const signedIn = await loginPage(ctx("/login?next=/x", { cookie: await sessionFor(friend, "member") }))
     expect(signedIn.headers.get("Location")).toBe("/x")
   })
