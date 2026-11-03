@@ -356,3 +356,11 @@ describe("admin API", () => {
     expect(res.status).toBe(403)
   })
 })
+
+describe("environment values pasted with whitespace", () => {
+  it("trims the client id in the authorize URL", async () => {
+    const { authorizeUrl } = await import("./github")
+    const url = new URL(authorizeUrl(" Iv23abc \n", "https://example.com/api/auth/callback", "s"))
+    expect(url.searchParams.get("client_id")).toBe("Iv23abc")
+  })
+})
