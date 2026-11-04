@@ -85,9 +85,9 @@
     "at": "2026-10-30T13:49:17.238303+08:00"
   },
   "realidkroo/Mochy-Music": {
-    "hash": "17f52d87e1b6b4b57db774accfb4a79f59727a9579975f1b07e690a7b420fe71",
-    "summary": "现代时尚的音乐播放器。",
-    "at": "2026-10-30T13:49:17.238303+08:00"
+    "hash": "e74415a7282617b69a53be54fae6e22d5b7454b400b6f98d267fcf062ae773be",
+    "summary": "现代、酷炫、时尚的音乐播放器。使用< 3制作",
+    "at": "2026-11-04T14:42:14.897156+08:00"
   },
   "iOfficeAI/OfficeCLI": {
     "hash": "b79847898ad6208d44475d1e9ab44893fea9c83f0e4ce15d225ef6723452cce2",
@@ -1305,9 +1305,9 @@
     "at": "2026-10-30T13:49:17.238303+08:00"
   },
   "jub0t/Concat": {
-    "hash": "3e8a6a23989b7e9e830f35a5aafa311aaffb158a8b532bd2b2ac101206cb06fd",
-    "summary": "真正免费、开源、本地优先、跨平台的CapCut替代品。可通过JSON-RPC API和MCP编写脚本。",
-    "at": "2026-10-30T13:49:17.238303+08:00"
+    "hash": "020e96f825bbeb8b9937907e58568849ce4b2ecdf290c68cb27b245abd76a3e8",
+    "summary": "Beta ：真正免费、开源、本地优先、跨平台的CapCut替代品。可通过JSON-RPC API和MCP编写脚本。",
+    "at": "2026-11-04T14:42:14.897156+08:00"
   },
   "deeplethe/utopia": {
     "hash": "3f4994f0f81c4fd39a337ecd480e98aa7f695ee585d473846a58f43e40b57c02",
@@ -1670,9 +1670,9 @@
     "at": "2026-10-31T13:57:24.853434+08:00"
   },
   "lexifina/global-law": {
-    "hash": "748bc331e93d393a3efbe5014cf46556dd436513991e67451a0da7001efe4881",
-    "summary": "Git for Global Law ：每个国家的法律作为一个git历史，每个国家的记录一个子模块，每个提交一个法律生效",
-    "at": "2026-10-31T13:57:24.853434+08:00"
+    "hash": "28cef45e1dd36cd5b1403a61c5cbce082032f5220f11048dad3347dbcec8f1e8",
+    "summary": "Git中的世界法律：任何条款、任何国家、任何日期以及写下每个单词的法律。",
+    "at": "2026-11-04T14:42:14.897156+08:00"
   },
   "kevinraymond/florilegium": {
     "hash": "56540e653ad7e02008ed68825ac494c1cb15bf863f00343fc4a0c6cb48e5959e",
@@ -3788,5 +3788,255 @@
     "hash": "3877e3f71e51579c9177cc65f56c979b110b312ef454e99930db4cd298ff082f",
     "summary": "RSI论文公开索引",
     "at": "2026-11-03T14:59:32.314123+08:00"
+  },
+  "Asymptote-Labs/agent-beacon": {
+    "hash": "9d8ad934898d3f69fe94b7af6d34868a5efd70eb910da73aa040f0591d799cdc",
+    "summary": "人工智能代理的交叉利用、自我改进的记忆层。加入我们的社区： https://discord.com/invite/zdNChS2fBu",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "ivankovic/omnidiff": {
+    "hash": "656d831c1148bdc0746e9f513fad26215cc65fa2a44defd7b2ad9fe8e4efc2d2",
+    "summary": "快速、稳健、准确的区分",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "monicahq/monica": {
+    "hash": "f22cc5e90d4fa20cec6b7b702b6a5b91593bf6a71676d1e6eb571e9f727a2e52",
+    "summary": "个人CRM。记住您朋友、家人和业务关系的一切。",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "Mesh-LLM/mesh-llm": {
+    "hash": "9c716ec421d954796b669ae3424b2c8c58fc63600a3889866cd4f986cb586c01",
+    "summary": "为人们提供分布式AI/LLM。私下或公开共享计算，为您的代理和聊天提供支持。",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "YizhengWw/HachimoDock": {
+    "hash": "1f00b2ba2e69fea79107ce1c8a882831fafc57651a150497f5fb47a068c9f900",
+    "summary": "实时响应Claude Code会话的桌面宠物—思考、打字、杂耍、睡眠等。",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "hieunc229/mailflare": {
+    "hash": "6ecdcdc4c54b3487f3643133c2d74f20c6414a27cda9eb966298ae80a536e7e8",
+    "summary": "面向专业人士和团队的电子邮件",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "abue-ammar/tinycast": {
+    "hash": "cd91a2905be20ef6ff6c595b83d210b116e83425ae32f912a5382b236e889f28",
+    "summary": "Tinycast —一个小巧、完全原生的macOS启动器、热键和剪贴板历史记录。",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "skylot/jadx": {
+    "hash": "7d9769b214f3b2ce1294554eef7b5d1fc7047938dd3c298bb6bc7d8b2123f41c",
+    "summary": "DEX到Java反编译器",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "Tianyu199509/DeskBox": {
+    "hash": "fdfdf4dbe810e0995044e8523efccbeb9d1cf87c30e290952f87398e21178ae2",
+    "summary": "一个免费的开源Windows桌面组织器，带有原生WinUI 3小部件。",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "umlx5h/LLPlayer": {
+    "hash": "b5eaafe2ca6b641c12bd49a920f7a34be6b28ff8d256e1616707dc3c8789f450",
+    "summary": "用于语言学习的媒体播放器，具有双字幕、AI生成的字幕、实时翻译等功能！",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "Finb/Bark": {
+    "hash": "7aa6dd374efa872ecc8d6759f194a97b4a3b7c40adf671c74268dd1cd983d779",
+    "summary": "Bark是一款iOS应用程序，允许您将自定义通知推送到iPhone",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "audacity/audacity": {
+    "hash": "9f93ca900176be1756205c73f40ac462de91214796df35806a39f365d0799b1e",
+    "summary": "音频编辑器Name",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "webbrain-one/webbrain": {
+    "hash": "95628af5f79dfc034895a3a09fbd42f0bbcae91de39b671d406f36507a078eb5",
+    "summary": "适用于Chrome和Firefox的开源AI浏览器代理（ monorepo ） 🧠",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "datadrivenconstruction/OpenConstructionERP": {
+    "hash": "f04f92901c4878772e8690db25bcbb0b01dac66f51cb8ea0b8b9e17f103a33f1",
+    "summary": "开源建筑ERP - BOQ ， PDF/CAD/BIM起飞， AI成本匹配， 293个指导案例。120,000多个定价职位， 44种语言， 190多个模块， 40多个市场的成本数据。AGPL-3.0. pip安装openconstructionerp",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "opa334/Dopamine": {
+    "hash": "7e3a33412fb60e5c25190732c93c68b31e763d3301a429fd169072e800233ace",
+    "summary": "多巴胺是适用于iOS 15至26 （ .0.1 ）的半无绳越狱",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "Sonarr/Sonarr": {
+    "hash": "e46a149dbb7a0fc51d8d297fb2fb8e5b8d8a4b765a9770f05aeff4d51bf4c093",
+    "summary": "面向新闻组和BitTorrent用户的智能PVR。",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "jomjol/AI-on-the-edge-device": {
+    "hash": "56b43688c982f84ffc6d52bbd3366f3098e17ca91558eef590024d0fd1b27c4e",
+    "summary": "易于使用的设备，用于将“旧”测量单元（水、电、气等）连接到数字世界",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "rizinorg/rizin": {
+    "hash": "fb707d6e5c77a9da25c1588d3e4d5d55986526d988183f6c492918a19a734103",
+    "summary": "类UNIX逆向工程框架和命令行工具集。",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "qax-os/excelize": {
+    "hash": "4b18baea3f3e650b914360ef8974428620925080844a850d5d6cbd351fabb4c3",
+    "summary": "阅读和编写Microsoft Excel™ （ XLAM/XLSM/XLSX/XLTM/XLTX ）电子表格的语言库",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "floci-io/floci-az": {
+    "hash": "3a083774cce2efc772af77120373a8bdecb04b27b1e70576492c85f49368526d",
+    "summary": "轻盈、蓬松且始终免费-本地Azure模拟器",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "argoproj/argo-cd": {
+    "hash": "f56cdfd8d4471a492565a704253f362974d23ed3e847afa4e2e593bb9841f37e",
+    "summary": "Kubernetes的声明式持续部署",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "ZalithLauncher/ZalithLauncher2": {
+    "hash": "dd6877c3047f560779aa5a716c9d042269c30213d2c6a76d2e5fc1af2b8b049d",
+    "summary": "Minecraft ：适用于Android的Java版启动器",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "meshtastic/firmware": {
+    "hash": "6d249945f49625b5cd710713680937e2aea8d7a003af9fbd1e1cf9ca8da138c0",
+    "summary": "Meshtastic的官方固件，这是一个开源的离网格通信系统。",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "gnachman/iTerm2": {
+    "hash": "3e3cef95a3ac79865152b85b362ad956fc8a257349ab9267e1baf3f76b3935fa",
+    "summary": "iTerm2是适用于Mac OS X的终端模拟器，可以做出令人惊叹的事情。",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "coolsnowwolf/lede": {
+    "hash": "240a369802e4d9b2990292db290a845e418b7187b858e3e654f7057cffbc1684",
+    "summary": "Lean的LEDE源",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "MUnique/OpenMU": {
+    "hash": "3a7a3ca2019ee88b390b7b8d0412b40dc4f794a9f4629124cd984f2b52fb78fc",
+    "summary": "该项目旨在为名为“MU Online”的MMORPG创建一个易于使用、可扩展和可定制的服务器。",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "modelcontextprotocol/java-sdk": {
+    "hash": "b92ca594ee990285e9d2c0f0053e4a60a7a6171fa1f713acddc7b1db9112536b",
+    "summary": "用于模型上下文协议服务器和客户端的官方Java SDK。与Spring AI合作维护",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "Pika-Labs/Pika-H3-Flex": {
+    "hash": "2a7ef9129ac8b89539f86b03c619376087bbdb7a5d728f6d2c77095dbbaa529f",
+    "summary": "Pika H3 Flex ：视频和音频生成推断",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "RikiyaT/lm_understand-logs": {
+    "hash": "03e0134b53cdfea4bd1f8196873d036d2fc93f6c8c4e8412a95d24b0736c9b84",
+    "summary": "博客文章“LLM可以理解和编写神经网络权重”中的完整实验日志",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "speridlabs/idol-sdk": {
+    "hash": "b8630cee4197ab6ab90a13c5d27541704ad18309bdd104f00143371034f961db",
+    "summary": "偶像： 3D高斯的单个图像。推理SDK和演示。",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "AssassinCreator/steam-stash-value-report-card": {
+    "hash": "7a03062552e06c4fd8ac681b5d5151f99d28cb950bc4a5a529ceee81dad5edfa",
+    "summary": "在终端中珍惜您的Steam藏品，并将其打印为共享卡片：每场比赛，每个市场，出售的内容和位置。一个Windows便携式版本，无帐户。",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "ramenvr/autopilot": {
+    "hash": "333df93c7f8c8b87d0c8b1c38bce6f64632cadcaf5ceb47f9ee907a0c9795d66",
+    "summary": "玩任何游戏",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "govijr/terminal-mac": {
+    "hash": "51f03e491da9b1eea90c260d96963e99292f7fb36270603186aacaea11e609a0",
+    "summary": "整个MacOS在您的终端中运行。",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "Anubis-Security-Tool/anubis": {
+    "hash": "c8755d52c76a02ddd6f09d5b3fe9813225558b89c9148ea9181cb6ce77dd57ec",
+    "summary": "🛡️ 免费开源人工智能安全终端和漏洞扫描程序（ CVE、SBOM ）。多协议访问： SSH、SFTP、RDP、VNC、串行。12 + AI代理（ OpenAI、DeepSeek ）用于Pentesting、CTF、DevSecOps和安全自动化。跨平台和Web UI。",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "Nucleusanwish/microsoft-office": {
+    "hash": "d0c39c69501657c979d67c53c8154bab0067926dee1240bd1db96dab0243872a",
+    "summary": "完整的Microsoft Office 2026独立设置，具有完整的预激活和所有准备运行的基本组件。",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "fzn0x/mixmusic": {
+    "hash": "dff9346eaf061fb38ef766470683b18b404a2d0fda288c234a4501388d324525",
+    "summary": "MixMusic -轻量级（约64MB内存使用量）适用于macOS、Windows和Linux的YouTube Music和Spotify客户端，带有社区主题和插件。应用程序和Go软件包的双许可证完全免费。",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "aethai/ro3emu-server": {
+    "hash": "cf8854d6025c61066dbcde83db6b930619a4cfc618f5d794d313087bf8da02c8",
+    "summary": "在您自己的服务器上玩Ragnarok Online 3。开源RO3服务器模拟器：在Windows上单击一下，在Windows或Linux上为朋友主持。C #/.NET 10.",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "kaganin/iwrzwr-visual-archive": {
+    "hash": "2772fd9bf228f129b98261ea8cfe37e794e5ee338fab4d1ddd00e7fe1e3502f5",
+    "summary": "使用javascript构建的超过25个类别的160多个实验可视化研究。探索波形动画、频谱灵感显示、矩阵模式、粒子场、节奏、记忆和机械运动。研究绘图代码，并为您自己的创意编码项目调整实时示例。",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "SCEPTICG/hikari-mpv": {
+    "hash": "395e03a134d0614d538e5b8624dff8d64c40e96dfa923baf304fc501fe85d2be",
+    "summary": "基于uosc构建的MPV视频播放器的现代主题： 14种调色板（ Catppuccin、Tokyo Night、Dracula、Nord... ）、跳过打开/结束按钮、时间轴缩略图、字幕样式、干净的动漫标题和自动Anime4K升级。支持13种语言。在Windows、macOS和Linux上只需一个命令即可安装。",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "Lucifix/newsnest": {
+    "hash": "cdf774f8d377f019de82c1306b93302f4a9e117ca0827ce311c357878e9c4850",
+    "summary": "自托管新闻订阅源，了解您关心的内容。与Claude一起对各个媒体的故事进行分组、排名和总结。",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "cloudflare/cloudflared": {
+    "hash": "dfefef44eb159203a95b95149139dcec60c882cda947138e4c6454e571d39770",
+    "summary": "Cloudflare隧道客户端",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "traccar/traccar": {
+    "hash": "ce7e4eea257ebe33c6a1749eead0a34f412ea6e5130eb6abbfdd82d169bad375",
+    "summary": "开源GPS跟踪平台-自托管或托管， 200多种设备协议",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "robinebers/openusage": {
+    "hash": "0c521e14d997ddac041382adba3aa45aad5bd705ccb29e0337bf5970257d56a3",
+    "summary": "订阅烧录速度过快？为您从未使用过的东西付费？别猜了， OpenUsage是免费开源的。",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "google/perfetto": {
+    "hash": "cbc67442fd2f30fa6edfeb7a474ee18a059dfb8a7de140d9c4fd360b18b39f3a",
+    "summary": "针对复杂软件系统的生产级客户端跟踪、分析和分析。",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "sheprd-labs/sheprd": {
+    "hash": "0f351268f84643c5baba4e0e4b44c0dfb06c0444e1b9eeae1e374fefea2f360a",
+    "summary": "使用Rust和GPUI构建的macOS、Linux和Windows上的Herdr本机客户端。通过本地Herdr守护进程查看终端会话、工作区、Git工作树和代理活动。",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "ZacharyZhang-NY/Ely-GPUI-Components": {
+    "hash": "d3e4ad26e8bdc545ce02ec6f8d49ec085ca332e6bc5b73d3338671257e5681fa",
+    "summary": "用于GPUI的组件库，亮色和暗色。每个组件都在浏览器中实时运行。",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "earthtojake/text-to-cad": {
+    "hash": "e8730a4d08ad43a4014ee49cf7f0b6cd71a56ca27b8bd1035ba0937e40695111",
+    "summary": "使用AI设计实物产品",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "bethington/ghidra-mcp": {
+    "hash": "fd39503df375960cf7aaaf207ab822b73325d30c6882ed26ace26651469e2ebb",
+    "summary": "Ghidra MCP服务器—用于人工智能逆向工程的200多种MCP工具。GUI插件+无头服务器，延迟工具加载，约定强制执行，批量操作， Ghidra Server集成， Docker部署。",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "DaveyHert/Dishylink": {
+    "hash": "37b01e55c09ad4f0bdbda90ec5ba64c1b1833bc6ca3e16658625181d1e7dd20d",
+    "summary": "适用于macOS、Windows和浏览器的开源桌面应用程序，用于监控Starlink的性能和运行状况。",
+    "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "ParthJadhav/noop": {
+    "hash": "5433239e2fb1cb62a296d3d2096b85b092a192ab920727074f521149c23c0b86",
+    "summary": "恢复的NOOP源和释放伪影的连续性镜像",
+    "at": "2026-11-04T14:42:14.897156+08:00"
   }
 }
