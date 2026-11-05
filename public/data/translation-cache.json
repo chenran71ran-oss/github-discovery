@@ -2750,9 +2750,9 @@
     "at": "2026-11-02T15:58:39.387747+08:00"
   },
   "slaterain/nv-rs": {
-    "hash": "57670eae6a5c5d70f8f3bae2df2725aa760311c29d19344eb781535c3bdf168b",
-    "summary": "实验辐射：在Rust和Bevy中重新实现新的拉斯维加斯引擎。需要您自己的游戏数据；首先是基础游戏基础。",
-    "at": "2026-11-02T15:58:39.387747+08:00"
+    "hash": "7c9664bef999372d955c6ddb2c21d00c0819d88b23f6e2deacf862df07f340fe",
+    "summary": "实验辐射：在Rust中重新实现新的拉斯维加斯引擎。需要您自己的游戏数据；首先是基础游戏基础。",
+    "at": "2026-11-05T15:00:42.098507+08:00"
   },
   "ericzhang12111-cell/RhinE": {
     "hash": "a572f94068d41cb80e928f45415edf35f5bb37f1d8c5615530e062a76b6a7042",
@@ -2780,9 +2780,9 @@
     "at": "2026-11-02T15:58:39.387747+08:00"
   },
   "bertel2020/HA-Housekeeper": {
-    "hash": "2ee0aa4937fd10babda9c3ec1c401ef55b88b5cd8d823144464f7c07e067c3ea",
-    "summary": "Home Assistant维护资源管理器：库存、诊断、影响分析和确认、可逆清理",
-    "at": "2026-11-02T15:58:39.387747+08:00"
+    "hash": "a46b5c11f05f5d3c55d11c882e1920110af6fe512804259c2f3ba9a2ba05d9c1",
+    "summary": "居家助理的客房清洁和清理：查找孤立实体、设备和统计数据，检查影响，通过确认进行清理并撤销",
+    "at": "2026-11-05T15:00:42.098507+08:00"
   },
   "amos689/paperdelta": {
     "hash": "c7479750eaa0a4a5fc3ea0a2f630bbdbaf5c965585a0ca484a335e1a7bb16a9a",
@@ -3080,9 +3080,9 @@
     "at": "2026-11-02T15:58:39.387747+08:00"
   },
   "Mastershort/neonplan3d": {
-    "hash": "7dc90f24f33442a50c5525c92432f6527a700fdf6f45b8487484a2d0679459bb",
-    "summary": "Home Assistant的3D平面图：在内置编辑器（房间、墙壁、门、窗户、家具、屋顶）中绘制您的房源，并以霓虹灯3D视图（侧边栏面板和仪表板卡）查看和控制灯光、盖板、窗户、气候、媒体、传感器和摄像头。",
-    "at": "2026-11-02T15:58:39.387747+08:00"
+    "hash": "4e409990d72faafe5e546411b66f3059ca9530ce8969803a27b7fab4c1b0d06c",
+    "summary": "Home Assistant的原始3D平面图：在内置编辑器中绘制您的房源，查看和控制灯光、封面、气候、媒体、传感器和摄像头，以霓虹灯3D面板和仪表板卡的形式运行，也可以在旧的墙上平板电脑上运行。",
+    "at": "2026-11-05T15:00:42.098507+08:00"
   },
   "openOMSI-org/openOMSI": {
     "hash": "7ce3cf85d55114e770cc23db9f74f106f7d1461c135bf9676e5cb902ce7cc617",
@@ -3755,9 +3755,9 @@
     "at": "2026-11-03T14:59:32.314123+08:00"
   },
   "michael-denyer/pstack-claude": {
-    "hash": "35fadb1c63f35dce947448f0b75d51ab51c9cf91adacfadff6dbb217221c2355",
-    "summary": "Poteto pstack的Claude Code、Codex、Copilot、Pi、OpenCode、Muse、Gemini和Prime Agent版本。严格的代理工作流程，将Cursor基元转换为其他线束。",
-    "at": "2026-11-03T14:59:32.314123+08:00"
+    "hash": "44a8c4c72bac66ae5e5868a44e67760b4b5530df412f8d12d6347a4750dfe405",
+    "summary": "Antigravity、Claude Code、Codex、Copilot、Gemini、Muse、OpenCode、Pi和Poteto pstack的Prime Agent版本。严格的代理工作流程，将Cursor基元转换为其他线束。",
+    "at": "2026-11-05T15:00:42.098507+08:00"
   },
   "HKUDS/DeepTutor": {
     "hash": "aac65fe757ff28e7a2615584700d4cf6ff1ea108948879d7a2ce1e0a474edd64",
@@ -4038,5 +4038,225 @@
     "hash": "5433239e2fb1cb62a296d3d2096b85b092a192ab920727074f521149c23c0b86",
     "summary": "恢复的NOOP源和释放伪影的连续性镜像",
     "at": "2026-11-04T14:42:14.897156+08:00"
+  },
+  "NVIDIA/auto-ontology": {
+    "hash": "860a94f952e9994393cea3efff4a9bd03a6ccf455954c7a7ad89c5464ca0cec2",
+    "summary": "Auto Ontology是一个Python框架，用于在数据上构建基于图的语义推理层。它为LLM和代理工作流程提供了确定性的查询生成、更好的上下文检索和更可解释的人工智能。",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "The-PR-Agent/pr-agent": {
+    "hash": "4d191ecc1320307f18934cc15f560a1d361dc612805088ad43efbb72aa4f8851",
+    "summary": "🚀 公关代理人：最初的开源公关审稿人。此项目不是Qodo免费会员等级。",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "garrytan/gstack": {
+    "hash": "fa06d7b48c4b83ce01be9ca28a8b953f5b92e87a2eef4d19c3b10a3e32a90155",
+    "summary": "使用Garry Tan确切的Claude Code设置： 23个自以为是的工具，分别担任首席执行官、设计师、工程经理、发布经理、文档工程师和QA",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "FareedKhan-dev/kimi-k3-in-c": {
+    "hash": "5f542c6d49a8546f31a551914d819fbdd40a202c5c368ce08cec6a37df34bffc",
+    "summary": "在8.24 GB RAM的单个CPU上运行推理的2.78万亿参数Kimi K3。便携式C99 ：无BLAS、无框架、无GPU。",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "MichaelCade/90DaysOfDevOps": {
+    "hash": "5c0c20d22c772008f3faec2504621a40064247f76cdea189c57e320c73b24a04",
+    "summary": "这个存储库最初是我自己在公共项目中的学习，现在已经成为社区中许多人的结构化学习地图。我们有3年的时间涵盖DevOps的所有内容，包括围绕这个庞大主题的原则、流程、工具和用例。",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "scenario-labs/skills": {
+    "hash": "ed46bb5b2fdbfd3c748ca0c80dc8d47ac195290f9c716bf0223de2d8be4d3bb7",
+    "summary": "从任何AI代理商处获取适合制作的图像、视频、音频和3D ：通过场景MCP选择合适的型号、消费前的价格并保持角色和品牌一致的技能，以及驱动Blender、Maya、ZBrush、Unreal和Unity的专家团队。",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "crmne/zapfast": {
+    "hash": "7dd0cf06a162f7bb95e6ef300ab95d2bba0a23e79c158dae6c63785ddf989615",
+    "summary": "ZapFast ： Rust和egui中的快速本机WhatsApp客户端",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "ConardLi/garden-skills": {
+    "hash": "dc335203dab2d6468057faded53ab66b0f18e163593e93f63702d3f049768f4e",
+    "summary": "ConardLi的开源Skills系列，包括网页设计、知识检索、图像生成等。",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "Anil-matcha/open-duet": {
+    "hash": "5696a377a0d4d1d30b62c3f19d2c624110108508790be9a8e0f4867f16c8c8cf",
+    "summary": "开源、自托管的Grok Bot、Claude Duet、OpenAI Dots、Meta Muse、Instinct、Manus Cue替代品： AI同事（已命名的代理人） ，提供指令、内存、例程、他们自己的隔离计算机，并在他们采取行动之前获得您的批准。",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "altic-dev/FluidVoice": {
+    "hash": "f60d5539b9b432abfa456a436049f0a3e688234018d7d8ad81d8765f9f6a35b1",
+    "summary": "具有设备上STT和定制训练的人工智能增强模型的最快且唯一的macOS听写应用程序。Windows、iOS测试航班！ Android、Linux等候名单打开！本地Wispr Flow替代品。关注https://x.com/fluidvoiceapp了解更多信息",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "janhq/jan": {
+    "hash": "04ff48c93442bd3df7e7429724ef56f1eadebdc0c14cca4fe9ecc7dde2e3c95f",
+    "summary": "JAN是ChatGPT的开源替代方案，可在您的计算机上100%离线运行。",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "superplanehq/superplane": {
+    "hash": "42356b9d1059bd8913927671fa0141dec437dac63bdee25ddb0a13342b501ba2",
+    "summary": "一次性工程的开源工厂",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "pocket-id/pocket-id": {
+    "hash": "d1c2a00075f208d6eb7410b7eeef611611ce66b5f713454fca56bdc8d29077da",
+    "summary": "最用户友好的OpenID Connect Certified™和OAuth 2.0提供商，允许用户使用密钥登录您的应用程序。",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "radareorg/radare2": {
+    "hash": "2f5e57b0507d3278debfa71314e31cd8977df850392cc9ebf1598d2f8c05de89",
+    "summary": "类UNIX逆向工程框架和命令行工具集",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "mermaid-js/mermaid": {
+    "hash": "5facad94214a4723c3e9e473fca3bbec4907f63d65eeb20e0fc3a3011f0c7363",
+    "summary": "以类似于扣分的方式从文本生成图表，如流程图或序列图",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "android/nowinandroid": {
+    "hash": "2d4f5d23c76c471f10366ea623d4e43a37c7f83356ca033a5567ad413af02b2d",
+    "summary": "功能齐全的Android应用程序，完全由Kotlin和Jetpack Compose构建",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "jgraph/drawio-desktop": {
+    "hash": "c674c09c82d791f4555a802d6fd72fab9ea6354748329fbec204e8e971001b0b",
+    "summary": "Draw.io的官方电子构建",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "l984-451/Rivulet": {
+    "hash": "fdae0af01c54224e813232d12e798db4d9eb2bd31b9beb81f955eb2b6594d6b6",
+    "summary": "适用于Plex、Jellyfin和Live TV的原生Apple TV应用程序",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "Duecki1/CalibRaw": {
+    "hash": "64992214bb443b1ecfd5282d513802a10f927501235e9190541ddec25a1399f3",
+    "summary": "适用于Linux、Android、Windows和macOS的免费开源RAW编辑器。GPU加速、无损、带掩码、HDR合并和本地AI。",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "sw33tLie/macshot": {
+    "hash": "1583c437f55dc1425a6f80e7b029403e1028ad8b52cae44304892eda4983e960",
+    "summary": "功能丰富的原生macOS屏幕截图和录制工具：注释、自动编辑PII、录制GIF、OCR +翻译、滚动捕获、美化等。没有Electron ，没有订阅。",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "dorianborian/sesame-robot": {
+    "hash": "b575d0e046ea76b9ad06bc6bd965fb6a17d0113495827bcccdfb2e5457b791b3",
+    "summary": "基于ESP32的开放且经济实惠的迷你四足机器人。",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "kvcache-ai/Mooncake": {
+    "hash": "820b5cb0e3aba087d5e6dde2159f6158db4e5287ad9cc72c3dbf5fb80e8610a2",
+    "summary": "Mooncake是Moonshot AI提供的领先LLM服务Kimi的服务平台。",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "PowerShell/PowerShell": {
+    "hash": "f189161a2ba14231d65ebc6417b362b8778b50727630ffff5e103e569e1762cb",
+    "summary": "适用于每个系统的PowerShell ！",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "throneproj/ThroneForAndroid": {
+    "hash": "0a0256c4bcac19caf133d1c69a6d85528779aeb0fd437a07b12246010a287d2c",
+    "summary": "Android GUI代理实用程序（由sing-box授权）",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "ReChronoRain/HyperCeiler": {
+    "hash": "1be7c270ba12ec19f62e5f54fd864b113d3528d39e317c8c8cd49714e034be23",
+    "summary": "HyperOS增强模块-让HyperOS再次伟大！",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "open-meteo/open-meteo": {
+    "hash": "dd4e32f37b7cb70c5149a98bf562a596d4b17f181301be345a7afac25ccdef54",
+    "summary": "用于非商业用途的免费天气预报API",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "google/googletest": {
+    "hash": "31b9f69900907705988547ee47cba756a6764628171f777c27ac16447464222b",
+    "summary": "GoogleTest - Google测试和模拟框架",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "mautic/mautic": {
+    "hash": "53b361ab7205a2d5413e140e3cbe3176a2ad4eaec742d4ec7c6528d2e089fd41",
+    "summary": "Mautic ：开源营销自动化软件。",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "vedderb/bldc": {
+    "hash": "aee3eb457f468efe1376d1d016acd63813846cd05856c30124534673d692e29c",
+    "summary": "VESC电机控制固件",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "microsoft/onnxruntime": {
+    "hash": "6ce7910a5714312775e555d3d40fe0b18aee10e6b5c923a96e5ab6fce888d40e",
+    "summary": "ONNX运行时：跨平台、高性能机器学习推理和训练加速器",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "worldonlyu/Google_AI_Pro_2Year_ZeroCost_Auto": {
+    "hash": "9ddc62b618718fdf73783c760fd88e1d6e319aa543711b937c39931463ee90db",
+    "summary": "Google_AI_Pro_2年_零成本_自动",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "zortos293/Lichii": {
+    "hash": "49bf63e81245b6f34421771bdc4debd836adcbae8179fc1e52b2c065471df3c2",
+    "summary": "非常实验性的Nintendo Switch 2仿真器",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "N1nEmAn/sapper-v2": {
+    "hash": "2067c7f9c1015bb2d3cd4dad91df0b98ee6553704026b6faee82cfcf59c6ed82",
+    "summary": "自主Pentest军团— AI指挥官+工作者群体+分层事实意图。第三名腾讯智能攻击防御在线冠军（ 634支队伍· 8小时无人值守· 10亿代币击败4.5B ）。Nüwa测试：赋予人工智能创造/语言/历史，让文明成长。",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "Minireel/HGhub": {
+    "hash": "437ae51df0bba2b0b13c3524e0dbb93f2e063e0a857b090ee5d2e85f51e17229",
+    "summary": "YellowFruit第三方客户端",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "kitlangton/scrawl": {
+    "hash": "4015494bfb3a5ed5a9022f903a72806513582c89d7645e59a94514fc8523ded6",
+    "summary": "向客服代表展示问题：标记、记录、发送",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "anthropics/FlashProve": {
+    "hash": "81c9de70fd4aa46fef98ba28940fd4a5e6be50d4c5cb7a57011ede5c402a0f15",
+    "summary": "人工智能推断零知识证明的研究原型。未维护。",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "dragonwolfshovel/youtube-uploader": {
+    "hash": "ec43d211c3c490132c50aab95680fed18b7dfa00d8940007cf19dea312264585",
+    "summary": "具有批处理、缩略图支持和定时发布功能的自动化YouTube视频上传器。使用官方YouTube数据API v3。开源和隐私至上",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "Azure12355/weilanx-claude-videos": {
+    "hash": "8722571cd2685052b2c0da7f1477dffb1d0f2da43b2249fee0e350634c80a9b9",
+    "summary": "完全用代码编写的手绘和像素艺术解释器视频— Remotion + React + SVG ，程序音乐和SFX ，字幕驱动的计时",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "anefzaoui/misterdownloadmanager": {
+    "hash": "43e617462c515e124d89dd3f560045b08d1494f98c053749d2db1381ee1b1f57",
+    "summary": "misterdownloadmanager ：适用于Windows、Mac和Linux的纯Rust从头开始编写的终极开源洁净室下载管理器",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "lolitemaultes/Gridline": {
+    "hash": "f7bf869ebcf9c388477a6ad82734f8a71fc331ccbc9e1923c20a721ea4fd55df",
+    "summary": "围绕网格构建的免费开源音乐工作站。",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "Nasiko-Labs/nasiko": {
+    "hash": "a3178ec2ede613095a3e6c481934fe9dbfc279f94efd6c7357ecaa23314f2fdd",
+    "summary": "人工智能代理的开放运行时",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "Jakeschincariol/day-trader-skill": {
+    "hash": "139db64bf1e3f63828cd4c4487b2ea869ab259db9fd016d1084550ebe4ba509f",
+    "summary": "11日内交易的Claude技能：扫描数千张图表，跟踪突发新闻，每次进出时间，并在冒一美元的风险之前重播每个结果。",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "MGM81641/TaxSlayer-Desktop-Guide": {
+    "hash": "ea6c0ff6e5c892434789bc6a000895075ca7529de69ae16aefe8526ed5ddc1d4",
+    "summary": "适用于Windows 11和10的TaxSlayer 2026 ：安装、设置和归档指南",
+    "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "storytold/artcraft": {
+    "hash": "b6129ce2203ff97f004efbe0635feae1497ac7e2cfa427731760430448cf7460",
+    "summary": "ArtCraft是艺术家、设计师和电影制作人的特意制作引擎",
+    "at": "2026-11-05T15:00:42.098507+08:00"
   }
 }
