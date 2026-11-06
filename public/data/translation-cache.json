@@ -35,9 +35,9 @@
     "at": "2026-10-30T13:49:17.238303+08:00"
   },
   "JustVugg/colibri": {
-    "hash": "cf345f21681b59b92fd9dd200a4cb5c4635f3ff9008fe5160b26e5ee0ecf6069",
-    "summary": "在您已经拥有的硬件上运行前沿MoE模型—纯C ，零DEPS ，从磁盘流式传输的专家。微型引擎，超大型号。 🐦",
-    "at": "2026-10-30T13:49:17.238303+08:00"
+    "hash": "264cf8391ada36bb828362fa48610308ae646e315f1e7317a171f081b88d65ed",
+    "summary": "前沿MoE模型的分层推理引擎： GPU （ CUDA ， Vulkan ）的热门专家， RAM中的热门专家，从NVMe流式传输的冷门专家。用C编写，在您已经拥有的硬件上运行。",
+    "at": "2026-11-06T15:00:22.164862+08:00"
   },
   "baidu/Unlimited-OCR": {
     "hash": "8158bf430576fc58db1c248b55ac765bbe0772a00dcc65693e7f5a3ed64a70f9",
@@ -855,9 +855,9 @@
     "at": "2026-10-30T13:49:17.238303+08:00"
   },
   "AienTech/dossier": {
-    "hash": "888002e8651d58bacc55c5d3c739455ec413c3edeeaca5d9e2d3d2e7ec42b546",
-    "summary": "一个自托管的求职应用程序，可以从您的个人资料中编写量身定制的简历和求职信。",
-    "at": "2026-10-30T13:49:17.238303+08:00"
+    "hash": "03359f3a36aebd42483ab3292dbfe3f6e891fbed32db420cbe7a6be902ea2485",
+    "summary": "一个自托管的工作搜索和简历生成器应用程序，可从您的个人资料中编写量身定制的简历和求职信。",
+    "at": "2026-11-06T15:00:22.164862+08:00"
   },
   "net-merge/net-merge": {
     "hash": "c105012e6643e111b6fd01a2785c61bc7d957a38ff0677be3218d8bb69b47ba5",
@@ -870,9 +870,9 @@
     "at": "2026-10-30T13:49:17.238303+08:00"
   },
   "mw00/project-maya": {
-    "hash": "b40d9b8d75b0fc410fe6dbf664fd43ff350da540eee442f36109eb9e47f539c8",
-    "summary": "Project Maya -在您自己的显卡上私下运行GLM-5.3-Flash （ 321B MoE ）、DeepSeek-V4.1-Flash-1017 （ 748B MoE ）和MiniMax-M3.1-Flash （ 428B MoE ） ，从一个显卡到16个显卡、NVIDIA或AMD、Linux或Windows。引擎、服务器、仪表板、OpenAI和人类兼容的API、定量工具。",
-    "at": "2026-10-30T13:49:17.238303+08:00"
+    "hash": "1cad32a9f34d22026fdfe9a47f2496cbc47a8b8831b99efb26783263ede44af7",
+    "summary": "在您自己的显卡上运行GLM-5.3-Flash （ 321B ）、DeepSeek-V4.1-Flash （ 748B ）和MiniMax-M3.1-Flash （ 428B ） -一个引擎、一个仪表板、OpenAI和人类兼容的API。",
+    "at": "2026-11-06T15:00:22.164862+08:00"
   },
   "shaongitbd/doory": {
     "hash": "820970a5549ad70e59aa212093b80f9bef3967b6274f820324b181be72ef8c6a",
@@ -1305,9 +1305,9 @@
     "at": "2026-10-30T13:49:17.238303+08:00"
   },
   "jub0t/Concat": {
-    "hash": "020e96f825bbeb8b9937907e58568849ce4b2ecdf290c68cb27b245abd76a3e8",
-    "summary": "Beta ：真正免费、开源、本地优先、跨平台的CapCut替代品。可通过JSON-RPC API和MCP编写脚本。",
-    "at": "2026-11-04T14:42:14.897156+08:00"
+    "hash": "f3a6297dd2b04a6c4035835f3d99ec4ff4eb278fab0780615b1740c984548a5b",
+    "summary": "Beta ：真正免费、开源、本地优先、跨平台的视频编辑器。可通过JSON-RPC API和MCP编写脚本。",
+    "at": "2026-11-06T15:00:22.164862+08:00"
   },
   "deeplethe/utopia": {
     "hash": "3f4994f0f81c4fd39a337ecd480e98aa7f695ee585d473846a58f43e40b57c02",
@@ -1675,9 +1675,9 @@
     "at": "2026-11-04T14:42:14.897156+08:00"
   },
   "kevinraymond/florilegium": {
-    "hash": "56540e653ad7e02008ed68825ac494c1cb15bf863f00343fc4a0c6cb48e5959e",
-    "summary": "为LuaLaTeX程序生成的代尔夫特-蓝色花卉页边距，用Lua绘制",
-    "at": "2026-10-31T13:57:24.853434+08:00"
+    "hash": "8fea8edad704d5f43c5acfd67f03664aed0d0204fee8b47e80ead622ce035f15",
+    "summary": "为LuaLaTeX程序生成的代尔夫特-蓝色花卉页边距，植物和访客从基因组中采样， TikZ库也将其绘制在pdfLaTeX下",
+    "at": "2026-11-06T15:00:22.164862+08:00"
   },
   "NiazMorshed2007/reanimate": {
     "hash": "52b096492bb28ba16bc46ea1a5c249eea8e864f8abecd48a478078c000ba9453",
@@ -2845,9 +2845,9 @@
     "at": "2026-11-02T15:58:39.387747+08:00"
   },
   "MacsInSpace/mib-cluster-map": {
-    "hash": "2b49b9387b3972e85f5ba785a5de64fc7989aced39bf52c0e0e8fd2519374cfd",
-    "summary": "您的手机在大众集团汽车数字集群上的地图，带有HARMAN MIB2/MIB2.5高头单元： Android自动地图（ CarPlay正在开发中）、转弯箭头回退、一步式SD卡安装程序。",
-    "at": "2026-11-02T15:58:39.387747+08:00"
+    "hash": "43f9304146606815980a6d75c5707568f2092d0a07c315773c7c24daba4743ed",
+    "summary": "使用HARMAN MIB2/MIB2.5 ： Android Auto and Car Play （测试）地图或转向箭头SD卡安装程序，大众集团汽车数字集群上的手机地图。拉动尽可能多的其他项目修复和创意，为最广泛的支持范围的汽车提供支持。学分如下。",
+    "at": "2026-11-06T15:00:22.164862+08:00"
   },
   "herdodp/snapgent-connector": {
     "hash": "f44038f896226c28f71f1039e797b4ed9a4e43647d722c13a75b3a8951e64969",
@@ -3965,9 +3965,9 @@
     "at": "2026-11-04T14:42:14.897156+08:00"
   },
   "fzn0x/mixmusic": {
-    "hash": "dff9346eaf061fb38ef766470683b18b404a2d0fda288c234a4501388d324525",
-    "summary": "MixMusic -轻量级（约64MB内存使用量）适用于macOS、Windows和Linux的YouTube Music和Spotify客户端，带有社区主题和插件。应用程序和Go软件包的双许可证完全免费。",
-    "at": "2026-11-04T14:42:14.897156+08:00"
+    "hash": "925e181d9bf97d207eb9210a25385810a4e4a02bda5329495b0b010f640ce5f2",
+    "summary": "MixMusic是适用于macOS、Windows和Linux上的YouTube Music和Spotify的本机桌面播放器，具有社区主题和插件。文档和功能： https://mixmusic.functionx.dev/docs/",
+    "at": "2026-11-06T15:00:22.164862+08:00"
   },
   "aethai/ro3emu-server": {
     "hash": "cf8854d6025c61066dbcde83db6b930619a4cfc618f5d794d313087bf8da02c8",
@@ -4258,5 +4258,315 @@
     "hash": "b6129ce2203ff97f004efbe0635feae1497ac7e2cfa427731760430448cf7460",
     "summary": "ArtCraft是艺术家、设计师和电影制作人的特意制作引擎",
     "at": "2026-11-05T15:00:42.098507+08:00"
+  },
+  "lz4/lz4": {
+    "hash": "5e3e3d62d88c628caeb72a7526c4774146feb6a225f0249379611f4308e8a8e0",
+    "summary": "极快的压缩算法",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "google/skills": {
+    "hash": "640479aa8e0ce83621da790a03ea45800f670f3e39193c3011d27d6c0ee92649",
+    "summary": "Google产品和技术的代理技能",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "microsoft/VibeVoice": {
+    "hash": "5d1d11f9e7c5afbc16b8433409922010641a8da8a47f9b1a7a744522a2227e99",
+    "summary": "开源前沿语音AI",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "tembo/voxl": {
+    "hash": "2813c48ff84d933b34dfb9a87f91bfc6422790239352cabedd0425959f5ec523",
+    "summary": "极快的网络远程桌面流式传输",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "itsfatduck/optimizerDuck": {
+    "hash": "eef91e4f940a998484c239f717eab161baaaaad069f017640c50bcc7139d6d5c",
+    "summary": "免费的开源Windows优化工具，可实现性能、隐私和简单性。",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "sandbox-quantum/switch": {
+    "hash": "b526467a6045854c1bd615b59ded755aba9dbb1537a1e79c720cd45ebf5d9f0c",
+    "summary": "Slack、Teams、Discord、Telegram和Mattermost中的开源AI团队成员。自助托管，配备任意座席线束和任意型号。",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "Anil-matcha/Open-Generative-AI": {
+    "hash": "7342a7bd774513a8f7d300f1d2509ba512ecb748658d48108023d285bd2b39f7",
+    "summary": "人工智能视频平台的无限制开源替代品—免费的人工智能图像和视频生成工作室，拥有600多名模特（ Flux、Midjourney、Kling、Sora、Veo ）。无内容过滤器。自托管，麻省理工学院许可。",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "CarterPerez-dev/Cybersecurity-Projects": {
+    "hash": "940fbfdb1ee4f1d66caf6844e6fe57c5277df61e6381b9448927503066b9f162",
+    "summary": "构建从初学者到高级的70个项目，以便任何人都可以—学习，建立，用作参考，甚至直接复制。由我的网络安全公司所有 👇",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "immich-app/immich": {
+    "hash": "daf10ad637f07907706a3858f2c21ef622ead4edcc9d837798d36a33447cc37f",
+    "summary": "高性能自托管照片和视频管理解决方案。",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "usebruno/bruno": {
+    "hash": "968bd802d03399206aa5cd2deda29cf0ffd4cea064a7e5b9c4b747ae70869de1",
+    "summary": "用于探索和测试API的开源IDE （ Postman/Insomnia的轻量级替代品）",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "maxrave-dev/SimpMusic": {
+    "hash": "2c839196dc2d72c10ffd2fb10008827449c1cbf2e8eda45c5da86bf78b03d727",
+    "summary": "使用YouTube Music作为后端的跨平台音乐应用程序",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "aquasecurity/trivy": {
+    "hash": "2133930d190524e117edd0612e9d8ff9af807f50561d09260c9e30c0b1a5f197",
+    "summary": "查找漏洞、错误配置、秘密、容器中的SBOM、Kubernetes、代码仓库、云等",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "EchoMusicApp/Echo-Music": {
+    "hash": "3b497c7c5350142e0c333e493c9d9abfccf2d83a21515688e9e50d9508d4fd12",
+    "summary": "YouTube音乐客户端",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "ashishps1/awesome-system-design-resources": {
+    "hash": "c65ffbe952392b061630c500439d45c71e783478632dc56002c910f78bb5319e",
+    "summary": "学习系统设计概念，并使用免费资源为面试做准备。",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "curl/curl": {
+    "hash": "e5b139199b84f31ead642a1a1e6101dfb28df889a76416ba26ec42e32499dde6",
+    "summary": "用于使用URL语法传输数据的命令行工具和库，支持DICT、FILE、FTP、FTPS、GOPHER、GOPHER、HTTP、HTTPS、IMAP、IMAPS、LDAP、LDAPS、MQTT、MQTTS、POP3、POP3S、RTSP、SCP、SFTP、SMTP、SMTPS、TELNET、TFTP、WS和WSS。libcurl提供无数强大功能",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "tensorflow/tensorflow": {
+    "hash": "0af972a3d4937ebb7c4668a0f9e93e71ed54743629cdef8c6e8c3352ccd49ee5",
+    "summary": "面向所有人的开源机器学习框架",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "KenKaiii/gg-framework": {
+    "hash": "a6e294f69b45e20ba8c8df6150571e1bf127340093fd4b851e609e85f21b084e",
+    "summary": "从您的AI订阅中获得更多收益的编码代理。在测试的20个代理中，速度最快、最精简，对真正的开源代码进行无限制的本地搜索。",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "Leaflet/Leaflet": {
+    "hash": "f3645baeab4f8d57092324fc0f8e9a04f2c22b13bbd4232d64c3ca3f0b71d580",
+    "summary": "交互式地图的头🍃号JavaScript库 🇺🇦",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "googleworkspace/cli": {
+    "hash": "11bf8cce5e8dee29c55e3c933935e6749c72f5d9ccab3cc3481de681c92882af",
+    "summary": "Google Workspace CLI —一个用于云端硬盘、Gmail、日历、工作表、文档、聊天、管理员等的命令行工具。从Google Discovery服务动态生成。包括人工智能代理技能。",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "k2-fsa/sherpa-onnx": {
+    "hash": "c6c5624eac3a425dd8a4c0201f1154cd73278d98431afbccadb4875dd7bcf5c6",
+    "summary": "语音到文本、文本到语音、扬声器日志、语音增强、源分离和VAD使用下一代Kaldi ，无需互联网连接即可使用onnxruntime。支持嵌入式系统、Android、iOS、HarmonyOS、Raspberry Pi、RISC-V、RK NPU、Axera NPU、Ascend NPU、x86_64服务器、websocket服务器/客户端，支持12种编程语言",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "NVIDIA/Model-Optimizer": {
+    "hash": "5e41d745cfb1bfe9e751c5721af1b62beea424ac275acf391bbc31d5c246709d",
+    "summary": "量化、蒸馏、修剪、神经架构搜索、推测解码等SOTA模型优化技术的统一库。它压缩了TensorRT-LLM、TensorRT、vLLM等下游部署框架的深度学习模型，以优化推理速度。",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "dotnet/skills": {
+    "hash": "2bb1ecaeef68bf3973ae3d8bebd50b418681fad1114309bc6e7f0b9593a3860d",
+    "summary": "用于使用.NET和C #协助AI编码代理的技能的存储库",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "openremote/core": {
+    "hash": "f4edef4886ea694336c4a8e4fbc3c89bedf78d24f2020050e8666b5d784b391d",
+    "summary": "100%开源物联网平台-集成您的设备、添加智能、构建自定义应用程序",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "BuSung-dev/Root-My-Galaxy": {
+    "hash": "9b382108240747170a0fb4d2e91716b78714d0614395aed219ca75a208ab7e30",
+    "summary": "支持CVE-2026-43499的三星Galaxy固件的KSU安装程序",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "openwrt/openwrt": {
+    "hash": "ddb4f5fc52711f55c2a9b36f915c0d01d01f9638113bceb80b47bd1666c75d49",
+    "summary": "此存储库是https://git.openwrt.org/openwrt/openwrt.git的镜像，仅供参考，不适用于签入。我们将继续接受此处的拉取请求。它们将通过暂存树合并到openwrt.git中。",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "lynnswap/NeoSimulator": {
+    "hash": "6ccea7bb9ade6bfca92cf86c813bdf1fb69e51576cac6282dba044c0d577420b",
+    "summary": "适用于iPhone、iPad、Apple Watch、Apple TV和Apple Vision Pro的轻量级模拟器应用程序。",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "carlelieser/shizzi": {
+    "hash": "50279247e986286518be9707c743aabae7aaf974fe563df6e8b5415e3186c88f",
+    "summary": "适用于Shizuku的Android无根无线网络共享旁路。",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "luanti-org/luanti": {
+    "hash": "bdf85b9fc881e72eb372be80e5f6eaadaec8c1a4e6beca171a066f617e98780c",
+    "summary": "Luanti （前身为Minetest ）是一个开源的体素游戏创建平台，具有轻松改装和游戏创建功能",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "UnigramDev/Unigram": {
+    "hash": "9e4f7aca1b52dc6c010fd1a4ee5a45bad7bb6cc833255c16cf69c0f665334890",
+    "summary": "Windows版Telegram",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "krayin/laravel-crm": {
+    "hash": "8a49f698a785aeac7fb37705229f737b02a1221014773bdbeb25c875cccb8db9",
+    "summary": "Krayin CRM是使用Laravel构建的用于客户、潜在客户和销售管理的免费开源CRM。",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "hashicorp/terraform-provider-azurerm": {
+    "hash": "e72bf1c4849d98b4bb3f7292a671ab473352d7cdee050714a18dff6abfe3141d",
+    "summary": "Azure资源管理器的Terraform提供程序",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "s1dashu/quiet-md": {
+    "hash": "7560fcb9589438c5319aa76979bca8af47ef05e9121a0f59cd52092f4c17cd4c",
+    "summary": "适用于macOS和Windows的超快速原生笔记应用。Rust + GPUI ，本地优先，兼容Feishu/Lark DocxXML。",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "UncensoredLabs/uncensored-ai-api": {
+    "hash": "4bcd05af4b5ea0f38d31481eebeb7f60882c8ea0c13b19a5e5efde37f55c541d",
+    "summary": "未经审查的AI API和浏览器聊天： DeepSeek和GLM模型、流媒体、Python和TypeScript示例、定价和设置指南。",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "andrew-babo/muse4ai": {
+    "hash": "10796e31711e27903fa246a80fcb5696deecef88b92e905ec67b42b7bf0e57fb",
+    "summary": "Muse4AI —让您的AI代理制作图片和视频。通过REST、MCP和OAuth为Muse提供本地Windows网桥。",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "brightsongwrath/personal-data-deletor-osint": {
+    "hash": "3bf6b15d09d5ed0a9ead986828b0354ef92800cadebcb2d3c875fc664b84b311",
+    "summary": "要求970个数据代理删除您的数据。免费、本地、无帐户、无服务器。",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "Gezine/CivSwitch": {
+    "hash": "f385ab703033477a2396c0e39f71344086673e61871cc32dfd5cdc0359e9cf6b",
+    "summary": "任天堂Switch用户区代码执行使用文明7游戏墨盒",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "Balanov/uncut": {
+    "hash": "2117ea1c0d56d0be3ddbec1de674462633edad9de97423b8dc66116de0d71509",
+    "summary": "无损、无头编码代理线束。一个7 MB静态二进制文件，四个工具，普通标准输入/标准输出，无静音切割。",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "shinyobjectz/raea": {
+    "hash": "fc8a3135f3d380596846b69865c61e6d3d682adea284c5ff95a374bd7b136e13",
+    "summary": "渲染任何引擎：告诉您的人工智能制作什么。视频、动态图形、3D和游戏作为React和TypeScript ，在您自己的GPU上渲染。Rust + Bevy、macOS、Linux和Windows。",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "TagPhaseArcade/tiktok-uploader": {
+    "hash": "0591b2a877881681df282810e4581e36b68b4d1fdf72c951cd4a94b54a800be7",
+    "summary": "自动抖音视频上传器，支持批量处理、调度和主题标签管理。基于本地会话的身份验证。开源和跨平台",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "the-geeky-couldron/waypoint": {
+    "hash": "7d689833d0b07fde8e3a859f576d904797568fa36508641ab533a1fd0b8118bd",
+    "summary": "真正的街道。游戏世界。原生Android导航，包含27个游戏风格的地图、传感器辅助引导和已验证的应用内更新。",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "therealMRBK/NextFloor": {
+    "hash": "5d3b41a446ad831fa98249d76e1f686e5d8f2e6c1f41d3290a778217c50a9570",
+    "summary": "NextFloor ：在Home Assistant中绘制您的房源，并观看3D直播。永久免费–每个功能，每个家具包，没有专业版，没有商店。建造您自己的家具，欢迎插件。无云，无账号。",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "kamb205/KB-RPCS3": {
+    "hash": "704219b86355e61bfa8c4b8fd8271a8a3446dcfe1741b30091b18d17c3bf089e",
+    "summary": "PlayStation 5的非官方RPCS3端口—将PS3游戏作为原生PS5自制游戏运行。Alpha 0.1.0源版本。",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "fedyfausto/JetStudio": {
+    "hash": "89db3c32894d10822986a6cc277265f103965b9aaf099ac5b3eeee32387770f0",
+    "summary": "基于Godot和Jet引擎的微控制器游戏引擎",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "harshsinghsv/swiftdl": {
+    "hash": "484a523e8d5c20f0539ea176b92a34c7896b1509783255392a6d83d4c50a0275",
+    "summary": "具有浏览器扩展的快速、可恢复的下载管理器。每个文件的多个连接、即时简历、IDM风格的下载窗口。生锈+金牛座。",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "Anshkaran7/expokit": {
+    "hash": "c50da16315c3b750fd702c5c8a63ddc10f2053aea1cbdc02f11a9c375123d423",
+    "summary": "Expo和React Native的动画、复制粘贴UI组件—免费组件、CLI和expo-charts",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "Terrorspecterjumper86037/Delivery-rpocket-Job": {
+    "hash": "e96bf2b3e434009982c78b2c8eb275cae034c4675965371324fd29b533cf225b",
+    "summary": "交付工作OX Lib | ESX Legacy",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "TyrantShadowfellangel/repdix-rpocket-team": {
+    "hash": "67ad9fb81fa0d3b779748b0cfa2a68371985e389a0a3bda7e0cdbc7924063f46",
+    "summary": "Универсальный Telegram-бот-оркестратор для обзения с базами данных （ MySQL、PostgreSQL、SQLite ） на естественном языке。Использует локальные LLM （ LM Studio/Ollama ） с поддержкой工具调用， аудитом SQL и Docker。",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "GalacticBehindvalor/ua-free-telegram-rpocket-team-autopilot": {
+    "hash": "26241d64efed628693f0e3f15b23b411f6c1c2de1c5c89174d2636b39fd8fa3c",
+    "summary": "便携式Windows自动驾驶仪，用于收集技术新闻、使用事实QA进行AI重写、重复数据删除和自动Telegram发布。",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "SpeargodQuick/rpocket-game-g2gfast": {
+    "hash": "95b7443e4292a09545989e2d851dd3448f4b004805508212a43512843ce50d77",
+    "summary": "基于3D Godot计时器的速度运行游戏，包括Bunny Hop和Surf Timer地图。Uses @ modcommunity的Dot资产和服务器部署到游戏平台上！",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "globalmpc/backendskills": {
+    "hash": "c62aa9bd73591dfbdd0c1ac85c2e9a0828f6a797c3f0fd467b1506988d175bc5",
+    "summary": "阻止人工智能代理编写通过演示并中断生产的后端代码的技能。严重错误： 25/150在没有的情况下运行， 2/150在没有的情况下运行。Claude Code、Codex、Cursor。",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "BossEmmanuel-lab/MyKeep": {
+    "hash": "19f2639c8de898136e3fb7788e232bd3c6ca7314b928a1948106cdfe912f570d",
+    "summary": "超轻量级个人订阅和心愿单跟踪器。",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "xuckless/anole": {
+    "hash": "575d15b66a1f18b8ba5a1a5a470630d45a933c2f4bfa60b3337c04666a740104",
+    "summary": "Anole是一个用于构建后端的Zig框架：一个服务器核心，将服务于REST、WebSockets、WebTransport和gRPC （基于HTTP/1.1、HTTP/2和HTTP/3 ） ，并内置TLS和身份验证。我也计划将其包装到Python和Node库中。",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "exelban/stats": {
+    "hash": "7a54ee8894bb74584876be128d732470f5d17ddcc8779239d431aa4ef07e5881",
+    "summary": "菜单栏中的macOS系统监视器",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "nektos/act": {
+    "hash": "ea529869519577ad08444a65b302ffdd1925e1f0f6c46b86371c776de4e158db",
+    "summary": "在本地运行GitHub Actions 🚀",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "Kareadita/Kavita": {
+    "hash": "cba6c81dee5332e6e7ba5ad3a910077937fbb9bfdec20a42a85274123c849cc7",
+    "summary": "Kavita是一款快速、功能丰富的跨平台阅读服务器。旨在成为满足您所有阅读需求的完整解决方案。设置您自己的服务器，并与您的朋友和家人共享您的阅读收藏。",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "MudBlazor/MudBlazor": {
+    "hash": "8d0ab945198edb6dcf27283f9a49bdba3c88e82bc3a9b60d772e550006e4fe7e",
+    "summary": "基于材料设计原则的Blazor组件库。使用Blazor做更多的事情，利用CSS并将JavaScript保持在最低限度。",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "Gamer92000/echo-dot-assist": {
+    "hash": "0ca0594b69092304e2d2a74b920b8a17acf479a5de92c809f9df30ed374eb918",
+    "summary": "将Amazon Echos （ Echo Dot 3、Echo Dot 2、Echo 2 ）转换为本地Home Assistant语音卫星。保留了亚马逊的麦克风处理和唤醒词引擎，用一个小型C后台程序代替Alexa ，可以说是ESPHome或怀俄明州。通过音乐助手、蓝牙扬声器和代理服务器播放多房间音乐，无云。",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "samidavila136-gif/Drake-Tax-Windows-Setup-Guide": {
+    "hash": "4b45b940f16281bb4ce25d470f7932181d8e4d59dc7a872270ae213746694d19",
+    "summary": "适用于Windows 11和10的Drake Tax 2026 ：安装指南和设置演练",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "microsoft/mxc": {
+    "hash": "efbb461eb1bd4b42885d960bd8fe1a89b07d35531b6fbbff49bdedefcf139286",
+    "summary": "策略驱动、分层隔离和遏制",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "SamboyCoding/Cpp2IL": {
+    "hash": "80fc449ab4aa371dbd688465f8228b586e1fe7e726df6504f9968987002802d2",
+    "summary": "用于逆转UNITY的IL2CPP工具链的进行中工具。",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "FluidInference/FluidAudio": {
+    "hash": "323306b84f11c19be9b5b9dc1d0ffc1bb426ca1e66ab0857f8d35dc485ce4da3",
+    "summary": "应用程序中的前沿CoreML音频模型—文本到语音、语音到文本、语音活动检测和扬声器日记。在Swift中，由SOTA开源提供支持。",
+    "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "PlayCover/PlayCover": {
+    "hash": "77e693f2eb0c735c4ba0d93ba501c6665fab2ceba5717c4c7a56a5e31ca1011b",
+    "summary": "PlayCover的社区分支",
+    "at": "2026-11-06T15:00:22.164862+08:00"
   }
 }
