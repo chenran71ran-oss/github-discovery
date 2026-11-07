@@ -395,9 +395,9 @@
     "at": "2026-10-30T13:49:17.238303+08:00"
   },
   "emanuele-em/kanzo": {
-    "hash": "ceeec993c10dab8de5147e67993f446d6598c2e36e3215560b0356e69889b49b",
-    "summary": "适用于人员和代理的自托管、可共享看板。一个4.5 MB的二进制文件， 4.5 MB的RAM ，每个代理回复10到60个令牌，在2毫秒内开始，零设置。",
-    "at": "2026-11-02T15:58:39.387747+08:00"
+    "hash": "830186c4d466941977087b88613e0ef4052b03eeda7eee8cd341289dee81c121",
+    "summary": "适用于人员和代理的自托管、可共享看板。一个4.7 MB的二进制文件， 5 MB的RAM ，每个代理回复10到60个令牌，在3毫秒内开始，零设置。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
   },
   "jmanico/grim-prompter": {
     "hash": "5a28941e763ee3b87e7c402c96c17dcd20d4c1f2f822d0943f2aad1d8605b094",
@@ -1550,9 +1550,9 @@
     "at": "2026-10-31T13:57:24.853434+08:00"
   },
   "metadist/synaplan": {
-    "hash": "f325eb49b0011b8310918b36926e9ad9fa45f4a6ab70ab4b6efc63ff24534e8f",
-    "summary": "开源、自托管的人工智能平台（ PHP/Symfony ） ：与任何模型聊天，浏览文档，嵌入式小部件， MCP —查看每个答案的成本。Apache-2.0。",
-    "at": "2026-10-31T13:57:24.853434+08:00"
+    "hash": "7fbe2120d709401c2feec8d0a8f062e8ad0ce3e7554936376a36003fc50505f0",
+    "summary": "掌控流程：为您的知识、模型和渠道提供一个开源的人工智能平台--Web、WhatsApp、电子邮件、Outlook、Nextcloud和ownCloud。本地和云模型并排，每个答案都有成本。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
   },
   "farzaa/clicky": {
     "hash": "b8b2399c4ed8c37553daca0fb6851b524dbfc9ae601fc53f075392bb6d1b6965",
@@ -2640,9 +2640,9 @@
     "at": "2026-11-02T15:58:39.387747+08:00"
   },
   "cutetailbud/ff-ruyijs": {
-    "hash": "df03288ff607fbbf1e667eb6c78974fcff2aa354f87ced06e73e34ef3c7cc057",
-    "summary": "AI浏览器使用真正的Firefox引擎从Python运行任何站点JavaScript。无头蜘蛛猴+ Necko ，用于自动化和刮擦。",
-    "at": "2026-11-03T14:59:32.314123+08:00"
+    "hash": "567604c46db24d1fbbe8406ce2f891601cda23b43ac260d4e270362fe0fa5924",
+    "summary": "这是一款专为人工智能代理（如Codex或Claude Code ）构建的轻量级无头浏览器，用于执行浏览器自动化任务；它旨在浏览各种网络保护系统、登录流程和逆向工程场景",
+    "at": "2026-11-07T14:14:16.576366+08:00"
   },
   "opennookorg/betterwispr": {
     "hash": "126414e1863c56c721b060bee1be74c283ec932efce12eb30a3961162cd8603f",
@@ -2750,9 +2750,9 @@
     "at": "2026-11-02T15:58:39.387747+08:00"
   },
   "slaterain/nv-rs": {
-    "hash": "7c9664bef999372d955c6ddb2c21d00c0819d88b23f6e2deacf862df07f340fe",
-    "summary": "实验辐射：在Rust中重新实现新的拉斯维加斯引擎。需要您自己的游戏数据；首先是基础游戏基础。",
-    "at": "2026-11-05T15:00:42.098507+08:00"
+    "hash": "8d62e9a5a01f9409acc7720f3854da38150c6b4ac348433ce4611a4b04dbb456",
+    "summary": "辐射：根据原始游戏代码在Rust中重建的新拉斯维加斯。可玩，并正在向现代64位引擎发展。需要您自己的游戏副本。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
   },
   "ericzhang12111-cell/RhinE": {
     "hash": "a572f94068d41cb80e928f45415edf35f5bb37f1d8c5615530e062a76b6a7042",
@@ -2995,9 +2995,9 @@
     "at": "2026-11-02T15:58:39.387747+08:00"
   },
   "google/elephant-goldfish-model": {
-    "hash": "b61ed7bcefec4110a5d4fe22de5bad7f79cf7173ff64dd6c397b761b4e0107e5",
-    "summary": "使用人工智能代理设计和审核软件的开源技能",
-    "at": "2026-11-02T15:58:39.387747+08:00"
+    "hash": "57cc505c9f799061389567edc21591328991f74eaecd4833c8a15d4939a245e4",
+    "summary": "用于使用代理设计和审核软件的开源插件",
+    "at": "2026-11-07T14:14:16.576366+08:00"
   },
   "Oldcircle/geo-sleuth": {
     "hash": "51419265fe2c7bc538a445d6470a94bba6421d2c19fcb302f4a065a4d2a5d595",
@@ -3675,9 +3675,9 @@
     "at": "2026-11-03T14:59:32.314123+08:00"
   },
   "tigin-backwards/oni-moono": {
-    "hash": "e2f16512eec23f53c1b4e51b31a110ed76cc0084e1f952ff28c0218f9d011c04",
-    "summary": "Oxygen Not Included的残酷框架上的Unity层， .NET 10 CoreCLR。在后期游戏殖民地，游戏运行速度约为原始帧速率的8倍",
-    "at": "2026-11-03T14:59:32.314123+08:00"
+    "hash": "180f0a99d34582ebbd256ba42bc0fcaea532dd744a385a6d547a2083832ee533",
+    "summary": "Oxygen Not Included的残酷框架上的Unity层， .NET 10 CoreCLR。在后期游戏殖民地，游戏以高达13倍的原始帧速率运行",
+    "at": "2026-11-07T14:14:16.576366+08:00"
   },
   "medium-gh/scancore": {
     "hash": "dc70c97e6ebead3e5e1a1e2a3d53ff4aa14016caaeae2182fd820a18869980e6",
@@ -3965,9 +3965,9 @@
     "at": "2026-11-04T14:42:14.897156+08:00"
   },
   "fzn0x/mixmusic": {
-    "hash": "925e181d9bf97d207eb9210a25385810a4e4a02bda5329495b0b010f640ce5f2",
-    "summary": "MixMusic是适用于macOS、Windows和Linux上的YouTube Music和Spotify的本机桌面播放器，具有社区主题和插件。文档和功能： https://mixmusic.functionx.dev/docs/",
-    "at": "2026-11-06T15:00:22.164862+08:00"
+    "hash": "774b08494fb307c9911f0807c1d11e8095d4840e26c684995c43c011935f7b20",
+    "summary": "MixMusic是适用于macOS、Windows和Linux上的YouTube Music和Spotify的本机桌面播放器，具有社区主题和插件。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
   },
   "aethai/ro3emu-server": {
     "hash": "cf8854d6025c61066dbcde83db6b930619a4cfc618f5d794d313087bf8da02c8",
@@ -4568,5 +4568,380 @@
     "hash": "77e693f2eb0c735c4ba0d93ba501c6665fab2ceba5717c4c7a56a5e31ca1011b",
     "summary": "PlayCover的社区分支",
     "at": "2026-11-06T15:00:22.164862+08:00"
+  },
+  "zed-industries/zed": {
+    "hash": "6e16ec65b1d12b89da47a05a606e9582d0255d977b6b7d95e809338353ef10da",
+    "summary": "以思维速度编写代码– Zed是Atom和Tree-sitter创建者的高性能多人代码编辑器。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "mpv-player/mpv": {
+    "hash": "4ede07bbe74f0a15295953559ca2b49dad18607f35c9c0a59ee0fb6d4c3738cf",
+    "summary": "🎥 命令行媒体播放器",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "rust-lang/rust": {
+    "hash": "4b7083c3fd2f9d63f910fac1449a1885acfbec352b643acabda552d25b7aecb9",
+    "summary": "让每个人都能构建可靠、高效的软件。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "angular/angular": {
+    "hash": "ad8338c1d7f22c7fa6467ff0b0b55493db2d5db141b2418d45658980f690a302",
+    "summary": "放心交付网络应用 🚀",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "prometheus/prometheus": {
+    "hash": "7ec7dd99bdde8c136eb0777fe3efc5e8886f028ea9c2e581acad0bc70d2716cd",
+    "summary": "Prometheus监控系统和时间序列数据库。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "nushell/nushell": {
+    "hash": "3e24abd86d00a5d4b96c2219d8fbb0fbb861508fae89871d7e470164974eedcd",
+    "summary": "一种新型的外壳",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "etcd-io/etcd": {
+    "hash": "e8538c14b21e4d9a872e0468336ecb984416870af8aedcb12e7f59df10c068c7",
+    "summary": "分布式系统最关键数据的分布式可靠键值存储",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "astral-sh/ruff": {
+    "hash": "531be86dec629ea8e1dc3f723f86c71f30a53d5d36f0530cad3c852b2cb91bee",
+    "summary": "用Rust编写的非常快的Python linter和代码格式化程序。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "elder-plinius/T3MP3ST": {
+    "hash": "be1b0e7547a3841c8902b2bab0baf5bf12ff3c9a817bdb6d352ab991e78ff9bf",
+    "summary": "自主红队平台；多智能体进攻-安全元Harness",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "lobehub/lobehub": {
+    "hash": "cc59e0d6326e3670c141c2efd31164b0d6a71d0da9a8e600c7d5294f3af7615e",
+    "summary": "🤯 LobeHub -您团队中的超级座席。将超级客服代表添加到您的团队已使用的聊天中。他们自己承担工作，每周都会变得更好。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "kubernetes/kubernetes": {
+    "hash": "cc47e7ea12ab84b3ac536f296c9284845fec0d9bf5d7154b7f397e87ce501d78",
+    "summary": "生产级集装箱调度和管理",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "meta/astryx": {
+    "hash": "6b168f4400b9dd194918c91690578f80be16e7a98b6f2ee95f4b8055f679de8d",
+    "summary": "完全可定制和代理就绪的开源设计系统",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "nodejs/node": {
+    "hash": "d61ac7d0a0656b0ed97d94bfe312187ac16486e9a42e61b5aa6229dba9fcc6c9",
+    "summary": "Node.js JavaScript运行时 ✨🐢🚀✨",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "sveltejs/svelte": {
+    "hash": "ab30de3063b19e2933b31ce37031a58224a264cf3d20b011d30f8b76b11ad157",
+    "summary": "为我们其他人进行网络开发",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "tokio-rs/tokio": {
+    "hash": "eb0f3a83563e21249c7a82ea05a166bb28d3cb6ede8722d9c6ed98fbfce43af9",
+    "summary": "使用Rust编写可靠的异步应用程序的运行时。提供I/O、网络、调度、计时器等",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "solidjs/solid": {
+    "hash": "fa5159714dd206df5babd504b3aa433ab20538d00d91d5f14d6c01e0b160e0ed",
+    "summary": "用于构建用户界面的声明式、高效且灵活的JavaScript库。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "tldraw/tldraw": {
+    "hash": "70eeed5323b49faa6937ce8459c8d14da4e36c8612bf8a5176cd1312cbf5226d",
+    "summary": "使用tldraw SDK在React中构建无限画布应用。世界上最好、最顶尖的代理商推荐# 1五星级SDK。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "python-poetry/poetry": {
+    "hash": "8a8a2fc1c5a23f4b7c325b3084734bea77eb97e21dc36b13c34721d6f12d654f",
+    "summary": "Python打包和依赖项管理变得简单",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "orailnoor/cross-platform-llm-client": {
+    "hash": "3b1a54de1a2916a713db3ee1a2130ca534e7dc557676450c8f45b70135220ea6",
+    "summary": "一个统一的跨平台AI客户端，支持标准云API和设备之间的无缝过渡，离线执行自定义和未经审查的语言模型。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "microsoft/TypeScript": {
+    "hash": "12cfcfd9d6eeedad30deacf3606ac10e8a9621799990029bae5b7941606e93c8",
+    "summary": "TypeScript是JavaScript的超集，可编译以清除JavaScript输出。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "psf/requests": {
+    "hash": "8934d37573016556dd16caea14e5945d645f60dd3ae6ea22c20e3c80dc72404e",
+    "summary": "一个简单而优雅的HTTP库。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "orhun/git-cliff": {
+    "hash": "110c6c4fc59c4299e81bd54885c0310bcf63fd1562d19522157da3c945ddfc1a",
+    "summary": "遵循传统提交规范的高度可定制的更新日志生成器 ⛰️",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "servo/servo": {
+    "hash": "632ab66031b859bc7e3d23239faceed8a1493c3f7efeab02704fafb6592eaa91",
+    "summary": "Servo旨在为开发人员提供轻量级、高性能的替代方案，用于在应用程序中嵌入Web技术。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "firefly-iii/firefly-iii": {
+    "hash": "c0849f0f8547ab8a8fab3887b3e1232b9debb0f6c38ac7e12359202b80c2f4e4",
+    "summary": "Firefly III ：个人财务经理",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "semgrep/semgrep": {
+    "hash": "81f141bc3bf63336e597d4e911617f1cfecaa1b31f206105210d92f4b3479f5a",
+    "summary": "适用于多种语言的轻量级静态分析。查找具有看起来像源代码的模式的错误变体。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "ClickHouse/ClickHouse": {
+    "hash": "1d921ffcc869613dc287bf317dff1768c1399dea317c5a1021d16a8a4642bcb8",
+    "summary": "ClickHouse ®是一个实时分析数据库管理系统",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "Anuken/Mindustry": {
+    "hash": "9d3976113c76f67d95fae13a994be5e292c79a4aeee8e2b0f1869d0695cbf46b",
+    "summary": "自动化塔防RTS",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "d2phap/ImageGlass": {
+    "hash": "94b1c136f4d87a38ad241e0b780920283a4ae4bd12eced87ffaab69b3e2fffe7",
+    "summary": "🏞 适用于90多种格式（包括WEBP、GIF、SVG、AVIF、JXL、HEIC等）的快速、开源、现代图像查看器，专为在Windows、macOS和Linux上流畅浏览而打造。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "apache/airflow": {
+    "hash": "5fd616dd27cc56562cbf1d969f8d2b1a83c783ab7d611f837aa7413aac11e897",
+    "summary": "Apache Airflow -以编程方式创作、安排和监控工作流程的平台",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "apple/coreai-models": {
+    "hash": "07e1ff500fc87283bd07d350c06727efb3259e75663cd709f68d4c43020cdbd2",
+    "summary": "用于设备上AI的模型导出配方、Python原语和Swift运行时实用程序",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "fastify/fastify": {
+    "hash": "40d7a586930967f0566101f0cc240487df0f975de8709257cfae04926f449aea",
+    "summary": "适用于Node.js的快速低开销Web框架",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "simple-icons/simple-icons": {
+    "hash": "65085b6a303210bd2aaa2fc03eaf43976a4ac28f1f353d3418bb3fbe105d9089",
+    "summary": "热门品牌的SVG图标",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "apple/swift-collections": {
+    "hash": "e6c80e4ca3bd262adcda775cbd70cc81d1a41b7293f0523a8576a8380c45dffa",
+    "summary": "Swift的常用数据结构",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "NVIDIA/TensorRT-LLM": {
+    "hash": "c6927aaf745c5a537eddb4f6c6fc1c6b6d3ce3ca62fb264141226f288fc52d78",
+    "summary": "TensorRT LLM为用户提供了一个易于使用的Python API来定义大型语言模型(LLM) ，并支持最先进的优化，以在NVIDIA GPU上高效地执行推理。TensorRT LLM还包含用于创建Python和C + +运行时以高性能方式编排推理执行的组件。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "airbytehq/airbyte": {
+    "hash": "8e8db9a6ce389d16b843bfc5cd607d2c6d1fd87af0da6954100bccbf2013e97e",
+    "summary": "ELT管道和人工智能代理的开源数据移动—从API、数据库和文件到仓库、湖泊和人工智能应用程序。自托管和云。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "nlohmann/json": {
+    "hash": "7a3d3fbc817b035226896ecdcbaf17c8d03c3430c1979bfdef7de0f9ede0255a",
+    "summary": "适用于现代C + +的JSON",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "apache/doris": {
+    "hash": "6f80f9a3e8aa77abcb393366e0d626d8120c2e745a236b3b972f7f929d84f8c6",
+    "summary": "Apache Doris是人工智能代理的实时分析和混合搜索数据库。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "dotnet/aspnetcore": {
+    "hash": "c7e1b2d5513ef39c7e300ff99f89ef996d9719eff8a5d777624c6162d4181fad",
+    "summary": "ASP.NET Core是一个跨平台.NET框架，用于在Windows、Mac或Linux上构建基于云的现代Web应用程序。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "swiftlang/swift": {
+    "hash": "12cfac38a2d0dd666f949684333848305c7f6555196bc9e7a2f1e480f9a4099d",
+    "summary": "Swift编程语言",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "bazelbuild/bazel": {
+    "hash": "e315fd9f73825bfd1c1cd446979e87f785f2e840f455949dddf60eebc919844a",
+    "summary": "快速、可扩展、多语言和可扩展的构建系统",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "thunderbird/thunderbird-android": {
+    "hash": "7ab43dfe949823a50fb3ab8a202323128f942907cbcd0d031a9f665a923d6d67",
+    "summary": "Thunderbird安卓版–安卓版开源电子邮件应用（又名K-9邮件）",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "ceph/ceph": {
+    "hash": "b1fca6ceb5738e32b5094a76d2f7311ab78963579acab145e3a6b8d7eb718b46",
+    "summary": "Ceph是一个分布式对象、块和文件存储平台",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "containerd/containerd": {
+    "hash": "f5b4ffd6fa27dbd5f5200e86af058b2d9d9fcbe1a8e36eab88077b2a83662e67",
+    "summary": "开放可靠的容器运行时",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "netty/netty": {
+    "hash": "d6b498efad3e56090a51ff8016290efcba0e773287bb784f87847c11b26f7fba",
+    "summary": "Netty项目-事件驱动的异步网络应用框架",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "element-hq/element-x-android": {
+    "hash": "56aa19673d1cfb5e84bc12f6804826c79b9a70f70962f53ea4234e7dfe3952f4",
+    "summary": "使用Matrix Rust Sdk和Jetpack Compose的Android Matrix Messenger应用程序",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "kubevirt/kubevirt": {
+    "hash": "9e44243153402edfa80a93c490b35dfabe8f43f80078460237720db8316454df",
+    "summary": "Kubernetes虚拟化API和运行时，以定义和管理虚拟机。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "groue/GRDB.swift": {
+    "hash": "e773a936bda7108b7a78152cbc8ecc5cffef0ba606c3b5f74ed4f399619e015e",
+    "summary": "SQLite数据库的工具包，侧重于应用程序开发",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "apple/swift-nio": {
+    "hash": "6dad36daceba032adf9872d5d62e0c9ea682a496c2f44f239fa5f6d08d80508f",
+    "summary": "适用于高性能协议服务器和客户端的事件驱动网络应用框架，无阻塞。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "livliv-dev/player": {
+    "hash": "302c922cc0adfba3ee851422fa7815a626dde68948f85d8ab28bcf8e710ac59a",
+    "summary": "轻巧的2.5D网络角色扮演者，具有唇部同步和网络摄像头面部跟踪功能。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "Sandflow-ai/sand3d": {
+    "hash": "cbaeb8fa88160a712ff925c2de642632c01fe193667dc8a343d8390d72f3f7a2",
+    "summary": "Python中的3D建模，专为LLM构建。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "chadyi/StudyOnTV": {
+    "hash": "e52a44458fb511a512805a9ff0f45c436ede9d312360ba21fb97e846b2730a7f",
+    "summary": "StudyOnTV （ Tiledaoti TV ） —开源Android TV应用程序，孩子们可以通过回答问题来解锁屏幕时间。在电视上完全运行：没有服务器，没有帐户。家长通过局域网扫描二维码并管理问题。先学，后看。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "sqlpxc/airhand": {
+    "hash": "e612cf121550ff1628a908e084ec7a141f3dc8e91508f4d1b23d4dffb6080d77",
+    "summary": "基于QUIC的高性能远程桌面· Rust + Tauri + React",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "libracoder/kiri": {
+    "hash": "19010e039258ecdb5d293ca92132cfbb9ada2e62c9ce30900e6d724d9a13fabd",
+    "summary": "适用于macOS、Windows和Linux的小型快速容器运行时",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "WoYun520/pixel-gif-sticker-pack": {
+    "hash": "039ac3d2733b6fcb1badecbfc53ff2a2c57e935cdfde85594a8dce41d391ffd0",
+    "summary": "用于从角色引用创建和验证动画GIF贴纸包的Codex技能。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "kevintngo/looseleaf": {
+    "hash": "d19df8ac3666167beb68e47225c475a6810740316c2d03c00ea4d500a3b22af3",
+    "summary": "shadcn/ui ，手绘： 123个可访问的React组件，看起来在纸上绘制，具有shadcn注册表。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "smarkyie/NSP-Box": {
+    "hash": "c7f973aaa891e5eb8f167bd17e7839ea83f65760c1b3581850cfb65a36ef94a3",
+    "summary": "NSP盒： Switch 2游戏包装器。用于合法获取游戏快照和提取DLC的实验性Windows工具，具有可逆的模拟器修补。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "oinkvm/oink": {
+    "hash": "94534d2ba41aaf658e5bcecad94435cccd192201b6a6467787549f59b87c05db",
+    "summary": "你的电脑，像一台电脑一样工作。在Mac和PC上共享键盘、鼠标、触控板、剪贴板、拖放和音频。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "JosssphZhou/poki": {
+    "hash": "541ddcbbafcae92c1f95452b7657500ea8ecb4ef078341152a0ae963ee217b45",
+    "summary": "让人工智能代理操作真正的iPhone。本地MCP服务器和代理，没有越狱，没有额外的硬件。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "yappologistic/CUI": {
+    "hash": "2d5968993a9f35b98592b9dfe8cdd535025cc57a68b418bcc3da7e607afa1da6",
+    "summary": "C的本机UI组件：约150个，具有弹簧运动和全键盘支持。Windows、macOS和Linux ，无依赖关系。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "skyrotter/ha-appliance-electromenager-cards": {
+    "hash": "023e0115c66d8cc053cc663e1a415ced12f6a4d609953fc3e8541d06ae483409",
+    "summary": "🧺 🔥 💡 🚗 ⚡ 65张用于电器和能源的动画Lovelace卡：洗衣机、烘干机、冰箱、烤箱、锅炉、热泵、电动汽车充电器、Linky、电池、泵、灯……现场状态、电源、能源和成本。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "fujc683/gpt-image-2-6-commercial-use": {
+    "hash": "5946bab9c0ec16ef7d0257cd605913a8859328421eed7f3d7ae3aa2760d4216c",
+    "summary": "GPT Image 2.6输出的所有权、许可和保留。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "ExpoKit/ExpoKit": {
+    "hash": "c50da16315c3b750fd702c5c8a63ddc10f2053aea1cbdc02f11a9c375123d423",
+    "summary": "Expo和React Native的动画、复制粘贴UI组件—免费组件、CLI和expo-charts",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "ankushKun/sh23ds": {
+    "hash": "3b8132e3507b3eaef6b5f442d9ad7e261d141ad95e7b929a130e9dc16df34d58",
+    "summary": "适用于任天堂3DS的Silent Hill 2 ：适用于新3DS和原始3DS的PC Director's Cut的本地自制端口，具有增强版的修补程序。在您自己的游戏副本上运行。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "alexsto1an/ha-ani-weather-card": {
+    "hash": "978c228956b49d2c5694ecfebfd7b1890ad8a47b7de9dd1e437dcba16b77dbb1",
+    "summary": "控制面板上的实时天气： Home Assistant卡片可将您的预测变成活生生的天空，并配有太阳追踪器。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "sayed0am/unstrap": {
+    "hash": "7cc704bd14656c97858173eb9be8254768dc3df0e36cb754b96915495d16d485",
+    "summary": "适用于Amazfit Helio Strap的开源Android应用程序：私人、本地优先的Zepp替代品。睡眠、HR、HRV、SpO2、恢复评分，无云或跟踪器。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "moby/moby": {
+    "hash": "e255dadb09191736752e35d3b67627f10fad2b3ece9cfe668eb9090bd52898ba",
+    "summary": "Moby项目-集装箱生态系统的协作项目，用于组装基于集装箱的系统",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "go-gitea/gitea": {
+    "hash": "7d980d83a9a82db2f0a3f2ab79f228ce7157d86ffe615f0f1cd8472930f269f1",
+    "summary": "享用一杯茶！无痛自托管一体化软件开发服务，包括Git托管、代码审核、团队协作、软件包注册和CI/CD",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "Kyant0/AndroidLiquidGlass": {
+    "hash": "2e87818f48fee0542f500095d3b6dc0be8732dccc7118d15db55b6a46a9f90aa",
+    "summary": "合成多平台液态玻璃效果",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "opentoonz/opentoonz": {
+    "hash": "815f50fa1a90f8725029c94800ca3c1ff07f09338798e6305aa29ab4e1185072",
+    "summary": "OpenToonz -一款开源全功能2D动画创作软件",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "riyasy/FlyPhotos": {
+    "hash": "f7da3d4765bad42abf881002b2fc03eeb5d05363dbabb06dbc59044a6d6748dc",
+    "summary": "适用于Windows的炽热快速超轻型照片查看器替代品。工作原理类似于Picasa照片查看器。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "osaurus-ai/osaurus": {
+    "hash": "66cc89f07b5aeacf40e4114dd704beb2e51fb8b78a1d6aecd66e9f32ea30d13f",
+    "summary": "拥有您的人工智能。原生macOS利用人工智能代理--任何模型、持久内存、自主执行、加密身份。内置Swift。完全离线。开源。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "StarRocks/starrocks": {
+    "hash": "1e50c65e3db73d2378f252a962366337b98ebcfd61978c82e83e2b8ae382e699",
+    "summary": "世界上最快的开放式查询引擎，用于数据湖内外的亚秒级分析。凭借支持几乎所有场景的灵活性， StarRocks为多维分析、实时分析和临时查询提供了一流的性能。Linux基金会项目。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "freescout-help-desk/freescout": {
+    "hash": "4ca4e82c852eb0fd1df0fd16761c3c41b2c040675ff57d1e1e51f8037f53bf60",
+    "summary": "FreeScout -免费自托管全渠道人工智能支持的服务台和共享邮箱",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "storytold/craft-launcher": {
+    "hash": "9d30d32972577c3fa3ee42f00ce33876eb37961daf45013929dd17cd54aa292a",
+    "summary": "Craft应用启动器",
+    "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "FreeCAD/FreeCAD": {
+    "hash": "6a38ab8b736c05b8ada7b2586ad2cdc7dcecfce2d8bf22bc054590be256961f6",
+    "summary": "FreeCAD的官方源代码， FreeCAD是一个免费的开源多平台3D参数化建模工具。",
+    "at": "2026-11-07T14:14:16.576366+08:00"
   }
 }
