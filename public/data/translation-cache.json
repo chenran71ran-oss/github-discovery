@@ -190,9 +190,9 @@
     "at": "2026-10-30T13:49:17.238303+08:00"
   },
   "filamentphp/filament": {
-    "hash": "5ee1e34a64f0f58ccaa91ab807278723f6885770e23f476bbf7d86c061dbfb8e",
-    "summary": "Laravel的强大开源UI框架•使用Livewire快速构建和发布应用程序和管理面板",
-    "at": "2026-10-30T13:49:17.238303+08:00"
+    "hash": "0f2bc29347541404eb4661f4ff6e50430cd3d3405fc7ae5829594a3a67f9d0da",
+    "summary": "使用Laravel构建完善、可维护的业务软件的开源框架。",
+    "at": "2026-11-08T14:19:36.523794+08:00"
   },
   "VictoriaMetrics/VictoriaMetrics": {
     "hash": "dfdfb8ddcc7ebb7ed420e141c9038d0cf4463884b51f2530b40f67cf68b00870",
@@ -2750,9 +2750,9 @@
     "at": "2026-11-02T15:58:39.387747+08:00"
   },
   "slaterain/nv-rs": {
-    "hash": "8d62e9a5a01f9409acc7720f3854da38150c6b4ac348433ce4611a4b04dbb456",
-    "summary": "辐射：根据原始游戏代码在Rust中重建的新拉斯维加斯。可玩，并正在向现代64位引擎发展。需要您自己的游戏副本。",
-    "at": "2026-11-07T14:14:16.576366+08:00"
+    "hash": "5f3ed13e2889d93b96f201815fd1aaddef4a60f612fe31a47b89f1f6a01e9395",
+    "summary": "辐射：根据原始游戏代码在Rust中重建的新拉斯维加斯。Windows现在预览；需要您自己的游戏副本。",
+    "at": "2026-11-08T14:19:36.523794+08:00"
   },
   "ericzhang12111-cell/RhinE": {
     "hash": "a572f94068d41cb80e928f45415edf35f5bb37f1d8c5615530e062a76b6a7042",
@@ -2985,9 +2985,9 @@
     "at": "2026-11-02T15:58:39.387747+08:00"
   },
   "MatteoFX1/kite-maps": {
-    "hash": "6d01294125a1a6d2a2c1973f5404e51be4c272a7a57b8e453a98db48a570ae3b",
-    "summary": "风筝地图：适用于iPhone的私人地图和逐向导航。",
-    "at": "2026-11-02T15:58:39.387747+08:00"
+    "hash": "4f66ee4935623b1d416ce1c732a05a6785a5aee1f2a20d256d607936de0fde52",
+    "summary": "风筝地图：适用于iPhone和Android的私人地图和逐向导航。Google的搜索和流量，没有Google帐户。",
+    "at": "2026-11-08T14:19:36.523794+08:00"
   },
   "jerahmeel-sudo/ha-weather-banner": {
     "hash": "809496967084a8488a6ac78b7ab7619e2b085426ffd4f67756ec3174f51853e0",
@@ -3965,9 +3965,9 @@
     "at": "2026-11-04T14:42:14.897156+08:00"
   },
   "fzn0x/mixmusic": {
-    "hash": "774b08494fb307c9911f0807c1d11e8095d4840e26c684995c43c011935f7b20",
-    "summary": "MixMusic是适用于macOS、Windows和Linux上的YouTube Music和Spotify的本机桌面播放器，具有社区主题和插件。",
-    "at": "2026-11-07T14:14:16.576366+08:00"
+    "hash": "78eb780ef66aab196afb7fd5abfe9688067906dc16451480e40aa9857f78ebc6",
+    "summary": "MixMusic是适用于macOS、Windows和Linux上的YouTube Music和Spotify的本机桌面播放器，带有社区主题和插件。iOS和Android即将推出。",
+    "at": "2026-11-08T14:19:36.523794+08:00"
   },
   "aethai/ro3emu-server": {
     "hash": "cf8854d6025c61066dbcde83db6b930619a4cfc618f5d794d313087bf8da02c8",
@@ -4943,5 +4943,285 @@
     "hash": "6a38ab8b736c05b8ada7b2586ad2cdc7dcecfce2d8bf22bc054590be256961f6",
     "summary": "FreeCAD的官方源代码， FreeCAD是一个免费的开源多平台3D参数化建模工具。",
     "at": "2026-11-07T14:14:16.576366+08:00"
+  },
+  "sherlock-project/sherlock": {
+    "hash": "e4aaf5e588f3edd7c0a55bb8f414a82c98d4eafb8b8b8459ce69c885a528c9e0",
+    "summary": "通过社交网络中的用户名查找社交媒体帐户",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "tailwindlabs/tailwindcss": {
+    "hash": "8dd3a34972a437453c9a79f6c7206e46785aa97f5039d7871bd79ba2d20f79fb",
+    "summary": "实用程序优先的CSS框架，用于快速UI开发。",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "mbillow/localthings": {
+    "hash": "73f8804776bdf81ae189499b0359cf8fe513223dd70b057ab087fb158418a126",
+    "summary": "通过家庭网络从家庭助理控制您的三星设备，无需云帐户。",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "dsx-ai-factory/nvke": {
+    "hash": "0f263a93959b6f6f814dad9d6fa640421c5c230c9001cefd2e6bc681dfc855c7",
+    "summary": "NVIDIA Kubernetes引擎(NVKE)。裸机上GPU Kubernetes的管理平面。",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "stablyai/orca": {
+    "hash": "405d281bcebe149138b3dbd348165d9a53d816ea3cbed4bb766402e80863aa97",
+    "summary": "ORCA允许您通过自己的订阅运行一批编码代理（例如Claude Code、Codex ）。可在桌面、移动和远程运行时使用。",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "jamiepine/voicebox": {
+    "hash": "7a2992ffec1eb44f696e3fe41cd8d3cc203a21bdee6969d920f8691cddec9ea0",
+    "summary": "开源AI语音工作室。克隆、命令、创建。",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "Unleash/unleash": {
+    "hash": "ed9c35db0e75388e9af37589cd81d7973ab4e28c49879141d814c6ba8605895c",
+    "summary": "开源功能管理平台",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "samolego/Canta": {
+    "hash": "773b7dc69b634af9c096921e0546f875e7fdfaa63ff8b740059d95a93f6aac11",
+    "summary": "卸载任何没有root的Android应用程序（使用Shizuku的功能）。使用Android应用程序或甚至从浏览器随心所欲地卸载您的设备！",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "sharkdp/fd": {
+    "hash": "ef52c444b24795b3c037d9ee5cae83f28000afd15892054429c09629886e021c",
+    "summary": "简单、快速和用户友好的“查找”替代方案",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "django/django": {
+    "hash": "907d60baf43168246bf3197cf07c61988f4a5a4859cb023661e1c04ecf9e610d",
+    "summary": "Django：为有期限的完美主义者设计的Web框架。",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "CapSoftware/Cap": {
+    "hash": "5916d6cb5c0b92b1f19633620e782b3d0a2745395614f3671c94699b145e774b",
+    "summary": "开源织机替代方案。精美、可共享的屏幕录制。",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "ShareX/ShareX": {
+    "hash": "7420570d6f5222e56dc24283b781e3d1904c0c57e2527d91cf5092e72f685f6a",
+    "summary": "ShareX是一款免费的开源应用程序，用户只需按一下键即可捕获或录制屏幕的任何区域。它还支持将图像、文本和各种文件类型上传到各种目的地。",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "dashdogy/MFG-Unlocker": {
+    "hash": "bdff5aa65db19d658f0cc5991069bbdee366ede582666b63d2674ba7417d207c",
+    "summary": "RTX 40系列GPU上任何受支持的制造标题的实验性DLSS多帧生成控件",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "spf13/cobra": {
+    "hash": "5d2d83ac6d855576d968f12a905457a5dceba2dbf86cbc9516e6a68a4999de27",
+    "summary": "现代Go CLI交互的指挥官",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "spotDL/spotify-downloader": {
+    "hash": "13c3a53972c1e4dbc438fcfb04c1340134730fe3664075620b34dde5efe619db",
+    "summary": "下载您的Spotify播放列表和歌曲以及专辑图片和元数据（如果找到匹配项，请从YouTube下载）。",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "elder-plinius/OBLITERATUS": {
+    "hash": "223016886101def4e51a9eb7a986f1e3fd2f0f3afb2b03b5b869671ee1c3936b",
+    "summary": "抹去束缚你的锁链",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "awslabs/aidlc-workflows": {
+    "hash": "48f717c7462a2322c3c70b0fc22f2e967078d87a89f1b0f8c1e7d2fc16f19c01",
+    "summary": "AI编码代理的AI驱动生命周期（ AI-DLC ）自适应工作流程导向规则",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "yuliskov/SmartTube": {
+    "hash": "c6bd6f5ee8ff95bfd9a8c27e984beb9f9d7483b35f2e60d0fdce11cf552d83a9",
+    "summary": "在Android TV上使用您自己的规则浏览媒体内容",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "rikkahub/rikkahub": {
+    "hash": "ec4dd000fc32d8baadb60ed20407acde68254ce1c610a893063c4d229eb33950",
+    "summary": "RikkaHub是一款支持多个LLM提供商的Android应用程序。",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "rivet-dev/rivet": {
+    "hash": "9bf278c82d527a297dbea4042cd1eb2841ad907f3e78033ea57307b4bc1d621b",
+    "summary": "代理工作负载的编排器。快速、高密度和可扩展的编排器，可满足座席的每个工作负载需求。",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "TeamNewPipe/NewPipe": {
+    "hash": "627f898b200db2a974b3fad9c6363ad9994044c2bbca58a592513a7584f6fb67",
+    "summary": "适用于Android的自由轻量级流媒体前端。",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "LadybirdBrowser/ladybird": {
+    "hash": "e591aa2d58c500d6c4013b4d811f9efc74344093db06e3fae2da2273e88a3742",
+    "summary": "真正独立的网络浏览器",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "utmapp/UTM": {
+    "hash": "30418ba934d3f7fdcf0a26be6c7e36986a1099723a2ddfead2bf85a5f700a5e8",
+    "summary": "适用于iOS和macOS的虚拟机",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "lostindark/DriverStoreExplorer": {
+    "hash": "f93fab1037bbcfbe5b0405169c73ccb755b69da9cddd6e4c05f468d10bd355a2",
+    "summary": "驱动程序商店资源管理器",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "go-vikunja/vikunja": {
+    "hash": "8dd8e66ec88ae1267098b0aa7b0b03b1e2f80fef8357bf21af7a20d341cb951a",
+    "summary": "您实际拥有的任务管理器。",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "ZingerLittleBee/Heeler": {
+    "hash": "d999cecc8e0f2804db7975e51bf2ffd0e43e17b108adc42e10c0c40bb08c71f3",
+    "summary": "Herdr的原生iPhone和iPad控制台：通过SSH、Herdr TUI或Herdr桌面应用程序（ herdr-core ）在您的机器上观看和驱动编码代理，具有真正的libghostty终端、原生聊天、QR配对和推送通知（当代理需要您时）",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "google-gemini/gemini-api-cli": {
+    "hash": "a00a53e46bbe520ed8405b8a5dca6fb3613f0c710f8c5549d55af066c202e204",
+    "summary": "Gemini API的（实验性） CLI",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "Unity-Technologies/ml-agents": {
+    "hash": "10d8ae6dc421fcd99d3d2fb35953ebb441a2dc316d77190d967d71467b8fde4f",
+    "summary": "Unity机器学习代理工具包（ ML-Agents ）是一个开源项目，使游戏和模拟成为使用深度强化学习和模拟学习训练智能代理的环境。",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "mikefarah/yq": {
+    "hash": "e620fc90a5b9e8fce739e21872bec9e9f8c82457e730ddc25916c403cdd4c1c3",
+    "summary": "yq是一个可移植的命令行YAML、JSON、XML、CSV、TOML、HCL和属性处理器",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "openssh/openssh-portable": {
+    "hash": "e5cd5ed12738468faf27ec76a7a686444458a86e95fade40a2ba38fe546f1a2a",
+    "summary": "便携式OpenSSH",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "NotRexed/Hookshot": {
+    "hash": "e10eeabf5924f42957bd53ed0e0f033526a4757df04b32b0aac030d31695e60e",
+    "summary": "《塞尔达传说：时光之塔》原生重编任天堂Switch 2翻拍",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "reacher-z/Awesome-REA": {
+    "hash": "f960161f24ea1d93aedf98cc90227af2549b2e0b157880b1ed22ceba1120e8f7",
+    "summary": "精心策划的工具、案例研究和论文，用于逆向工程网站、游戏、应用程序、二进制文件、固件和协议。经来源审核，英文和中文。",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "sarpstar/cinecode": {
+    "hash": "f76e3be56cf1eb8fcf69f85f9dc2563a47e4ffee43b1df35adf27c253e5b62ab",
+    "summary": "用代码制作的电影。短片、YouTube长视频、广告、解释器和音乐视频： AI编码代理编写脚本、构建代码中的每个帧、设计声音并向您提供MP4。",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "voyager-so/vork": {
+    "hash": "8342707704ad53fe91bb31a2f7e4982a7653c3d1b2d682fdf44ddcdf8d896219",
+    "summary": "代理的无头3D和VFX引擎。研究预览。",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "egoist/mygo-music": {
+    "hash": "70b94a13399d5eb22d49619bd370a512c11563c2834e270340c6136cbb189331",
+    "summary": "使用插件扩展的原生音乐播放器",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "Leviidev/Henge": {
+    "hash": "5711d2a3ba893e915702490db56c6d541bae466e6a6ad2d4f8fc1da84ce2eae8",
+    "summary": "在iOS和iPadOS上模拟macOS",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "sostenesfreitas/ocarina-recomp": {
+    "hash": "b2c61157da07030095b90b58c4a92d14f9456141d3525cdb83256fd1e570d18f",
+    "summary": "时间之笛在Windows上本机运行，没有模拟器。从您自己的副本构建在您的PC上。不包括游戏文件。",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "Th0rgal/satmux": {
+    "hash": "cc4fa445a1f8e4cabbec3331b21cf683856ba14f2f3aa9ae79eb0e3c337a98d5",
+    "summary": "通过暖BBR TCP复用+ 1-RTT Ground-TLS + zlib （零依赖）加速高延迟GEO机上Wi-Fi",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "shanselman/gputaskman": {
+    "hash": "3c966994c078c83f94eb6e928fd4a88442320e888d075065c9ffbdf037e0c06f",
+    "summary": "适用于Windows、Linux和WSL的GPU任务管理器：每进程VRAM、GPU活动和LLM模型/KV缓存洞察（ Windows AMD和NVIDIA ）。",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "zeekk0/OpenAmika": {
+    "hash": "a516d7c653fe717a6a636fb384f0349438f1ddb83088515472bb6ff1cee67fdc",
+    "summary": "OpenAmika ： MekaHime的人工智能伙伴Amika ，开源。Live2D头像、实时语音、长期记忆、OpenRouter或Ollama Brain。",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "AbhiKamane/ai-app-builder-open": {
+    "hash": "294a01a74f58ed0d9b5043a93e6cfc6f89b8866bf0f5cb70234ead1774c6b781",
+    "summary": "适用于具有托管和身份验证功能的全栈Next.js应用程序的开源AI应用程序构建器",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "DEEIX-AI/Winc": {
+    "hash": "1186e430abc2fadea1ad1d7bf78a24b8021ecae011d107b9a931b2f0e602ae0a",
+    "summary": "Winc使用Rust和自己的渲染引擎构建：它在0.1秒内启动，仅使用52 MB内存， 100,000行打开。多个光标、查找和替换以及并排差异都在那里，每个按键和滚动都会立即响应。",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "spiderveer1-byte/play-reactive-slick": {
+    "hash": "a8304b44941e08245baa44c7e9825aa6365e12168bdd17f2de06d40f54c0e252",
+    "summary": "Play + Postgres入门模板，用户界面干净整洁",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "sadamhazem-beep/right-click-steam-activator": {
+    "hash": "56ba8e96e1a5c054eddbf87cd662f7c6ba79d3edba45cb58c47d560f49473ae4",
+    "summary": "右键单击带有上下文菜单选择的Steam令牌设置扩展",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "c3505310-bot/py-kms": {
+    "hash": "35f0670bb098c4c36190ca87ec0700a98b41b4c3f515ebc6935f03ee3897188b",
+    "summary": "用于开发和测试环境的基于Python的KMS服务器模拟器",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "jaime681/html5-game-build-tool": {
+    "hash": "fa2199494739cad71a97a7497a9e2d4277f9669a0766d5fcb87258152a15c76d",
+    "summary": "scripts ：用于优化和多平台打包的HTML5游戏构建工具",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "pnyn96/mindact-agent": {
+    "hash": "ea98f6ee93d4d06ccb029a7a464859dcd615fe525e5ceb29f875aec51fbb946d",
+    "summary": "MindAct ： Claude、Obsidian和RAG知识图谱的社区驱动型AI代理",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "antoniosantos02df-hue/awesome-digital-public-infrastructure": {
+    "hash": "70de34318cd8d7f3780fd3c6389340aded210ca4dd8d4af57ec2082e3285c77c",
+    "summary": "精心策划的数字公共基础设施和开源挖掘工具、框架和实施",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "YusufCeng1z/ding": {
+    "hash": "483ce4b89845de05a60748700043c22142da945a5b48efd6b9124fe03e6d421c",
+    "summary": "与真正的春季物理干杯。一杯在原地变形的吐司。无依赖关系。React、Svelte和普通DOM。",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "ChazY11/medradar": {
+    "hash": "daf541eefb20dc997beaad2fda94b8563489893fb86b5ca08a5d978ba59b5fab",
+    "summary": "用于观察和研究医疗技术发展早期信号的循证优先研究平台。",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "indaco/garmin-personal-mcp": {
+    "hash": "fb3a6600c5df5d8c4ea3d0351d561b20da26f1caf2d1dbea8f997dfcd62f532d",
+    "summary": "官方Garmin Connect Personal API的MCP服务器。向Claude、Codex或任何STDIO MCP客户询问您的跑步、力量、睡眠、HRV等。只读，只需一个命令即可运行。在不到一分钟的时间内，以页面文件的形式或在聊天中显示培训仪表板。服务器写入页面：输出令牌减少约100倍。",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "yahorbarkouski/bodylang": {
+    "hash": "7a2d56e6744e379ad209da5b288a0c63a6882b4924255593e70797cff0954b44",
+    "summary": "显示您体内正在发生的事情的3D身体。告诉它你吃了什么或做了什么，或者问它什么，一分钟一分钟的生理学模型在身体上播放它。使用ChatGPT或Claude订阅在您的计算机上运行",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "AvaloniaUI/Avalonia": {
+    "hash": "c3cbd45c9e3981bc6710ce31fc138c369c979612ef9595cdeff3747d28117d80",
+    "summary": "使用C #和XAML开发桌面、嵌入式、移动和WebAssembly应用程序。.NET UI的未来",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "WeWorker/WeWorker": {
+    "hash": "58fad24e524ff4063f571797895ce2160e76e244642c9c08f3169594d5858718",
+    "summary": "开源桌面人工智能代理，可在网站上采取实际行动— 33个适配器，用于邮件、购物、社交等。",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "esphome/esphome": {
+    "hash": "4a61e2e409a4d4f62d79df398efa22849fb3178dda80b84991da5bb3501b1dcf",
+    "summary": "ESPHome是一个系统，通过简单而强大的配置文件控制您的ESP32、ESP8266、BK72xx、RP2040 ，并通过家庭自动化系统远程控制它们。",
+    "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "claration/feather": {
+    "hash": "4be574b419636efe7519243e56c647eeaf5002d37a0db7f51bd7988f82e81e34",
+    "summary": "免费设备上的iOS/iPadOS应用程序管理器/安装程序，使用Apple Developer Program的证书。",
+    "at": "2026-11-08T14:19:36.523794+08:00"
   }
 }
