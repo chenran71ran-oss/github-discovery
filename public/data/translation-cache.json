@@ -4290,9 +4290,9 @@
     "at": "2026-11-06T15:00:22.164862+08:00"
   },
   "Anil-matcha/Open-Generative-AI": {
-    "hash": "7342a7bd774513a8f7d300f1d2509ba512ecb748658d48108023d285bd2b39f7",
-    "summary": "人工智能视频平台的无限制开源替代品—免费的人工智能图像和视频生成工作室，拥有600多名模特（ Flux、Midjourney、Kling、Sora、Veo ）。无内容过滤器。自托管，麻省理工学院许可。",
-    "at": "2026-11-06T15:00:22.164862+08:00"
+    "hash": "c65e200549605235fec676ff39144fd3a6140152eb4880a56c31f4bcf83529ab",
+    "summary": "未经审查的人工智能视频平台的开源替代品—免费的人工智能图像和视频生成工作室，拥有600多名模特（ Flux、Midjourney、Kling、Sora、Veo ）。无内容过滤器。自托管，麻省理工学院许可。",
+    "at": "2026-11-09T14:53:25.434072+08:00"
   },
   "CarterPerez-dev/Cybersecurity-Projects": {
     "hash": "940fbfdb1ee4f1d66caf6844e6fe57c5277df61e6381b9448927503066b9f162",
@@ -5005,9 +5005,9 @@
     "at": "2026-11-08T14:19:36.523794+08:00"
   },
   "dashdogy/MFG-Unlocker": {
-    "hash": "bdff5aa65db19d658f0cc5991069bbdee366ede582666b63d2674ba7417d207c",
-    "summary": "RTX 40系列GPU上任何受支持的制造标题的实验性DLSS多帧生成控件",
-    "at": "2026-11-08T14:19:36.523794+08:00"
+    "hash": "4644a095500b7dddaf2f2814d30928cc16addd54474cc2c9db2558d20b4e7dc8",
+    "summary": "DLSS多帧生成解锁和控制RTX系列GPU上任何受支持的制造标题",
+    "at": "2026-11-09T14:53:25.434072+08:00"
   },
   "spf13/cobra": {
     "hash": "5d2d83ac6d855576d968f12a905457a5dceba2dbf86cbc9516e6a68a4999de27",
@@ -5223,5 +5223,230 @@
     "hash": "4be574b419636efe7519243e56c647eeaf5002d37a0db7f51bd7988f82e81e34",
     "summary": "免费设备上的iOS/iPadOS应用程序管理器/安装程序，使用Apple Developer Program的证书。",
     "at": "2026-11-08T14:19:36.523794+08:00"
+  },
+  "anthropics/claude-quickstarts": {
+    "hash": "e82cdbb673f9db86750fff8e390f94074a8ed2fff445d8ce13afed285c10a97a",
+    "summary": "旨在帮助开发人员快速开始使用Claude API构建可部署应用程序的项目集合",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "google-deepmind/mujoco": {
+    "hash": "453f912a98b28d6c8c11e5cdb38eb3c1cc3f25518739f27b73b82b42f277072f",
+    "summary": "与Contact的多关节动态。通用物理模拟器。",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "Albert-Weasker/niubigeo": {
+    "hash": "d83d294126716a606e7518a1acc256c431806d8f366a71e066275180a88ad1f9",
+    "summary": "开源AI品牌知名度和竞争对手报告。官网： https://niubigeo.ai/ |付费服务：真人AI测试和地理优化定价： https://niubigeo.ai/pricing",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "jithin-sabu/purge-app": {
+    "hash": "de70e0c86263d5eb31bc94a2ab696ab1481ad09dbfa17266c4f825c535a49578",
+    "summary": "释放您的Mac。安全。一款免费的开源原生Mac应用程序，可清除缓存并将Mac自行堆积起来。默认情况下，文件会转到垃圾桶，因此您可以将其放回原处。",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "jaywcjlove/awesome-mac": {
+    "hash": "5b0ae872044c0e3fd5605f394c7ab4855e793a9aa95b2833039bb8d0095fbc51",
+    "summary": "该项目致力于收集高质量的macOS软件，并按不同类别进行系统整理，以便于搜索和使用。",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "googlecolab/google-colab-cli": {
+    "hash": "913b2cd3c86ae6542dbb865a4507fef9b11caab8b07ee8f9849e4c481abad290",
+    "summary": "用于与Google Colab运行时交互的CLI",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "henrygd/beszel": {
+    "hash": "77a7e2eef9c835f87d5bfa2ac8bf9af414580ac13e1966593724f0b51f2008f9",
+    "summary": "使用历史数据、docker统计数据和警报进行轻量级服务器监控。",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "builtbybel/FluentCleaner": {
+    "hash": "a3c4227d3b1ce7f1968b878da90d4f743446b9de8f7f742d553f7ae1c0ab7c37",
+    "summary": "FluentCleaner是Windows的透明、社区驱动的CCleaner替代品。",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "bradautomates/claude-video": {
+    "hash": "efe4aade8901e2fdf28f177feaea90974485f0a2c1f3bd39531f537e121a2080",
+    "summary": "让Claude能够观看任何视频。/观看下载、提取帧、转录，并将所有内容交给Claude。",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "kortix-ai/CompanyOS": {
+    "hash": "7beea7714ffea83ae5562596203ca372250ffa77945e48c2d3df50012a10e9ba",
+    "summary": "Kortix CompanyOS –贵公司的开源操作系统。多人人工智能代理，您的公司作为代码，对您的基础设施或我们的基础设施拥有主权。",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "neuml/txtai": {
+    "hash": "9faa7c7b24961adf6112fee134dcd0958ae8817c60c363d7a1ff5d54e94c0f00",
+    "summary": "用于语义搜索、LLM编排和语言模型工作流程的💡一体化AI框架",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "4ian/GDevelop": {
+    "hash": "4d68becdf4c0410f6d522cbd259341b86c945ea9e4189ad1583d1f94e22e7cc3",
+    "summary": "专为所有人设计🎮的开源、跨平台2D/3D/多人游戏引擎。",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "ParadevAI/Paradev": {
+    "hash": "191f98bb36897af83eddc1906e2d85af29504d83be21b949ccffd73742ed0539",
+    "summary": "Paradev是一个开源的Codex应用程序和Conductor替代品。与您自己的订阅并行编排军队编码代理。",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "GCWing/OpenBitFun": {
+    "hash": "610a2bf9ae2f7fd354abbeec3b549171d6a6bc3658efd9c7ac1387ab57cf378f",
+    "summary": "OpenBitFun将用Rust编写的高性能代理运行时与完善的桌面应用程序相结合。它将代码代理的深度与开放的通用功能相结合，用于软件开发以外的工作。",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "ZSeven-W/openpencil": {
+    "hash": "ad3c08df141769ccb690e8a7060c3aab6d830aa98bf94fa86d2278ad80655500",
+    "summary": "世界上第一个开源的AI原生矢量设计工具，也是第一个具有并发Agent Teams的矢量设计工具。Design-as-Code。直接在实时画布上将提示转换为UI。铅笔的现代替代品。",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "seerge/g-helper": {
+    "hash": "6a119fb7caa6c978f90e616ebfc3a2ec4efd8a31e88134ed56a09a06db0f8f7e",
+    "summary": "华硕笔记本电脑的轻型军械箱替代品，具有几乎相同的功能。适用于ROG Zephyrus、Flow、TUF、Strix、Scar、ProArt、Vivobook、Zenbook、Expertbook、ROG Ally等。",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "azahar-emu/azahar": {
+    "hash": "bc34aff2acd35a55013997b34df492e5506c73d1b90414d88878a741bab0e7f7",
+    "summary": "基于Citra的开源3DS仿真器项目。",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "zeldaret/oot": {
+    "hash": "675ea2646d423ae55da0ef1aaf28a1874e16e3ebf7917843ac3c91345461b3f5",
+    "summary": "《塞尔达传说：时间之笛》解密",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "Leantime/leantime": {
+    "hash": "e9af9e9471938bba10b339a8b9d53a01230035d5b664b20c72932a3192368abb",
+    "summary": "Leantime是一个针对非项目经理的以目标为中心的项目管理系统。构建时考虑到多动症、自闭症和阅读障碍。",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "omacom/try-omarchy": {
+    "hash": "dac9657657830a4f2bf56e2a6a7cb48a348581abb0c0071f8e320aac9dd07690",
+    "summary": "在MacOS上运行Omarchy ，无需任何设置。",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "seemoo-lab/openhaystack": {
+    "hash": "e4585c110e01452d028bff22e3552f9c1124003af0a8ce1371b92ead845f97a6",
+    "summary": "立即构建您自己的“AirTags” 🏷 ！通过Apple庞大的查找我的网络跟踪个人蓝牙设备的框架。",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "MeteorDevelopment/meteor-client": {
+    "hash": "4ac5a6212d60115443d0699e126f67a08ba9ee60df53395be4c4a3e94e688abf",
+    "summary": "基于Minecraft的实用程序模块",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "HiEventsDev/Hi.Events": {
+    "hash": "5d4a69811fb4205402d136a087d58fff9768d316bc7b1e9e1c3290d16fa9ad2d",
+    "summary": "开源活动管理和门票销售平台—非常适合音乐会、会议以及介于两者之间的一切🎟️如果您觉得这个项目很有帮助，请考虑给我们一颗星 ⭐️",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "ninxsoft/Mist": {
+    "hash": "ad265c2abd9baa3399360a39841fba9f4e488c7b2239d90588980f10b21dd64b",
+    "summary": "自动下载macOS固件/安装程序的Mac实用程序。",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "DIYgod/pinky": {
+    "hash": "300b6b13db87c6b88048953dbc4c3cf6a174e40be47b787567c31d81c9dca942",
+    "summary": "让人工智能代理与您一起使用您的手机。",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "IainKay/ram-altman": {
+    "hash": "61acab1bc145060234bb3337e2adab3c0704ece43858b3b0c92df9f667ce9bd9",
+    "summary": "监控您的RAM ，并将任何“相当糟糕”的未使用容量直接报告给OpenAI的首席执行官。",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "ItsAlphaNeon/Lemon-Studio": {
+    "hash": "42ba6756edda18eed34df562c6ddc1f34efcffbb4e894bd5978700323d53d4d0",
+    "summary": "制作音乐。保留音源。",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "jamesondh/chimera-vocal-synth": {
+    "hash": "a631b761bc5c12880232e3cd8e73810571cac2748d8b9e4d6e986fb500fe5155",
+    "summary": "终极声音合成器-唱歌、说话、节拍器等",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "janestreet/agent_skills": {
+    "hash": "d3bea48abd243765e73062febb24ad5221ba090ac07af99f914fdd554b03fa95",
+    "summary": "客服代表技能",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "sassiestrhihno/boxshelf-beta": {
+    "hash": "e8a35f81b06bba9b62edb4ee112f4a0c5ffe4fd39f0b363c6785f31ea86cd5bd",
+    "summary": "适用于Windows、Android （ AYN Thor ）和Linux/Steam Deck的Boxshelf公共测试版：适用于模拟器、Steam游戏和媒体应用程序的电视式3D盒子艺术架。",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "AtomIllusionistDwell/watson-username-footprint-finder": {
+    "hash": "1a36124ee08e356c54055a47b654c1e037919d2dd65a66848f13b16f943b09ee",
+    "summary": "免费人员搜索桌面应用程序：在3,100多个公开页面上查找昵称、电子邮件、电话或网站，并获得一份可读的报告。",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "majorminorlabs/hermes-voice": {
+    "hash": "c5277436947ff475eabc4be939b648fdb19d1187da8a98a498d034cc45ff14b6",
+    "summary": "通过Home Assistant Assist与爱马仕客服代表对话",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "PaladinSmash84/aida-64-extreme": {
+    "hash": "db08340a07cfe353d87729f0edc04298204c7523f7e331e1bd02f416b1bc12b1",
+    "summary": "AI提示工程工具包AIDA 64 Extreme ，预配置环境，用于在隔离的本地进行高级LLM培训和部署...",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "Manaclenodisconnect/Lichii-Enhanced": {
+    "hash": "c6d93da6d4b5b599c5c11ba8040e55b49dbd37d8fb59822db5d072184806f644",
+    "summary": "Nintendo Switch仿真器具有内置升级程序、mod和补丁管理器、引导式首次运行向导以及通过具有LDN兼容性的统一房间服务器进行的在线游戏。",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "open-net-worth-ai/open-net-worth": {
+    "hash": "82f9b7855615f85b569c3b2cd88cb04b3a10c1ca2901b26b9a9dd648840779e4",
+    "summary": "Claude和ChatGPT Personal Finance的自托管替代方案。管理您的预算和投资并可以进行交易的人工智能代理。",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "hffgzktbcc-blip/ounce-core": {
+    "hash": "a729c258924d2c95d8cddbd2c52a4fa865376953e2debf50d4009484fda0d680",
+    "summary": "安全Rust中的开源ARM64执行实验室：在三个CPU引擎上运行程序，并证明结果与真实硬件相匹配。",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "lobehub/lobe-mygo": {
+    "hash": "bab6444692a55be710b3315686e4e39b16d4508879f3280e7a8c6a1cabb0479a",
+    "summary": "🍭 Lobe MyGo -原生Go应用程序的UI套件： MyGo的Lobe UI设计语言，在纯Go的GPU上绘制",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "apelabs-dev/hermes-finance": {
+    "hash": "3152007df47b0df00166c113ba691f766b47348e869f569bd5d6e7b8f4afb248",
+    "summary": "自托管个人理财控制面板：格子银行同步、类别、预算和规则，除非您批准更改，否则代理工具将保持只读状态。",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "msrofficial/MiruDL": {
+    "hash": "512c121609493bb44e3e174b1733f1703a5998125fb7a3378627f2c81edd48c0",
+    "summary": "轻量级应用程序，可轻松批量下载动漫片段。",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "MikhailSagalaev/openradar": {
+    "hash": "132228288b49671fc9a0d71974ca2e90bc3d65fc35e3c3b767a2487596202a1e",
+    "summary": "开放每个董事会、RSS和Telegram的职位空缺和自由职业者订单。运行您自己的节点，与集线器共享。没有付费墙。",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "gdorgian/aura": {
+    "hash": "1b647bbe571454e44ec5a3c5fff24d4a2a68d67bfd89f8c4477774812ec951be",
+    "summary": "适用于iPhone的私人健康应用程序：睡眠、恢复、HRV、训练和身体年龄。适用于无需订阅的百日咳表带、智能秤和Apple Health。",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "can1357/oh-my-pi": {
+    "hash": "9ead4f45474261bb4cfc8158e3db866c688e56c525bb656b3363ffdbfb909c62",
+    "summary": "带有IDE的编码代理已接入。由Stencil Labs构建。",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "gin-gonic/gin": {
+    "hash": "c887a68d9043c663dda410c236fd22fb7e1d34812c347b20347077a72b01d11a",
+    "summary": "GIN是用Go编写的高性能HTTP Web框架。它提供了一个类似于Martini的API ，但性能明显提高，速度提高了40倍，这要归功于httprouter。GIN专为构建REST API、Web应用程序和微服务而设计。",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "Eglantine-Community/Eglantine": {
+    "hash": "49bf63e81245b6f34421771bdc4debd836adcbae8179fc1e52b2c065471df3c2",
+    "summary": "非常实验性的Nintendo Switch 2仿真器",
+    "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "anomalyco/rune": {
+    "hash": "4812797e8453e89bc393ab27ea85141398b82e17b68f377f1ed99b9a7a8fc2da",
+    "summary": "Rune ：原生UI框架",
+    "at": "2026-11-09T14:53:25.434072+08:00"
   }
 }
