@@ -745,9 +745,9 @@
     "at": "2026-10-30T13:49:17.238303+08:00"
   },
   "storytold/photocraft": {
-    "hash": "5555bd5e0ef27aefc38081dc55f06c4b0c79f81ac4aa35802f606f7b188832ed",
-    "summary": "PhotoCraft ：用纯Rust编写的开源照片编辑器",
-    "at": "2026-10-30T13:49:17.238303+08:00"
+    "hash": "2ba47ef83008325e82457d9a642c938b1fa94c934e788d3da166c8385ed0ac05",
+    "summary": "PhotoCraft ：用纯Rust从头开始编写的开源照片编辑器",
+    "at": "2026-11-10T15:30:16.144330+08:00"
   },
   "Gathin23/cleanyourtv": {
     "hash": "0a799d76b0c4420b5f3ca8bd7afcb4d50080982b6c37ccaa8fa88ba30dd82811",
@@ -765,24 +765,24 @@
     "at": "2026-10-30T13:49:17.238303+08:00"
   },
   "storytold/pdfcraft": {
-    "hash": "8d6c2bb7925f2d8af2d0613ff70a2be432e96b6fd0d610079fc46f9b48991991",
-    "summary": "PdfCraft ：用纯Rust通过scratch编写的开源PDF阅读器和编辑器",
-    "at": "2026-10-30T13:49:17.238303+08:00"
+    "hash": "708d280405a0bc99b54e1fbd20c0e5485bec1ee8f47395292f5ba90f29f3f6a4",
+    "summary": "PdfCraft ：用纯Rust从头开始编写的开源PDF阅读器和编辑器",
+    "at": "2026-11-10T15:30:16.144330+08:00"
   },
   "storytold/filmcraft": {
-    "hash": "5d248b8288750f7953bdb4056c81c9e736c79c524da609910ec490c3978aa0e3",
-    "summary": "FilmCraft ：用纯Rust编写的开源非线性视频编辑器",
-    "at": "2026-10-30T13:49:17.238303+08:00"
+    "hash": "188e25063b60dbefe51db4ae4f0764c7bf520f9db2201511a4733531c13f8df3",
+    "summary": "FilmCraft ：用纯Rust从头开始编写的开源非线性视频编辑器",
+    "at": "2026-11-10T15:30:16.144330+08:00"
   },
   "storytold/wordcraft": {
-    "hash": "0114f6046ae83abbf2db753b69442fc72f727020d38f274416e23dcf2fcf71c7",
-    "summary": "在纯Rust中重新实现Microsoft Word的开源洁净室",
-    "at": "2026-10-30T13:49:17.238303+08:00"
+    "hash": "b249046e6b9a5af085325ce9d4d819463bd3951aee495ccbf84e88e7ac1870bb",
+    "summary": "WordCraft ：纯Rust的开源洁净室文字处理器",
+    "at": "2026-11-10T15:30:16.144330+08:00"
   },
   "storytold/lightcraft": {
-    "hash": "e81e29b10a09e26d375438fbba307a9a09e2e987e2237b2649b06b222f79e06e",
-    "summary": "LightCraft ：用纯Rust编写的开源无损照片编辑器",
-    "at": "2026-10-30T13:49:17.238303+08:00"
+    "hash": "386e1a542f2f4d18ea37e088a39c229a3de9592da5260997ddb7d5ce75d19ee3",
+    "summary": "LightCraft ：用纯Rust从头开始编写的开源无损照片编辑器",
+    "at": "2026-11-10T15:30:16.144330+08:00"
   },
   "Zagitta/gpu-unlock": {
     "hash": "ccc0316d510cec31bbdadef90fc086a00b02eec59f9781af66176e1c7acda578",
@@ -885,9 +885,9 @@
     "at": "2026-10-30T13:49:17.238303+08:00"
   },
   "InukaAsith/TwinDesk": {
-    "hash": "f1806950c063e709ddd007fb77187d16fa036cca597d028d07f4c6af5348d7bc",
-    "summary": "您的所有电脑和手机，就像一张办公桌。屏幕、应用程序、文件、剪贴板、通话、短信、通知、鼠标和键盘，在Mac、Windows、Linux和Android之间共享。免费开源。无需帐户，无需云，现在无需共享网络。",
-    "at": "2026-10-30T13:49:17.238303+08:00"
+    "hash": "af487cb3b949ecf62df7d224b62acae58091e90e0b39117bd8353dbcfc886734",
+    "summary": "您的所有电脑和手机/iPhone ，就像一张办公桌。屏幕、应用程序、文件、剪贴板、通话、短信、通知、鼠标和键盘，在Mac、Windows、Linux、Android、Web和ios/ipados之间共享。免费开源。无需帐户，无需云，无需共享网络。",
+    "at": "2026-11-10T15:30:16.144330+08:00"
   },
   "rociiu/talorys": {
     "hash": "2afd3c0c3b928b8751cc0c01dd61a8f5fbc76154606fa3303941a87350350acb",
@@ -5355,9 +5355,9 @@
     "at": "2026-11-09T14:53:25.434072+08:00"
   },
   "ItsAlphaNeon/Lemon-Studio": {
-    "hash": "42ba6756edda18eed34df562c6ddc1f34efcffbb4e894bd5978700323d53d4d0",
-    "summary": "制作音乐。保留音源。",
-    "at": "2026-11-09T14:53:25.434072+08:00"
+    "hash": "7094f909f5924d900c6617e0834a8e67bdc8794c73333738ab5d72c2c0ee5c4d",
+    "summary": "您已经知道如何使用的免费开源DAW。",
+    "at": "2026-11-10T15:30:16.144330+08:00"
   },
   "jamesondh/chimera-vocal-synth": {
     "hash": "a631b761bc5c12880232e3cd8e73810571cac2748d8b9e4d6e986fb500fe5155",
@@ -5448,5 +5448,185 @@
     "hash": "4812797e8453e89bc393ab27ea85141398b82e17b68f377f1ed99b9a7a8fc2da",
     "summary": "Rune ：原生UI框架",
     "at": "2026-11-09T14:53:25.434072+08:00"
+  },
+  "homeassistant-ai/ha-mcp": {
+    "hash": "cd725fece54dfb8f88751a5dbe918b73de7265c2428bc514ff78b653d64292a9",
+    "summary": "使用Claude、ChatGPT和其他AI助手配置和自动化Home Assistant。",
+    "at": "2026-11-10T15:30:16.144330+08:00"
+  },
+  "OpenBMB/VoxCPM": {
+    "hash": "668f7a1788fa6690e91e328e48cadca674bcd28bd858c2aecc24855782ec3801",
+    "summary": "VoxCPM2 ：用于多语言语音生成、创意语音设计和真实克隆的无标记TTS",
+    "at": "2026-11-10T15:30:16.144330+08:00"
+  },
+  "OpenCut-app/OpenCut": {
+    "hash": "b4f7c63a7f6f36d5560f7b7fa9ae2ac8722a08db677709a4a73d0029b539de18",
+    "summary": "开源CapCut替代方案",
+    "at": "2026-11-10T15:30:16.144330+08:00"
+  },
+  "GyulyVGC/sniffnet": {
+    "hash": "0e119769c93cfb7e97df6cdd7b6ae690ac039c3fec77d138715e4dd79e5cc52c",
+    "summary": "轻松监控网络流量 🕵️‍♂️",
+    "at": "2026-11-10T15:30:16.144330+08:00"
+  },
+  "vercel-labs/json-render": {
+    "hash": "3b678caf26d76a03e57d05953a1579e9d6f5742699f7d56c23c8e75528498718",
+    "summary": "生成式UI框架",
+    "at": "2026-11-10T15:30:16.144330+08:00"
+  },
+  "majd/ipatool": {
+    "hash": "7c149d68888db5b31410dc6fb3e2dd443509dcd0db7e0d7b64d95f16b4abdddd",
+    "summary": "命令行工具，允许您在App Store上搜索iOS、iPadOS、tvOS、watchOS、visionOS和macOS应用程序，并下载.ipa或macOS .pkg应用程序包。",
+    "at": "2026-11-10T15:30:16.144330+08:00"
+  },
+  "HakanSeven12/OpenCADStudio": {
+    "hash": "06b133f452b1b84772cbfeaabea84c97244417f7564af750077dfa9a51ea9ad0",
+    "summary": "使用Rust构建的CAD应用程序— 2D/3D绘图、DWG/DXF支持和GPU加速渲染",
+    "at": "2026-11-10T15:30:16.144330+08:00"
+  },
+  "Universal-Debloater-Alliance/universal-android-debloater-next-generation": {
+    "hash": "199cc7c8dfe748ccf1b5524e087e06f5bca3389fc9aaf17b662c0eacef5bd206",
+    "summary": "用Rust编写的跨平台GUI ，使用ADB去浮动非根Android设备。提高设备的隐私性、安全性和电池续航时间。",
+    "at": "2026-11-10T15:30:16.144330+08:00"
+  },
+  "opendataloader-project/opendataloader-pdf": {
+    "hash": "8fab9bcdf1889148b0f9c9176193874e0d9a0917c01dc57dd8b4f5b08cfd144d",
+    "summary": "适用于人工智能就绪数据的PDF解析器。自动化PDF辅助功能。开源。",
+    "at": "2026-11-10T15:30:16.144330+08:00"
+  },
+  "sundowndev/phoneinfoga": {
+    "hash": "959adbe49b5f269e9d20ad7223c8f0d13cb1ea12d3c4dc78db81436bf94780fc",
+    "summary": "电话号码信息收集框架",
+    "at": "2026-11-10T15:30:16.144330+08:00"
+  },
+  "LSPosed/LSPosed": {
+    "hash": "52c68c26abc11fad4eac7c236471691cf4f2be3860eac1d8abfd4835ee308fed",
+    "summary": "LSPosed框架",
+    "at": "2026-11-10T15:30:16.144330+08:00"
+  },
+  "raysan5/raylib": {
+    "hash": "662c465acf0cda0a4c3897316513ed151611ecdd4dce50f8bed0905d32e583ea",
+    "summary": "一个简单易用的库，可享受视频游戏编程",
+    "at": "2026-11-10T15:30:16.144330+08:00"
+  },
+  "BigBodyCobain/Shadowbroker": {
+    "hash": "db4ee0c382341bb47a2ba8b8b253ffe7685ddcd1c5e6d96de4a8923fee1122bc",
+    "summary": "面向全球影院的开源智能。在一个统一的界面中跟踪从富人的公司/私人飞机和间谍卫星到地震事件的所有内容。连接人工智能代理，使其通过数据进行解析，并找到以前看不见的相关性。到目前为止，所有人都可以获得这些知识，但很少公开汇总。",
+    "at": "2026-11-10T15:30:16.144330+08:00"
+  },
+  "sp00nznet/xboxrecomp": {
+    "hash": "c407ccf6623f3c7c58cec1ea86a418fad34464928b053b33cd522a19a589d3b4",
+    "summary": "将任何Xbox游戏二进制文件转换为本机Windows可执行文件。没有模拟，没有口译员。只是原始的，重新编译的C。",
+    "at": "2026-11-10T15:30:16.144330+08:00"
+  },
+  "cemu-project/Cemu": {
+    "hash": "5ee6afd36fd8e72357766f631629f604b5ed241e88321186f5a10cace645e7b0",
+    "summary": "Cemu - Wii U仿真器",
+    "at": "2026-11-10T15:30:16.144330+08:00"
+  },
+  "is-a-dev/register": {
+    "hash": "9eb3b44e3bc46e8099f9b8f9f8876d1c6ea2935233257393a72143421fa5ddd1",
+    "summary": "获取您自己的“.is-a.dev”子域名。",
+    "at": "2026-11-10T15:30:16.144330+08:00"
+  },
+  "reisxd/TizenTube": {
+    "hash": "7167ce37ff6c372dff39454f812bee4dec54d172da8e5d4bff3df269e6242c77",
+    "summary": "一个TizenBrew模块，用于删除广告并为您的Tizen TV添加对SponsorBlock的支持。",
+    "at": "2026-11-10T15:30:16.144330+08:00"
+  },
+  "FoloToy/ai-passport": {
+    "hash": "5620f77e111cf93fad26a47a71dcf85ea2d52c9b3f702730067b49a8eaf19f73",
+    "summary": "FOLOTOY AI Passport为Agent开发资源",
+    "at": "2026-11-10T15:30:16.144330+08:00"
+  },
+  "MojoLauncher/MojoLauncher": {
+    "hash": "3ea2b5e38fca4a4905adab25f84947ba09b0e79001615d84b6b2c59129f36348",
+    "summary": "基于PojavLauncher的Minecraft ： Java版启动器",
+    "at": "2026-11-10T15:30:16.144330+08:00"
+  },
+  "JakeATX/llamAmpere": {
+    "hash": "32b4936c0f6ddf1dc1a6cc3ba9eb07d4ad32ec2ff89dbdb24c4f4c4839998ccb",
+    "summary": "llama.cpp分叉，用于显着提高Ampere世代Nvidia卡（特别是RTX 3090/3090 Ti ）的性能：例如： qwen3.8在温度为1的100K代币世代上110 + tok/s ，支持完整的262K ctx。支持200k + ctx. 120 + TPS的低内存（ 12gb ）配置， QFN 3.8的3300 +预填充。",
+    "at": "2026-11-10T15:30:16.144330+08:00"
+  },
+  "tradesdontlie/tradingview-mcp": {
+    "hash": "0f20b665730ab490745cabb5e183c8d68d72378f6b0d07ecf7ac991cc790a838",
+    "summary": "AI辅助TradingView图表分析—将Claude Code连接到您的TradingView桌面，实现个人工作流程自动化",
+    "at": "2026-11-10T15:30:16.144330+08:00"
+  },
+  "relaticle/relaticle": {
+    "hash": "24b047371aa7fd08fef9f7962246fb531fe887f07d0a6c54ecb0c5ad450788c2",
+    "summary": "您的人工智能代理可以阅读和更新的开源CRM ：公司、人员、机会、任务和备注。REST API、自托管或云。",
+    "at": "2026-11-10T15:30:16.144330+08:00"
+  },
+  "modelcontextprotocol/php-sdk": {
+    "hash": "29852503fac914d278db6aeab5e6ca8fa78e4c6bf849e724f465003c90020a84",
+    "summary": "用于模型上下文协议服务器和客户端的官方PHP SDK。与PHP基金会合作维护。",
+    "at": "2026-11-10T15:30:16.144330+08:00"
+  },
+  "whoeevee/EeveeSpotifyReborn": {
+    "hash": "36c09cba74ad6dd6116af17a093ff35700e7049005996147ca80ab7c575c194c",
+    "summary": "调整以增强Spotify体验",
+    "at": "2026-11-10T15:30:16.144330+08:00"
+  },
+  "huamidev/GestaltX": {
+    "hash": "ffeb212bf7a5d79507eaeb6fee8392ab5f9911899100f48c4dc2f918ffe7f706",
+    "summary": "适用于iOS 27.x的MobileGestalt编辑器，具有区域代码调整、设备预设、备份以及对7种语言的支持。",
+    "at": "2026-11-10T15:30:16.144330+08:00"
+  },
+  "sahenjp/RustXNG": {
+    "hash": "8d95e0fac91c3bb597ddacde1b1f0bd0dbb6c833d256d1b72263aa9511fe79bc",
+    "summary": "基于SearXNG的AI代理自托管元搜索和接地引擎。Rust、JSON API、可选页面文本。",
+    "at": "2026-11-10T15:30:16.144330+08:00"
+  },
+  "kubai087/kubai-icons": {
+    "hash": "63890333c241d873280cee1c87f7cc89562e343f4f06005ba6aa2c19b73dffd8",
+    "summary": "为Claude Code、Codex和其他编码代理以一种一致的风格绘制动画图标的代理技能。附带2,600多个React、Vue和SVG的开源图标，以及一个用于浏览它们的网站。",
+    "at": "2026-11-10T15:30:16.144330+08:00"
+  },
+  "AbhramJohn/instagram-engagement-bot": {
+    "hash": "402c4d8e9ae691e3c233bf20ba680c91d6c9587c18aec515495bf46a3a91f5c5",
+    "summary": "社区驱动的Instagram点赞机器人，具有桌面高级自动化功能",
+    "at": "2026-11-10T15:30:16.144330+08:00"
+  },
+  "cristipufu/strata-files": {
+    "hash": "aa9f03ae6efe47aeaf851afcf9f6846aeac8d0066bf57c2072965c3c85df7dcf",
+    "summary": "Strata文件：快速、本机、键盘优先的文件管理器和macOS的Finder替代品。即时搜索、实时文件夹大小、磁盘使用情况映射、双窗格。",
+    "at": "2026-11-10T15:30:16.144330+08:00"
+  },
+  "hungry-detective/downloadcraft": {
+    "hash": "0b61a5a2583c16d58e6b251ab2f7ad2f6eec9b2b92a03ef2a47b89f9fdc44fc5",
+    "summary": "DownloadCraft - Rust中的轻量级离线优先IDM替代方案（ egui GUI + CLI、分段下载、调度程序、浏览器集成）",
+    "at": "2026-11-10T15:30:16.144330+08:00"
+  },
+  "jammaru/sakutto": {
+    "hash": "40d0ad365e21cec28f33118268a8645492754aae5f4d5c3bfaebeb1da0bf97d3",
+    "summary": "使用本地LLM （ PLaMo ）轻松进行设备上翻译的浏览器扩展。私密、免费，无需服务器。",
+    "at": "2026-11-10T15:30:16.144330+08:00"
+  },
+  "MaxeThis/HouseMaxer": {
+    "hash": "64eb704328feb82cb4c940c1916e7f1716f627daac9069f5e00374f9404a89b8",
+    "summary": "Raspberry Pi上的智能公寓：家庭助理指南、代码、零件列表和人工智能提示",
+    "at": "2026-11-10T15:30:16.144330+08:00"
+  },
+  "openrewrite/rewrite": {
+    "hash": "efd1a95904012e866be85449400533abb120f718bbbf415c86668d5f5d6b8640",
+    "summary": "源代码的自动批量重构。",
+    "at": "2026-11-10T15:30:16.144330+08:00"
+  },
+  "oven-sh/bun": {
+    "hash": "6fa7f050f64b36fcedfb836abc23575ab54ac4e99ffb83299da0af5d5fe19fe8",
+    "summary": "令人难以置信的快速JavaScript运行时、捆绑程序、测试运行程序和包管理器–所有功能于一身",
+    "at": "2026-11-10T15:30:16.144330+08:00"
+  },
+  "iqui27/nuvio-native-legacy": {
+    "hash": "f17d2c832e0a3e132315907856c4b4ab4fcadf4898dd9613a30a611e92f864de",
+    "summary": "适用于LG webOS 3 +、Samsung Tizen 4 +、GoogleTV 7 +的非官方本地Nuvio客户端。LG和三星上的C/SDL2/GLES2 （原生.tpk ， Tizen 4.0-9 ） ，以及适用于Tizen 5.5+的WebAssembly .wgt。从Homebrew Channel或版本安装。",
+    "at": "2026-11-10T15:30:16.144330+08:00"
+  },
+  "ZSeven-W/dsh-android": {
+    "hash": "d5264a4256c70781a444fdcbf9997ed3d7232ec79a845b54d4a3e1a8af8e08b6",
+    "summary": "DeepSeek Harness Android插件—构建、运行并与对话中的实时模拟器或USB设备流交互，完全通过adb驱动。",
+    "at": "2026-11-10T15:30:16.144330+08:00"
   }
 }
