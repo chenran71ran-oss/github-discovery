@@ -620,9 +620,9 @@
     "at": "2026-10-30T13:49:17.238303+08:00"
   },
   "infiniflow/ragflow": {
-    "hash": "f482b5814aa3a087bcf5be6c72c5df8ad61e01b0bfb266399fb55d22d96eaeb0",
-    "summary": "RAGFlow是领先的开源Retrieval-Augmented Generation (RAG)引擎，将尖端的RAG与Agent功能融合在一起，为LLM创建出色的上下文层",
-    "at": "2026-10-30T13:49:17.238303+08:00"
+    "hash": "8de7acc70aeb213decae204de4574acf0d28b7a94abfea32a4692fa4b3560cb1",
+    "summary": "RAGFlow是一个代理原生数据库：一个成长为上下文基础设施的检索增强生成(RAG)引擎。",
+    "at": "2026-11-11T14:46:54.915836+08:00"
   },
   "zarazhangrui/frontend-slides": {
     "hash": "02ca4b11fa043391408cd7a53c31f2c6cb20f31ae81752fd61140c288991c24a",
@@ -870,9 +870,9 @@
     "at": "2026-10-30T13:49:17.238303+08:00"
   },
   "mw00/project-maya": {
-    "hash": "1cad32a9f34d22026fdfe9a47f2496cbc47a8b8831b99efb26783263ede44af7",
-    "summary": "在您自己的显卡上运行GLM-5.3-Flash （ 321B ）、DeepSeek-V4.1-Flash （ 748B ）和MiniMax-M3.1-Flash （ 428B ） -一个引擎、一个仪表板、OpenAI和人类兼容的API。",
-    "at": "2026-11-06T15:00:22.164862+08:00"
+    "hash": "b3b8e2df82a4c1adf682c35b4319cf23c6a3966c18261c58d459fde57832d95c",
+    "summary": "在您自己的GPU上运行GLM-5.3 （ 744B ）、GLM-5.3-Flash （ 321B ）、DeepSeek-V4.1-Flash （ 748B ）和MiniMax-M3.1-Flash （ 428B ） -一个引擎、一个仪表板、OpenAI和人类兼容的API。",
+    "at": "2026-11-11T14:46:54.915836+08:00"
   },
   "shaongitbd/doory": {
     "hash": "820970a5549ad70e59aa212093b80f9bef3967b6274f820324b181be72ef8c6a",
@@ -5185,9 +5185,9 @@
     "at": "2026-11-08T14:19:36.523794+08:00"
   },
   "YusufCeng1z/ding": {
-    "hash": "483ce4b89845de05a60748700043c22142da945a5b48efd6b9124fe03e6d421c",
-    "summary": "与真正的春季物理干杯。一杯在原地变形的吐司。无依赖关系。React、Svelte和普通DOM。",
-    "at": "2026-11-08T14:19:36.523794+08:00"
+    "hash": "a4ce7ec650f91deb2fcac26f345eb190c04178ea5e34b835d32b3494de449106",
+    "summary": "与真正的春季物理干杯。一杯在原地变形的吐司。没有依赖关系。React、Svelte、Vue和普通DOM。",
+    "at": "2026-11-11T14:46:54.915836+08:00"
   },
   "ChazY11/medradar": {
     "hash": "daf541eefb20dc997beaad2fda94b8563489893fb86b5ca08a5d978ba59b5fab",
@@ -5628,5 +5628,225 @@
     "hash": "d5264a4256c70781a444fdcbf9997ed3d7232ec79a845b54d4a3e1a8af8e08b6",
     "summary": "DeepSeek Harness Android插件—构建、运行并与对话中的实时模拟器或USB设备流交互，完全通过adb驱动。",
     "at": "2026-11-10T15:30:16.144330+08:00"
+  },
+  "we-promise/sure": {
+    "hash": "9d49ebb8a2d71d55247df2c184f977c7763c458550d3da96c74119c70c9dcb73",
+    "summary": "适合所有人（由所有人）的个人理财应用程序",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "tokio-rs/topcoat": {
+    "hash": "762fbf3c96e621447d2bc3293be9ac7d3f76506a384d24da61db526f62d10b94",
+    "summary": "用于构建Web应用程序的包含电池的框架",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "opensandbox-group/OpenSandbox": {
+    "hash": "132ec307efb96bc0172a5f3530d8fd95b49cddc77949137c410c91386847bd6d",
+    "summary": "AI代理的安全、快速和可扩展的沙盒运行时。",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "bilawalsidhu/gods-eye-view": {
+    "hash": "c7da9c737c2200d2a45e8ec623660966285d769812adcd8d77a41046d4602142",
+    "summary": "浏览器中的间谍卫星模拟器，但数据是真实的。在逼真的3D地球仪上实时开源空间智能。",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "WhiteTowerAI/ohmygame": {
+    "hash": "39fdec6af3bc4f1b806e8fa1e1459c51e958738c39c09488a3a3ed250e781da7",
+    "summary": "使用人工智能制作游戏的开源工作室。您自己的单人游戏工作室。使用人工智能制作游戏所需的一切，尽在一个应用程序中。游戏画布。带上自己的钥匙。",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "every-app/open-seo": {
+    "hash": "8b2791ec0a4a1eda7c42d01b521be19ededc53c84abc94eb05cab22ac572ce30",
+    "summary": "Semrush和Ahrefs的开源替代品",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "ashishpatel26/500-AI-Agents-Projects": {
+    "hash": "22b7c7699e0813c69d2416f484ea063c236e1acc85160ea0a9c63a652ba183e9",
+    "summary": "500个AI Agent项目是各行各业AI Agent用例的精选集合。它展示了实际应用，并提供了要实施的开源项目的链接，说明了人工智能代理如何改变医疗保健、金融、教育、零售等行业。",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "ggml-org/llama.cpp": {
+    "hash": "ef409f05bd5431fa9108c006de94d3dd8178f6e3e935b6e3e6dff38939bcc971",
+    "summary": "C/C + +中的LLM推理",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "Tencent/WeKnora": {
+    "hash": "ee4bd46d19e1da9da6ccd2319a0b8f80246bcae65c1bd527a0f4355099470464",
+    "summary": "开源LLM知识平台：将原始文档转化为可查询的RAG、自主推理代理和自我维护的Wiki。",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "mantrakp04/ardia": {
+    "hash": "36c96943cfc699aa366eda0e8ff5db08ef0f524b3b6b4165d20f605cda12f678",
+    "summary": "适用于Mac的免费Chromium浏览器： Arc的侧边栏， Dia的抛光。在Discord上聊天： discord.gg/TdhuXrbcA6",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "ooolabdev/ooosplat": {
+    "hash": "26c7466709826722740d47b7e46187b30899559131f72328f37576a6cbe63a0b",
+    "summary": "本地桌面应用程序，只需单击一下即可将视频和图像转换为3D高斯图像。",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "noctalia-dev/umbriel": {
+    "hash": "54ad6b119390dd79eaa043eac4af61b0962c7da1c17c9539a72b32d822e193ce",
+    "summary": "专为日常使用而设计的Wayland合成器，具有滚动、缩小、母版和堆叠布局、每个输出工作区、窗口规则、模糊、阴影和流畅动画。",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "flameshot-org/flameshot": {
+    "hash": "6157fbfe9ff4ab7f5021ad0b3fc8d79ac129796d6294dc33c5f1381d4eca8db0",
+    "summary": "功能强大且易于使用的屏幕截图软件 🖥️ 📸",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "jean-voila/FeurStagram": {
+    "hash": "636f7de747161c2c5650d7f0e3f02eb7e3bbbdbe4adc252aae0e4f2342de75e8",
+    "summary": "没有转轴、Feed或广告的Instagram ：适用于Android的开源、可更新的Instagram应用程序，可保留DM和故事。",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "InterceptSuite/ProxyBridge": {
+    "hash": "6c2c2057378dbefb21ede97a287880b1ebc8eaeaef4cf92da1aafada84f8ac2e",
+    "summary": "简单代理客户端强制代理到任何Windows/MacOS/Linux应用程序TCP和UDP流量",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "recloudstream/cloudstream": {
+    "hash": "a9c039135bb60fe26d3f592a8469abf8f969905b656aeff07d2ee0bd8c33185e",
+    "summary": "用于流媒体和下载媒体的Android应用。",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "Zelda64Recomp/Zelda64Recomp": {
+    "hash": "fca0c50bf188df728293b11b9695d4d5fc6eef30e5a54fde637909670c083816",
+    "summary": "为PC （ Windows/Linux/Mac ）静态重新编译Majora's Mask （以及很快的Ocarina of Time ）",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "AbdurazaaqMohammed/MP-Manager": {
+    "hash": "fdaa1fdd01a58907417a72a4fb64a62797251f78639122ada21e668626a2da9a",
+    "summary": "双窗格Android文件管理器，专注于APK",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "SubtitleEdit/subtitleedit": {
+    "hash": "f7fa920980b52ce6f3cd3d924991ad7f6a174d74b29bb76d82c5214598d20634",
+    "summary": "字幕编辑器",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "Keeperorowner/NagramXF": {
+    "hash": "b44304e212b32ddab53ec0d02cab78742dc5c33efe763ea3267c8d49a09ef405",
+    "summary": "具有附加功能的NagramX分支。",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "deepseek-ai/3FS": {
+    "hash": "c17a3d2566ca5b7252f2480ad6b36c954338987a320ee4c370693651f77c4a3e",
+    "summary": "一种高性能的分布式文件系统，旨在解决人工智能培训和推理工作负载的挑战。",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "vimeo/psalm": {
+    "hash": "20144693808eba3489b1b2de3c6eb9b3a1088138381bfc31a1301091d0b05576",
+    "summary": "PHP静态分析工具，用于查找PHP应用程序中的错误和安全漏洞",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "nrfconnect/sdk-nrf": {
+    "hash": "ab6aed011ed673d7876d2274020a8b9e9cf639879fa84fb65e37fd36320441a1",
+    "summary": "nRF Connect SDK主存储库",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "expo/exact": {
+    "hash": "467fe57c192457ead8d80bad23460a953889e962b627a4d39fa589a7b2f1f002",
+    "summary": "编写一次应用程序。它在网络、macOS、iOS和Linux上本地运行， AI代理可以构建、运行、查看并在其中的每一个上进行测试。",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "thiagoaureliomartins-programador/chief-architect-premier": {
+    "hash": "7410253695c8fdcd16223e3be39bfe8c106a77f9c69a0bf6149b5266d7eec32d",
+    "summary": "Chief Architect Premier 2026 ：预配置桌面版，启用所有功能",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "leanislizarzado/ibm-spss-desktop-suite": {
+    "hash": "a401f074ad193ce91b83ec91c193d47a3a8c157aaf83232431391c591d2a5167",
+    "summary": "具有完整功能配置的IBM SPSS Statistics 2026独立设置",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "RolandoV3/metatrader-5-bot": {
+    "hash": "7457e2780510451f8c6a0eaac06025f12a11dabbf51c0c614ae306064ca945ef",
+    "summary": "社区驱动的MetaTrader 5机器人，具有完整的功能，可供桌面使用",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "ayanprob/coreldraw-desktop-installer": {
+    "hash": "b0d783116b68154ec91775eeca41bfe89b593e866e3a0679dc4ab56e0550a6cc",
+    "summary": "CorelDraw 2026专业桌面安装程序，带即用型实用程序配置",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "rdeepak-wq121/quicken-deluxe-installer": {
+    "hash": "c9efc33e8453675b93c371ae84159328849d104f426750606508285d1d9330c8",
+    "summary": "启用全功能集的Quicken Deluxe桌面安装程序",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "woo20080623-cell/cinebench-desktop": {
+    "hash": "1b51f79ae47ca824974f5fe426cf8b3acb45264b3d48e5688a5a0c9f60004253",
+    "summary": "Cinebench 2026独立台式机设置，具有预激活功能",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "mahmoudtawfik1998/secure-pdf-document-processor": {
+    "hash": "55de288f075eb50f3aacec945315f2d9e44b84b8a397ef9448b6c58f5be0be79",
+    "summary": "Adobe Acrobat Pro 2026 ：桌面版安全独立PDF文档处理器",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "SK-Dev666/rust-external-trainer-tool": {
+    "hash": "c2ac3d1d545d5d5b413564beb65aa4b4d6d55a84f0375dfedbb6705961fa5072",
+    "summary": "Rust External 2026 ：完整的独立培训师设置、工具和依赖项已准备好运行",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "shayannazar84-hero/honkai-star-rail-companion-suite": {
+    "hash": "3439baf5a8434ab4c2a2b99e514cacfafe0d8441a596aa1620399bc94c25c5d0",
+    "summary": "Honkai Star Rail 2026教练工具：完成独立设置，准备运行",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "bipro45/actual-multi-display-configurator": {
+    "hash": "33a14c5c91ac484a837bf3a0464f98dc75b281dcdff4bd07ec7745a89758eb4a",
+    "summary": "带增强显示选项的多显示器桌面配置安装程序",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "daiphu2708-crypto/melodyne-5-desktop-setup": {
+    "hash": "5f622ab0cff446f3b3da134f8f04cb24242030f77559b11b4c198e673c11c05a",
+    "summary": "Melodyne-5 ：专业音频编辑桌面套件，配备全套功能",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "HolyArrs/HolyArrs": {
+    "hash": "a656d7761caea72850085639437c71e56d9f772036efa273102ef1fe430468cd",
+    "summary": "一款适用于节目、电影和音乐的自托管应用。",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "imxieyi/Kernarium": {
+    "hash": "27f3f68e63df8b34dc8ed16fa76f8c4dae0c7472391a3ea338e2c3b6cfa6966e",
+    "summary": "在iOS上本地运行真正的Linux内核",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "Manan-Santoki/OpenShelf": {
+    "hash": "4e202a7e5f28ded854d089c9281ff9154fe55e4661acee91bcb7d146867cef81",
+    "summary": "免费的开源Mac实用程序：开始拖动任何文件，轻触密钥，然后将其放在滚轮上，以进行转换、编辑、AirDrop或搁置。完全离线运行。",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "Moh4696/cinematic-skill": {
+    "hash": "acf7190f3513a0f34665c2e84c962ffb804b792313d5f38b27e295f129f3b4d2",
+    "summary": "完全由代码构建的叙述性电影的代理技巧：一个连续的相机在照片，地图和卡片上，定时到声音。Claude Code、Codex、Cursor、Gemini CLI。",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "Morvex885/pulsar": {
+    "hash": "ebbab828985eb7d6facce467e7cc84057ea676dc62a27d1f55ad2e89d2137ca0",
+    "summary": "家庭助理（ ESPHome Native API ） и Sendspin-плеер音乐助理— без облака индекса",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "joeseesun/xnews": {
+    "hash": "c2ccdc54b5921cfb115e2b187527e1cbbea9073da6770bda15dd36c4d0758ff2",
+    "summary": "X新闻—海外创始人帖子和人工智能视频，用巧姆语重写",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "trinodb/trino": {
+    "hash": "2d81dcaeb192da636189d7f5a1ae7b403edc758f164a5d96fbbe23be866c2488",
+    "summary": "大数据分布式SQL查询引擎Trino官方仓库，前身为PrestoSQL （ https://trino.io ）",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "opensourcepos/opensourcepos": {
+    "hash": "d18b4de8fdd61f7d093d650ff3ef8f1c863fde55bc55cdfcb0e8012ac9fd38bd",
+    "summary": "开源销售点是一个基于Web的销售点应用程序，用PHP编写，使用CodeIgniter框架。它使用MySQL作为数据后端，并具有基于Bootstrap 3的用户界面。如果您喜欢这个项目，请给它一个星星！这样做有助于保持项目的热门OSS状态。",
+    "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "zadescoxp/order-flow-screener": {
+    "hash": "a447ed7a02211b5237193bbba7a66fd3849a7e2e32beaca541910698a3a9f896",
+    "summary": "现货和永续交易订单的免费开源订单流程筛选器。",
+    "at": "2026-11-11T14:46:54.915836+08:00"
   }
 }
