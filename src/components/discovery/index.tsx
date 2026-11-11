@@ -172,7 +172,7 @@ export function Discovery() {
   }, [login, seenQuery.data, seenLocal, seenNow])
   // 账号模式下攒一小批再上报，关页面时用 keepalive 发出
   const pendingSeen = useRef<string[]>([])
-  const flushTimer = useRef<ReturnType<typeof setTimeout>>()
+  const flushTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
   const flushSeen = useCallback(() => {
     clearTimeout(flushTimer.current)
     flushTimer.current = undefined
