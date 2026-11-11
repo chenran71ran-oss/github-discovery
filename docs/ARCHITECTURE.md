@@ -38,6 +38,8 @@ GitHub 搜索 ───┘   （总体 + 每个分类的主题流）            
      app.store.publish → public/data/latest.json、history/、*-cache.json
 ```
 
+发布前还有一步「历史」（`blocks/history.py`）：拿当天榜单和之前发布的快照比较，给**每个**项目算出 Star 增长（`starDelta`，日榜比 1 天前、周榜比 7 天前、月榜比 30 天前，快照不够时取窗口内最早的一份并记下天数 `starDeltaDays`），并维护 `first-seen.json` 记录每个项目第一次上榜的日期（`firstSeen`）。Trending 只给自己的项目周期增量，搜索来的项目原本没有增长数字，这一步补上了。
+
 每个阶段失败都有退路：某个周期抓取失败时保留上次完整榜单；搜索、主题、README 或翻译失败时跳过，并用缓存继续分类；完全没有数据时拒绝发布。
 
 ### 数据源
@@ -120,6 +122,8 @@ GitHub 搜索 ───┘   （总体 + 每个分类的主题流）            
 - 日志一行一个 JSON，不记录 Cookie、令牌或密钥。
 
 **收藏**：`gb_favorites` 按（GitHub ID，仓库全名）保存收藏时的项目快照，项目掉出榜单后仍能显示。接口是 `/api/favorites`（GET 读取、PUT 收藏、DELETE 取消）和 `/api/favorites/import`（第一次登录时导入浏览器里的收藏，已有的不覆盖）。每人只能读写自己的收藏，管理员也看不到别人的；写操作同样要求同源 JSON；每人最多 1000 个，单条不超过 16 KB；移除成员时一并删除其收藏。
+
+**看过的项目**：`gb_seen` 记录每人点开过的项目（保留 90 天，每人最多 5000 条），用来淡化已读和筛选「没看过」。接口是 `/api/seen`（GET 读取、POST 上报，每次最多 100 个）。前端攒两秒批量上报，切到后台时用 `keepalive` 发出；没有账号层时存在浏览器里。
 
 **测试**：`edge/accounts.test.ts` 用真正的 SQLite 模拟 D1，覆盖签名、准入、放行规则、中间件、完整的 GitHub 登录回调（GitHub 接口用桩替代）和管理接口的权限。另外在本地用 `wrangler pages dev` 跑过真实的 Workers 运行时，见 `docs/OPERATIONS.md`。
 

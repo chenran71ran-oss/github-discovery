@@ -31,10 +31,11 @@ interface InsightProps {
   saved: boolean
   onSave: () => void
   onClose: () => void
+  onCopyLink: () => void
 }
 
 /** 项目解读正文：桌面端放在右侧栏，手机上放进底部面板，两处内容一致。 */
-export function RepoInsight({ repo, period, saved, onSave, onClose }: InsightProps) {
+export function RepoInsight({ repo, period, saved, onSave, onClose, onCopyLink }: InsightProps) {
   const [owner, name] = repo.fullName.split("/")
   const moved = repo.previousRank ? repo.previousRank - repo.rank : 0
   const translated = repo.summary && repo.summary !== repo.description
@@ -108,6 +109,9 @@ export function RepoInsight({ repo, period, saved, onSave, onClose }: InsightPro
         <button type="button" className={`act ${saved ? "on" : ""}`} onClick={onSave} aria-pressed={saved}>
           <Icon name="bookmark" />
           {saved ? "已收藏" : "收藏"}
+        </button>
+        <button type="button" className="act icon-only" onClick={onCopyLink} aria-label="复制这个项目的链接" title="复制链接">
+          <Icon name="link" />
         </button>
       </div>
     </article>

@@ -97,3 +97,15 @@ describe("breakout flag", () => {
     }
   })
 })
+
+describe("growth for every row", () => {
+  it("prefers Trending's period stars, then the snapshot delta", async () => {
+    const { growthOf, heatOf } = await import("./discovery")
+    expect(growthOf({ periodStars: 120, starDelta: 90, starDeltaDays: 1 })).toEqual({ value: 120, days: null })
+    expect(growthOf({ periodStars: null, starDelta: 90, starDeltaDays: 7 })).toEqual({ value: 90, days: 7 })
+    expect(growthOf({ periodStars: null })).toBeNull()
+    expect(heatOf(-5)).toBe(0)
+    expect(heatOf(5000)).toBeCloseTo(1)
+    expect(heatOf(50)).toBeGreaterThan(heatOf(5))
+  })
+})

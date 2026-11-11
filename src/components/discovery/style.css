@@ -182,8 +182,8 @@
 .radar-app .chip[aria-pressed="true"] .n { color: color-mix(in srgb, var(--bg) 70%, transparent); }
 
 /* ================= 榜单 ================= */
-.radar-app .list-head { display: flex; align-items: baseline; gap: 12px; margin: 22px 0 10px; padding: 0 4px; }
-.radar-app .list-head h1 { margin: 0; display: flex; align-items: baseline; gap: 8px; font-size: 18px; font-weight: 700; letter-spacing: 0.01em; }
+.radar-app .list-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 12px; margin: 22px 0 10px; padding: 0 4px; }
+.radar-app .list-head h1 { margin: 0; display: flex; white-space: nowrap; align-items: baseline; gap: 8px; font-size: 18px; font-weight: 700; letter-spacing: 0.01em; }
 .radar-app .list-head .count { color: var(--faint); font: 600 13px var(--mono); }
 .radar-app .list-head .updated { margin-left: auto; color: var(--faint); font-size: 12.5px; white-space: nowrap; }
 .radar-app .banner { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 0 0 10px; padding: 10px 14px; border-radius: 11px; background: color-mix(in srgb, #f59e0b 13%, transparent); box-shadow: inset 0 0 0 1px color-mix(in srgb, #f59e0b 30%, transparent); font-size: 13px; }
@@ -210,6 +210,19 @@
 .radar-app .badge .i { width: 12px; height: 12px; }
 .radar-app .badge.hot { background: color-mix(in srgb, #f97316 16%, transparent); color: color-mix(in srgb, #f97316 70%, var(--ink)); }
 .radar-app .badge.new { background: var(--accent-soft); color: var(--accent-text); }
+.radar-app .badge.fresh { background: color-mix(in srgb, var(--up) 14%, transparent); color: var(--up); }
+/* 看过的项目：标题变淡，未看过的保持醒目 */
+.radar-app .row.seen .name { color: var(--muted); font-weight: 600; }
+.radar-app .show-filter { display: inline-flex; gap: 6px; align-self: center; }
+.radar-app .show-filter button { display: inline-flex; align-items: center; gap: 5px; height: 26px; padding: 0 10px; border: 0; border-radius: 13px; background: none; box-shadow: inset 0 0 0 1px var(--line); color: var(--muted); font-size: 12.5px; font-weight: 600; white-space: nowrap; transition: background 0.15s, color 0.15s, box-shadow 0.15s; }
+.radar-app .show-filter button b { color: var(--faint); font: 600 11.5px var(--mono); }
+.radar-app .show-filter button:hover { background: var(--hover); }
+.radar-app .show-filter button[aria-pressed="true"] { background: var(--accent-soft); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 50%, transparent); color: var(--accent-text); }
+.radar-app .show-filter button[aria-pressed="true"] b { color: inherit; }
+.radar-app .act.icon-only { flex: none; width: 44px; padding: 0; justify-content: center; }
+.radar-app .update-pill { position: fixed; z-index: 70; left: 50%; bottom: calc(var(--gap-bottom) + 72px); display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border: 0; border-radius: 10px; background: var(--ink); color: var(--bg); font-size: 13px; font-weight: 600; box-shadow: var(--pop); transform: translateX(-50%); cursor: pointer; animation: pill-in 0.3s var(--ease); }
+.radar-app .update-pill .i { width: 15px; height: 15px; }
+@keyframes pill-in { from { opacity: 0; transform: translate(-50%, 8px); } }
 .radar-app .sum { display: -webkit-box; overflow: hidden; color: var(--muted); font-size: 13.5px; line-height: 1.55; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
 .radar-app .meta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; margin-top: 3px; color: var(--faint); font-size: 12.5px; }
 .radar-app .meta > span { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
@@ -219,15 +232,20 @@
 .radar-app[data-mode="light"] .cat { --cat-l: 38%; }
 .radar-app .purpose { color: var(--muted); }
 .radar-app .src { padding: 0 6px; border-radius: 5px; box-shadow: inset 0 0 0 1px var(--line-strong); font-size: 11.5px; }
-.radar-app .move.up { color: #22c55e; }
-.radar-app .move.down { color: #f43f5e; }
-.radar-app[data-mode="light"] .move.up { color: #15803d; }
-.radar-app[data-mode="light"] .move.down { color: #be123c; }
+.radar-app[data-mode="dark"] { --up: #ff6b6b; --down: #34d399; }
+.radar-app[data-mode="light"] { --up: #c81e1e; --down: #15803d; }
+/* 涨红跌绿（国内习惯）：名次上升为红，下降为绿 */
+.radar-app .move.up { color: var(--up); }
+.radar-app .move.down { color: var(--down); }
 .radar-app .m-gain { display: none !important; }
 .radar-app .side { padding-top: 6px; text-align: right; }
 .radar-app .gain { color: var(--accent-text); font: 700 15px var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
 .radar-app .gain.age { color: var(--muted); font-family: inherit; font-size: 12.5px; font-weight: 600; }
 .radar-app .gain.none { color: var(--faint); }
+/* 增长越多红色越深：热度 0 时接近正文灰，1 时为纯红 */
+.radar-app .gain.up { color: color-mix(in oklab, var(--up) calc(35% + var(--heat, 0) * 65%), var(--muted)); }
+.radar-app .gain.down { color: var(--down); }
+.radar-app .gain.flat { color: var(--faint); }
 .radar-app .bm { flex: none; width: 40px; display: grid; place-items: start center; padding: 15px 0 0; border: 0; border-radius: 10px; background: none; color: var(--faint); opacity: 0.55; transition: opacity 0.15s, color 0.15s; }
 .radar-app .bm .i { width: 17px; height: 17px; transition: transform 0.3s var(--spring); }
 .radar-app .row:hover .bm,
@@ -309,7 +327,7 @@
 .radar-app .origin { display: block; margin-top: 6px; color: var(--faint); font-size: 12px; }
 .radar-app .original summary { color: var(--muted); font-size: 13px; cursor: pointer; }
 .radar-app .original p { margin: 6px 0 0; color: var(--muted); font-size: 13.5px; }
-.radar-app .ins-actions { display: grid; grid-template-columns: 1fr auto; gap: 8px; }
+.radar-app .ins-actions { display: grid; grid-template-columns: 1fr auto auto; gap: 8px; }
 /* 主要操作固定在侧栏 / 面板底部，内容再长也不用滚到底才看得到 */
 .radar-app .pane .ins-actions,
 .radar-app .sheet .ins-actions { position: sticky; bottom: 0; z-index: 1; margin: 0 -14px -14px; padding: 12px 14px 14px; background: linear-gradient(color-mix(in srgb, var(--surface-solid) 0%, transparent), var(--surface-solid) 34%); }
@@ -395,6 +413,7 @@
   .radar-app .domains { width: 100%; }
   .radar-app .domain { flex: 1; justify-content: center; padding: 0 6px; }
   .radar-app .list-head { margin-top: 18px; }
+  .radar-app .show-filter { order: 3; flex-basis: 100%; }
   .radar-app .rows { padding: 2px; border-radius: 14px; }
   .radar-app .row-main { grid-template-columns: 22px 36px minmax(0, 1fr); column-gap: 10px; padding: 12px 0 12px 8px; }
   .radar-app .row + .row::before { left: 54px; right: 10px; }
@@ -409,8 +428,11 @@
   .radar-app .ins-stats > div:nth-child(3) { box-shadow: inset 0 1px 0 var(--line); }
   .radar-app .ins-stats > div:nth-child(4) { box-shadow: inset 1px 0 0 var(--line), inset 0 1px 0 var(--line); }
 }
-@media (max-width: 380px) {
+@media (max-width: 440px) {
+  /* 状态栏放不下品牌名、周期、明暗和头像，先收起品牌名 */
   .radar-app .brand-name { display: none; }
+}
+@media (max-width: 380px) {
   .radar-app .seg.tabs button { padding: 0 16px; }
 }
 

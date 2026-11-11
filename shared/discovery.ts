@@ -27,6 +27,12 @@ export interface Repository {
   createdAt?: string
   /** Search stream that found the row, e.g. "topic:self-hosted". */
   stream?: string
+  /** Stars gained since an earlier published snapshot (every row, not only Trending); absent before 2026-11-11. */
+  starDelta?: number
+  /** How many days back that snapshot is. */
+  starDeltaDays?: number
+  /** First day the repo was listed on GIT Bot (YYYY-MM-DD). */
+  firstSeen?: string
   /** GIT Bot classification (taxonomy v2+); absent in older snapshots. */
   tags?: string[]
   domain?: string
@@ -97,6 +103,19 @@ export function isBreakout(repo: Pick<Repository, "stars" | "periodStars">, peri
   if (gain === null || repo.stars <= 0) return false
   const rule = breakoutRules[period]
   return gain >= rule.min && gain / repo.stars >= rule.share
+}
+/**
+ * 周期增长：Trending 给出的周期新增优先；没有时（搜索来的项目）用与更早快照相比的 Star 差值。
+ * 返回 null 表示两者都没有（第一次出现的项目）。
+ */
+export function growthOf(repo: Pick<Repository, "periodStars" | "starDelta" | "starDeltaDays">): { value: number, days: number | null } | null {
+  if (repo.periodStars !== null && repo.periodStars !== undefined) return { value: repo.periodStars, days: null }
+  if (typeof repo.starDelta === "number") return { value: repo.starDelta, days: repo.starDeltaDays ?? null }
+  return null
+}
+/** 增长的热度 0–1（对数刻度，约 5000 Star 封顶），用于颜色深浅；不增长为 0 */
+export function heatOf(value: number) {
+  return value <= 0 ? 0 : Math.min(1, Math.log10(value + 1) / Math.log10(5001))
 }
 export const categoryNames = ["全部", ...categories.map(c => c.label), fallback.label]
 export function compact(n: number) {

@@ -37,6 +37,9 @@ class Repo(TypedDict, total=False):
     origin: Origin
     stream: str  # search stream that found the row, e.g. "topic:self-hosted"
     createdAt: str
+    starDelta: int  # stars gained since an earlier snapshot (every row, not only Trending)
+    starDeltaDays: int  # how many days back that snapshot is
+    firstSeen: str  # first day the repo was listed on GIT Bot, YYYY-MM-DD
 
 
 class Features(TypedDict, total=False):

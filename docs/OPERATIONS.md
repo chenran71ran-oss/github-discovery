@@ -21,7 +21,7 @@
   28 个分类搜索流都有结果，296 个项目带次要标签。采集器这一步用时 434 秒；首次运行要抓取全部 README，之后 README 摘要缓存 14 天，耗时会下降。
 - **未配置模型**：没有配置 `LLM_*` 密钥，所以没有 README 解读；中文简介来自上游速览、资料整理和机器翻译，页面都有标注。
 - **旧采集 Worker**：保留用于回滚的 `github-discovery-collector` 曾关联本仓库，每次推送到 `main` 都会多一个失败的构建检查；2026-11-02 已在 Cloudflare 控制台断开它的 Git 关联。Worker 本身仍保留，回滚不受影响。
-- **需要关注**：`latest.json` 从约 350 KB 增长到约 1.05 MB（压缩传输约 200 KB），每次打开页面都会下载。项目数继续增加时，可以考虑按周期拆分文件；只去掉缩进能省的不多（压缩后约 10%）。`feature-cache.json` 约 0.7 MB，每天只提交有变化的条目。
+- **需要关注**：`latest.json` 从约 350 KB 增长到约 1.05 MB（压缩传输约 200 KB），每次打开页面都会下载。项目数继续增加时，可以考虑按周期拆分文件；只去掉缩进能省的不多（压缩后约 10%）。`feature-cache.json` 约 0.7 MB，每天只提交有变化的条目。`first-seen.json`（每个项目第一次上榜的日期）约 60 KB，第一次运行时从历史快照重建。
 
 ## 配置
 
@@ -84,7 +84,7 @@ GitHub 的定时任务经常延后，2026-10-27 至 11-02 实际都在北京时�
 | `GITHUB_CLIENT_SECRET` | Secret | GitHub App 的 client secret |
 | `SESSION_SECRET` | Secret | 至少 32 个字符的随机串，用于签名登录 Cookie。更换它会让所有人重新登录 |
 | `ADMIN_GITHUB_LOGIN` | Text | 站长的 GitHub 用户名，始终是管理员 |
-| `DB`（绑定） | D1 | 账号数据所在的数据库，表名为 `gb_members`、`gb_invites`、`gb_favorites`（首次访问自动创建） |
+| `DB`（绑定） | D1 | 账号数据所在的数据库，表名为 `gb_members`、`gb_invites`、`gb_favorites`、`gb_seen`（首次访问自动创建） |
 
 以前打开过网站的人可能还在用缓存里的旧页面：先打开 `/login` 登录，再强制刷新首页即可。
 

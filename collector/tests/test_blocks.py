@@ -90,3 +90,32 @@ class TextTests(unittest.TestCase):
 
 
 if __name__ == '__main__': unittest.main()
+
+
+class HistoryTests(unittest.TestCase):
+    def snap(self, **stars):
+        return {"periods": {"daily": [{"fullName": k.replace("__", "/"), "stars": v} for k, v in stars.items()]}}
+
+    def test_pick_past_prefers_exact_window_then_oldest_inside(self):
+        from collector.blocks.history import pick_past
+        today = date(2026, 11, 11)
+        days = ["2026-10-01", "2026-10-26", "2026-11-04", "2026-11-10"]
+        self.assertEqual(pick_past(today, "daily", days), ("2026-11-10", 1))
+        self.assertEqual(pick_past(today, "weekly", days), ("2026-11-04", 7))
+        self.assertEqual(pick_past(today, "monthly", days), ("2026-10-26", 16))
+        self.assertIsNone(pick_past(today, "daily", ["2026-11-08"]))
+
+    def test_star_deltas_for_every_row_found_earlier(self):
+        from collector.blocks.history import add_star_deltas, stars_by_repo
+        periods = {"daily": [{"fullName": "a/one", "stars": 150, "starDelta": 1}, {"fullName": "b/two", "stars": 10, "starDelta": 3}]}
+        add_star_deltas(periods, {"2026-11-10": stars_by_repo(self.snap(a__one=100))}, {"daily": ("2026-11-10", 1)})
+        self.assertEqual((periods["daily"][0]["starDelta"], periods["daily"][0]["starDeltaDays"]), (50, 1))
+        self.assertNotIn("starDelta", periods["daily"][1])
+
+    def test_first_seen_keeps_earliest_day(self):
+        from collector.blocks.history import build_first_seen, update_first_seen
+        index = build_first_seen({"2026-11-02": self.snap(a__one=1), "2026-11-01": self.snap(a__one=1, b__two=1)})
+        self.assertEqual(index, {"a/one": "2026-11-01", "b/two": "2026-11-01"})
+        periods = {"daily": [{"fullName": "a/one"}, {"fullName": "c/three"}]}
+        update_first_seen(index, periods, "2026-11-11")
+        self.assertEqual([r["firstSeen"] for r in periods["daily"]], ["2026-11-01", "2026-11-11"])

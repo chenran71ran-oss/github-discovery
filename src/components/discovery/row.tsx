@@ -1,5 +1,5 @@
 import { type CSSProperties, memo } from "react"
-import { type Period, type Repository, compact, isBreakout } from "@shared/discovery"
+import { type Period, type Repository, compact, growthOf, heatOf, isBreakout } from "@shared/discovery"
 import { categories, categoryOf, fallback } from "@shared/taxonomy"
 import { Icon, RepoIcon } from "./icons"
 
@@ -28,11 +28,20 @@ export function ageInDays(repo: Repository) {
   return Number.isFinite(created) ? Math.max(1, Math.ceil((Date.now() - created) / 86400000)) : null
 }
 
+/** 增长数字：涨红跌绿，越热颜色越深（对数刻度） */
 export function Gain({ repo, period }: { repo: Repository, period: Period }) {
+  const growth = growthOf(repo)
   const age = ageInDays(repo)
-  if (repo.periodStars === null && age !== null) return <span className="gain age" title={`创建于 ${repo.createdAt!.slice(0, 10)}`}>{`${age} 天前新建`}</span>
-  if (repo.periodStars === null) return <span className="gain none">—</span>
-  return <span className="gain" title={`${labels[period]}新增 ${repo.periodStars} Star`}>{`+${compact(repo.periodStars)}`}</span>
+  if (!growth && age !== null) return <span className="gain age" title={`创建于 ${repo.createdAt!.slice(0, 10)}`}>{`${age} 天前新建`}</span>
+  if (!growth) return <span className="gain none" title="第一次出现，还没有可比较的数据">—</span>
+  const { value, days } = growth
+  const title = days === null ? `${labels[period]}新增 ${value} Star（GitHub Trending）` : `比 ${days} 天前${value >= 0 ? "多" : "少"} ${Math.abs(value)} Star（按每日快照计算）`
+  const sign = value > 0 ? "+" : value < 0 ? "−" : "±"
+  return (
+    <span className={`gain ${value > 0 ? "up" : value < 0 ? "down" : "flat"}`} style={{ "--heat": heatOf(value) } as CSSProperties} title={title}>
+      {`${sign}${compact(Math.abs(value))}`}
+    </span>
+  )
 }
 
 interface RowProps {
@@ -42,16 +51,20 @@ interface RowProps {
   showCategory: boolean
   selected: boolean
   saved: boolean
+  /** 打开过：标题变淡 */
+  seen: boolean
+  /** 今天第一次出现在 GIT Bot 上 */
+  fresh: boolean
   onSave: (repo: Repository) => void
   onOpen: (repo: Repository) => void
 }
 
 /** 榜单一行：整行可点开解读，书签独立；名次、增量、简介一眼可读。 */
-export const Row = memo(({ repo, period, index, showCategory, selected, saved, onSave, onOpen }: RowProps) => {
+export const Row = memo(({ repo, period, index, showCategory, selected, saved, seen, fresh, onSave, onOpen }: RowProps) => {
   const [owner, name] = repo.fullName.split("/")
   const moved = repo.previousRank ? repo.previousRank - repo.rank : 0
   return (
-    <li className={`row ${selected ? "on" : ""}`} data-name={repo.fullName} style={{ "--i": Math.min(index, 10) } as CSSProperties}>
+    <li className={`row ${selected ? "on" : ""} ${seen ? "seen" : ""}`} data-name={repo.fullName} style={{ "--i": Math.min(index, 10) } as CSSProperties}>
       <button type="button" className="row-main" aria-current={selected || undefined} onClick={() => onOpen(repo)}>
         <span className={`rk ${repo.rank && repo.rank <= 3 ? "top" : ""}`}>{repo.rank ? repo.rank : "—"}</span>
         <RepoIcon fullName={repo.fullName} />
@@ -59,6 +72,7 @@ export const Row = memo(({ repo, period, index, showCategory, selected, saved, o
           <span className="head">
             <span className="name">{name}</span>
             <span className="own">{owner}</span>
+            {fresh && <span className="badge fresh" title="今天第一次出现在 GIT Bot 的榜单上">首次上榜</span>}
             {isBreakout(repo, period) && (
               <span className="badge hot" title="新增 Star 占总数的比例很高，是刚冒头的项目">
                 <Icon name="flame" />

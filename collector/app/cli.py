@@ -5,6 +5,7 @@ from collections import Counter
 from datetime import datetime, timedelta
 
 from collector.app import config, log as logs, store
+from collector.blocks import history
 from collector.core.settings import ROOT, TZ
 from collector.lab import pipeline, strategies
 
@@ -25,10 +26,25 @@ def run(cfg: config.Config, sources: pipeline.Sources | None = None):
     caches = store.load_caches(data, ROOT / "collector/editorial.json")
     with logs.timed(log, "collect", timings):
         snapshot = pipeline.collect(previous, baseline, caches, sources or pipeline.Sources(), options(cfg), now)
+    with logs.timed(log, "history", timings):
+        annotate_history(snapshot, data, now.date())
     with logs.timed(log, "publish", timings):
         store.publish(data, snapshot, caches)
     report(snapshot, timings)
     return snapshot
+
+
+def annotate_history(snapshot: dict, data, today):
+    """Star growth for every row (against earlier snapshots) and the first day each repo was listed."""
+    days = [d for d in store.read_json(data / "dates.json", []) if d < today.isoformat()]
+    picks = {p: history.pick_past(today, p, days) for p in history.WINDOW}
+    wanted = {pick[0] for pick in picks.values() if pick}
+    past = {d: history.stars_by_repo(store.read_json(data / "history" / f"{d}.json", {})) for d in wanted}
+    history.add_star_deltas(snapshot["periods"], past, picks)
+    index = store.read_json(data / store.FIRST_SEEN, None)
+    if index is None:
+        index = history.build_first_seen({d: store.read_json(data / "history" / f"{d}.json", {}) for d in days})
+    store.atomic_json(data / store.FIRST_SEEN, history.update_first_seen(index, snapshot["periods"], snapshot["date"]))
 
 
 def classify_only(cfg: config.Config):
