@@ -4,7 +4,7 @@ import { useMedia } from "react-use"
 import type { Period, Repository } from "@shared/discovery"
 import { domains } from "@shared/taxonomy"
 import { AccountButton, MembersPanel } from "./account"
-import { favoritesApi, isRepoName, loadDates, loadMe, loadSnapshot, markImported, readSaved, savedKey, wasImported, writeSaved } from "./api"
+import { favoritesApi, isRepoName, loadDates, loadMe, loadSnapshot, markImported, markSeenLocal, readSaved, readSeenLocal, savedKey, seenApi, wasImported, writeSaved } from "./api"
 import { CategoryFilter } from "./category-filter"
 import { RepoInsight, RepoSheet, time } from "./detail"
 import { Icon } from "./icons"
@@ -15,6 +15,7 @@ import { Segmented } from "./segmented"
 import { ModeToggle } from "./mode-toggle"
 import { pageBackground, switchMode } from "./theme"
 import { holdChrome, useScrollChrome } from "./use-scroll-chrome"
+import { applyPwaUpdate, subscribePwaUpdateState } from "~/utils/pwa"
 import { useDark } from "~/hooks/useDark"
 import "./style.css"
 
@@ -28,6 +29,9 @@ function modalOpen() {
   return !!document.querySelector(".radar-app dialog[open]")
 }
 
+const shows = ["all", "new", "unseen"] as const
+type Show = typeof shows[number]
+
 export function Discovery() {
   const { isDark, setDark } = useDark()
   const mode = isDark ? "dark" : "light"
@@ -39,6 +43,9 @@ export function Discovery() {
   const [category, setCategory] = useState(initial.get("category") || "")
   const [sort, setSort] = useState<Sort>("rank")
   const [view, setView] = useState<"discover" | "saved">(initial.get("view") === "saved" ? "saved" : "discover")
+  // 只看首次上榜 / 只看没看过的
+  const [show, setShow] = useState<Show>(shows.includes(initial.get("show") as Show) ? initial.get("show") as Show : "all")
+  const [updateReady, setUpdateReady] = useState(false)
   const [date, setDate] = useState(/^\d{4}-\d{2}-\d{2}$/.test(initial.get("date") || "") ? initial.get("date")! : "")
   const [local, setLocal] = useState(readSaved)
   // 账号里的收藏；null 表示还没读到（或没有账号层），这时显示浏览器里的
@@ -99,6 +106,7 @@ export function Discovery() {
     const params = new URLSearchParams()
     if (period !== "daily") params.set("period", period)
     if (view === "saved") params.set("view", "saved")
+    if (show !== "all") params.set("show", show)
     if (q) params.set("q", q)
     if (language) params.set("language", language)
     if (domain) params.set("domain", domain)
@@ -106,7 +114,7 @@ export function Discovery() {
     if (date) params.set("date", date)
     if (activeName) params.set("repo", activeName)
     window.history.replaceState(null, "", `${window.location.pathname}${params.size ? `?${params}` : ""}`)
-  }, [period, view, q, language, domain, category, date, activeName])
+  }, [period, view, show, q, language, domain, category, date, activeName])
   useEffect(() => {
     const sync = (e: StorageEvent) => {
       if (e.key === savedKey) setLocal(readSaved())
@@ -154,13 +162,79 @@ export function Discovery() {
       setNotice("浏览器存储不可用，收藏未保存")
     }
   }, [])
+  // ---------- 看过的项目 ----------
+  const seenQuery = useQuery({ queryKey: ["seen", login], queryFn: seenApi.list, enabled: !!login, staleTime: 300_000, retry: 1, refetchOnWindowFocus: false })
+  const [seenLocal] = useState(readSeenLocal)
+  const [seenNow, setSeenNow] = useState<Set<string>>(() => new Set())
+  const seen = useMemo(() => {
+    const base = login ? seenQuery.data : seenLocal
+    return base ? new Set([...base, ...seenNow]) : seenNow
+  }, [login, seenQuery.data, seenLocal, seenNow])
+  // 账号模式下攒一小批再上报，关页面时用 keepalive 发出
+  const pendingSeen = useRef<string[]>([])
+  const flushTimer = useRef<ReturnType<typeof setTimeout>>()
+  const flushSeen = useCallback(() => {
+    clearTimeout(flushTimer.current)
+    flushTimer.current = undefined
+    while (pendingSeen.current.length) void seenApi.mark(pendingSeen.current.splice(0, 100))
+  }, [])
+  useEffect(() => {
+    if (!activeName || seen.has(activeName)) return
+    setSeenNow(current => new Set(current).add(activeName))
+    if (!login) {
+      markSeenLocal([activeName])
+      return
+    }
+    pendingSeen.current.push(activeName)
+    flushTimer.current ??= setTimeout(flushSeen, 2000)
+  }, [activeName, seen, login, flushSeen])
+  useEffect(() => {
+    const leave = () => {
+      if (document.visibilityState === "hidden") flushSeen()
+    }
+    document.addEventListener("visibilitychange", leave)
+    return () => document.removeEventListener("visibilitychange", leave)
+  }, [flushSeen])
+  // 「没看过」筛选按打开筛选那一刻的记录算，边看边筛时刚看过的项目不会从列表里跳走
+  const [unseenBase, setUnseenBase] = useState<Set<string> | null>(null)
+  const chooseShow = (next: Show) => {
+    setUnseenBase(next === "unseen" ? new Set(seen) : null)
+    setShow(next)
+  }
+
+  // ---------- 新版本：刚打开或页面在后台时直接生效，否则提示 ----------
+  useEffect(() => subscribePwaUpdateState((state) => {
+    if (state !== "ready") return
+    if (performance.now() < 8000 || document.visibilityState === "hidden") void applyPwaUpdate().catch(() => setUpdateReady(true))
+    else setUpdateReady(true)
+  }), [])
+  useEffect(() => {
+    if (!updateReady) return
+    const apply = () => {
+      if (document.visibilityState === "hidden") void applyPwaUpdate().catch(() => {})
+    }
+    document.addEventListener("visibilitychange", apply)
+    return () => document.removeEventListener("visibilitychange", apply)
+  }, [updateReady])
+
+  const copyLink = useCallback((repo: Repository) => {
+    const url = `${window.location.origin}/?repo=${encodeURIComponent(repo.fullName)}`
+    navigator.clipboard?.writeText(url).then(() => setNotice("链接已复制"), () => setNotice("复制失败，请手动复制地址栏"))
+  }, [])
+
   const toggleMode = (origin: { x: number, y: number }) => switchMode(() => setDark(isDark ? "light" : "dark"), origin)
   const source = useMemo(() => sourceRows(data, period, view === "saved" ? saved : null), [view, saved, data, period])
   const languages = useMemo(() => [...new Set(source.map(r => r.language))].sort(), [source])
   const tally = useMemo(() => counts(source), [source])
-  const repos = useMemo(() => visibleRows(source, { q, language, domain, category, sort }), [source, q, language, domain, category, sort])
+  const filteredRows = useMemo(() => visibleRows(source, { q, language, domain, category, sort }), [source, q, language, domain, category, sort])
+  const today = data?.date || ""
+  const isFresh = useCallback((r: Repository) => !!today && r.firstSeen === today, [today])
+  const freshCount = useMemo(() => filteredRows.filter(isFresh).length, [filteredRows, isFresh])
+  const unseenCount = useMemo(() => filteredRows.filter(r => !seen.has(r.fullName)).length, [filteredRows, seen])
+  const showing = view === "saved" ? "all" : show
+  const repos = useMemo(() => showing === "new" ? filteredRows.filter(isFresh) : showing === "unseen" ? filteredRows.filter(r => !(unseenBase || seen).has(r.fullName)) : filteredRows, [filteredRows, showing, isFresh, unseenBase, seen])
   // 搜索时，被领域 / 分类 / 语言筛选挡住的匹配项数量，提示用户不要漏看
-  const hiddenMatches = useMemo(() => q.trim() && (language || domain || category) ? visibleRows(source, { q, language: "", domain: "", category: "", sort }).length - repos.length : 0, [source, q, language, domain, category, sort, repos.length])
+  const hiddenMatches = useMemo(() => q.trim() && (language || domain || category) ? visibleRows(source, { q, language: "", domain: "", category: "", sort }).length - filteredRows.length : 0, [source, q, language, domain, category, sort, filteredRows.length])
   // 选中的项目优先取当前周期的数据，周期切换后名次与增量跟着变
   const active = useMemo(() => {
     if (!activeName) return null
@@ -237,7 +311,7 @@ export function Discovery() {
       ? (
           <ol className="rows" key={listKey} ref={listRef}>
             {repos.map((repo, i) => (
-              <Row key={repo.fullName} repo={repo} period={period} index={i} showCategory={!category} selected={wide && active?.fullName === repo.fullName} saved={!!saved[repo.fullName]} onSave={toggleSave} onOpen={open} />
+              <Row key={repo.fullName} repo={repo} period={period} index={i} showCategory={!category} selected={wide && active?.fullName === repo.fullName} saved={!!saved[repo.fullName]} seen={seen.has(repo.fullName) && !(wide && active?.fullName === repo.fullName)} fresh={isFresh(repo)} onSave={toggleSave} onOpen={open} />
             ))}
           </ol>
         )
@@ -336,6 +410,18 @@ export function Discovery() {
               {view === "saved" ? "我的收藏" : `${labels[period]}榜单`}
               <span className="count">{query.isPending ? "" : repos.length}</span>
             </h1>
+            {view === "discover" && data && (
+              <div className="show-filter" role="group" aria-label="只看">
+                <button type="button" aria-pressed={show === "new"} onClick={() => chooseShow(show === "new" ? "all" : "new")} title="今天第一次出现在 GIT Bot 上的项目">
+                  首次上榜
+                  <b>{freshCount}</b>
+                </button>
+                <button type="button" aria-pressed={show === "unseen"} onClick={() => chooseShow(show === "unseen" ? "all" : "unseen")} title="还没有点开看过的项目">
+                  没看过
+                  <b>{unseenCount}</b>
+                </button>
+              </div>
+            )}
             {hiddenMatches > 0
               ? (
                   <button
@@ -385,7 +471,7 @@ export function Discovery() {
           <aside className="pane" aria-label={active ? "项目解读" : "榜单概况"}>
             <div className="pane-in" key={active ? "detail" : "overview"}>
               {active
-                ? <RepoInsight key={active.fullName} repo={active} period={period} saved={!!saved[active.fullName]} onSave={() => toggleSave(active)} onClose={() => setActiveName("")} />
+                ? <RepoInsight key={active.fullName} repo={active} period={period} saved={!!saved[active.fullName]} onSave={() => toggleSave(active)} onClose={() => setActiveName("")} onCopyLink={() => copyLink(active)} />
                 : <Overview data={data} period={period} onOpen={open} />}
             </div>
           </aside>
@@ -393,7 +479,7 @@ export function Discovery() {
       </div>
 
       {managing && <MembersPanel onClose={() => setManaging(false)} notify={setNotice} />}
-      {!wide && active && <RepoSheet key={active.fullName} repo={active} period={period} saved={!!saved[active.fullName]} onSave={() => toggleSave(active)} onClose={() => setActiveName("")} />}
+      {!wide && active && <RepoSheet key={active.fullName} repo={active} period={period} saved={!!saved[active.fullName]} onSave={() => toggleSave(active)} onClose={() => setActiveName("")} onCopyLink={() => copyLink(active)} />}
       <nav className={`chrome bottom ${chromeHidden ? "hidden" : ""}`} aria-label="底部导航">
         <Segmented<"discover" | "saved">
           className="tabs glass"
@@ -407,6 +493,12 @@ export function Discovery() {
         />
       </nav>
       <div role="status" aria-live="polite" className={`toast ${notice ? "visible" : ""}`}>{notice}</div>
+      {updateReady && !notice && (
+        <button type="button" className="update-pill" onClick={() => void applyPwaUpdate().catch(() => setNotice("更新没有成功，请手动刷新页面"))}>
+          <Icon name="refresh" />
+          新版本已就绪，点击刷新
+        </button>
+      )}
     </div>
   )
 }

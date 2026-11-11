@@ -15,6 +15,7 @@ def atomic_json(path: Path, data):
     tmp.replace(path)
 
 
+FIRST_SEEN = "first-seen.json"
 CACHES = {"analysis": "analysis-cache.json", "translations": "translation-cache.json", "features": "feature-cache.json"}
 
 

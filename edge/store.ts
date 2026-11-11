@@ -30,6 +30,13 @@ const SCHEMA = [
     saved_at TEXT NOT NULL,
     PRIMARY KEY (github_id, repo)
   )`,
+  // 看过的项目：用来淡化已读、筛选「没看过的」；只保留最近一段时间
+  `CREATE TABLE IF NOT EXISTS gb_seen (
+    github_id INTEGER NOT NULL,
+    repo TEXT NOT NULL,
+    seen_at TEXT NOT NULL,
+    PRIMARY KEY (github_id, repo)
+  )`,
 ]
 
 const ready = new WeakMap<D1Database, Promise<unknown>>()
@@ -58,6 +65,7 @@ export function createStore(db: D1Database) {
     removeMember: (id: number) => db.batch([
       db.prepare("DELETE FROM gb_members WHERE github_id = ?").bind(id),
       db.prepare("DELETE FROM gb_favorites WHERE github_id = ?").bind(id),
+      db.prepare("DELETE FROM gb_seen WHERE github_id = ?").bind(id),
     ]),
     getInvite: (login: string) => db.prepare("SELECT * FROM gb_invites WHERE login = ?").bind(login).first<Invite>(),
     listInvites: async () => (await db.prepare("SELECT * FROM gb_invites ORDER BY created_at DESC").all<Invite>()).results,
@@ -76,6 +84,12 @@ export function createStore(db: D1Database) {
     importFavorites: (id: number, items: { repo: string, data: string }[], now: string) => db.batch(items.map(i => db.prepare(
       "INSERT INTO gb_favorites (github_id, repo, data, saved_at) VALUES (?, ?, ?, ?) ON CONFLICT (github_id, repo) DO NOTHING",
     ).bind(id, i.repo, i.data, now))),
+    listSeen: async (id: number, since: string, limit: number) => (await db.prepare("SELECT repo FROM gb_seen WHERE github_id = ? AND seen_at >= ? ORDER BY seen_at DESC LIMIT ?").bind(id, since, limit).all<{ repo: string }>()).results.map(r => r.repo),
+    /** 记下看过的项目，并清掉过期的记录 */
+    markSeen: (id: number, repos: string[], now: string, before: string) => db.batch([
+      ...repos.map(repo => db.prepare("INSERT INTO gb_seen (github_id, repo, seen_at) VALUES (?, ?, ?) ON CONFLICT (github_id, repo) DO UPDATE SET seen_at = excluded.seen_at").bind(id, repo, now)),
+      db.prepare("DELETE FROM gb_seen WHERE github_id = ? AND seen_at < ?").bind(id, before),
+    ]),
     deleteFavorite: (id: number, repo: string) => db.prepare("DELETE FROM gb_favorites WHERE github_id = ? AND repo = ?").bind(id, repo).run(),
   }
 }

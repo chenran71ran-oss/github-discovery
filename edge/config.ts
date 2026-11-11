@@ -28,4 +28,8 @@ export const GITHUB_API = "https://api.github.com"
 export const MAX_FAVORITES = 1000
 export const MAX_FAVORITE_BYTES = 16 * 1024
 /** 仓库全名 owner/name：用户名只有字母数字和连字符，仓库名不能是 . 或 .. */
+/** 「看过」记录：保留天数、每次最多上报几个、每人最多保留几条 */
+export const SEEN_DAYS = 90
+export const SEEN_BATCH = 100
+export const MAX_SEEN = 5000
 export const REPO_NAME = /^[a-z\d-]{1,39}\/(?!\.\.?$)[\w.-]{1,100}$/i

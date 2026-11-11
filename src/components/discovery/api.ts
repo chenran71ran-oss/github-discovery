@@ -124,6 +124,41 @@ export function markImported(login: string) {
   }
 }
 
+// ---------- 看过的项目：有账号时存在账号里，否则存在浏览器（保留 90 天） ----------
+
+const seenKey = "discovery-seen-v1"
+const SEEN_DAYS = 90
+
+export const seenApi = {
+  list: async () => new Set((await send<{ repos: string[] }>("GET", "/api/seen")).repos),
+  /** keepalive：关闭页面时还没发出的记录也能送达 */
+  mark: (repos: string[]) => fetch("/api/seen", { method: "POST", keepalive: true, headers: { "Content-Type": "application/json" }, body: JSON.stringify({ repos }) }).then(() => undefined, () => undefined),
+}
+
+function readSeenMap(): Record<string, string> {
+  try {
+    const value = JSON.parse(localStorage.getItem(seenKey) || "{}")
+    return value && typeof value === "object" && !Array.isArray(value) ? value as Record<string, string> : {}
+  } catch {
+    return {}
+  }
+}
+export function readSeenLocal() {
+  const since = new Date(Date.now() - SEEN_DAYS * 86400_000).toISOString().slice(0, 10)
+  return new Set(Object.entries(readSeenMap()).filter(([name, day]) => fullName.test(name) && typeof day === "string" && day >= since).map(([name]) => name))
+}
+export function markSeenLocal(names: string[]) {
+  const since = new Date(Date.now() - SEEN_DAYS * 86400_000).toISOString().slice(0, 10)
+  const today = new Date().toISOString().slice(0, 10)
+  const map = Object.fromEntries(Object.entries(readSeenMap()).filter(([, day]) => day >= since))
+  for (const name of names) map[name] = today
+  try {
+    localStorage.setItem(seenKey, JSON.stringify(map))
+  } catch {
+    // 存储不可用时只在本次打开期间记住
+  }
+}
+
 export function readSaved(): Record<string, Repository> {
   try {
     const value = JSON.parse(localStorage.getItem(savedKey) || "{}")

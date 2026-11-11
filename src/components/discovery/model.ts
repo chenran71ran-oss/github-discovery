@@ -2,7 +2,7 @@
  * 实验层（前端）：把快照、收藏和筛选条件组合成页面要显示的列表与统计。
  * 全是纯函数，不碰 DOM 与网络，便于单独测试和替换排序 / 分组策略。
  */
-import { type DiscoverySnapshot, type Period, type Repository, filterRepositories, labelsOf } from "@shared/discovery"
+import { type DiscoverySnapshot, type Period, type Repository, filterRepositories, growthOf, labelsOf } from "@shared/discovery"
 import { categories, categoryOf, domains, fallback } from "@shared/taxonomy"
 
 export type Sort = "rank" | "growth" | "stars"
@@ -24,7 +24,7 @@ export function visibleRows(rows: Repository[], f: Filters) {
   // 选了细类时以细类为准（含次要标签），领域只决定显示哪些细类，计数与结果保持一致
   const out = filterRepositories(rows, f.q, f.language, f.category, undefined, f.category ? "" : f.domain)
   if (f.sort === "stars") return out.sort((a, b) => b.stars - a.stars)
-  if (f.sort === "growth") return out.sort((a, b) => (b.periodStars ?? -1) - (a.periodStars ?? -1))
+  if (f.sort === "growth") return out.sort((a, b) => (growthOf(b)?.value ?? -Infinity) - (growthOf(a)?.value ?? -Infinity))
   return out.sort((a, b) => (a.rank || Infinity) - (b.rank || Infinity))
 }
 

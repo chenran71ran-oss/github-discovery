@@ -11,6 +11,7 @@ import { onRequestGet as loginPage } from "../functions/login"
 import { onRequestGet as meHandler } from "../functions/api/me"
 import { onRequestPut as favorite, onRequestGet as listFavorites, onRequestDelete as unfavorite } from "../functions/api/favorites/index"
 import { onRequestPost as importFavorites } from "../functions/api/favorites/import"
+import { onRequestGet as listSeen, onRequestPost as markSeen } from "../functions/api/seen"
 import { admit, guard } from "./access"
 import { RECHECK_AFTER, SESSION_COOKIE, STATE_COOKIE } from "./config"
 import { safeNext, sessionCookie } from "./http"
@@ -417,5 +418,37 @@ describe("favorites API", () => {
     await favorite(me("/api/favorites", send("PUT", { repo: repo("a/one") })))
     await store().removeMember(friend.id)
     expect(await store().countFavorites(friend.id)).toBe(0)
+  })
+})
+
+describe("seen API", () => {
+  async function as(user: GitHubUser) {
+    await ensureSchema(env.DB!)
+    await store().saveProfile(user, "member", "active", "t")
+    await store().setAccess(user.id, "member", "active")
+    return (path: string, init: Parameters<typeof ctx>[1] = {}) => {
+      const x = ctx(path, init)
+      x.data.session = { gid: user.id, login: user.login, role: "member", exp: 9e9, chk: 9e9 }
+      return x
+    }
+  }
+  const post = (repos: unknown, headers: HeadersInit = json) => ({ method: "POST", body: JSON.stringify({ repos }), headers })
+  const repos = async (r: Response) => ((await r.json()) as { repos: string[] }).repos.sort()
+
+  it("records seen repos per member, drops bad names and old entries", async () => {
+    const me = await as(friend)
+    const other = await as(stranger)
+    expect((await markSeen(me("/api/seen", post(["a/one", "b/two", "a/one", "../x", 3])))).status).toBe(200)
+    expect(await repos(await listSeen(me("/api/seen")))).toEqual(["a/one", "b/two"])
+    expect(await repos(await listSeen(other("/api/seen")))).toEqual([])
+    await env.DB!.prepare("UPDATE gb_seen SET seen_at = ? WHERE repo = ?").bind("2000-01-01T00:00:00.000Z", "b/two").run()
+    expect(await repos(await listSeen(me("/api/seen")))).toEqual(["a/one"])
+    await markSeen(me("/api/seen", post(["c/three"])))
+    expect(await store().listSeen(friend.id, "1999", 10)).not.toContain("b/two")
+  })
+  it("rejects cross-site writes and oversized batches", async () => {
+    const me = await as(friend)
+    expect((await markSeen(me("/api/seen", post(["a/one"], { "Content-Type": "application/json", "Origin": "https://evil.example" })))).status).toBe(400)
+    expect((await markSeen(me("/api/seen", post(Array.from({ length: 101 }, (_, i) => `a/r${i}`))))).status).toBe(400)
   })
 })
