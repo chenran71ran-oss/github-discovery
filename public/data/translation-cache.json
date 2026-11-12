@@ -2600,9 +2600,9 @@
     "at": "2026-11-02T15:58:39.387747+08:00"
   },
   "rootscripts/riff": {
-    "hash": "f28956fc598f3bee897f07480b635416723c9ede0a957f136408d8de04e637ba",
-    "summary": "RIFF是拥有YouTube音乐和SoundCloud库以及WebGL着色器视觉效果的最佳音乐播放器。",
-    "at": "2026-11-02T15:58:39.387747+08:00"
+    "hash": "3659bd94f430a2a3c59b205780dd54d5edc6067b7779b4f2a2b228820d5be8c6",
+    "summary": "Riff 是最好的免费音乐播放器，拥有 YouTube Music 和 SoundCloud 库以及 WebGL 着色器视觉效果。无后端或遥测。无付费等级。",
+    "at": "2026-11-12T15:25:57.068836+08:00"
   },
   "FortoGraphy/prism-download-manager": {
     "hash": "85e73fe547f89096012f170e25f3bb129b43995051f2a5e1569c951d0c66b06c",
@@ -3820,9 +3820,9 @@
     "at": "2026-11-04T14:42:14.897156+08:00"
   },
   "abue-ammar/tinycast": {
-    "hash": "cd91a2905be20ef6ff6c595b83d210b116e83425ae32f912a5382b236e889f28",
-    "summary": "Tinycast —一个小巧、完全原生的macOS启动器、热键和剪贴板历史记录。",
-    "at": "2026-11-04T14:42:14.897156+08:00"
+    "hash": "d711280adeb03928a7cd647c9191e9c4468d722a6d67374222809ec1cdb37708",
+    "summary": "一款原生 macOS 启动器，助您提升日常工作效率。轻量级且开源。",
+    "at": "2026-11-12T15:25:57.068836+08:00"
   },
   "skylot/jadx": {
     "hash": "7d9769b214f3b2ce1294554eef7b5d1fc7047938dd3c298bb6bc7d8b2123f41c",
@@ -4200,9 +4200,9 @@
     "at": "2026-11-05T15:00:42.098507+08:00"
   },
   "N1nEmAn/sapper-v2": {
-    "hash": "2067c7f9c1015bb2d3cd4dad91df0b98ee6553704026b6faee82cfcf59c6ed82",
-    "summary": "自主Pentest军团— AI指挥官+工作者群体+分层事实意图。第三名腾讯智能攻击防御在线冠军（ 634支队伍· 8小时无人值守· 10亿代币击败4.5B ）。Nüwa测试：赋予人工智能创造/语言/历史，让文明成长。",
-    "at": "2026-11-05T15:00:42.098507+08:00"
+    "hash": "b54c8b2641a6de2772441bf6077dc191433c9b561ac392a88afd8a13820581e3",
+    "summary": "女娲树的第一颗果实——一支自主人工智能渗透测试军团（634支队伍的冠军，8小时无人值守，10亿个代币击败45亿个代币）。不仅仅是一款工具：设计上具有可进化性。在女娲基金会上培育您自己的果实（创建/语言/历史）。",
+    "at": "2026-11-12T15:25:57.068836+08:00"
   },
   "Minireel/HGhub": {
     "hash": "437ae51df0bba2b0b13c3524e0dbb93f2e063e0a857b090ee5d2e85f51e17229",
@@ -5848,5 +5848,290 @@
     "hash": "a447ed7a02211b5237193bbba7a66fd3849a7e2e32beaca541910698a3a9f896",
     "summary": "现货和永续交易订单的免费开源订单流程筛选器。",
     "at": "2026-11-11T14:46:54.915836+08:00"
+  },
+  "shadcn/improve": {
+    "hash": "ebd9b99bfd15b51128dc63562c2aa05d57703b249e9c5a2e74e4080149e32c80",
+    "summary": "使用您最强大的模型来审核您的代码库，并编写供更便宜的模型执行的计划。",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "soxoj/maigret": {
+    "hash": "9afaf9fe375e4ed603487f57e270e18614c0038bd836a78e31b8ab0813e065af",
+    "summary": "🕵️‍♂️ 从 6000 个网站上按用户名收集某人的档案",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "browser-use/browser-use": {
+    "hash": "4a236b710ba47d824909388b0b77366b6e630b65c7f2fa048f0b15eb39bbd9c4",
+    "summary": "适用于 AI 浏览器代理的开源 Python 库，以及 Browser Use Cloud：隐身浏览器和托管代理 API。",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "facebookresearch/faiss": {
+    "hash": "056ee81a5120ccab54afb5a548c718f49e02ca64065d884763986afa039850b7",
+    "summary": "一个用于高效相似性搜索和密集向量聚类的库。",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "Tencent/LoopForge": {
+    "hash": "aa13fbd6fe1746ea7ffc6e93d903740d031d8bddd6dcc7fdc01c2f00ddf7c7b4",
+    "summary": "用于交付编码代理的自托管工作流。使用脚本和人工审批关卡来编排 CodeBuddy、Codex 和 Claude Code。包括用于编码助手的本地工作流。",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "wasi-master/wmkeyboard": {
+    "hash": "d760e8b7971e7a4d1a6507177ae90ef4cc7dfcbe9c9d09263aaa610395b53455",
+    "summary": "一款以隐私为先的现代安卓键盘：离线智能功能、600 多种语言、主题、工具和丰富的扩展生态系统。",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "trufflesecurity/trufflehog": {
+    "hash": "a34eb7c27d69130c91aff42cddd6a61df51d2109b842dea64870925807fa3c85",
+    "summary": "查找、验证和分析泄露的凭据",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "backnotprop/plannotator": {
+    "hash": "3745e782d6512a49e757cdfeafdbc1f67e41cd032438f682aa0e4a1d54112f8b",
+    "summary": "用于随时掌握最新动态并掌控代理的工作空间——塑造、决策、规划、注释、审核代码、与团队共享，并一键将所有反馈发送给代理。",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "frs0n/GestaltEdit": {
+    "hash": "626126838ae761e3c1f2443b115509dee832cf9f5bb92aa5866d40ff1c07208a",
+    "summary": "iOS 27 MobileGestalt 编辑器",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "kunchenguid/lavish-axi": {
+    "hash": "de23b3af3feadc09f617c66ee19d4596cf55e1378e7616252ed1ee51af2d1276",
+    "summary": "HTML 是新的 Markdown。Lavish 是您 HTML 作品的新编辑器。",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "ever-co/ever-gauzy": {
+    "hash": "b90725637356f698399a2575e7230f4d0e2d3fc0110a3b7a451b6a168a31ad93",
+    "summary": "Ever® Gauzy™ - 开放式业务管理平台（ERP/CRM/HRM/ATS/PM）- https://gauzy.co",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "claration/impactor": {
+    "hash": "0dfb55d19113fbedfaa59462f5f4bb65e6d9d53beee4da13673a9f5b95636499",
+    "summary": "跨平台且功能丰富的 iOS/iPadOS/tvOS 旁加载应用程序。原名 PlumeImpactor。",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "tiagozip/cap": {
+    "hash": "1bcad9297d74f7fcde09e301cb6e66c62c117e01cf08df0ae0b672643c6faf8a",
+    "summary": "由您自行托管的开源、注重隐私的验证码。拒绝机器人和 AI 代理，只允许真人进入。",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "google-labs-code/stitch-skills": {
+    "hash": "5d0d6f9824bcbef0efd50a19c39f2f6996220fcf20459fb011cd13e1b7264f37",
+    "summary": "一个专为与 Stitch MCP 服务器配合使用的 Agent Skills 库。每项技能均遵循 Agent Skills 开放标准，以兼容 Antigravity、Gemini CLI、Claude Code、Cursor 等编码代理。",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "sgl-project/sglang-omni": {
+    "hash": "ee0d50920d528f181501e0568ea2984a5a8d79595022ae4e7df36cc3086975fb",
+    "summary": "用于交互式超级智能系统的高性能服务运行时",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "jenkinsci/jenkins": {
+    "hash": "3751b23f4b9866cb7852f683267b4e1bef05767c9e2ef98e05cf44c0717e00ad",
+    "summary": "Jenkins 自动化服务器",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "DarkFlippers/unleashed-firmware": {
+    "hash": "4dcb4172eb3b910871f6a8e602d72d5ac29c27921f7093da6c6ab14a353993ae",
+    "summary": "Flipper Zero Unleashed固件",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "Tyrrrz/YoutubeDownloader": {
+    "hash": "ef7979fe4c5bed4ef94ca2232dc54d03cf0ed19bc6cc5fe403db074b5aede4af",
+    "summary": "从 YouTube 下载视频和播放列表",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "zaproxy/zaproxy": {
+    "hash": "4168730e6139ca2b0ee48b6ad773ce3ede9e7ec68dd7e707e486c43acd40a5aa",
+    "summary": "ZAP by Checkmarx Core项目",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "simdjson/simdjson": {
+    "hash": "d4a8cfdec58cba17954a2b207ab980bf14c21764966273c17d9575e54750312d",
+    "summary": "每秒解析数千兆字节的 JSON ：由 Facebook/Meta Velox、Node.js 运行时、ClickHouse、WatermelonDB、Apache Doris、Milvus、StarRocks 使用",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "espocrm/espocrm": {
+    "hash": "120b62ba15ec90e4e541c02a8ac54a838b98075ae9078e576b963cf3c167f525",
+    "summary": "EspoCRM – 开源CRM应用程序",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "ValdikSS/GoodbyeDPI": {
+    "hash": "d8d26251fdffd7654e877bb62892b9d3556422a7cd13a0ce35f638c110880d6c",
+    "summary": "GoodbyeDPI — 深度包检测规避实用程序（适用于Windows）",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "torlando-tech/columba": {
+    "hash": "531556263a3b771987ba2235757ac11054a995c3959fb6093329da6a56f1f944",
+    "summary": "使用蓝牙低功耗、TCP或RNode（LoRa）通过LXMF和Reticulum的原生Android消息应用",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "ExistentialAudio/BlackHole": {
+    "hash": "803ffca3d9ea80dd28fd342ceae986b9e978e7b5abeda9c51fdeb562174da35b",
+    "summary": "BlackHole是一款现代化的macOS音频环回驱动程序，允许应用程序将音频传输到其他应用程序，且不会增加任何延迟。",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "kanboard/kanboard": {
+    "hash": "db7270900a4ace3dba6e92ae7653bc306588ee8e3a2d7880cc73471c7e27d8b0",
+    "summary": "看板项目管理软件",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "mRemoteNG/mRemoteNG": {
+    "hash": "1ef56110d5a1dc8eaabf6ecbee900effa00ee8a0be297fc5f58b15cb64914877",
+    "summary": "mRemoteNG 是新一代的 mRemote，是一款开源、多标签页、多协议的远程连接管理器。",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "SuiteCRM/SuiteCRM": {
+    "hash": "5612df01d4c83d25ccfafb889fd9678041a0ac6b9ce63aeef1c012da1b7403fe",
+    "summary": "SuiteCRM - 面向全球的开源CRM",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "hembramneeraj3-create/aida-64-extreme": {
+    "hash": "d6398775b0dd984205aff7b2eaa550dc21f25f8eaae2e01c33b5aac43f2a14d0",
+    "summary": "Aida 64 Extreme 2026：完整独立桌面版安装，具备全功能配置",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "abdulmannanmalik13-wq/adobe-substance-3d-studio": {
+    "hash": "7ce5675b7b2416f4efbbfcc963c9d8588b921b5876ecd914ad5feb4375924c54",
+    "summary": "Adobe Substance 3D Creative Studio 2026 - 安全资源管道桌面安装程序",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "AleRibeiro44/archicad-desktop-setup": {
+    "hash": "aac320ab5c7cd08a882efc3c8bef8da2956996f2b48fcdbfca7433fe950dcb42",
+    "summary": "Archicad 2026 完整独立桌面版，预先配置的即用型安装版本",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "Somenicehispanic/ashampoo-winoptimizer-desktop": {
+    "hash": "c2785d01847e8a2db70ddb02255de5c723ee607e5f1cd85b9fd86de5d921009c",
+    "summary": "Ashampoo WinOptimizer 2026 独立安装程序，已启用全套功能",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "PHISHER420/autodesk-inventor-desktop-config": {
+    "hash": "0c9944efff05a332fb893b45459f398f56032eaf8641d9bfbc7ef4842a53d619",
+    "summary": "Autodesk Inventor 2026 Professional 桌面版安装程序，含预配置的完整功能集",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "CodeSouvik/clion-standalone-enhancement": {
+    "hash": "2d4297d61cdbaaf034923cc6eae5953498128225107289dd11a4d5c6a374abc8",
+    "summary": "CLion完整安装程序：完整的独立安装，所有功能均已激活",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "sajawal-12/cubase-studio-desktop": {
+    "hash": "5abf46d6f38bd7ceb8308e18a63f01cd95820e99663add3a656925c17b89e215",
+    "summary": "Cubase Studio 2026 桌面版，配备全套插件和完整功能集",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "Arda313131882/aion-2-trainer-tool": {
+    "hash": "1ec21b01fd632b92c2292dd9994a81c04e6bc71b9fb9d88a03f0f272ee76e672",
+    "summary": "Aion 2 AI提示工程工具包 - 独立桌面训练器设置",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "ebtsamalhakmy-sketch/desktop-backup-suite": {
+    "hash": "70d999313bdb60f4b72a255c565f9ee2439a29acc1fd29fa274ad5f01b6cf13e",
+    "summary": "AOMEI Backupper 2026：全功能桌面备份和恢复套件",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "IsaiaR09/daemon-pro-desktop": {
+    "hash": "13085616e5abb80b6a2862d644fe9a07de5437befa4e7013ba2f489a34426d92",
+    "summary": "daemon-pro：完整的独立桌面设置，包含全功能设置",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "tss878/delta-executor-toolkit": {
+    "hash": "e0ea98c6518e7b4fbb61ddfd07432a888a7efa3445027d1947fba782e1154497",
+    "summary": "适用于 PC 的 Delta Executor：完整功能安装程序，所有工具均已预先配置",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "JasonCharb/directory-opus": {
+    "hash": "9993637da27f1402f83b5f9abe24ce641306260e0fe4b0bc05ee667f11c43db7",
+    "summary": "Directory Opus：完整的独立桌面设置，所有功能均已预先启用，可随时运行",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "kcgeekedup-hash/delta-force-trainer-tool": {
+    "hash": "98b85a21fc0da6753790d1cf973b91f1c515e382403616e07db698a1b37bd828",
+    "summary": "《三角洲特种部队》辅助工具：功能齐全的安装程序，包含所有工具和配置",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "Elegantic/designcenter-nx-desktop": {
+    "hash": "ab73a3fd70e5fbabd27884f569c2bc18b9a9d2f5d149d14ce36167b723858eac",
+    "summary": "Designcenter-NX：用于即时部署的全功能桌面安装程序",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "Vesuvio1/display-fusion": {
+    "hash": "26032063a716385507a8a18ba858859bc771b395df6de73d7e868632d167620e",
+    "summary": "Display Fusion 2026 独立桌面设置，具备完整的功能配置",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "Sanidhya0510/dvd-creator-game-enhancement": {
+    "hash": "2d374fbbec623a0abe0383f00bff46a4d25da6e58e138363d8cb41eb90c5ea81",
+    "summary": "DVD-Creator 2026：完整桌面版，所有功能均已启用",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "RyoTheOne/dxo-photolab-10-config": {
+    "hash": "2ebc519ceda4635f7ec3f9cfdb6c211e2e19230c222cc126fbaa874cfee1d581",
+    "summary": "dxo-photolab-10：完整的独立配置，开箱即用，无任何限制",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "StashDock/StashDock": {
+    "hash": "be334a3a8920a40cd463207c64c60e1dda67515d83690f930997b0845b795261",
+    "summary": "您的原生 AI 个人上下文库。收集、整理和重复使用跨 AI 对话的上下文。",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "blue0x1/EmuFive": {
+    "hash": "e5c6b761729be8607c3b1221fb45c304aa4b9508a2fcdc94896126a1c7a2525e",
+    "summary": "一款适用于PS4的PS5模拟器。在运行Linux的越狱版PS4上运行，通过PS4 Multiboot安装。",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "ralphtradesz/trading-hub": {
+    "hash": "e067a2d5bd0096a18a56b8bad5f530aa2a8815ea2564b2952d45077679013d84",
+    "summary": "适用于Mac的免费开源交易平台（附有使用Claude将其移植到Windows的指南）：足迹、DOM、回测、防过度优化和人工智能策略。100%本地化。",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "tek-95/ViceBounce": {
+    "hash": "8ccbfd09e84d02af041cbfe4dc8659ae86bd8d7fe83dd71307ca8e7679d1e171",
+    "summary": "让经典的《GTA：罪恶都市》随着您自己的音乐律动。",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "iizharahmad11/acemoney-desktop": {
+    "hash": "c0fca44a203a6e27bf0474ca5d59a93824f8b4b2104ba980ffe7cae62df3023e",
+    "summary": "AceMoney：适用于Windows的个人财务和费用管理软件",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "datasifaw/MiniBank_Cpp": {
+    "hash": "b2591b4eb94479aa8b610c6f3d0cc63a681c6ac590eb8d0ca564608883ccd3a8",
+    "summary": "MiniBank - C++ 银行模拟",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "ForgeAX/forgeax-engine": {
+    "hash": "c3367eb26962e520fc9d518f82a0c3a5472fb287f9ae35d6eb195be62d2caba8",
+    "summary": "面向 AI 代理的 AI 原生 TypeScript 游戏引擎，适用于所有主流平台。WebGPU 渲染、ECS、程序化资源以及以 CLI 为先的开发工作流。",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "fmoorenoo/LanzaMet": {
+    "hash": "2e27549151971cc5ce35cfcbf3049e19e01636a4d849d225cadd6c96e248c049",
+    "summary": "兰萨罗特岛 9 个区域的天气和海况：每小时和 7 天预报、潮汐和 AEMET 预警。基于 Angular 和 Cloudflare Workers 自有 API 的 PWA。",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "maccman/awesome-health-stack": {
+    "hash": "7e0579692e134bbb8087a1ebbb5da51a8ff18eaa8a306f22c13e052800554c96",
+    "summary": "我找到的一些地方，可以在不先去看医生的情况下获得健康数据。",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "wuyoscar/AISafetyHot": {
+    "hash": "383f7ed72ea3ea5051e77212ae5dd76f6a823b7210669030ad8f08c29037d2c2",
+    "summary": "AI安全热点：每日AI安全新闻、论文和事件尽在一处——越狱、提示注入、对齐、评估、治理。网站、每日摘要、RSS 和 MCP。",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "HuskerMinion/techo5": {
+    "hash": "d281087bbd8c89f03cca49ac4760af2994e5c5caea392442d94bf2e59f7f5243",
+    "summary": "适用于第 1 代和第 2 代 Echo Show 5 的开源固件：使用 Alpine Linux 取代 Android，不含 Alexa。一款本地 Home Assistant 语音卫星，配备专属触摸屏、设备内置唤醒词、SSH 和 A/B 无线更新。",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "HKUDS/CLI-Anything": {
+    "hash": "16bea497cd1c27512f1b9d4e0d2fb3eb17c66c9d7e58d7d538219e7bdcc55b2c",
+    "summary": "“CLI-Anything：让所有软件都具备原生代理功能” -- CLI-Hub：https://clianything.cc/",
+    "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "yihui-dev/awesome-opus5-5-videos": {
+    "hash": "d4b02c5ad429fdeed54e9da350a653c6a22cc42568ae8b138687064967208ec1",
+    "summary": "使用 Claude Opus 5.5 制作的爆款视频合集（不断更新）以及背后的提示词。在 Skillry 上观看每个原创视频，旁边是实时翻拍版本。定期更新。",
+    "at": "2026-11-12T15:25:57.068836+08:00"
   }
 }
