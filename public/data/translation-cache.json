@@ -2845,9 +2845,9 @@
     "at": "2026-11-02T15:58:39.387747+08:00"
   },
   "MacsInSpace/mib-cluster-map": {
-    "hash": "43f9304146606815980a6d75c5707568f2092d0a07c315773c7c24daba4743ed",
-    "summary": "使用HARMAN MIB2/MIB2.5 ： Android Auto and Car Play （测试）地图或转向箭头SD卡安装程序，大众集团汽车数字集群上的手机地图。拉动尽可能多的其他项目修复和创意，为最广泛的支持范围的汽车提供支持。学分如下。",
-    "at": "2026-11-06T15:00:22.164862+08:00"
+    "hash": "b8ec0e666426fbe59493d5d83a1e6565ff4a88c6779c010b848304c72fcaecc1",
+    "summary": "您的手机地图显示在配备哈曼 MIB2/MIB2.5 的大众集团汽车的数字仪表盘上：免费！Android Auto 和 Car Play（测试版）地图，或转向箭头、SD 卡安装程序。我们尽可能多地借鉴其他项目的改进和创意，以支持尽可能广泛的车型。鸣谢名单如下。",
+    "at": "2026-11-13T14:57:30.095600+08:00"
   },
   "herdodp/snapgent-connector": {
     "hash": "f44038f896226c28f71f1039e797b4ed9a4e43647d722c13a75b3a8951e64969",
@@ -5570,9 +5570,9 @@
     "at": "2026-11-10T15:30:16.144330+08:00"
   },
   "huamidev/GestaltX": {
-    "hash": "ffeb212bf7a5d79507eaeb6fee8392ab5f9911899100f48c4dc2f918ffe7f706",
-    "summary": "适用于iOS 27.x的MobileGestalt编辑器，具有区域代码调整、设备预设、备份以及对7种语言的支持。",
-    "at": "2026-11-10T15:30:16.144330+08:00"
+    "hash": "159677093c9e7a5dcd1379c5020c8eb551f56a40e400898a1e7c212055ef17e9",
+    "summary": "适用于 iOS 27.x 的 MobileGestalt 编辑器，具备区域代码调整、设备预设、备份等功能。",
+    "at": "2026-11-13T14:57:30.095600+08:00"
   },
   "sahenjp/RustXNG": {
     "hash": "8d95e0fac91c3bb597ddacde1b1f0bd0dbb6c833d256d1b72263aa9511fe79bc",
@@ -6133,5 +6133,195 @@
     "hash": "d4b02c5ad429fdeed54e9da350a653c6a22cc42568ae8b138687064967208ec1",
     "summary": "使用 Claude Opus 5.5 制作的爆款视频合集（不断更新）以及背后的提示词。在 Skillry 上观看每个原创视频，旁边是实时翻拍版本。定期更新。",
     "at": "2026-11-12T15:25:57.068836+08:00"
+  },
+  "nvm-sh/nvm": {
+    "hash": "507840b7e7ec952a656e26cf0e2930159b4048bdf2ffd8c766db5232293478ff",
+    "summary": "Node 版本管理器 - 符合 POSIX 标准的 bash 脚本，用于管理多个活动的 node.js 版本。",
+    "at": "2026-11-13T14:57:30.095600+08:00"
+  },
+  "pookjw/HermesEnabler": {
+    "hash": "7fed8cf4a0393dfcaaf2f58602b2b630256e617771a7333eb1b4f8aa2d077f44",
+    "summary": "在任何 Apple Watch 设备上启用爱马仕表盘",
+    "at": "2026-11-13T14:57:30.095600+08:00"
+  },
+  "ashhart/TensorFold": {
+    "hash": "1ab16ae59963d762d56e7f904cec4903c8e8abbfbbd3e1a912e36435ef1fa71d",
+    "summary": "适用于 Metal、CUDA 和 Vulkan 的 LLM 推理引擎。",
+    "at": "2026-11-13T14:57:30.095600+08:00"
+  },
+  "microsoft/Procexp-Mac": {
+    "hash": "ca6458c01048b93f9a2c689dab494b04039028c182dfd0a98b8f34ebd11f16e0",
+    "summary": "适用于 MacOS 的进程资源管理器",
+    "at": "2026-11-13T14:57:30.095600+08:00"
+  },
+  "apple/container": {
+    "hash": "1dca86862e77f6c7530680a043e5b885b35152406cbaa52ac1fc60f3ef892bbb",
+    "summary": "一款工具，用于在 Mac 上使用轻量级虚拟机创建和运行 Linux 容器。它使用 Swift 编写，并针对 Apple 芯片进行了优化。",
+    "at": "2026-11-13T14:57:30.095600+08:00"
+  },
+  "openai/whisper": {
+    "hash": "702965c53aa1274a0c9ca7c905a8e9fec790b752bb0c5d8ead1b9f9ff60b841e",
+    "summary": "通过大规模弱监督实现稳健的语音识别",
+    "at": "2026-11-13T14:57:30.095600+08:00"
+  },
+  "astral-sh/uv": {
+    "hash": "25c237dd6dd1151da2482490679e5bceea9cc4d673732f3c1b10d5b17258226c",
+    "summary": "一款用 Rust 编写的超快 Python 包和项目管理器。",
+    "at": "2026-11-13T14:57:30.095600+08:00"
+  },
+  "fastapi/fastapi": {
+    "hash": "cf547d8c2a4ffb8eaf9fe90d4b4e231620d2fd0bf0bf3854e9150b9a5696ebf3",
+    "summary": "FastAPI 框架，高性能、易于学习、编码快速、可直接用于生产",
+    "at": "2026-11-13T14:57:30.095600+08:00"
+  },
+  "redis/redis": {
+    "hash": "e8d7c3ac1925cfba2851ac6c3a4a493a6ccdaccf5a2a4359cf299e793aa1c4bb",
+    "summary": "对于正在构建实时数据驱动型应用程序的开发人员来说，Redis是首选的、最快且功能最丰富的缓存、数据结构服务器以及文档和向量查询引擎。",
+    "at": "2026-11-13T14:57:30.095600+08:00"
+  },
+  "ventoy/Ventoy": {
+    "hash": "7506945e85ef5debaaa62f383be85f8537017239941b922f613870adc1cf9800",
+    "summary": "一款全新的可引导 USB 解决方案。",
+    "at": "2026-11-13T14:57:30.095600+08:00"
+  },
+  "axios/axios": {
+    "hash": "c85dc7da52677e8134624c62cab3e961ef6448dd5a34df3f127ab02ea55b0ffc",
+    "summary": "适用于浏览器和node.js的基于Promise的HTTP客户端",
+    "at": "2026-11-13T14:57:30.095600+08:00"
+  },
+  "maxgoedjen/secretive": {
+    "hash": "f4f6f433e45d12a3638f7007f032ee50641dce1710cc9078916b3b5ebaed6d38",
+    "summary": "使用 Mac 的安全飞地保护您的 SSH 密钥",
+    "at": "2026-11-13T14:57:30.095600+08:00"
+  },
+  "block/buzz-app": {
+    "hash": "26e4f429dfba9480dbb096fd8c75f1b1b2152d215aef5ff7b653d96d8db78d99",
+    "summary": "Buzz 的全新桌面/网页版应用体验",
+    "at": "2026-11-13T14:57:30.095600+08:00"
+  },
+  "zellij-org/zellij": {
+    "hash": "23f638c78b49852e9eb9161c10a4cfd9e65ae57cfa7e6c62d644c2850a27a5c2",
+    "summary": "带电池的码头工作空间",
+    "at": "2026-11-13T14:57:30.095600+08:00"
+  },
+  "elder-plinius/G0DM0D3": {
+    "hash": "017f61bd689e419ccee50e644ab7313f190f39ccd72fed9cf88e8d8049f62b29",
+    "summary": "自由的 AI 聊天",
+    "at": "2026-11-13T14:57:30.095600+08:00"
+  },
+  "CTCaer/hekate": {
+    "hash": "cac70176eb60b8d8d898dd48ee15de5256f0cf4fcd3da4b95a2382fd820d3042",
+    "summary": "hekate - 基于图形用户界面的任天堂Switch引导加载程序",
+    "at": "2026-11-13T14:57:30.095600+08:00"
+  },
+  "Atmosphere-NX/Atmosphere": {
+    "hash": "d4199f293fbde331d2b8988aa5da78df61b975166e3c3f195bb8fa813ae3142c",
+    "summary": "Atmosphère是一款正在开发的Nintendo Switch定制固件。",
+    "at": "2026-11-13T14:57:30.095600+08:00"
+  },
+  "moby/buildkit": {
+    "hash": "2194b704a91ea5622242e617f176efc3448a52d78fd3716fbed87848e2b44910",
+    "summary": "并发、缓存高效且不依赖 Dockerfile 的构建器工具包",
+    "at": "2026-11-13T14:57:30.095600+08:00"
+  },
+  "LagrangeDev/Lagrange.Core": {
+    "hash": "0672cfdd7c6a1cfbd93928e1ac5faef473dda26926076494b4d95b0ca7279992",
+    "summary": "NTQQ 协议的实现，使用纯 C#，源自 Konata.Core",
+    "at": "2026-11-13T14:57:30.095600+08:00"
+  },
+  "freebsd/freebsd-src": {
+    "hash": "c2f62a94ef63738513fbc8803c9f42ee5e893e55a021bb74d09693d6dd4cd75b",
+    "summary": "FreeBSD 源代码树仅发布仓库。正在尝试“简单”的拉取请求……",
+    "at": "2026-11-13T14:57:30.095600+08:00"
+  },
+  "Tencent/ncnn": {
+    "hash": "80b9ec28c1d8a81e63d0f42742c0dea59e8b2865550c0a551c51718fbf211763",
+    "summary": "ncnn 是一个高性能的神经网络推理框架，针对移动平台进行了优化",
+    "at": "2026-11-13T14:57:30.095600+08:00"
+  },
+  "HybridRobotics/supermimic": {
+    "hash": "971df716ef3ffad70f6f69a93abfbbb3af3acebce1092e16b326e90fe156fbac",
+    "summary": "使用一个可微分世界模型进行人形机器人全身动作跟踪。",
+    "at": "2026-11-13T14:57:30.095600+08:00"
+  },
+  "agentes-chat/agentes-chat": {
+    "hash": "c27cc938b823d287fb362064c5f09590373d9d479d2694f9ee405f7007f78bc6",
+    "summary": "一款开源、自托管的 Slack 替代产品，您的团队和 AI 代理可以在其中通过频道和私信开展协作。代理运行于Claude、ChatGPT/Codex、Gemini或Grok，配备MCP工具、专属计算机和浏览器、例程、记忆和审批功能。网页版、桌面版和手机版应用程序。Docker Compose + Postgres。AGPL-3.0。",
+    "at": "2026-11-13T14:57:30.095600+08:00"
+  },
+  "Luk177Master/easy-worship-desktop": {
+    "hash": "47806e5155b6202c819da6443375f5151f9dba012406e38e2078207a6cf7dd80",
+    "summary": "Easy-Worship 2026：完整的独立桌面版安装，所有功能均已启用",
+    "at": "2026-11-13T14:57:30.095600+08:00"
+  },
+  "dikshantghimire321-droid/kontakt-8-config": {
+    "hash": "7b35c5b102c73ec19489e7f345a9389f77ce7835c38c1ed8900d99c102630ecd",
+    "summary": "Kontakt 8 桌面实用工具配置：有主见的配置文件，随时可运行",
+    "at": "2026-11-13T14:57:30.095600+08:00"
+  },
+  "janitoff0/ninjatrader-bot": {
+    "hash": "0254c62830de9235b189684ffe13aa558b8c4833df79a7f65a45e91c82a7bbc8",
+    "summary": "Ninjatrader Bot 2026：一款友好、由社区驱动的交易伴侣，具备强大功能",
+    "at": "2026-11-13T14:57:30.095600+08:00"
+  },
+  "GiroCrab/GiroCrab": {
+    "hash": "43d53584774f214ec7a5eb9144189045158c5cc31a81db954ede26914d6ed862",
+    "summary": "使用 Rust 和 SwiftUI 构建的原生 macOS 和 iOS 开源银行应用程序（支持 FinTS/HBCI、PSD2、SEPA、MoneyMoney 导入）。本地 SQLCipher 保管库，无需订阅，无需云端。",
+    "at": "2026-11-13T14:57:30.095600+08:00"
+  },
+  "owoevan-dev/music-skill": {
+    "hash": "7dcdee992c9604fa19210ff7cfb8d0e1ffed93867b422240bc7853006ba51de2",
+    "summary": "一种 Agent 技能，能够将原创器乐曲谱写成可编辑的音符，然后在免费采样乐器（CC0 或可供任何用途免费使用）和合成器上进行演奏、混音和母带处理。MIDI、分轨和游戏循环；无音频生成模型。",
+    "at": "2026-11-13T14:57:30.095600+08:00"
+  },
+  "mohammadmrh12/glassio": {
+    "hash": "090d136005badfa5d4d1a86156277fbb461b8866341562382b1e61f93352924a",
+    "summary": "Glassio — 适用于 Google TV/Android TV 的 Apple TV 风格主屏幕：Liquid Glass、Nuvio 和 Stremio 目录、预告片、带动态岛的音乐模式、“继续观看”（Nuvio、Stremio、Trakt、Simkl）、媒体库、4K/HDR 航拍屏保、电视输入、摄像头、Home Assistant",
+    "at": "2026-11-13T14:57:30.095600+08:00"
+  },
+  "funnest-xyz/funnest-charts": {
+    "hash": "5cb757389774c7c82a80fb67227c44d9a5aad936a3a8a8fac2d9d177c407c607",
+    "summary": "面向投资应用的开源金融图表：TradingView 风格的交易图表、SVG 图表组件、CLI 和 MCP。",
+    "at": "2026-11-13T14:57:30.095600+08:00"
+  },
+  "garrytan/gbrain": {
+    "hash": "4f99f5cf3a1b019c0495e56971bae8a2333078b31a9c7caf68e4f7806c8eed46",
+    "summary": "Garry 的独到见解 OpenClaw/Hermes Agent Brain",
+    "at": "2026-11-13T14:57:30.095600+08:00"
+  },
+  "home-assistant/core": {
+    "hash": "4f3521a0204bef47737940b7520775e8808c8d34aa95728cb0902e21e6f05cdc",
+    "summary": "🏡 优先考虑本地控制和隐私的开源家居自动化。",
+    "at": "2026-11-13T14:57:30.095600+08:00"
+  },
+  "vuejs/core": {
+    "hash": "e6e28be9aa313959e20ee23e2f3b0c575ec7a32d60ea623c722c7b7f40ece393",
+    "summary": "🖖 Vue.js 是一个渐进式 JavaScript 框架，可用于在 Web 上构建用户界面。",
+    "at": "2026-11-13T14:57:30.095600+08:00"
+  },
+  "RocketChat/Rocket.Chat": {
+    "hash": "a2b5c0bcb0ee18e709c7de22feca19924da55220ef6740c3a0249aa1638fe508",
+    "summary": "适用于任务关键型运营的Secure CommsOS™",
+    "at": "2026-11-13T14:57:30.095600+08:00"
+  },
+  "expressjs/express": {
+    "hash": "d8c3ee8f48855598f7b43ad216bb23eec3d2a13765b13b5f25b2aefb95089fc0",
+    "summary": "适用于 Node 的快速、无偏见、极简主义的 Web 框架。",
+    "at": "2026-11-13T14:57:30.095600+08:00"
+  },
+  "tashfeenahmed/freellmapi": {
+    "hash": "f5777c197a00c76066e969203e188eb94d20fd7cd0fd5ee8998c177b97cdf09d",
+    "summary": "每月 101 亿个 token。87 家免费 LLM 提供商。1,313 个免费模型端点。所有这些都位于一个 /v1 端点之下，外加任何自定义的 OpenAI 兼容端点。智能路由、自动故障转移、加密密钥。仅限个人试验。",
+    "at": "2026-11-13T14:57:30.095600+08:00"
+  },
+  "lingyired/status-trio": {
+    "hash": "84d87bf6dcc3792929bb9dd6de54308bb237c4faf5001bc7e8207d4a00142667",
+    "summary": "Status Trio — 这是一款原生 macOS 应用程序，将 Wi-Fi、电池和音量整合到一个紧凑、可配置的状态图标中，可显示在菜单栏、Dock 或两者兼有，灵感源自 iPhone Duo 的组合状态栏。",
+    "at": "2026-11-13T14:57:30.095600+08:00"
+  },
+  "SirDiabo/GithubLauncher": {
+    "hash": "a032531a769a812e4b940922688b76c40048bfb822a199dc3b34dd5c9f4dba68",
+    "summary": "一款从 Github Releases 下载和更新应用程序的启动器",
+    "at": "2026-11-13T14:57:30.095600+08:00"
   }
 }
