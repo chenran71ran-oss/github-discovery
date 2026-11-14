@@ -6323,5 +6323,265 @@
     "hash": "a032531a769a812e4b940922688b76c40048bfb822a199dc3b34dd5c9f4dba68",
     "summary": "一款从 Github Releases 下载和更新应用程序的启动器",
     "at": "2026-11-13T14:57:30.095600+08:00"
+  },
+  "louislam/uptime-kuma": {
+    "hash": "31c7fb6d717ca206c0364ef9db2320d0e563940a325857cd4773e6789f5e91f0",
+    "summary": "一款精美的自托管监控工具",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "block/buzz": {
+    "hash": "1b0c650f887d8fed2a9989e923756b437bbfd745886cb897b1a38ac022d94489",
+    "summary": "一个群体智慧沟通平台",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "tradermonty/claude-trading-skills": {
+    "hash": "7827a95c18cae38d9a6187da3e1f2dd3cc004729866477175d4d453650bd02d7",
+    "summary": "面向股票投资者和交易者的 Claude Code 技能——市场分析、技术图表、经济日历、筛选器和交易策略制定。",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "tailscale/tailcat": {
+    "hash": "49cf98788dae58a96e1e12d8d01f610a51738e61ed7f91ac928a1cadc9925565",
+    "summary": "类似于 netcat，但通过 Tailscale 的数据面，不使用 Tailscale 的控制面",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "Likely7/Veyra-NRVideo": {
+    "hash": "cff4a7859d1e4737c8b9086ffbbc52d70e77f597d9e71d35b2dce4063e26a07a",
+    "summary": "使用 DLSS 5 将 PS5 版《GTA6》提升至 120FPS。一款先进的 Windows 视频播放器和采集增强工具，具备视频、图像和采集卡源的实时预览功能。结合 AI 驱动的超分辨率、DLSS5 图像增强和帧生成技术，提供新一代的视觉体验。",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "ChromeDevTools/chrome-devtools-mcp": {
+    "hash": "974036aa8626db5ee58ec95051ef5309c0ac2a586bdf5fa4805681a338838eef",
+    "summary": "适用于编码代理的 Chrome DevTools",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "farion1231/cc-switch": {
+    "hash": "c1b39afb525eeb0dfc1ce97a3cfb624cb303252511c82278b8a5ee814cdc4c86",
+    "summary": "一款跨平台桌面多合一助手，适用于 Claude Code、Codex、OpenCode、DeepSeek Harness 等。唯一官方网站：ccswitch.io",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "Gentleman-Programming/gentle-ai": {
+    "hash": "0d8e869687709bbf327440df8b891d6ea4cc60826bf02711c1702057ee2f2817",
+    "summary": "Gentle-AI 可配置您已在使用的 AI 编码代理：Claude Code、Cursor、OpenCode、Codex、Pi 等。选择持久记忆、有机驱动开发、精选技能、MCP 服务器、角色以及可选的受限审核。开源，无代理锁定。",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "a2ui-project/a2ui": {
+    "hash": "f41108045516f609dab0255017fe16d7611915d6035c37ca98b0625a8742dfa1",
+    "summary": "开源生成式UI框架：代理传输布局数据，应用程序使用React、Angular、Lit、Flutter、SwiftUI和Jetpack Compose中的原生组件来渲染这些数据。",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "tw93/Pake": {
+    "hash": "d40b991e188c8ffc27b0be81a74babee39970ca756e97e99bbce87f4c84f4dbf",
+    "summary": "只需一条命令，即可将任何网站转换为轻量级桌面应用程序，适用于 macOS、Windows 和 Linux。",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "asgeirtj/system_prompts_leaks": {
+    "hash": "c462bcad69139e1a48c17a78974dba01d2578d378ff283ebfcdd2715daa22cc9",
+    "summary": "ChatGPT、Claude、Gemini等聊天机器人的系统提示泄露。自2025年5月以来的每个版本中，所有热门聊天机器人的隐藏系统提示，完整版。还包括 Anthropic Claude Code、OpenAI Codex、Google Antigravity、xAI Grok、Meta Muse、Moonshot Kimi、阿里巴巴通义千问、Z.ai GLM ZCode、MiniMax、Cursor、Perplexity、DeepSeek 以及 30 多个其他模型。每日更新。",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "davila7/claude-code-templates": {
+    "hash": "a9e8da8061b4ddf9e3dfb6f3b20fd78d02dfb7bcdc8154aabbbda93dbd998c34",
+    "summary": "Claude Code 组件的开源注册表和 CLI：代理、命令、技能、钩子、MCP、设置和模组",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "avenoxai/avenoxbeyin": {
+    "hash": "fdb3ae64991138b3c51488e7fa8f38dccde10f8171f175e4eb3403b687b5875a",
+    "summary": "您的 AI 第二大脑，只需一个命令即可使用——开源 Obsidian + Claude Code 系统，具备持久的跨会话记忆。avenox.lol/beyin.md",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "ggml-org/whisper.cpp": {
+    "hash": "ce89b57a64c5e4b4dc5aec3bfb3460dfc7b27d251998dba7f1a3213be27405c1",
+    "summary": "OpenAI Whisper模型的C/C++移植版",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "EveryInc/compound-engineering-plugin": {
+    "hash": "751d65b9fab5c45b449fed21173bfefca44c5fb533fef4e593f7ba8b2b962685",
+    "summary": "适用于 Claude Code、Codex、Cursor 等的官方 Compound Engineering 插件",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "mailcow/mailcow-dockerized": {
+    "hash": "5433d1387773c4c4a29096060e5e031ca7a81890ba7852455033d558d2def4f7",
+    "summary": "mailcow：Docker化 - 🐮 + 🐋 = 💕",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "termux/termux-x11": {
+    "hash": "675120f56fdf24de159ebc77816efee18ce18cfac99fdade96d8277e5c2e8eaa",
+    "summary": "Termux X-server 附加组件。",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "pbatard/rufus": {
+    "hash": "9d33024ee88e497d4a41de86cc976980e195518d78250f922abd0751478d05a6",
+    "summary": "可靠的 USB 格式化工具",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "aureuserp/aureuserp": {
+    "hash": "258a228cd5d21ffece519e0b466bdd5ef7eaa2a4758511e02d964384c38b4384",
+    "summary": "免费和开放源代码软件",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "Lelonio/Square": {
+    "hash": "18e04ecc308d937c65c4efab53dac9e864d04f53e4eb960a64f6fcdf93c63243",
+    "summary": "非官方的 YouTube Music/Spotify Premium Android 客户端，使用 Liquid Glass 构建。音频效果、Spotify Connect、收听历史记录、8 种语言。librespot 上的 Rust 核心。",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "modelcontextprotocol/go-sdk": {
+    "hash": "08232528acb2e0ad8e853f56b04869ec8b33053d78b69bff671817fd79e99f29",
+    "summary": "适用于模型上下文协议服务器和客户端的官方 Go SDK。与 Google 合作维护。",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "tasks/tasks": {
+    "hash": "c07e8ae6d8204050583d1f419ab8441a3e6f9efc6460f0ee11546d69d8fa0afa",
+    "summary": "让 Astrid Tasks 起死回生",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "apex-compute/ANR": {
+    "hash": "d472acc9f183d6256978af2310d101a8cf57be6748a900fcd9e4a4b3bc8ba209",
+    "summary": "Apex Compute 的 Apex 神经渲染 (ANR)",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "FrigadeHQ/yogurt": {
+    "hash": "690abcb0ba942119c2a4f2b7310fb44d54f2cf420498581398d55362d9a70c24",
+    "summary": "保存在您电脑上的私人 AI 会议纪要。适用于 Mac、Windows 和 Linux 的免费开源 Granola 替代品。",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "deepseek-ai/chat-demo": {
+    "hash": "66f707055e2863cd4fa96b5cb604ada30ac78faeb7486bcd6b21a4901a41c1f6",
+    "summary": "聊天演示",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "Goblinmine/homelab-diagram": {
+    "hash": "a705b674ba31b8bf3e2bce7222e544139e57cef8e37265548f357c124c96a8e9",
+    "summary": "根据 YAML 清单生成 r/homelab 风格的网络拓扑图（Python → SVG/PNG）。使用 Claude 编写。",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "kolbicz/WQFiles": {
+    "hash": "87441b4bb9ac0b5539cf52ab8c8f60ba2502ed05cdce6a83540d79d3882671cb",
+    "summary": "适用于 iOS 26 和 27 的文件浏览器、应用数据管理器和缓存清理工具（worse_query，无需越狱）",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "serveroshq/panel": {
+    "hash": "f2aa02a68dae1dbe597eb6cd7321d026e8eb21f0651d498fc0bb36722f19a712",
+    "summary": "开源 ServerOS 面板：在一个地方运行您已拥有的 Linux 服务器。",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "alexeyw/lot-map": {
+    "hash": "0ed1a425b8c6aefba254ba4be9886dc5a399df81118e338cea94de25e17c4d60",
+    "summary": "聊天窗口旁边有一个实时地图，显示 Claude Code 正在做什么：工具调用、模型步骤、钩子、技能和子代理在发生时会亮起。仅限本地使用，提供 7 种语言。",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "adriadam10/mkw-recomp": {
+    "hash": "b1c8185705baa70926bfee2e119479646b7e47b221ec9fec6ef510682c66cded",
+    "summary": "将《马里奥赛车世界》（Nintendo Switch 2）静态重编译为原生PC程序",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "Goldoire/fefw-recomp": {
+    "hash": "e46826c031bd8f3476da97b5150c78d574d43ed90e35758494b4e70015332ae4",
+    "summary": "通过静态重编译实现的《火焰纹章：命运之织》原生 Windows PC 移植版。请自带转储文件；不包含游戏文件。",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "JDhruv14/line-art-animation": {
+    "hash": "19c386aeaf9c843d06c18197515cfb0fd09c269f7047054e1e07d1889fc9ac30",
+    "summary": "用于动画线绘SVG组件的Claude技能和TypeScript库：会行走和做出反应的墨迹图形，具有昼夜循环的场景。",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "lxe/phoneuse": {
+    "hash": "518ee64e35276f00412803ead09c0687ff33f1fd43e28797d9bca6d9ca6084bc",
+    "summary": "从 Linux PC 上查看和操作未改装的 iPhone：AirPlay 镜像输入，蓝牙 HID 鼠标/键盘输出，外加适用于代理的 CLI 和技能。",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "forcequitOS/worse_query": {
+    "hash": "52daa609f22adab2aa8f957101e336b5161a68457d8b99b21e7b12269934e967",
+    "summary": "iOS 26 和 27 的沙盒逃逸，又一次",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "DevedevT/FFmpeg-GUI-Editor-Windows": {
+    "hash": "615716696f9fbd4f882eeeda3bb030653b317787a35e2faa925f81fdc326e26a",
+    "summary": "轻量级便携式 FFmpeg 图形用户界面和无损视频剪辑工具，适用于 Windows（即用型 .exe）。支持英语、俄语、中文、德语、法语和意大利语。",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "AIRzZ90/study-materials-fork": {
+    "hash": "c0e13b96ab7049a2812bf49b021e127f27eef63010369da279ee114498d0be34",
+    "summary": "跨平台 Tauri 2 界面和交互实践项目",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "makepad/relax": {
+    "hash": "f5c783ad7f5100c643a90a5357cc0c61de1610c9f13db2a458bf16e6d7b53990",
+    "summary": "放宽 Rust JIT",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "Robbyant/lingbot-touch": {
+    "hash": "e7dcb2ee16cf3ea04548c0ad207f044ab9355feec519a2ee6507c889f0d878b5",
+    "summary": "学习异质触觉表征以实现通用灵巧操作",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "luobinger/PerkRadar": {
+    "hash": "71e4c1ea47792b2f4b6568e4970d8d2b9bd0ae8d7ad22ead3550de1c45cb8da4",
+    "summary": "PerkRadar — 一款自托管优惠聚合工具，每两小时从多个来源抓取免费赠品、限时优惠和折扣，并提供来源状态跟踪、过期处理和个人书签功能。",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "Dodaios/ste80-humanizer": {
+    "hash": "b4a84ef22555a76502b1578f4f5f2b75b6d225c320e7c45a8f10874407332edf",
+    "summary": "STE80 Humanizer：一种代理技能，可消除 AI 的痕迹，并将文本以 80% 的程度改写为 ASD-STE100（简化技术英语），这是 Andrej Karpathy 分享的方法。",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "21stware/bowel": {
+    "hash": "c7573b61f5df0101cca1743908374e2992c2eb914a2c67230976c4ed8d5a16b6",
+    "summary": "Bowel是一款适用于macOS、Windows、Linux和Android的mihomo客户端。",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "opencoredev/islandcn": {
+    "hash": "6379a1483b32851b2e7c644ece82b0f20d6a257f7f6ffd317c2e75c7f787c1df",
+    "summary": "适用于 React 的开源动态岛，使用 shadcn 安装。",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "meshy-dev/ThreeRT": {
+    "hash": "536ef6fb2f4c094583e6dc44630e1aafe62c1245df9a5f6307f7a179b463ff3b",
+    "summary": "硬件光线追踪 three.js：一种基于 three.js 风格 API 的实时路径追踪器。Rust + wgpu 引擎、TypeScript 场景和游戏玩法包。",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "AlienTechSoftware/notecraft": {
+    "hash": "414e113e4b72726f290fc4e33747a65819d2f74ff64591a2f5324d4835377412",
+    "summary": "笔记记录和整理；对 Microsoft OneNote 的开源、无污染重新实现，完全使用 Rust 语言重写",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "muratozturkdev/homescape": {
+    "hash": "ff5bb163efbfca3bab26b30640223f0da8edc136728dc8c465d74b9fb077ddc6",
+    "summary": "您的 Home Assistant 智能家居将成为一个实时、交互式的 3D 娃娃屋。完全本地化，无需云端。每个 3D 对象均由 AI 编写的代码生成：不使用 GLB 或其他模型文件。",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "Statecraft-Labs/isometric-cities": {
+    "hash": "a37cad2c5365d316a7d6927bece823476897f587c719dfa7a2ce4bb64e305c4a",
+    "summary": "使用您的编码代理在 Apple Silicon 上制作等距城市地图。华盛顿特区和爱丁堡的示例、本地模型、交互式探索器和影片。",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "PolyscriptsOfficial/best-polymarket-analytics-dashboard": {
+    "hash": "2fd92d097bee6d945f369e8e6dc01b21ff01f1639c69c84f351afdcab12a8272",
+    "summary": "最佳Polymarket分析工具、策略破解器、BTC ETH SOL 5分钟、15分钟、1小时市场。使用实时数据分析Polymarket加密货币市场，并存储数据以进行回测，获取与Polymarket、Chainlink、币安实时行情完全相同的实时行情。支持Polymarket、Kalshi、world.xyz、predict.fun、outcome.xyz。5个预测市场。",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "cli/cli": {
+    "hash": "2200bc92a159edf32aefa8534e30b50d886f02fa07063de62f6e1db17953136b",
+    "summary": "GitHub 的官方命令行工具",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "lfpoulain/Cornelius": {
+    "hash": "3eeb1bc09e26af1f26133d12fbcda7f01d4da4858a2c990d8ea64a1e4ea68070",
+    "summary": "Cornelius，智能相框/镜子：它能识别您、聆听您并用法语回答您。语音助手、本地面部识别、Home Assistant、天气、交通等众多功能！",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "sp00nznet/ps3recomp": {
+    "hash": "93f57975fe1d492e8c3ebc4c0ea84f934a1682ce327d4fc2001b117d7fcf6863",
+    "summary": "用于 PlayStation 3 游戏的静态重新编译运行时库。",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "edgerunners-2/capri-ai-desktop": {
+    "hash": "98aac07490e243a008b55d52927700a55a4ce04f676ebe742f6dd1523d87b39d",
+    "summary": "适用于 Windows 的赛博朋克风 AI 桌面代理与语音伴侣。支持 Claude Code、Ollama、DeepSeek、Discord 通话和屏幕自动化。",
+    "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "nota-daw/nota": {
+    "hash": "02adc8db6ea1bd787e93cac64ab601e19a223f1ced73278cccb6449b35b73401",
+    "summary": "Nota — 适用于 macOS、Windows 和 Linux 的免费 DAW。无需订阅，无需账号——只需打开即可创作音乐。",
+    "at": "2026-11-14T14:44:28.284518+08:00"
   }
 }
