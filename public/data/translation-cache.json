@@ -325,9 +325,9 @@
     "at": "2026-10-30T13:49:17.238303+08:00"
   },
   "qybaihe/bla": {
-    "hash": "f655d8abd2e92435015cd04efddccad381722887a6ec98fcd3274f4af1350e79",
-    "summary": "🛡️ BLA （盲法学硕士代理） —对抗性防御盾牌，可保护二进制文件、Electron应用程序、JS捆绑包、Python和WebAssembly免受REA等AI逆向工程代理的攻击。中毒- >疲惫- >幻觉。",
-    "at": "2026-10-30T13:49:17.238303+08:00"
+    "hash": "a87de9897616f81c76760f82f0426f1b678c3f36c828a898c8d8cece51deb5fd",
+    "summary": "🛡️ BLA（bla-agents/Blind LLM Agents）— 开源蓝队防御MCP服务器和CLI，保护JS/TS、Electron ASAR、WASM、Python、原生二进制文件、SQLite、GGUF/Safetensors和Android DEX免受AI逆向工程代理（REA）的攻击。",
+    "at": "2026-11-16T14:49:14.015725+08:00"
   },
   "ZiChuanLan/agent-purge": {
     "hash": "e98448904facc369895e2c057f2b901b7f2fcfd41559d084edad9637851119d4",
@@ -2480,9 +2480,9 @@
     "at": "2026-11-02T14:27:04.418172+08:00"
   },
   "JetBrains/thinkrail": {
-    "hash": "031038be6aa299464628a7d235c7fdc1eb3c03601c63200d18caa31890ce1e0c",
-    "summary": "轻量级的真实IDE中带有pi的Vibe代码，可根据您的工作方式自行定制—您需要的Vibe",
-    "at": "2026-11-02T14:27:04.418172+08:00"
+    "hash": "6ec547c88d8d8b9b4e55ee6e247df31a2d2d37a7dafb4373fea15506defe3bdf",
+    "summary": "ThinkRail 是一款具有自主性的 IDE，每次使用都会变得更好",
+    "at": "2026-11-16T14:49:14.015725+08:00"
   },
   "ghostty-org/ghostty": {
     "hash": "95702959c5c1e487d1fa546ad93f5a7e3e97ca53afc35038cd5d147d4f30a98c",
@@ -4205,9 +4205,9 @@
     "at": "2026-11-12T15:25:57.068836+08:00"
   },
   "Minireel/HGhub": {
-    "hash": "437ae51df0bba2b0b13c3524e0dbb93f2e063e0a857b090ee5d2e85f51e17229",
-    "summary": "YellowFruit第三方客户端",
-    "at": "2026-11-05T15:00:42.098507+08:00"
+    "hash": "c4123aaafff4a67708d7d83dac4ce8c8d2c7882df19cd4fbc9e5dadac889d7a5",
+    "summary": "插件媒体播放器",
+    "at": "2026-11-16T14:49:14.015725+08:00"
   },
   "kitlangton/scrawl": {
     "hash": "4015494bfb3a5ed5a9022f903a72806513582c89d7645e59a94514fc8523ded6",
@@ -4290,9 +4290,9 @@
     "at": "2026-11-06T15:00:22.164862+08:00"
   },
   "Anil-matcha/Open-Generative-AI": {
-    "hash": "c65e200549605235fec676ff39144fd3a6140152eb4880a56c31f4bcf83529ab",
-    "summary": "未经审查的人工智能视频平台的开源替代品—免费的人工智能图像和视频生成工作室，拥有600多名模特（ Flux、Midjourney、Kling、Sora、Veo ）。无内容过滤器。自托管，麻省理工学院许可。",
-    "at": "2026-11-09T14:53:25.434072+08:00"
+    "hash": "991258757773fb5b24acc606624fb4c8d4783fe7a2beec23abc7623c83ab33c1",
+    "summary": "不受审查的开源 AI 视频平台替代方案 — 免费的 AI 图像和视频生成工作室，提供 800 多种模型（Flux、Midjourney、Kling、Sora、Veo）。无内容过滤器。自托管，采用 MIT 许可证。",
+    "at": "2026-11-16T14:49:14.015725+08:00"
   },
   "CarterPerez-dev/Cybersecurity-Projects": {
     "hash": "940fbfdb1ee4f1d66caf6844e6fe57c5277df61e6381b9448927503066b9f162",
@@ -4830,9 +4830,9 @@
     "at": "2026-11-07T14:14:16.576366+08:00"
   },
   "libracoder/kiri": {
-    "hash": "19010e039258ecdb5d293ca92132cfbb9ada2e62c9ce30900e6d724d9a13fabd",
-    "summary": "适用于macOS、Windows和Linux的小型快速容器运行时",
-    "at": "2026-11-07T14:14:16.576366+08:00"
+    "hash": "e6b56e27d65b0c99ef13ad4157be95cdab2ff080dcdbc40f5463b6ddc4c7f1bb",
+    "summary": "适用于macOS、Windows和Linux的小型快速容器运行时，提供免费的Ngrok替代方案",
+    "at": "2026-11-16T14:49:14.015725+08:00"
   },
   "WoYun520/pixel-gif-sticker-pack": {
     "hash": "039ac3d2733b6fcb1badecbfc53ff2a2c57e935cdfde85594a8dce41d391ffd0",
@@ -6265,9 +6265,9 @@
     "at": "2026-11-13T14:57:30.095600+08:00"
   },
   "GiroCrab/GiroCrab": {
-    "hash": "43d53584774f214ec7a5eb9144189045158c5cc31a81db954ede26914d6ed862",
-    "summary": "使用 Rust 和 SwiftUI 构建的原生 macOS 和 iOS 开源银行应用程序（支持 FinTS/HBCI、PSD2、SEPA、MoneyMoney 导入）。本地 SQLCipher 保管库，无需订阅，无需云端。",
-    "at": "2026-11-13T14:57:30.095600+08:00"
+    "hash": "82d30b365d63f60a781d7854125abb9b8dc1e8facc1fa5c6d698608c67a1ab62",
+    "summary": "面向 macOS 和 iOS 的本地优先、注重隐私的开源银行应用程序（FinTS/HBCI、PSD2、SEPA），使用 Rust、SwiftUI 和 SQLCipher 构建",
+    "at": "2026-11-16T14:49:14.015725+08:00"
   },
   "owoevan-dev/music-skill": {
     "hash": "7dcdee992c9604fa19210ff7cfb8d0e1ffed93867b422240bc7853006ba51de2",
@@ -6275,9 +6275,9 @@
     "at": "2026-11-13T14:57:30.095600+08:00"
   },
   "mohammadmrh12/glassio": {
-    "hash": "090d136005badfa5d4d1a86156277fbb461b8866341562382b1e61f93352924a",
-    "summary": "Glassio — 适用于 Google TV/Android TV 的 Apple TV 风格主屏幕：Liquid Glass、Nuvio 和 Stremio 目录、预告片、带动态岛的音乐模式、“继续观看”（Nuvio、Stremio、Trakt、Simkl）、媒体库、4K/HDR 航拍屏保、电视输入、摄像头、Home Assistant",
-    "at": "2026-11-13T14:57:30.095600+08:00"
+    "hash": "ae00fc66c23655b64fbb9c38a0fddd0347139745c41fcc617eb382916aa12ea9",
+    "summary": "Glassio — 适用于 Google TV/Android TV 的 Apple TV 风格主屏幕：Liquid Glass、Nuvio 和 Stremio 目录（含预告片）、应用频道、音乐模式、“继续观看”（Nuvio、Stremio、Trakt、Simkl）、4K/HDR 屏保、Hue Sync、摄像头、Home Assistant、电视间同步",
+    "at": "2026-11-16T14:49:14.015725+08:00"
   },
   "funnest-xyz/funnest-charts": {
     "hash": "5cb757389774c7c82a80fb67227c44d9a5aad936a3a8a8fac2d9d177c407c607",
@@ -6575,13 +6575,323 @@
     "at": "2026-11-14T14:44:28.284518+08:00"
   },
   "edgerunners-2/capri-ai-desktop": {
-    "hash": "98aac07490e243a008b55d52927700a55a4ce04f676ebe742f6dd1523d87b39d",
-    "summary": "适用于 Windows 的赛博朋克风 AI 桌面代理与语音伴侣。支持 Claude Code、Ollama、DeepSeek、Discord 通话和屏幕自动化。",
-    "at": "2026-11-14T14:44:28.284518+08:00"
+    "hash": "278dcd5c8f21203020e3f334952132fd47a513ec9cb0edde7d733e8a3b497128",
+    "summary": "Capri — 适用于 Windows 的免费开源 AI 桌面宠物、游戏叠加层和语音伴侣。Claude Code、Ollama、DeepSeek 和 MCP 的可视化图形用户界面。加入Discord通话、启动Steam游戏、评论游戏玩法并离线自动化屏幕任务。",
+    "at": "2026-11-16T14:49:14.015725+08:00"
   },
   "nota-daw/nota": {
     "hash": "02adc8db6ea1bd787e93cac64ab601e19a223f1ced73278cccb6449b35b73401",
     "summary": "Nota — 适用于 macOS、Windows 和 Linux 的免费 DAW。无需订阅，无需账号——只需打开即可创作音乐。",
     "at": "2026-11-14T14:44:28.284518+08:00"
+  },
+  "ggml-org/ggml": {
+    "hash": "f008e18e8ba71090452788282391f3fe86f357706afcdd622d7ef43900f6f547",
+    "summary": "用于机器学习的张量库",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "elementalsouls/Claude-BugHunter": {
+    "hash": "3174c7ebe5d65dd7beef86fb209c5004844a1f61f6a8a36c8c4fb614e822f3bb",
+    "summary": "一个用于漏洞挖掘和外部红队工作的Claude Code技能包——82项技能、15个斜杠命令、681个披露报告模式（涵盖24个核心漏洞类别），以及企业身份+基础设施攻击矩阵。",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "NVIDIA/SkillEvaluator": {
+    "hash": "01f7b11f39607f59d55da4e6ca6cdfa5112a8ac8c775486e70a70362f400259e",
+    "summary": "用于评估 AI 代理技能的多层框架，包括质量关卡、语义重叠检测、合成评估数据集生成以及实时代理评估（衡量技能如何影响代理行为）。",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "martin-olivier/airgorah": {
+    "hash": "03785d453696d2ae223b9ca1f53beb4dcedbf6827267a446dd9f07703b592277",
+    "summary": "一款 Wi-Fi 安全审计软件",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "ModernRelay/omnigraph": {
+    "hash": "08526f171638f744d6cf16f92e34b705e6df6ccd94401d479fa75b8344aef04a",
+    "summary": "具有分支和类型本体的对象存储原生图数据库",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "SnailSploit/Claude-Red": {
+    "hash": "a5651a20512b68a9a67d2e440f2aa8d39da13a15f41f6fc610f7488fb2814989",
+    "summary": "claude-red 是一个精心策划的进攻性安全技能库，专为 Claude 技能系统而设计。每项技能都是一个结构化的SKILL.md文件，为Claude提供针对特定攻击面的专家级方法论——从SQL注入到shellcode，从EDR规避到漏洞利用开发。",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "nolly-studio/cult-ui": {
+    "hash": "969f94dd035c1a3111f755618042580ba4ea799ff91a0ff75159e788fcd3e07c",
+    "summary": "面向设计工程师的动画组件。150 多个免费的 shadcn/ui 组件，使用 Tailwind CSS 和 Motion 构建。采用 MIT 许可证。",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "sonicnext-dev/MarathonRecomp": {
+    "hash": "9685a727e33db7977ab54cb6d96c9c9c8a39058205a96d2e60d8431db86367ad",
+    "summary": "通过静态重编译过程创建的《索尼克大冒险》（2006）Xbox 360版本的非官方PC移植版",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "motiondivision/motion": {
+    "hash": "9f3b8040bcb9d5896a35576b2643f4576471de57494350a69ff6fa32e6745253",
+    "summary": "适用于 React 和 JavaScript 的现代化动画库",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "assistant-ui/assistant-ui": {
+    "hash": "700396afa23a39dabd8314e51f101aaae3a9260fa7bd4cf8b8a393e370019ad5",
+    "summary": "用于 AI 聊天的 Typescript/React 库 💬🚀",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "harry0703/MangoDisk": {
+    "hash": "ef29dc63ef0f1a000890c9408418b26872aa986ab0a7711a5b2cc88474ac9401",
+    "summary": "适用于 macOS、Windows 和 Linux 的安全至上型磁盘清理工具和空间分析工具，具备重复项清理、应用卸载、启动项管理、系统优化和维护等功能。",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "ashishps1/awesome-low-level-design": {
+    "hash": "c9b4354288ba142b96c317c3e4e1a9579b075550a5ff7473fd1dd41a3d3e2589",
+    "summary": "学习低级设计 (LLD)，并使用免费资源为面试做好准备。",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "aaif-goose/goose": {
+    "hash": "12058b4dabd6bd6f6169d407dc3cb24c5f70e7e87f4d8f131bbece3f04998f8e",
+    "summary": "一款开源、可扩展的 AI 代理，其功能超越代码建议——可使用任何大语言模型 (LLM) 进行安装、执行、编辑和测试",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "huytieu/COG-second-brain": {
+    "hash": "c5f0343cb773d4f7033018e769dccbee144f75bbe286ce3b6cb66a0ae5e5c816",
+    "summary": "具备35项AI技能、10个代理和人员CRM的自我进化第二大脑。闭环约束：V模型验证生命周期，其中工作者绝不会给自己布置的作业打分。此外，还具备针对营销和产品UI的成对反偏差设计技能。可与 Claude Code、Cursor、Kiro、Gemini CLI、Codex 配合使用。",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "google/ax": {
+    "hash": "d1a7089d54439ca8d8ec8231696eea6e9710bdcfd60051b33f2650c43f682286",
+    "summary": "Agent Executor (AX) 是 Google 的开放式代理编排运行时",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "brunodev85/winlator": {
+    "hash": "11dcb6a08d997dbbc79ce95fb80d9d08e5f709d2b96e07397c7f6b3507080699",
+    "summary": "用于通过Wine和Box86/Box64运行Windows应用程序的Android应用程序",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "MoFeng2223/BrimDeck": {
+    "hash": "dfc25ca4e5fca3c05ed1b5cc74701898982039512396a47b180ece54e4f48e41",
+    "summary": "适用于 Windows 11 的动态岛，具备 AI 编程工具配额、使用情况跟踪、音乐控制等功能。",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "MuwMx/YumaPlayer": {
+    "hash": "da3b725750e952bcda46f4fa04dabbc33ff44623ff2f473915c1ee461c98b260",
+    "summary": "🎵 适用于Android的混合音乐客户端：Spotify发现和UI + YouTube音乐库 + 高分辨率无损（FLAC）流媒体，采用流畅的玻璃质感设计💫",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "RookieEnough/Orion-Store": {
+    "hash": "c406b44509a297ebe91851117dc15217545013f718a5cd08b14770eef9d7d955",
+    "summary": "开源和纯净应用的终极归宿。OrionStore 提供对 YouTube Morphe、YT Music Morphe 和必备开源工具的即时访问，界面简洁明了。没有服务器，没有跟踪，只有通往您喜爱的应用程序的美观、现代的门户。",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "drumih/turbo-fieldfare": {
+    "hash": "4242465f5338bd6f59429a9d9b611247fb22eb3a282411890d92f38b0aa790f1",
+    "summary": "在任何 M 系列 MacBook 上，使用约 2 GB 的 RAM 进行 Gemma 4 26B-A4B 推理",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "Devolutions/UniGetUI": {
+    "hash": "c53c529cd04fde1898dd2754c4734b41d2929e78778166c8cff71bf2d31a6497",
+    "summary": "UniGetUI：您的包管理器的图形界面。可以被粗略地描述为一个包管理器管理器，用于管理您的包管理器。",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "surge-synthesizer/surge": {
+    "hash": "c7e68202cf037c2df8e81a637ba24d1b184a7b9788874e090e87e92fa14a159c",
+    "summary": "免费开源的混合合成器，作为虚拟乐器（此前由Vember Audio以Surge的名义发布）",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "kubescape/kubescape": {
+    "hash": "a678f0e1f32ba64dd350723d166990c06e45bf46ba598b51a5228a12a7074455",
+    "summary": "Kubescape是一个开源的Kubernetes安全平台，适用于您的IDE、CI/CD管道和集群。它包括风险分析、安全、合规性和误配置扫描，为Kubernetes用户和管理员节省宝贵的时间、精力和资源。",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "stenzek/duckstation": {
+    "hash": "418e8e0df2b7fb30e774f280f3203be940a9c2eeab466f5481611d32dbac2235",
+    "summary": "适用于 x86-64/AArch32/AArch64/RV64 的快速 PlayStation 1 模拟器",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "tree-sitter/tree-sitter": {
+    "hash": "3a127d1c7ecd4047ad8314c54a983b1b278b365f0c20e31af3275d787be97170",
+    "summary": "用于编程工具的增量解析系统",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "compose-miuix-ui/miuix": {
+    "hash": "a6968ff6fa4893473202a130c96f609757ed8e040756bf61bba78b9b0b4619de",
+    "summary": "Compose Multiplatform 的 UI 库",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "itsPLK/ps5-payload-manager": {
+    "hash": "367369ddad9f881465c9a54fcd2a115cf96c98d212b153a08a7eea5fc78b9691",
+    "summary": "一个现代化的基于 Web 的仪表板，可轻松管理、导入和自动加载 PS5 上的负载。",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "trustwallet/assets": {
+    "hash": "0bc286e1a06a317b624eba7d1717044a1d6fd6254f6585a81fef147657c74567",
+    "summary": "有关数千（！）种加密代币的全面、最新信息合集。",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "dotnet/efcore": {
+    "hash": "e5f474509c9897d4eadc5c186ba0b2a70128cc1155c18bd11aa9f1d583ef44ae",
+    "summary": "EF Core 是适用于 .NET 的现代化对象关系映射器。它支持 LINQ 查询、更改跟踪、更新和架构迁移。",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "ChurchCRM/CRM": {
+    "hash": "96c7906120475796346f3e1f35f3a0319d8cf59ff7657dcce497fcda41c11425",
+    "summary": "免费的开源教会管理软件，用于管理人员、家庭、团体、活动、出席情况、奉献、志愿者等。无需订阅。您的数据归您所有。",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "yjid/kensaku": {
+    "hash": "22357d6cf58c430e61a88da4f4c136aa73529cf1c17b80924a11319c4a166310",
+    "summary": "在文档、代码甚至截图中进行搜索——即时且本地化。一款免费的开源文件启动器，具备 OCR、语义搜索和 MCP 代理访问功能。",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "hitkeeen/blender-ai-mcp-addon": {
+    "hash": "057b9bda2ddc59e32852c92075732af65ee9ac80fd85f8f729dc336a738c8f50",
+    "summary": "适用于 Blender 的 AI 助手和 MCP 服务器：可视化聊天、场景工具、多代理工作流。可与 ChatGPT/GPT、Claude、Gemini、Ollama、OpenCode 配合使用。Blender AI 插件、3D 智能助手、bpy Python 脚本、MCP 集成。",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "Noniv/abyssal-garden": {
+    "hash": "98242acc131c81835c1cf496a28a4d87f67a31c5570b2b5128e672a6a88167e8",
+    "summary": "您可以在浏览器中畅游的梦幻水下世界：摇曳的褐藻林、阳光、沉船和蝠鲼。所有内容均由 WebGPU 代码生成（不含图像、模型或声音文件），全部包含在一个 97 KB 的 HTML 文件中。",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "mdiri-ai/SoduWork": {
+    "hash": "4a4eb28032c525a4d6efec4dbb49966435b8788838300878755cb64ef7cc1e2a",
+    "summary": "面向团队及其代理的人工智能原生引擎。多线束、多代理、自托管。",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "failsafe-security/artex": {
+    "hash": "8f14d770c23b457e68169830ed91bb89b7d5797d9559aeb557d44ae6f9ee40d2",
+    "summary": "ARTEX（v0.3.15）的源代码构建、本地绑定的FailSafe分发版",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "linknimiball1974/ai-texture-forge": {
+    "hash": "e173384b881449f664497dd3ada43192025c4996b18d5931acf483a07e89cb16",
+    "summary": "一款基于人工智能的 Blender 纹理生成工具——使用本地或云扩散模型，将文本提示转换为无缝 PBR 材质、概念艺术和全场景投影，直接在 Windows 的 3D 视口中完成。· dream textures · dream textures blender · dream textures 插件 · dream textures ai · dream textures 无缝 · dream textures pbr",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "rivet-dev/open-orange": {
+    "hash": "e3d18c2dc948232ce1ec46eb24993b9fe364e5c8ac2c06a51d53368163258cd8",
+    "summary": "在AWS、GCP、Azure或您自己的服务器上运行Cloudflare Workers和Durable Objects，无需进行任何更改。",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "faizfahmi77/ScanDot": {
+    "hash": "f61f45e916e93398ca337bff5c1237a2b384fc56cafc31726763d1c9de1a620a",
+    "summary": "实验性Android 3D扫描和点云查看器",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "credoksopho1984/blender-ai-copilot-studio": {
+    "hash": "162f1f67c30ebe2c02746ba5b2f8cd1d1e364b769e3cccaef66cb145d6ce50b4",
+    "summary": "适用于 Blender 的 AI 副驾驶和 MCP 服务器，可将通俗易懂的简要说明转化为场景操作——在配备多智能体团队、您所选的 AI 模型以及 27 款内置场景工具的视觉聊天工作室中。· blender-ai-copilot-studio · blender ai · blender 的 ai · blender 副驾驶 · blender ai 副驾驶 · blender ai 助手 · blender mcp 服务器",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "hikaku-io/hikaku-extension": {
+    "hash": "81f63ac06e51f8fe86a29596660b2ddf566664feed76ec886625b9caffc37f2e",
+    "summary": "开源浏览器扩展程序，可在您浏览时标记由人工智能生成的图像和视频。完全在您的设备上运行。Chrome、Edge 和 Firefox。",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "cam-gardner/microsoft-office-desktop": {
+    "hash": "5315e2707d60d7236cdb094efa4412a5ef538289b4c75bbaa26b60c3e060d075",
+    "summary": "Microsoft Office 2026 桌面版，包含文档撰写、电子表格引擎、演示文稿模块以及适用于 Windows 11 的多语言界面套装",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "andy-wells-73/microsoft-outlook-desktop": {
+    "hash": "e8de5f5ad8e4438a5def482291ea886228b29c62ea6cb9ebe0c7a0e774ad184a",
+    "summary": "Microsoft Outlook 2026 桌面版设置，具备统一收件箱、日历同步、联系人存储和 Windows 11 离线配置文件支持",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "carla-butler-46/jetbrains-pycharm-desktop": {
+    "hash": "65a541a75de0f671f3c631291c50dd48ab8e35b2e3119951a1a36bebcbfb5ccd",
+    "summary": "JetBrains PyCharm 2026 桌面版，附带插件套件、离线运行时和便携模式，适用于 Windows 10 和 11 x64 主机",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "cam-watts-2007/jetbrains-intellij-idea-desktop": {
+    "hash": "546077b58553f8774727000c9c5e66502eb6fe0106bc72a1844238531cb6f739",
+    "summary": "JetBrains IntelliJ IDEA 2026 独立软件包，包含捆绑的插件套件、Java 运行时和适用于 Windows 11 的便携模式",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "azure-fossil-maker/serum-2-desktop": {
+    "hash": "9e9ab7a683add5fa09f6c14c63de5ce68d66b0fc30e3167fedb99c6c432e35ce",
+    "summary": "Serum 2 2026 独立捆绑包，包含全套插件、多轨编辑器、捆绑乐器和适用于 Windows 11 的便携式离线模式",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "cathycollins-io08/ableton-live-11-desktop": {
+    "hash": "6e561ba21378af00dbab41460bde24c0062239b3a6133adeb5dd656d46f84632",
+    "summary": "Ableton Live 11 2026 桌面版配置，包含全套插件、多轨会话引擎和捆绑乐器，适用于离线 Windows 11 部署",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "mrhlaingbwardev/agentic-hacking-skills": {
+    "hash": "1599874ac2be68fb1da7cd4372f1ae76a1eef50b8dfce820a525e2c68e7a769d",
+    "summary": "由人工智能驱动的网络安全与自动化 - “Agentic Hacking”电子书的官方奖励技能、代理和MCP配置（28个SKILL.md模板）",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "daurosk/oot-remake-multiplayer": {
+    "hash": "b7d9414a5029952fe88c8ae4362f1d050c8e4b70da92b47b369a82441b8cf251",
+    "summary": "Squadala! - PC版《塞尔达传说：时之笛》重制版的在线合作模式（Longshot）。玩家、测试人员和贡献者：加入Squadala! Discord。",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "atlas7283/steam-library-bridge": {
+    "hash": "66c84d0f9f99f0c1067fd8be98d30c4ab2d32327cb0fbf588d7092b54033e46d",
+    "summary": "免费的Windows应用程序，可将模拟器、Epic、GOG和PC游戏添加到Steam，并提供艺术作品、成就和游戏时间跟踪功能。",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "centaurexecutorhonor/metatrader-ea-notes": {
+    "hash": "f703128d2512512e3c8b264c98d9ef947f301cf973834c44fc3bed3c0c2c7910",
+    "summary": "MetaTrader交易机器人须知——EA测试清单和VPS设置。",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "danieldev23/fluent-blue": {
+    "hash": "3d9147ce840f448895e2edd506ccd53bc4c1a4c54ebd502ac642f7ac9aebbb1a",
+    "summary": "一个面向 Python 桌面应用程序的现代化、基于令牌的 UI 设计系统。包含 109 个组件、动态主题和面向 PyQt6 和 PySide6 的交互式设计工作室。",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "MistblastClear/UEBulkExport-rpocket": {
+    "hash": "bfd979420c383c26f509386a23cd3aa343113b400182f45d24c2333ff74fa00d",
+    "summary": "将整个虚幻引擎容器（.utoc/.ucas/.pak）批量导出到一个文件夹中：纹理、网格、动画、音频、关卡和属性。CUE4Parse 的命令行前端。",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "Aquariuswonder/rpocket-OptionsCommander": {
+    "hash": "b48a37d6e6470886d6864df96ead53214bed5a2ca52bff5d0ca56ce1299c0a0f",
+    "summary": "Alpaca模拟账户上的多代理交易平台：命令行界面（CLI）根据请求下单；定时例程管理追踪止损、警报和每日记录。Microsoft Agent Framework 上的代理。研究采用向前步进、样本外和多重检验；尚无任何经检验的信号（MACD+RSI、TSMOM、GEX）具有优势。本信息不构成财务建议。",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "Virtastic/d2-web": {
+    "hash": "0f86daa1f6eab34b049486a8d79cf404b4e7b668477a2d55ec7284bb24bc1072",
+    "summary": "在浏览器中畅玩《暗黑破坏神 II：毁灭之王》——使用 C++ 重新实现 1.13c 引擎，并编译为 WebAssembly。请自带游戏文件。",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "skudra-go/ant": {
+    "hash": "b2951642732474e5b6c1cbec1d7c1581bc46ed77dbc7791f42e31a76ddfadf81",
+    "summary": "🐜 ant 是一款 Golang ORM，它利用现代泛型实现严格的类型和出色的开发者体验。灵感源自 ASP.NET 的 Entity Framework 和 Laravel",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "Huy-8bit/locklens": {
+    "hash": "89edb00f78e4bf60c8a69edb5c8ac8817f05747b371ac5a93fbd2f3ab1a6601f",
+    "summary": "PostgreSQL 监控和事件调查",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "swiftstream/Duck": {
+    "hash": "e508e81d2a31b24a977fe83b5afefad8a57408e44e494d0db12d621f2a5f9ff7",
+    "summary": "🦆 适用于 iOS/macOS 的 Postgres 式 SQL 功能。用心为 Swift 打造。超越 SQLite 在移动设备上的局限性。",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "attisvalentin/supacraft": {
+    "hash": "70b35cc3905128b5e9ecc0fb5e68855e187925a5f8fbc0e0aac5b67dc5345482",
+    "summary": "单个二进制文件中的原生 AI 后端：描述它，您的代理就会通过 MCP 构建 supacraft.json，您将获得一个 REST API（SQLite、身份验证、文件、cron）。",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "ayushcmd/air-atlas": {
+    "hash": "91f7186e30fc104d9cb33ddc49054dd265cae72f59d820642d17fd85533291d4",
+    "summary": "全球气候情报平台，提供实时空气质量、天气监测、环境分析和交互式3D可视化。复制",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "TGX-Android/Telegram-X": {
+    "hash": "d2cd66dc5c0a3b4e67b005033b40b0323d2fb53cc7edfa0459d330b2a980b8d3",
+    "summary": "Telegram X 的主要代码仓库——适用于 Android 的官方 Telegram 替代客户端。",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "n8n-io/nod": {
+    "hash": "5406cf700ea858e56cb5fababd3c43cca405c363bbab0b4405cf3f836e6d3b4b",
+    "summary": "配备专属计算机的开源个人代理。它可以催缴发票、为您准备通话、在真实网站上取消试用，并在采取行动前征求您的意见。在您的计算机上运行，使用您选择的模型。由 n8n 提供。",
+    "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "codepawl/crucible": {
+    "hash": "e018c0c7f116102c5356d5d583cfcf160d798b64c637e250fd371a743e46ad74",
+    "summary": "由 AI 代理驱动的 3D 引擎",
+    "at": "2026-11-16T14:49:14.015725+08:00"
   }
 }
