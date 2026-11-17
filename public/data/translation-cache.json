@@ -5,9 +5,9 @@
     "at": "2026-10-30T13:49:17.238303+08:00"
   },
   "CopilotKit/OpenBot": {
-    "hash": "2b24ce450d5f71cd0d8ec5d42c0bca7d1f354f855f30f63d72fc92be547d1ec5",
-    "summary": "开源的人工智能同事，每个人都有一台自己的电脑：浏览器、文件和工具，每次操作都会在发生之前决定，并在之后记录下来。携带任何AG-UI代理。",
-    "at": "2026-10-30T13:49:17.238303+08:00"
+    "hash": "36a08523042358dee019496b57b4f676a24c0991c82a6784597e3f71b988442b",
+    "summary": "开放式、可自托管的替代方案，取代封闭式 AI 机器人。可投入生产、完全可定制，并可接入各种技术栈：任何代理、任何模型、任何工具。",
+    "at": "2026-11-17T16:08:42.239889+08:00"
   },
   "Donchitos/Claude-Code-Game-Studios": {
     "hash": "15c7ef15a766da2c14f6d7ecc770cf706992204290a712b24fec0d99490b9ebf",
@@ -2575,9 +2575,9 @@
     "at": "2026-11-02T15:58:39.387747+08:00"
   },
   "indexable-inc/blaze": {
-    "hash": "794de17684fd76c293bf419a5e9ed57830506f0174e6ab3058dc7416fc540452",
-    "summary": "增量生锈的速度比货物/生锈快92倍",
-    "at": "2026-11-02T15:58:39.387747+08:00"
+    "hash": "ec6fda9ba388d33d889b2490d94e1f1fa1eb8f6c85ac3968266e5e8384df0ab7",
+    "summary": "增量 Rust 构建速度比 cargo/rustc 快 92 倍。由 Y Combinator（F26）提供支持。",
+    "at": "2026-11-17T16:08:42.239889+08:00"
   },
   "reason-machines/reason-network": {
     "hash": "d39bf7296bf50b5d210f7f68ee65cd22605af9ab48c51e5c7861c84d11aa147e",
@@ -4455,9 +4455,9 @@
     "at": "2026-11-06T15:00:22.164862+08:00"
   },
   "the-geeky-couldron/waypoint": {
-    "hash": "7d689833d0b07fde8e3a859f576d904797568fa36508641ab533a1fd0b8118bd",
-    "summary": "真正的街道。游戏世界。原生Android导航，包含27个游戏风格的地图、传感器辅助引导和已验证的应用内更新。",
-    "at": "2026-11-06T15:00:22.164862+08:00"
+    "hash": "b4c2f739a5ecd5a7cadef3e851e328cdd695e80a924f616f95738522d0a0d004",
+    "summary": "真实街道。游戏世界。原生Android导航，提供38张受游戏启发的地图、传感器辅助导航和经过验证的应用内更新。",
+    "at": "2026-11-17T16:08:42.239889+08:00"
   },
   "therealMRBK/NextFloor": {
     "hash": "5d3b41a446ad831fa98249d76e1f686e5d8f2e6c1f41d3290a778217c50a9570",
@@ -4855,9 +4855,9 @@
     "at": "2026-11-07T14:14:16.576366+08:00"
   },
   "JosssphZhou/poki": {
-    "hash": "541ddcbbafcae92c1f95452b7657500ea8ecb4ef078341152a0ae963ee217b45",
-    "summary": "让人工智能代理操作真正的iPhone。本地MCP服务器和代理，没有越狱，没有额外的硬件。",
-    "at": "2026-11-07T14:14:16.576366+08:00"
+    "hash": "af63622f7e223e8eb30dd8600d25ef51cb8330e264c9f2b82007311b0ccc5398",
+    "summary": "Poki像您一样使用您的iPhone。一款开源代理，能够“看到”您的屏幕，并在您的真实设备上对任何应用进行点击、输入和滑动操作。在本地运行，可直接接入 Claude Code 和任何 MCP 代理。",
+    "at": "2026-11-17T16:08:42.239889+08:00"
   },
   "yappologistic/CUI": {
     "hash": "2d5968993a9f35b98592b9dfe8cdd535025cc57a68b418bcc3da7e607afa1da6",
@@ -5645,9 +5645,9 @@
     "at": "2026-11-11T14:46:54.915836+08:00"
   },
   "bilawalsidhu/gods-eye-view": {
-    "hash": "c7da9c737c2200d2a45e8ec623660966285d769812adcd8d77a41046d4602142",
-    "summary": "浏览器中的间谍卫星模拟器，但数据是真实的。在逼真的3D地球仪上实时开源空间智能。",
-    "at": "2026-11-11T14:46:54.915836+08:00"
+    "hash": "ef4943fc91f81a5e3fb4adc12cd57ae5490d4b4b229f6a65984f6f740e85c1fb",
+    "summary": "上帝视角：一款浏览器中的间谍卫星模拟器，但数据却是真实的。在逼真的 3D 地球上实时显示开源空间情报。官方网站：godseyeview.ai",
+    "at": "2026-11-17T16:08:42.239889+08:00"
   },
   "WhiteTowerAI/ohmygame": {
     "hash": "39fdec6af3bc4f1b806e8fa1e1459c51e958738c39c09488a3a3ed250e781da7",
@@ -6595,9 +6595,9 @@
     "at": "2026-11-16T14:49:14.015725+08:00"
   },
   "NVIDIA/SkillEvaluator": {
-    "hash": "01f7b11f39607f59d55da4e6ca6cdfa5112a8ac8c775486e70a70362f400259e",
-    "summary": "用于评估 AI 代理技能的多层框架，包括质量关卡、语义重叠检测、合成评估数据集生成以及实时代理评估（衡量技能如何影响代理行为）。",
-    "at": "2026-11-16T14:49:14.015725+08:00"
+    "hash": "75936b0a22937d09166caa3077ac1559a14c219c48c80156d90d30b43c74e78f",
+    "summary": "用于评估 AI 代理技能和插件的多层框架，包括质量关卡、语义重叠检测、合成评估数据集生成以及实时代理评估（衡量技能如何影响代理行为）。",
+    "at": "2026-11-17T16:08:42.239889+08:00"
   },
   "martin-olivier/airgorah": {
     "hash": "03785d453696d2ae223b9ca1f53beb4dcedbf6827267a446dd9f07703b592277",
@@ -6893,5 +6893,185 @@
     "hash": "e018c0c7f116102c5356d5d583cfcf160d798b64c637e250fd371a743e46ad74",
     "summary": "由 AI 代理驱动的 3D 引擎",
     "at": "2026-11-16T14:49:14.015725+08:00"
+  },
+  "getarcaneapp/arcane": {
+    "hash": "7966ced25099ff324f7d7c997c1b634dbc392aa7f48035cdc87b1b5a44aa93c8",
+    "summary": "现代Docker管理，专为所有人设计",
+    "at": "2026-11-17T16:08:42.239889+08:00"
+  },
+  "mvanhorn/last30days-skill": {
+    "hash": "ee626e3e638bfc9b115b0442a83ead012f6badde53d386204b1a4293d461479a",
+    "summary": "AI 代理技能，可在 Reddit、X、YouTube、HN、Polymarket 和网络上研究任何主题，然后综合生成有事实依据的摘要",
+    "at": "2026-11-17T16:08:42.239889+08:00"
+  },
+  "google-research/paper-orchestra": {
+    "hash": "bc6d8a96c921deb03c5d39e01ff44ccd0ebcbed0df216b002775468a1ff1805c",
+    "summary": "PaperOrchestra 是一个多智能体框架，用于自动撰写人工智能研究论文。",
+    "at": "2026-11-17T16:08:42.239889+08:00"
+  },
+  "huggingface/transformers": {
+    "hash": "77fdaba59ade2bfdc7399fbab939dbaaffe89bff9a4c22994c8b61661696e00e",
+    "summary": "🤗 Transformers：用于文本、视觉、音频和多模态模型的最先进机器学习模型的模型定义框架，可用于推理和训练。",
+    "at": "2026-11-17T16:08:42.239889+08:00"
+  },
+  "Helldez/BigMoeOnEdge": {
+    "hash": "6cbe7270e38e42614c165b1cc972369ae5ca4253b673bca3bda92bafd28d74cf",
+    "summary": "运行比您的 RAM 更大的 MoE 模型。在手机、笔记本电脑、边缘设备上运行前沿规模的 MoE。无损，基于原版 llama.cpp。自适应流式传输优化器。任何硬件、任何操作系统、任何模型、任何量化，均可运行在本地OpenAI兼容服务器上。",
+    "at": "2026-11-17T16:08:42.239889+08:00"
+  },
+  "eclipse-mosquitto/mosquitto": {
+    "hash": "4b74dff915b8c3b8d56e253ced417dd784160a2f2ed46786fc23121f1f398d17",
+    "summary": "Eclipse Mosquitto - 一款开源MQTT代理",
+    "at": "2026-11-17T16:08:42.239889+08:00"
+  },
+  "motion-canvas/motion-canvas": {
+    "hash": "e2e61af5a2d06d9e4a91b37e15a190d9e4c4f8bee27fa392a6867f7b31e2ebd0",
+    "summary": "用代码将您的想法可视化",
+    "at": "2026-11-17T16:08:42.239889+08:00"
+  },
+  "s0ld13rr/pentestcode": {
+    "hash": "5c91535cf9b92b37a88fe0511c039e87e67f71e330cf8010c898ac7174fbc42e",
+    "summary": "PentestCode - 具有持续参与状态、战略协调和并行自主操作的多代理AI渗透测试系统。",
+    "at": "2026-11-17T16:08:42.239889+08:00"
+  },
+  "gnacho/netpulse": {
+    "hash": "4e73c801b23bcea7a0da66eb12c890568ccad397ae8398f3f450176ff25d031d",
+    "summary": "用于监控 OpenWrt/GL.iNet 家庭网络的 PWA 控制面板：设备群状态、每台路由器的运行状况、设备、WireGuard 对等点、AdGuard Home 统计数据以及实时警报 (SSE)。Go 后端 + React 19 前端，SQLite，多用户，i18n 西班牙语/英语。",
+    "at": "2026-11-17T16:08:42.239889+08:00"
+  },
+  "Xplo8E/Liter8": {
+    "hash": "64baeeb4f13ed0b41bae90a1a1f289c733e1ed6719a399428d425c5818760125",
+    "summary": "绑定式 iOS 27 越狱",
+    "at": "2026-11-17T16:08:42.239889+08:00"
+  },
+  "nestjs/nest": {
+    "hash": "11f0c71f964c8c79c30b502ff08b6a833d74008b1e53e143849a500601cae82e",
+    "summary": "适用于 Node.js 后端的渐进式 TypeScript 框架：从一个文件中的小型 API 到高效、可扩展的企业级系统 🚀",
+    "at": "2026-11-17T16:08:42.239889+08:00"
+  },
+  "isair/jarvis": {
+    "hash": "5a55dee592873b13935a0ce03ce967be95ee84daf79aeca1eae2508059040408",
+    "summary": "一款 100% 私有且本地的桌面端 AI 助手。始终在场，能够随时加入对话。支持无限的MCP工具和无限的内存，并具备自我学习能力。免费的 WisprFlow 替代品，支持听写功能。可在 macOS、Windows 和 Linux 上运行。",
+    "at": "2026-11-17T16:08:42.239889+08:00"
+  },
+  "sharkdp/bat": {
+    "hash": "2008d840426605a5896cf6750116dbf425f6ac06c94f91c5253b6960c3dda7cb",
+    "summary": "一只长有翅膀的猫(1)克隆体。",
+    "at": "2026-11-17T16:08:42.239889+08:00"
+  },
+  "InvoiceShelf/InvoiceShelf": {
+    "hash": "9bcb2ee2f239e4abfa1e23dfff45eeed462306c29671af60fd0d5c1b17ce1fc3",
+    "summary": "面向个人和企业的开源发票解决方案",
+    "at": "2026-11-17T16:08:42.239889+08:00"
+  },
+  "lance-format/lance": {
+    "hash": "2cd1864068966d6d7135e7051ce596e08586dcf792594966136d69ec3e5d5e93",
+    "summary": "适用于多模态AI的开放湖仓格式。使用 2 行代码从 Parquet 进行转换，实现快 100 倍的随机访问、向量索引和数据版本控制。兼容Pandas、DuckDB、Polars、Pyarrow和PyTorch，未来还将推出更多集成。",
+    "at": "2026-11-17T16:08:42.239889+08:00"
+  },
+  "NarYuki/Dextop": {
+    "hash": "d0efc2264d4c316066e2f2949f75c6c3e0ab2977d7be9b44b21c2ad6c3ef324e",
+    "summary": "解锁隐藏的 Samsung DeX 和 Android 的桌面功能，直接在您的设备上运行桌面环境。",
+    "at": "2026-11-17T16:08:42.239889+08:00"
+  },
+  "Next-Flip/Momentum-Firmware": {
+    "hash": "d4776e356a5539820b5ce02fb079cd21056e39c6c0020e31bd58e833096d11c8",
+    "summary": "🐬 功能丰富、稳定且可定制的Flipper固件",
+    "at": "2026-11-17T16:08:42.239889+08:00"
+  },
+  "Mak5er/AirCard": {
+    "hash": "3733126cfac0a335c768da7fbbcc4a334446832cb2f4f056ceacd763629cb39f",
+    "summary": "适用于iOS 18+的Apple钱包卡片换肤工具（无需越狱）",
+    "at": "2026-11-17T16:08:42.239889+08:00"
+  },
+  "LiteLDev/LeviLauncher-Android": {
+    "hash": "da3a5c804fdd1b3b4c142c611d8b630bbaae0903ed601359a851ca3cfb4d0b65",
+    "summary": "适用于 Android 的 LeviLauncher",
+    "at": "2026-11-17T16:08:42.239889+08:00"
+  },
+  "cabaletta/baritone": {
+    "hash": "951af37facaeb4e00d8404e8e54d044c9ea0b7d485ba4164308240b91e4a4860",
+    "summary": "用于方块游戏的 Google 地图",
+    "at": "2026-11-17T16:08:42.239889+08:00"
+  },
+  "openutau/OpenUtau": {
+    "hash": "5cdc62954c4acd401ca6864d0b0e7e0bbb3b699edf78222a725f1be950900a04",
+    "summary": "开放式歌声合成平台/开源 UTAU 继任者",
+    "at": "2026-11-17T16:08:42.239889+08:00"
+  },
+  "matomo-org/matomo": {
+    "hash": "ed8479b816ceb30af6fa0b4122959e602ad75167e9a0607169404beb22a61c9c",
+    "summary": "以合乎道德的方式赋能人们 🚀 — Matomo 正在招聘！加入我们 → https://matomo.org/jobs Matomo 是 Google Analytics 的领先开源替代方案，为您提供完全的掌控权和内置的隐私保护。轻松收集、可视化和分析来自网站和应用程序的数据。在 GitHub 上为我们点亮小星星 ⭐️ – 欢迎提交拉取请求！",
+    "at": "2026-11-17T16:08:42.239889+08:00"
+  },
+  "Immortal-Protocols/lastbook": {
+    "hash": "d8466e4013a12dbf0a43be027f360c2c834fb8e79459ec86c77f7483b4678d62",
+    "summary": "离线知识AI、地图和视频，助力生存和重建",
+    "at": "2026-11-17T16:08:42.239889+08:00"
+  },
+  "haziqahmedqasmi/PeakCut": {
+    "hash": "c2296045f0879a14dea9a597ea9cd519a9431c00e80dcc92ef430df97f48e4e3",
+    "summary": "用于长视频和直播的人工智能剪辑。自托管，自带 AI 密钥。",
+    "at": "2026-11-17T16:08:42.239889+08:00"
+  },
+  "n4ze3m/tiny-voca": {
+    "hash": "ed99017cfe70115dbaae6921895e6c9119e3c8b60214336c2db0cf5f69d08cd6",
+    "summary": "一个 450 万参数的双音英语文本转语音模型，从零开始训练",
+    "at": "2026-11-17T16:08:42.239889+08:00"
+  },
+  "yetanotherbrowser/yab": {
+    "hash": "977beb6d119b453a0e7de439d67a8eaea26162178ccf4226bc90ef4eb817b2c3",
+    "summary": "Yab，又一款浏览器：一款快速的原生macOS浏览器，并有iPhone和Android配套版本",
+    "at": "2026-11-17T16:08:42.239889+08:00"
+  },
+  "krisgfx9/Wireless-Device-Battery-Monitor": {
+    "hash": "d3323ed04a06e065a0a89f01b04afcca3f1c915e1e915e87c5e41db4e58406df",
+    "summary": "在 Windows 10/11 任务栏上显示无线鼠标、耳机（含麦克风）、键盘和控制器的电量。轻量级托盘应用程序，无需供应商软件。支持罗技、雷蛇、赛睿、海盗船、HyperX、Glorious、PS4/PS5 DualSense、Xbox 和蓝牙设备。",
+    "at": "2026-11-17T16:08:42.239889+08:00"
+  },
+  "mit-han-lab/pear": {
+    "hash": "6e22e9ed1da2719b2fd8e2e37423b66e9fb2336f22e95d629c82400aade9e110",
+    "summary": "在模拟中训练推理模型，以便原生使用真实机器人",
+    "at": "2026-11-17T16:08:42.239889+08:00"
+  },
+  "higurashi-ai/Haru": {
+    "hash": "ae70cb85fd344658ca6510e219bafccf2c6914267bf7c77513fd994c8b1065c1",
+    "summary": "Haru：一种低延迟、多语言、全双工的口语对话模型",
+    "at": "2026-11-17T16:08:42.239889+08:00"
+  },
+  "joshpuckett/allo": {
+    "hash": "6745f251f834f267f7b71826140a19f6c79fce52d6efc6f88c006fa98e4339ba",
+    "summary": "Allo 是您友好的邻家字体，免费且开源",
+    "at": "2026-11-17T16:08:42.239889+08:00"
+  },
+  "sikoGD/playDB-CNT": {
+    "hash": "7bd99deb407e1387cbe2123ce7d31374107d316909eb950de70ff2f3a396e87c",
+    "summary": "在Eglantine/Lichii上参与Duskbloods网络测试：一款仅配备本地环回服务器的启动器，用于在线检查。https://discord.gg/jX3KK8T4P",
+    "at": "2026-11-17T16:08:42.239889+08:00"
+  },
+  "dalerank/tutankhamun": {
+    "hash": "d7a3e3ecd501e7f0889ad847a52dcfdd5d50e77cc15bf27a81abba064130e33e",
+    "summary": "使用C语言对《法老与克娄巴特拉》（Impressions Games，2000年）进行的开源重制：相同的游戏逻辑，原始存档，需要原始游戏文件",
+    "at": "2026-11-17T16:08:42.239889+08:00"
+  },
+  "itbelikethatbruh/MKCinema": {
+    "hash": "7fd93a8a2aad69614f5e9b2fb1f8113991bafe26ddf6b7ee57e1e114c44ba76c",
+    "summary": "未来的影院，面向全家。一款适合全家使用的免费家庭影院应用，兼容所有屏幕。",
+    "at": "2026-11-17T16:08:42.239889+08:00"
+  },
+  "git/git": {
+    "hash": "f4b1019879f064a6eb244790403b85c4ba8fe29813f9519d605969f9b3177588",
+    "summary": "Git 源代码镜像 - 这是一个仅用于发布的仓库，但可以通过 GitGitGadget（ https://gitgitgadget.github.io/ ）将拉取请求转换为邮件列表的补丁。对于您的任何改进，请遵循 Documentation/SubmittingPatches 程序。",
+    "at": "2026-11-17T16:08:42.239889+08:00"
+  },
+  "consolelabs/hidden": {
+    "hash": "0242643acb218aa111b025a3b59df25563198663608be1ef4a506db433d119a8",
+    "summary": "一款超轻量级的 MacOS 实用工具，可帮助隐藏菜单栏图标",
+    "at": "2026-11-17T16:08:42.239889+08:00"
+  },
+  "opensec-git/Pi-Bolt": {
+    "hash": "4aa92bfc6640f6bb84145b3ef4189f09fd23b23d07cde3fec377041ba0f9d505",
+    "summary": "⚡ Pi 是编程代理，提前编译成一个原生可执行文件。与 Node 上的 Pi 相比，启动速度快 10 倍，CPU 占用率低 7 倍，内存占用率低 4.5 倍。Linux、macOS、Windows、ARM64 和 Android（Termux）。",
+    "at": "2026-11-17T16:08:42.239889+08:00"
   }
 }
