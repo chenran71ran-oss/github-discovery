@@ -30,9 +30,9 @@
     "at": "2026-10-30T13:49:17.238303+08:00"
   },
   "JuliusBrussee/caveman": {
-    "hash": "be5efb2f495735684b424552c2c22843afe0474783b1cbee69958199f549d8c8",
-    "summary": "🪨 为什么在很少令牌做恶作剧时使用许多令牌。病毒技能+编码代理的代理，通过像穴居人一样说话来削减65%的代币。",
-    "at": "2026-10-30T13:49:17.238303+08:00"
+    "hash": "223ae5a6c65cf76a4d46c73ecbf16e1249af17fdb0d3c6cfe0c025d44172ee46",
+    "summary": "当少量token就能搞定时，为什么要使用大量token？技能 + 编码代理的本地代理：答案更短，工具输出更小，每个原始内容均可恢复。",
+    "at": "2026-11-18T15:42:53.286735+08:00"
   },
   "JustVugg/colibri": {
     "hash": "264cf8391ada36bb828362fa48610308ae646e315f1e7317a171f081b88d65ed",
@@ -280,9 +280,9 @@
     "at": "2026-10-30T13:49:17.238303+08:00"
   },
   "interplains/Zero-Breach-Toolkit": {
-    "hash": "be6f0bac9cad092a99c9ab43d6d7263daff5503edef54b42cfb46b9d1159760b",
-    "summary": "免费、开源、离线检查已知雇佣军间谍软件的痕迹。适用于Windows、macOS和Linux、Android手机和iPhone备份。",
-    "at": "2026-10-30T13:49:17.238303+08:00"
+    "hash": "920e5c120307b972e015a52bb3868a8c1c03c103e0226950b8f093737e2a507a",
+    "summary": "在 Windows、Mac、Linux、iPhone 和 Android 上免费离线检查已知商业间谍软件，以及未关闭的入口、可疑链接、电子邮件、文件和二维码、您的账户、家庭网络和附近的跟踪器。带窗口的应用程序，支持 27 种语言。没有任何内容会离开您的电脑。",
+    "at": "2026-11-18T15:42:53.286735+08:00"
   },
   "t3dotgg/tstack": {
     "hash": "32630c5252196a5e3c51cd080948c3cff96198b95a10d2e2d8260cac8b8c8add",
@@ -955,9 +955,9 @@
     "at": "2026-10-30T13:49:17.238303+08:00"
   },
   "pgrundev/pgx": {
-    "hash": "a493e3c37ea5e9b0871ebcab4c92d63743760426c8dd19e9da0793e9499f7cc4",
-    "summary": "PGX —用于AI代理的轻量级Postgres。用Rust编写。在一个运行时中，数千个隔离的数据库🐘",
-    "at": "2026-10-31T13:57:24.853434+08:00"
+    "hash": "f98545609a77f8a57134ed1132986b8494b344c102b281703ae97333c9c2be8d",
+    "summary": "PGBox — 适用于AI代理的轻量级Postgres。使用 Rust 编写。在一个运行时中包含数千个隔离的数据库🐘",
+    "at": "2026-11-18T15:42:53.286735+08:00"
   },
   "Alejandros17487/ai-jailbreaks": {
     "hash": "1bc2f2007e27c91922660f1cd295472fafe3b714722208bca07835906f21936b",
@@ -7073,5 +7073,230 @@
     "hash": "4aa92bfc6640f6bb84145b3ef4189f09fd23b23d07cde3fec377041ba0f9d505",
     "summary": "⚡ Pi 是编程代理，提前编译成一个原生可执行文件。与 Node 上的 Pi 相比，启动速度快 10 倍，CPU 占用率低 7 倍，内存占用率低 4.5 倍。Linux、macOS、Windows、ARM64 和 Android（Termux）。",
     "at": "2026-11-17T16:08:42.239889+08:00"
+  },
+  "obra/superpowers": {
+    "hash": "92f209e7344165c360d1025c9525accffea5726558abcc94d051ad7e8e55ac49",
+    "summary": "一个行之有效的代理技能框架和软件开发方法。",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "jingyaogong/minimind": {
+    "hash": "7c516f2eba62a43e7f0e4d636026f1c3715025ca0b504392be523416a9cc247f",
+    "summary": "🧠 仅需 2 小时即可从零开始训练一个 6400 万参数的 LLM！",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "antithesishq/bombadil": {
+    "hash": "90c57ee46105591750c23aeba831d0bffaa52c1c7385257eb3354e94174fe8ca",
+    "summary": "针对 Web 和终端 UI 的基于属性的测试",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "usestrix/strix": {
+    "hash": "abe96f237bf46c7adb12a4160252ef35413f2aa82146422cfe4002a99afad11b",
+    "summary": "开源AI渗透测试工具，用于查找和修复应用程序的漏洞。",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "lodash/lodash": {
+    "hash": "a61edeb0e3007434480210ed7f141ab0710c3eae654f34a6b5a0730f7144ccd9",
+    "summary": "一个提供模块化、性能和额外功能的现代 JavaScript 工具库。",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "BurntSushi/jiff": {
+    "hash": "f3bff5f294a5d8ddfd17c8d038679025cb4e326a48cbc37a198ed0aa76783498",
+    "summary": "一个适用于Rust的日期时间库，鼓励您迈入成功的殿堂。",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "deskflow/deskflow": {
+    "hash": "e1a69da5cce30d0fabcdebab3faffadf0bf4660f7457431195a3c3f2ebe7974e",
+    "summary": "在多台电脑之间共享一套键盘和鼠标。",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "poteto/hiring-without-whiteboards": {
+    "hash": "8957728bc895f0f23e7f10083ebbb9ac3a4840983819e0cc8bd933d8f2d6fafb",
+    "summary": "⭐️ 招聘流程健全的公司",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "PrimeIntellect-ai/prime-agent": {
+    "hash": "7c4b40d114f091df01092f0d1aa9f31ce4b371d7b94ec1fd8baf0992da9475af",
+    "summary": "一种用于编码工作流程和长时间运行的自主任务的自我改进型 RLM 代理。",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "DeusData/codebase-memory-mcp": {
+    "hash": "c78bfd8d96ad378cde003c79a4c668b31d2abcf88cb89d7a4029a7f798cad2d4",
+    "summary": "面向开发人员和 AI 代理的本地代码智能。使用 CBM Lens、MCP 工具、代理集成和变更感知型测试选择，将代码、文档和基础设施关联到一个持久性图中。",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "Cisco-Talos/clamav": {
+    "hash": "8a0e1cd37fe629ee254749b976ca6515498cbb65817a70a65c7e1a42cf279a2e",
+    "summary": "ClamAV - 文档在此：https://docs.clamav.net",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "karakeep-app/karakeep": {
+    "hash": "a9fdee8b1b4c1f1c4f7a245fe4a568faacf3bbb4347704f0bae078512cff0fe2",
+    "summary": "一款可自托管的书签应用，可收藏所有内容（链接、笔记和图片），具备基于人工智能的自动标签功能和全文搜索功能",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "seaweedfs/seaweedfs": {
+    "hash": "7b790237fd3d6b9925bf1fed8a9f1f25aff07d2aa4208dab5983dbed3627b45b",
+    "summary": "SeaweedFS 是一款分布式存储系统，适用于对象存储 (S3)、文件系统、Iceberg 表存储桶和 Lance 向量存储桶，旨在处理数十亿个文件，具备 O(1) 磁盘访问和轻松的横向扩展能力。",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "Jeffallan/claude-skills": {
+    "hash": "c584d651e719337e124eb110cb3033b2a764858c1d55a371475d08317a26387e",
+    "summary": "全栈开发人员的 67 项专业技能。将 Claude Code 转变为您的专家结对编程搭档。",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "knadh/listmonk": {
+    "hash": "7148d7adb6289bc2f3f8c0b5b701ed97e0d9b8f0f7badb142fe0d405ede38917",
+    "summary": "高性能、自托管的通讯和邮件列表管理工具，配备现代化仪表板。单二进制应用程序。",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "dograh-hq/dograh": {
+    "hash": "de907061e4371273af5ac57949622553093f7e264fce3586e0672d47bd437e5f",
+    "summary": "开源语音AI平台。Vapi 和 Retell 的自托管替代方案。本地部署，在语音到语音或LLM/STT/TTS之间实现BYOK，配备可视化工作流构建器，支持MCP原生和电话功能。",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "Radarr/Radarr": {
+    "hash": "cf28aa7aefbf5ac530428a85d6c5f99ec63e246ac31c8623ab0ccbe4e2668adb",
+    "summary": "适用于 Usenet 和种子用户（torrent user）的电影整理/管理工具。",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "JetBrains/intellij-community": {
+    "hash": "1869b963430a221713d14da2f41921b7e7ab1a7a9d0cd07574e68ddd7a3ef5b8",
+    "summary": "IntelliJ IDEA 和 IntelliJ 平台",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "TechnitiumSoftware/DnsServer": {
+    "hash": "9e070d5412a0adfb0ab2391d66c971dc94ac0caa8c4b80fba5160a87752ee11b",
+    "summary": "Technitium DNS 服务器",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "aircrack-ng/aircrack-ng": {
+    "hash": "caedef211237e7e79d6a296ae1e4c7aa5482f9088778fc727eb98ff30d2f6ffc",
+    "summary": "WiFi安全审计工具套件",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "crossplane/crossplane": {
+    "hash": "79a449dae77ed0901e460036cbc395409e2547f8821c88e806847af2b094daaf",
+    "summary": "云原生控制面",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "erkamyaman/rust-anything": {
+    "hash": "c7cef7e97c54480fbd82d1efab832b3c747c7fb1cf527857d95c145ab8aea49c",
+    "summary": "使用 Rust 逐一重写整个应用程序，并在每一步都对照原始应用程序的记录行为进行检查。TypeScript、Python、C、Go、Ruby 和 Java 中的 CLI、HTTP 服务器和库。",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "sybil-solutions/inference-optimisation-skill": {
+    "hash": "8e3e26c1c8a883ab90d9ec564122d17df2f653868cd593562155b5a595794bcb",
+    "summary": "适用于任何硬件和量化的爬山法局部 LLM 服务速度（解码、推测性解码、预填充、KV、启动、TTFT）的代理技能",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "chuanqisun/spaceship": {
+    "hash": "d98e17ff486b800f4803289bb4535a5bb4dc183fd784fa4f654df442b16bbdec",
+    "summary": "实时掌控您的创意",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "huggingface/pybot": {
+    "hash": "5b22ec0b4860e6d7c6f302f599b131a4ceb20ecbe26db80a9e1280fa4d633cb3",
+    "summary": "PyBot：由一群代理编写的纯Python聊天机器人。没有权重，没有训练，只有规则。",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "boringmarketer/boring-marketing-skills": {
+    "hash": "dc29425ead2843f2284f077c7fd3bf91f42a3fc559ccf660bdc2e01ab9396407",
+    "summary": "为您的AI代理提供32项免费营销技能：研究、定位、文案、网页、SEO、AI搜索、广告、电子邮件和内容，以及一个深入的本地业务包。麻省理工学院。",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "angela-frost/microsoft-office-pro-desktop": {
+    "hash": "26ebfd4a11d79395f7e489b5b7908c574c7d33d42ea3d090c0c2ddc1cb110d21",
+    "summary": "Microsoft Office Pro 2026 桌面版安装程序，将文档撰写、电子表格引擎和演示文稿组件捆绑到一个适用于 Windows 11 的离线 x64 安装包中。",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "staryone/motlab": {
+    "hash": "632d1b862bb622b370f881820ac1a1e84f5aff04bb1b1e8f1d5d688096893230",
+    "summary": "视频即代码：在无头 Chrome 中使用 WebCodecs 渲染的画布场景、审核查看器以及根据您的参考资料构建视频的代理技能。",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "stephlong-dev82/pioneer-dj-rekordbox-desktop": {
+    "hash": "44f29ac5c4c5fbe1ed00141d11f25d3e98b959e3dcca65b521a614b7c794b8e3",
+    "summary": "Pioneer DJ Rekordbox 2026 桌面版配置，包含捆绑的音频和 MIDI 组件、多轨工作流程以及适用于 Windows 11 的便携模式。",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "connor-walsh-1996/ableton-live-standard-desktop": {
+    "hash": "d84defdd7b9e85808e8824c8ce723046e4879b3284651d5267f261023f0745e7",
+    "summary": "Ableton Live Standard 2026 独立套装，包含多轨编辑器、MIDI 编曲、VST 主机和便携模式，适用于 Windows 10 和 11。",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "dylan-price-61/capcut-seedance-desktop": {
+    "hash": "2cb1ef368397db8fa29a8f78a181ed5d0a28b00c55e12650cc0dd7ce1514fbb9",
+    "summary": "CapCut Seedance 2026 独立软件包，包含时间轴编辑器、转场库、颜色预设和 Windows 11 便携模式",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "iceshane19/delivery-job-ox-lib": {
+    "hash": "7838832155a5d65d9be6b0882ebf1f9312122b177258a8685cb142753b5d8919",
+    "summary": "派送任务 OX Lib：构建沉浸式派送路线，按您的方式进行修改",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "Sashi-hub085/ue-bulk-export": {
+    "hash": "334515ccbefd8bd43714bc2a41ec063e310bf2658461f7d3bfeeff2d4baf5956",
+    "summary": "用于批量导出 UE 纹理、网格、动画、音频、关卡和属性的命令行前端",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "bhukyabalu12/repdix-telegram-bot": {
+    "hash": "f1f759dbc097f1f724a0bafc533594279fd474706c470daba047f794e32cf524",
+    "summary": "Repdix Telegram机器人：由社区驱动的自然语言数据库编排工具，支持本地LLM",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "Peshiemaina21/telegram-news-autopilot": {
+    "hash": "103bfbf206298c1778738a1b7d11778d4bd576f51aaf5163dbdc3f5233996c07",
+    "summary": "Telegram Autopilot：面向Discord和Telegram的社区驱动型功能丰富的机器人",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "Blurck1/g2g-fast-game": {
+    "hash": "bc05f1abb044c426c75dd66932977368c81e38ad0bf766ae5f1a6ef841f052f6",
+    "summary": "G2G快速游戏：兔跳和冲浪计时地图，用于竞速通关",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "assansolution-cell/options-commander-cli": {
+    "hash": "d83ae131e09d5ac61c937527f5bf8cbccb5a21a040b1da5345f78aa774b229ac",
+    "summary": "期权指令工具CLI：下单、追踪止损、提醒和每日记录",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "dennisyang1986/polymarket-proxy": {
+    "hash": "3fe89b837a1a4233b1b15e77fbf9a17ca4e953a0d39f6e3f379b2185ef1ee293",
+    "summary": "Polymarket代理——DeepSeek Harness中的本地Polymarket交易台：在官方网站不可用时提供存款地址、投资组合、市场雷达和实时交易。",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "mbsintegrations/LG-TV-HA-Home-Launcher": {
+    "hash": "85acf0362e733097490d096a8c590d24356e20f484f5c37a8f76a335da84ae95",
+    "summary": "适用于 LG webOS 电视的可配置 Home Assistant 主页启动器，带有本地设置向导和可选的无 Root 主页按钮助手。",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "nayo186/AloneInTheDarkClassicReborn": {
+    "hash": "c1504446647297d18b9defea6ba7f0bd5e95657cff177818064a3175305260e6",
+    "summary": "《寂静岭》三部曲和《黑暗中的杰克》的源代码移植版，适用于现代个人电脑（Windows和Linux）：包含修复、高清选项和专属启动器。由yaz0r基于FITD打造，包含部分Re-Haunted内容",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "yzsind/mydb": {
+    "hash": "c319c34698c114524130e9a3d43fe8ab52d156895f42c861f67115f3467fa02c",
+    "summary": "一款高性能的MySQL兼容数据库，适用于HTAP和AI代理。混合事务和分析工作负载，具备原生AI检索功能。",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "github/CopilotForXcode": {
+    "hash": "92f95e3128bbf928d64caeae9972defc621033eed115d6a11c6dde78edd13652",
+    "summary": "适用于 Xcode 的 AI 编程助手",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "huami-dev/GestaltX": {
+    "hash": "159677093c9e7a5dcd1379c5020c8eb551f56a40e400898a1e7c212055ef17e9",
+    "summary": "适用于 iOS 27.x 的 MobileGestalt 编辑器，具有区域代码调整、设备预设、备份等功能。",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "vercel-labs/ui": {
+    "hash": "db8cfcda3bb528707e9f2f119bd76953f6a112c55649f1186faffda6bc8b70ac",
+    "summary": "一个用于代理构建下一代用户界面的行为库。",
+    "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "vAPI-Network/vapi-network": {
+    "hash": "f4420f70c563e280c51469fdcf8150071028a3da4825aad290e944cdd3e5971c",
+    "summary": "用于在Base上以USDC进行x402 API支付的买方控制型客户端。",
+    "at": "2026-11-18T15:42:53.286735+08:00"
   }
 }
