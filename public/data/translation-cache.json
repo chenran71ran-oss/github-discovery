@@ -6595,9 +6595,9 @@
     "at": "2026-11-16T14:49:14.015725+08:00"
   },
   "NVIDIA/SkillEvaluator": {
-    "hash": "75936b0a22937d09166caa3077ac1559a14c219c48c80156d90d30b43c74e78f",
-    "summary": "用于评估 AI 代理技能和插件的多层框架，包括质量关卡、语义重叠检测、合成评估数据集生成以及实时代理评估（衡量技能如何影响代理行为）。",
-    "at": "2026-11-17T16:08:42.239889+08:00"
+    "hash": "166390b685511e5741469f9b61101752f8756c764a278ff9485e1220cd0982d1",
+    "summary": "用于评估AI代理技能和插件的多层框架，具备质量关卡、安全扫描、Harness兼容性检查、语义重叠检测、合成评估数据集生成以及实时代理评估（用于衡量技能如何影响代理行为）。提供可重复使用的 CI 模板，将各项检查引入任何代码仓库。",
+    "at": "2026-11-19T15:39:09.482401+08:00"
   },
   "martin-olivier/airgorah": {
     "hash": "03785d453696d2ae223b9ca1f53beb4dcedbf6827267a446dd9f07703b592277",
@@ -7298,5 +7298,175 @@
     "hash": "f4420f70c563e280c51469fdcf8150071028a3da4825aad290e944cdd3e5971c",
     "summary": "用于在Base上以USDC进行x402 API支付的买方控制型客户端。",
     "at": "2026-11-18T15:42:53.286735+08:00"
+  },
+  "jquery/jquery": {
+    "hash": "71811edc0399f12fc241cda67ca06d506be4cefc2b5747e81cdf99344764c01e",
+    "summary": "jQuery JavaScript 库",
+    "at": "2026-11-19T15:39:09.482401+08:00"
+  },
+  "appwrite/appwrite": {
+    "hash": "59d657b9c35fd0b4ab04e906139b8351d8c6f1e24dd4cd25f0a7c78dd68154bb",
+    "summary": "面向代理和开发人员的开源云。包括身份验证、数据库、存储、函数、消息传送、托管、实时、WAF 等",
+    "at": "2026-11-19T15:39:09.482401+08:00"
+  },
+  "openvinotoolkit/openvino": {
+    "hash": "9617226aa653db4a7f205015ef1416f68edf1cfde1b69840d900b8d66ce7aee4",
+    "summary": "OpenVINO™ 是一款用于优化和部署 AI 推理的开源工具包",
+    "at": "2026-11-19T15:39:09.482401+08:00"
+  },
+  "punkpeye/awesome-mcp-servers": {
+    "hash": "02bfcb486009cdd2eca4cc6f597572e5ae2d643ec6e8e85471db1cf049453134",
+    "summary": "MCP 服务器的集合。",
+    "at": "2026-11-19T15:39:09.482401+08:00"
+  },
+  "vercel/next.js": {
+    "hash": "869f1fea7ac245005bdd50eb3a77d99ac62331c4e07aaee0f4a8e865cfa1e673",
+    "summary": "React 框架",
+    "at": "2026-11-19T15:39:09.482401+08:00"
+  },
+  "rustfs/rustfs": {
+    "hash": "5f9c63548a00fce0ae8989ba98d2cddbebcf45c955fdd2660b06f894f729c9f6",
+    "summary": "RustFS 是一款开源的、兼容 S3 的高性能对象存储系统，支持迁移并与其他兼容 S3 的平台（如 MinIO 和 Ceph）共存。",
+    "at": "2026-11-19T15:39:09.482401+08:00"
+  },
+  "qwdwqfwq/topconf-paper-figure-gallery": {
+    "hash": "d326a467d0c3572d558a6995506bcab92dce5a73d2bee84bc85b93d1e678a2d1",
+    "summary": "3,516 个精选的 Figure 1/预告片，来自 ICLR、ICML、NeurIPS、CVPR、ACL、AAAI（2023-2026），带有分级徽章和 FigureForge 检索增强型图表起草功能",
+    "at": "2026-11-19T15:39:09.482401+08:00"
+  },
+  "BurntSushi/ripgrep": {
+    "hash": "5aea00c5d59686417b99fc80ea2cbd545774c68d7b8e811b4e939d33e289de54",
+    "summary": "ripgrep 会递归搜索目录中的正则表达式模式，同时尊重您的 .gitignore 文件",
+    "at": "2026-11-19T15:39:09.482401+08:00"
+  },
+  "ViceVerse-cz/Serein": {
+    "hash": "25d983fe93f95d10fa88f3920b9aca10f38abcaa8930ecd2377ba87d60d615a6",
+    "summary": "使用 Rust 编写的轻巧、高性能且 100% 原生的 Discord 客户端",
+    "at": "2026-11-19T15:39:09.482401+08:00"
+  },
+  "carla-simulator/carla": {
+    "hash": "ee75ef9f31a421917561ba2787d4df9b349c65aa8bce84d87aba4fb0f8c8ca61",
+    "summary": "用于自动驾驶研究的开源模拟器。",
+    "at": "2026-11-19T15:39:09.482401+08:00"
+  },
+  "TelegramMessenger/Telegram-Android": {
+    "hash": "3b2d592499ae1bacf164cb488ca5bd8e1e245f24be9ba4aa4feb60f94f759e30",
+    "summary": "Android 版 Telegram 源代码",
+    "at": "2026-11-19T15:39:09.482401+08:00"
+  },
+  "SaladDay/cc-switch-cli": {
+    "hash": "db47b5ddcaeec876e3132e4c4a17a6fec9b4505556e4f1fcd4705c1906ba1005",
+    "summary": "⭐️ 适用于 Claude Code、Codex 和 Gemini CLI 的跨平台 CLI 一体化助手工具。",
+    "at": "2026-11-19T15:39:09.482401+08:00"
+  },
+  "gabime/spdlog": {
+    "hash": "a540ac502e0b19c863b6097aff1e2143001324ec0f6de2b214b60c590a87d56f",
+    "summary": "快速 C++ 日志记录库。",
+    "at": "2026-11-19T15:39:09.482401+08:00"
+  },
+  "jasontaylordev/CleanArchitecture": {
+    "hash": "1aebcb7d4f20206283f6dd67acc017a0c92b18d0d2101b8b0930ae9bf6af0036",
+    "summary": "适用于 ASP.NET Core 的“干净架构”解决方案模板",
+    "at": "2026-11-19T15:39:09.482401+08:00"
+  },
+  "bitwarden/android": {
+    "hash": "5b7cd98e9161206ca8373d9e2f07fc6d3ef480025a0b4896eb0703cb2106801b",
+    "summary": "适用于 Android 的 Bitwarden 移动应用（密码管理器和身份验证器）。",
+    "at": "2026-11-19T15:39:09.482401+08:00"
+  },
+  "Prowlarr/Prowlarr": {
+    "hash": "fd91fef663b84fd5acbf8d667540add99834282dd8978e93a50e93f715851dcb",
+    "summary": "Prowlarr 是一款基于热门的 *arr .net/reactjs 基础堆栈构建的索引器管理器/代理，可与您的各种 PVR 应用集成，支持 Torrent 种子跟踪器和 Usenet 索引器的管理。",
+    "at": "2026-11-19T15:39:09.482401+08:00"
+  },
+  "librenms/librenms": {
+    "hash": "157693ab5b973a81e833d324e970c8b3e021e6a0e7b64420c7e47180b433fb3e",
+    "summary": "基于社区的 GPL 许可网络监控系统",
+    "at": "2026-11-19T15:39:09.482401+08:00"
+  },
+  "ersinkoc/phonebox": {
+    "hash": "4abd8db9b2ee58bb567c88bf796ae07df6a279b34ae816ac53575c2618953112",
+    "summary": "将旧的安卓手机变成可定制的桌面面板和触摸控制面板，适用于 Windows、Linux 和 macOS。提供 124 个小部件和 30 个模板，用于系统统计、AI 编程、媒体和自动化，支持 12 种语言。USB 或配对的 Wi-Fi。无需云端。",
+    "at": "2026-11-19T15:39:09.482401+08:00"
+  },
+  "siliconjungle/shapeshift-labs-ink-studio": {
+    "hash": "f70596a7ead1d34bc4eea9a65e55346d7cb270e5733d6a4f8110d51726ff919c",
+    "summary": "用于像素艺术高斯斑点的雕刻、动画和模拟工具包",
+    "at": "2026-11-19T15:39:09.482401+08:00"
+  },
+  "AgenticOrgLab/ExecOrchestra": {
+    "hash": "5e93e35b460401895fd96da3924ba2afeb8072e0299df7722478bf7a4974ebca",
+    "summary": "异构资源路由和编排",
+    "at": "2026-11-19T15:39:09.482401+08:00"
+  },
+  "berkantay/gpucanvas": {
+    "hash": "302d83fd33168c3c23ccda4bee00f2f9786139b79f8b281d33714367f7c52488",
+    "summary": "将数千个实时 DOM 节点放置在无限画布上：GPU 负责绘制它们，编辑器负责选择、移动和调整它们的大小，着色器和过渡效果在它们上运行，而 AI 代理则可以读取它们并指向它们。",
+    "at": "2026-11-19T15:39:09.482401+08:00"
+  },
+  "quer3q/kraken-mount": {
+    "hash": "8df5f0b28d5c9062ab3805f2b2d36179cb14aa3f6397e9543763923b70dd2dd6",
+    "summary": "简约型 PS5 游戏加载器，支持 PKG、文件夹转储、zstd 和 lz4",
+    "at": "2026-11-19T15:39:09.482401+08:00"
+  },
+  "ysunyang4/Nexus": {
+    "hash": "2f5e6c7fe5b70351d38013b529f4472ca64100b8610a506c2a0d23acbd38b2c2",
+    "summary": "通过 MCP 将网络 AI 助手连接到本地文件、终端、Git 和桌面工具，并由用户控制权限。",
+    "at": "2026-11-19T15:39:09.482401+08:00"
+  },
+  "arnold117/iOS-NOIR": {
+    "hash": "5a1177f995d556688b82a68213e5d79641f756361baeacdf33f198ed2830dcbf",
+    "summary": "非越狱iOS隐私、权限、沙盒和遥测取证审计工具（灵感来自Verlintas/NOIR）",
+    "at": "2026-11-19T15:39:09.482401+08:00"
+  },
+  "fujc683/seedance-2-5-flash-pricing": {
+    "hash": "f0430bd3a3619b5f7c77c2f9fd23520642aa4e19aff371af7c4fbed13db26fda",
+    "summary": "Seedance 2.5 Flash 视频每秒成本，并提供比较。",
+    "at": "2026-11-19T15:39:09.482401+08:00"
+  },
+  "shurshun/count-in": {
+    "hash": "737dac941715e2e9ec321e1fa7e89438c45e407c8e01685c5d749da1d8f4dd2d",
+    "summary": "在歌曲的第一个强拍之前添加鼓槌的节拍；可选的吉他/人声伴奏",
+    "at": "2026-11-19T15:39:09.482401+08:00"
+  },
+  "ELEL182/bunny-hopping-mod": {
+    "hash": "afa21ba1692b152f07e7ea79fc243529d6633e2b739eecbcd3610f42e537639c",
+    "summary": "蹦兔模式：由 Fabric 提供支持的动量和移动掌控",
+    "at": "2026-11-19T15:39:09.482401+08:00"
+  },
+  "nikhilpanwar375-creator/drop-music-visualizer": {
+    "hash": "d50b408b1d77fe8c193c436943a174cf7bf775e405f724a7cf87648c1c78aeb1",
+    "summary": "使用 Drop Music Visualizer 将每首曲目都变成一个生动的视觉故事",
+    "at": "2026-11-19T15:39:09.482401+08:00"
+  },
+  "databasifylabs/databasify": {
+    "hash": "b9aef00dfa3add10355bd2d6e31f8d0e24568276819501f9800cbaf33a251872",
+    "summary": "一款开源、可自托管的DBaaS替代方案，可替代DigitalOcean托管数据库、Amazon RDS和Aiven，让您在自己的服务器上运行PostgreSQL、MySQL、MariaDB、MongoDB、Valkey和Redis，从单节点到具有自动故障转移、时间点备份和TLS的高可用性集群。",
+    "at": "2026-11-19T15:39:09.482401+08:00"
+  },
+  "db-branch/db-branch": {
+    "hash": "be4abbf1c8dc0b6ac61de125854514b42843bdb51827a62ecea0be18eaaaf113",
+    "summary": "基于 ZFS 克隆的即时 MySQL 数据库分支，通过 ProxySQL 路由跨虚拟机集群",
+    "at": "2026-11-19T15:39:09.482401+08:00"
+  },
+  "j0braun/overbright": {
+    "hash": "66f120c2a8c96e1ad71dd19c49afc65a8835307c70bb355554aff902885c61d4",
+    "summary": "使用 Rust 和 wgpu 重新实现《极品飞车：地下狂飙 2》（2004）。",
+    "at": "2026-11-19T15:39:09.482401+08:00"
+  },
+  "FujiwaraChoki/supoclip": {
+    "hash": "a9cde66cf3d2f6b56228a9b54197de494aabe5b43f9c874292d823057661c27c",
+    "summary": "一款开源的 OpusClip 替代品",
+    "at": "2026-11-19T15:39:09.482401+08:00"
+  },
+  "runkids/skillshare": {
+    "hash": "255e355cfff40843d25b663eced29445f15f8f5518e10e49c62cbbc6ec6cd038",
+    "summary": "📚 使用一条命令将技能、客服代表、MCP、插件同步到所有 AI CLI 工具，并简化团队共享。",
+    "at": "2026-11-19T15:39:09.482401+08:00"
+  },
+  "huami1314/GestaltX": {
+    "hash": "159677093c9e7a5dcd1379c5020c8eb551f56a40e400898a1e7c212055ef17e9",
+    "summary": "适用于 iOS 27.x 的 MobileGestalt 编辑器，具备区域代码调整、设备预设、备份等功能。",
+    "at": "2026-11-19T15:39:09.482401+08:00"
   }
 }
