@@ -3755,9 +3755,9 @@
     "at": "2026-11-03T14:59:32.314123+08:00"
   },
   "michael-denyer/pstack-claude": {
-    "hash": "44a8c4c72bac66ae5e5868a44e67760b4b5530df412f8d12d6347a4750dfe405",
-    "summary": "Antigravity、Claude Code、Codex、Copilot、Gemini、Muse、OpenCode、Pi和Poteto pstack的Prime Agent版本。严格的代理工作流程，将Cursor基元转换为其他线束。",
-    "at": "2026-11-05T15:00:42.098507+08:00"
+    "hash": "d9f06095ee8c59f1820136ec233ff56fcad3e4acb08342dd3e273bf8f05dfdb2",
+    "summary": "Poteto 的 pstack 的 Antigravity、Claude Code、Codex、Copilot、DeepSeek Harness、Gemini、Grok Build、Kimi Code、MiniMax Code、Muse、OMP、OpenCode、Pi、Prime Agent 等版本。严谨的代理工作流，其中 Cursor 原语已转换为适用于其他框架。",
+    "at": "2026-11-21T15:26:25.528249+08:00"
   },
   "HKUDS/DeepTutor": {
     "hash": "aac65fe757ff28e7a2615584700d4cf6ff1ea108948879d7a2ce1e0a474edd64",
@@ -5400,9 +5400,9 @@
     "at": "2026-11-09T14:53:25.434072+08:00"
   },
   "hffgzktbcc-blip/ounce-core": {
-    "hash": "a729c258924d2c95d8cddbd2c52a4fa865376953e2debf50d4009484fda0d680",
-    "summary": "安全Rust中的开源ARM64执行实验室：在三个CPU引擎上运行程序，并证明结果与真实硬件相匹配。",
-    "at": "2026-11-09T14:53:25.434072+08:00"
+    "hash": "9797e2beff6e13922114667548d7e2588e6d85f632b45d8fb4838f75131afc79",
+    "summary": "Ounce-Core 在三个 CPU 引擎上运行受支持的 ARM64 程序，将它们的输出与真实硬件参考进行比较，并帮助开发者发现漏洞。",
+    "at": "2026-11-21T15:26:25.528249+08:00"
   },
   "lobehub/lobe-mygo": {
     "hash": "bab6444692a55be710b3315686e4e39b16d4508879f3280e7a8c6a1cabb0479a",
@@ -7670,9 +7670,9 @@
     "at": "2026-11-20T15:29:56.243932+08:00"
   },
   "mankidev/antialgorithm": {
-    "hash": "ee87b1a3769c8f99379c6243e56e2c9e45bdabb740b3e557a27acdd8802bc99b",
-    "summary": "Claude Code 技能，可引导模型避开其在创意工作中最初、最平庸的选择：名称、创意、海报、用户界面。",
-    "at": "2026-11-20T15:29:56.243932+08:00"
+    "hash": "ba196a5c24abeabed07090bc55af1048e7d1a783d64404716de85e4eef188336",
+    "summary": "代理技能，使模型偏离其在创意工作中的第一个最普通的选择：名称、创意、徽标、海报、用户界面。",
+    "at": "2026-11-21T15:26:25.528249+08:00"
   },
   "nilbuild/stick-scene": {
     "hash": "a65f6cc0f227ecb34926bae427c57d1844b5449505735548c6ebdd616b7dae97",
@@ -7748,5 +7748,115 @@
     "hash": "bfc4c7ff8dd7d2e35eaf4179175d8758dbc367fdc8f74364eb62bf65704e25b7",
     "summary": "运营 Instagram 账号的 13 项 Claude 技能：列出 26 个高分吸引力公式、一项爆款研究技能、一个文案检查工具和一个人性化工具。免费，MIT。",
     "at": "2026-11-20T15:29:56.243932+08:00"
+  },
+  "driceroland/Search": {
+    "hash": "c37e936a52918f459acc736e7868665a5468e477a80a6897736ec0ccd0316e1b",
+    "summary": "一款适用于 macOS 的小巧快速的 WebKit 浏览器，由 Office Commun 开发。",
+    "at": "2026-11-21T15:26:25.528249+08:00"
+  },
+  "MSNightmare/FastUnlock": {
+    "hash": "af73bdd010694247056a0d6bc5911b3e7ac3844ef794c2623e7e379b504a18ed",
+    "summary": "FastUnlock：Windows 屏幕阅读器锁屏绕过 0day 漏洞",
+    "at": "2026-11-21T15:26:25.528249+08:00"
+  },
+  "nataphong-lab/Open-Source-Face-Recognition-Ultimate": {
+    "hash": "7ae955cf0b529ee12e317d78f126dd55f2a63a020f0f29935b314c998f87b022",
+    "summary": "人脸识别、人脸活体检测、人脸防欺骗、人脸检测、人脸特征点、人脸比对、人脸匹配、人脸姿态、人脸表情、人脸属性、人脸模板提取、人脸特征点",
+    "at": "2026-11-21T15:26:25.528249+08:00"
+  },
+  "YellowLaborerMarket/Gemini-Config-Checker-": {
+    "hash": "0f060ceaae3f827769717d4689bd41005e743d351f9c5077322d090338a3ceca",
+    "summary": "链区域扫描器：查找让您进入 Google AI Studio 和 Gemini 的代理配置（已登录浏览器检查、反 DPI、Windows/macOS/Linux/Android）",
+    "at": "2026-11-21T15:26:25.528249+08:00"
+  },
+  "weightcashiercupola/Gemini-Config-Checker-": {
+    "hash": "0f060ceaae3f827769717d4689bd41005e743d351f9c5077322d090338a3ceca",
+    "summary": "链区域扫描器：查找让您进入 Google AI Studio 和 Gemini 的代理配置（已登录浏览器检查、反 DPI、Windows/macOS/Linux/Android）",
+    "at": "2026-11-21T15:26:25.528249+08:00"
+  },
+  "WindGatorRise37/Gemini-Config-Checker-": {
+    "hash": "0f060ceaae3f827769717d4689bd41005e743d351f9c5077322d090338a3ceca",
+    "summary": "链区域扫描器：查找可让您进入 Google AI Studio 和 Gemini 的代理配置（已登录浏览器检查、反 DPI、Windows/macOS/Linux/Android）",
+    "at": "2026-11-21T15:26:25.528249+08:00"
+  },
+  "WyrmClimberManacle/Gemini-Config-Checker-": {
+    "hash": "0f060ceaae3f827769717d4689bd41005e743d351f9c5077322d090338a3ceca",
+    "summary": "链区域扫描器：查找可让您进入 Google AI Studio 和 Gemini 的代理配置（已登录浏览器检查、反 DPI、Windows/macOS/Linux/Android）",
+    "at": "2026-11-21T15:26:25.528249+08:00"
+  },
+  "TurtleReside/Gemini-Config-Checker-": {
+    "hash": "0f060ceaae3f827769717d4689bd41005e743d351f9c5077322d090338a3ceca",
+    "summary": "链区域扫描器：查找可让您进入 Google AI Studio 和 Gemini 的代理配置（已登录浏览器检查、反 DPI、Windows/macOS/Linux/Android）",
+    "at": "2026-11-21T15:26:25.528249+08:00"
+  },
+  "weldbladesmithwharf/Gemini-Config-Checker-": {
+    "hash": "0f060ceaae3f827769717d4689bd41005e743d351f9c5077322d090338a3ceca",
+    "summary": "链区域扫描器：查找可让您进入 Google AI Studio 和 Gemini 的代理配置（已登录浏览器检查、反 DPI、Windows/macOS/Linux/Android）",
+    "at": "2026-11-21T15:26:25.528249+08:00"
+  },
+  "WerewolfEmuHub/Gemini-Config-Checker-": {
+    "hash": "0f060ceaae3f827769717d4689bd41005e743d351f9c5077322d090338a3ceca",
+    "summary": "链区域扫描器：查找可让您进入 Google AI Studio 和 Gemini 的代理配置（已登录浏览器检查、反 DPI、Windows/macOS/Linux/Android）",
+    "at": "2026-11-21T15:26:25.528249+08:00"
+  },
+  "WindowStaffGate11/Gemini-Config-Checker-": {
+    "hash": "0f060ceaae3f827769717d4689bd41005e743d351f9c5077322d090338a3ceca",
+    "summary": "链区域扫描器：查找让您进入 Google AI Studio 和 Gemini 的代理配置（已登录浏览器检查、反 DPI、Windows/macOS/Linux/Android）",
+    "at": "2026-11-21T15:26:25.528249+08:00"
+  },
+  "govijr/terminal-phone": {
+    "hash": "3d00feaeecbe5cc3cb73d8ddec5eabe2d7bd7b97958db912936d8c41d7694309",
+    "summary": "您的终端中的真实 iPhone 或 iOS 模拟器。",
+    "at": "2026-11-21T15:26:25.528249+08:00"
+  },
+  "umbra0688/windows-clipboard-manager-sync": {
+    "hash": "37069e6d1195924283c89f2897dee6c30f66864ff002f7428427e7758046cdb4",
+    "summary": "免费的开源 Windows 剪贴板管理器，具备可搜索的历史记录、智能集合、键盘快捷键和云同步功能。",
+    "at": "2026-11-21T15:26:25.528249+08:00"
+  },
+  "jackson-cmd/claude-multi-desktop": {
+    "hash": "db663a5f487b9a6c8a6ba085c00357da02c61336fc551d01f1177f41fa317a2c",
+    "summary": "在 Mac 上同时运行多个 Claude Desktop 账户：独立登录、自定义图标、一个共享的 Claude Code 设置，以及跨账户相互发送消息的会话。brew install jackson-cmd/tap/claude-multi-desktop",
+    "at": "2026-11-21T15:26:25.528249+08:00"
+  },
+  "vkindustries49-star/minectaft-on-rust-easy-launch": {
+    "hash": "136a69e32b3fc57df15a746386c5f34a55f7eaa5ff3b05ac2dc2587ea08aed89",
+    "summary": "通过简化的设置和启动器，在 Rust 上启动和管理 Minecraft。",
+    "at": "2026-11-21T15:26:25.528249+08:00"
+  },
+  "donsimox0-wq/azerothcore-personal-loot-mod": {
+    "hash": "80833e9cb998588ce644498969ccf90392f2be1d40690672ee0e6dd6bf8771b8",
+    "summary": "AzerothCore 掉落模组 - 为每个英雄量身定制的掉落",
+    "at": "2026-11-21T15:26:25.528249+08:00"
+  },
+  "71chili/logseq-novara-knowledge-vault": {
+    "hash": "1d8b3812b9205494b41912af6137bbc19fe6457c439ad73f9b94e003443e7476",
+    "summary": "Logseq Novara Knowledge Vault 将笔记组织成一个可链接、可查询的知识库。",
+    "at": "2026-11-21T15:26:25.528249+08:00"
+  },
+  "fazal0055/zotero-ceravin-research-desk": {
+    "hash": "330ac2e27d7f8074e8e2141f960b00545e6e7b55a5d4ad2e6a289f4a566a82c6",
+    "summary": "基于Zotero的研究平台——来源采集加结构化笔记。",
+    "at": "2026-11-21T15:26:25.528249+08:00"
+  },
+  "aftabj21/gta-6-soundtrack-discovery-catalog": {
+    "hash": "8a4aa356fbbea2b63c607b15245fec04ef4481dcb69dfb63af974d74ff75fed8",
+    "summary": "在游玩时探索曲目，让《GTA 6》原声带探索目录引导您发现每一首曲目。",
+    "at": "2026-11-21T15:26:25.528249+08:00"
+  },
+  "unfr0zen/unfr0zen": {
+    "hash": "44b363cf42037cba40405bd3a9932e5b9d89c6dc5079a344ab4a7d628a5309ab",
+    "summary": "通过 USB 对 Nest Learning Thermostat（第 1 代、第 2 代和第 3 代）进行 Root，以便通过 MQTT、Matter（Wi-Fi、Thread）或 Zigbee 进行本地控制，无需使用 Google 的云服务。",
+    "at": "2026-11-21T15:26:25.528249+08:00"
+  },
+  "Sergey-Bar/Penny": {
+    "hash": "55958d06523c248dcd520cc7801bae9e10919fcd8067e49f873464f79e0baddc",
+    "summary": "面向以色列家庭的本地优先理财应用。同步18家以色列银行和信用卡、预算、税务和养老金工具，以希伯来语为主，支持从右到左的文字显示。您的数据绝不会离开您的计算机。支持Windows、Mac、Docker。",
+    "at": "2026-11-21T15:26:25.528249+08:00"
+  },
+  "acosta290/fluvy": {
+    "hash": "eaa123ed6175ade43a9d493f7e5c84473272f91226141f631a5560133e5a7205",
+    "summary": "适用于 Home Assistant 的高级主题和卡片库：适用于房屋每个部分的卡片、可供选择的浅色和深色主题调色板、根据您的房屋构建的自动仪表板、适用于平板电脑的墙面板和亭模式，以及设置面板，一个适用于所有 Home Assistant 的设计，通过 HACS 安装",
+    "at": "2026-11-21T15:26:25.528249+08:00"
   }
 }
