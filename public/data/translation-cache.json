@@ -1810,9 +1810,9 @@
     "at": "2026-10-31T13:57:24.853434+08:00"
   },
   "horizon-rust/horizon": {
-    "hash": "5dd816c7a390009b49765c40e57c29be97c4a9cd8fbc46dd244a3060ae464e16",
-    "summary": "Minecraft ： Java Edition 26.3在Rust中从头开始重写，与带有281个差分线束的vanilla进行了检查。使用Horizon启动器获取它。",
-    "at": "2026-10-31T13:57:24.853434+08:00"
+    "hash": "0c8e8f6b2319fa945ca30da0d656da627654d9a091445020a9a24c01a4ec1eab",
+    "summary": "用 Rust 重写的 Minecraft 26.3。",
+    "at": "2026-11-22T15:07:06.539537+08:00"
   },
   "Fei2411/DS-Bot": {
     "hash": "d69707d3f5d23e1e755c046176a4797b1121ad60a51b09d7278e43fd13d38c62",
@@ -5440,9 +5440,9 @@
     "at": "2026-11-09T14:53:25.434072+08:00"
   },
   "Eglantine-Community/Eglantine": {
-    "hash": "49bf63e81245b6f34421771bdc4debd836adcbae8179fc1e52b2c065471df3c2",
-    "summary": "非常实验性的Nintendo Switch 2仿真器",
-    "at": "2026-11-09T14:53:25.434072+08:00"
+    "hash": "cf4b94aafd006f9c7ac779a839df95ea692daa115e367993c297e7ec496425b3",
+    "summary": "一款为Windows、Linux和MacOS打造的实验性Switch 2模拟器。",
+    "at": "2026-11-22T15:07:06.539537+08:00"
   },
   "anomalyco/rune": {
     "hash": "4812797e8453e89bc393ab27ea85141398b82e17b68f377f1ed99b9a7a8fc2da",
@@ -6465,9 +6465,9 @@
     "at": "2026-11-14T14:44:28.284518+08:00"
   },
   "alexeyw/lot-map": {
-    "hash": "5a66b3233cd1f65d751cfa27c13c54d55a16ee45bfcde0d683b9dc6c28e69011",
-    "summary": "Claude Code 的 Lot Map：聊天窗口旁边的实时地图，显示代理正在做什么。工具调用、模型步骤、钩子、技能和子代理在发生时会亮起。仅限本地，提供 7 种语言。",
-    "at": "2026-11-20T15:29:56.243932+08:00"
+    "hash": "d532f7f553afc538a4ae5fbd6b3ac8fb79effc1c7bc0e57850d161e99be4728d",
+    "summary": "Claude Code 的 Lot Map：聊天窗口旁边的实时地图，显示代理正在做什么。工具调用、模型步骤、钩子、技能和子代理在发生时会亮起。仅限本地，提供 8 种语言。",
+    "at": "2026-11-22T15:07:06.539537+08:00"
   },
   "adriadam10/mkw-recomp": {
     "hash": "b1c8185705baa70926bfee2e119479646b7e47b221ec9fec6ef510682c66cded",
@@ -7485,9 +7485,9 @@
     "at": "2026-11-20T15:29:56.243932+08:00"
   },
   "mjmirza/app-store-compliance": {
-    "hash": "afffeb1f16681e6e8b618112542dad92b6efe66e5f4fc67648e1fb948b329ebe",
-    "summary": "避免常见的 App Store 和 Google Play 拒绝情况。开放式手册和提交前防护，包含 117 个有案可查的被拒模式和解决方案、隐私清单和数据安全检查、95 个受跟踪的截止日期（欧盟《人工智能法案》、DSA、COPPA、年龄法）以及一项适用于人工智能编码代理的技能。",
-    "at": "2026-11-20T15:29:56.243932+08:00"
+    "hash": "c8716af2c92129d01a0694bce433f913c70e19da37d296daf24401cb45d6e519",
+    "summary": "避免常见的 App Store 和 Google Play 拒绝情况。开放式手册和提交前防护，包含 124 个有案可查的被拒模式和解决方案、隐私清单和数据安全检查、111 个受跟踪的截止日期（欧盟《人工智能法案》、DSA、《儿童在线隐私保护法案》(COPPA)、年龄相关法律）以及一项适用于人工智能编码代理的技能。",
+    "at": "2026-11-22T15:07:06.539537+08:00"
   },
   "Tracer-Cloud/opensre": {
     "hash": "2ee5d5809daddc03f0cf7d6b82b966d7eb8658ba620945ab6f444deea522f016",
@@ -7858,5 +7858,95 @@
     "hash": "eaa123ed6175ade43a9d493f7e5c84473272f91226141f631a5560133e5a7205",
     "summary": "适用于 Home Assistant 的高级主题和卡片库：适用于房屋每个部分的卡片、可供选择的浅色和深色主题调色板、根据您的房屋构建的自动仪表板、适用于平板电脑的墙面板和亭模式，以及设置面板，一个适用于所有 Home Assistant 的设计，通过 HACS 安装",
     "at": "2026-11-21T15:26:25.528249+08:00"
+  },
+  "dlsandy/Transub-Player": {
+    "hash": "5e0c807c48266e5f8df84c410990e503852e99d82c0db9c02c5429fcc5a86b72",
+    "summary": "打开视频。字幕随之而来。带实时双语字幕的 Windows 播放器。",
+    "at": "2026-11-22T15:07:06.539537+08:00"
+  },
+  "ItsNotRexed/Leonida": {
+    "hash": "d7bcce213589e48680644a95ce10495f41efd7f1139c0809b0a79451b47238d0",
+    "summary": "Leonida 是《侠盗猎车手 6》Xbox 版的 PC 原生重编译版",
+    "at": "2026-11-22T15:07:06.539537+08:00"
+  },
+  "R0Y00/Xbox2Windows": {
+    "hash": "d5a6f8cb231d6f896fa460dc286ab00f8c39e7cdf752183c699233e38f956e9f",
+    "summary": "针对 x64 Windows 的《GTA VI》静态重编译研究。源代码编译的 EXE 文件可在 Windows 上运行，两个已转换的像素着色器与硬件和 WARP 上的参考输出相匹配。完整游戏的启动尚未经过验证。",
+    "at": "2026-11-22T15:07:06.539537+08:00"
+  },
+  "omonkeyz/xbox-emulator": {
+    "hash": "c95b88bf660265b26a13ea5d96b15e446133561f39b0c39adfeeaf6c3dd92bc5",
+    "summary": "在 PC 上运行 Xbox Series X|S 版本的进度说明（TomBox + rage9）",
+    "at": "2026-11-22T15:07:06.539537+08:00"
+  },
+  "swipt-automation/swipt": {
+    "hash": "2852ae46a6bb610dc0349bb1f2ba65584730c3cd1ac5da9ecb979e3f37f7c265",
+    "summary": "通用 iOS 自动化平台",
+    "at": "2026-11-22T15:07:06.539537+08:00"
+  },
+  "kyy-logs/code-review-gate-skill": {
+    "hash": "882bfa7e576ecc7d534b87206925ac4d17010f233924fa2ff735c69a67ebe7d7",
+    "summary": "适用于 Claude Code 和 Codex 的可审计代码审查技能：四个独立探查、有证据支持的发现结果以及一个 JSON 衍生合并门。",
+    "at": "2026-11-22T15:07:06.539537+08:00"
+  },
+  "replit/datacat": {
+    "hash": "1b4053ee5c0f0edbffb38b71842b03de9930909d9901f9c81a251cb09dd024cf",
+    "summary": "自托管可观测性：指标、日志、跟踪、仪表板和警报。将数据存储在 PostgreSQL 或 ClickHouse 中。接受 OpenTelemetry 数据。",
+    "at": "2026-11-22T15:07:06.539537+08:00"
+  },
+  "CocoSgt/riemann-hypothesis-lean": {
+    "hash": "e92569a6d615d3e48e0b2a89afca1b47ccd39b62d2e99dc97251aaf62c30a7a0",
+    "summary": "Levent Alpöge 对黎曼猜想的精益证明的镜像（与 Claude 一起）。所有功劳归于Levent Alpöge。来源：alpo.ge",
+    "at": "2026-11-22T15:07:06.539537+08:00"
+  },
+  "Illson/RustText": {
+    "hash": "f4bed78eaf417caf73addb0d3a5b83a6ce4fe896209639c6eef65999ebe8f5f0",
+    "summary": "便携式 Windows 文本编辑器，具备 Sublime Text 风格的多光标编辑、正则表达式查找和替换、拆分视图以及用于大型日志文件的实时查看器。",
+    "at": "2026-11-22T15:07:06.539537+08:00"
+  },
+  "nikita-deveng1999g0/switch-emulator-keys-firmware-nsp-box-xci-nsp-portable-x64": {
+    "hash": "989bc62ef6b91066585ae0524dffe9685b28f79d942e602caf3e32675a6d0138",
+    "summary": "Switch 模拟器密钥和固件 NSP-Box Switch 2 XCI/NSP 解密与合并工具包：原生 64 位 Windows 10/11 便携式 x64 版本，具备热重载 JSON 配置、低开销运行时和预构建便携式版本。",
+    "at": "2026-11-22T15:07:06.539537+08:00"
+  },
+  "lebrowndnasty-hash/ai-app-builder": {
+    "hash": "d203f11b51f4d0f7e4a8396ec43bb5bdaa5c75cffce5e3305304b7c8ac56842b",
+    "summary": "AI App Builder：从提示到全栈 Next.js 应用，提供托管、数据库、身份验证和多租户功能",
+    "at": "2026-11-22T15:07:06.539537+08:00"
+  },
+  "silflemming5-jpg/fl-studio-tabarin-beat-lab": {
+    "hash": "bc9e5099ade5f3d3a6c9ffa5c1b7294ac0f71183ad52e6d967db3c56d522d7e1",
+    "summary": "一个用于在 FL Studio 中创作和塑造节拍的专注工作空间。",
+    "at": "2026-11-22T15:07:06.539537+08:00"
+  },
+  "ysunyang4/webagent": {
+    "hash": "021a853cb8f6f230436a75138cb26c84c4d10701c9193c42aa75112a51278326",
+    "summary": "一款浏览器扩展程序，通过 Nexus 将 ChatGPT、Gemini、DeepSeek 和其他网络 AI 聊天工具连接到本地 MCP 工具。",
+    "at": "2026-11-22T15:07:06.539537+08:00"
+  },
+  "committreeloop/quickbooks-premier-win": {
+    "hash": "ea4d8ca2e61dc0de22f75f1fae60951f256f35d4bab3d667472c6389b69b46ae",
+    "summary": "Intuit QuickBooks Premier - 用于开具发票、跟踪费用和编制财务报表的会计软件，适用于 Windows 10/11",
+    "at": "2026-11-22T15:07:06.539537+08:00"
+  },
+  "loudonline/metatrader-5-pro-win": {
+    "hash": "239a241bc7f2cc3235f83188ca80a1003e281de0a8d48ba77ead393b515d30db",
+    "summary": "MetaQuotes MetaTrader 5 Pro - 用于算法交易、技术分析和多资产图表的电子交易平台，适用于Windows 10/11",
+    "at": "2026-11-22T15:07:06.539537+08:00"
+  },
+  "productdevbook/hamur": {
+    "hash": "c02f4c0b296fa9ac2a86bd51795ba0dcc4bf1545d5759f37384b959959a014b1",
+    "summary": "适用于 React、Vue、Svelte、Angular 和 Solid 的无头组件。编写一次，以五种方式运行。正在进行中。",
+    "at": "2026-11-22T15:07:06.539537+08:00"
+  },
+  "Levelfipartition/GSmartControl-Drive-Health-View": {
+    "hash": "7a3d7e948adfc411c92563c1d06ce6a0554872054b446a80213fdca0e344a07b",
+    "summary": "gsmartcontrol 硬盘健康视图 Windows — 适用于 Windows 11 和 10 的 GSmartControl 硬盘健康视图。自述文件涵盖系统管理、配置和日常桌面使用。",
+    "at": "2026-11-22T15:07:06.539537+08:00"
+  },
+  "solongate/agent-security": {
+    "hash": "6f02d93ba86077d88703a6c32bfba00544228e423a334c2e7d86ee630f35f206",
+    "summary": "面向 AI 编码代理的本地优先开源安全网关。在设备上强制执行工具调用策略、检测密钥并审计操作。",
+    "at": "2026-11-22T15:07:06.539537+08:00"
   }
 }
