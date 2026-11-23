@@ -3710,9 +3710,9 @@
     "at": "2026-11-03T14:59:32.314123+08:00"
   },
   "heygen-com/hyperframes": {
-    "hash": "323081f4014d2290f8cf7be7bf98759bb9af88586706c7b7d00da2547a3677e5",
-    "summary": "您可以真正编辑的 AI 视频。HyperFrames 是一款免费的开源 AI 视频编辑器。描述任何视频，即可获得一个真正的项目，您可以对项目进行逐帧修改。",
-    "at": "2026-11-20T15:29:56.243932+08:00"
+    "hash": "1a698a9f146cc71a1a18700eedcc469d0e9483290c0092ebb637090217e83e1d",
+    "summary": "开源 AI 视频编辑器：编辑您自己的视频片段，或使用 Claude Code、Codex 或免费的 Studio 应用创建和重制任何视频。编写 HTML，渲染 MP4。由 HeyGen 提供。",
+    "at": "2026-11-23T15:53:36.482679+08:00"
   },
   "Graphify-Labs/graphify": {
     "hash": "c7ccf748895b558bba7d60192f39d5c96461fcdfb6674e3709eabe3264d47d40",
@@ -7485,9 +7485,9 @@
     "at": "2026-11-20T15:29:56.243932+08:00"
   },
   "mjmirza/app-store-compliance": {
-    "hash": "c8716af2c92129d01a0694bce433f913c70e19da37d296daf24401cb45d6e519",
-    "summary": "避免常见的 App Store 和 Google Play 拒绝情况。开放式手册和提交前防护，包含 124 个有案可查的被拒模式和解决方案、隐私清单和数据安全检查、111 个受跟踪的截止日期（欧盟《人工智能法案》、DSA、《儿童在线隐私保护法案》(COPPA)、年龄相关法律）以及一项适用于人工智能编码代理的技能。",
-    "at": "2026-11-22T15:07:06.539537+08:00"
+    "hash": "9cb218005b4f30d747dbcd7957aec7e8fc6aa82e8273ae717deef93f9e68a5a7",
+    "summary": "避免常见的 App Store 和 Google Play 拒绝情况。开放式手册和提交前防护，包含 124 个有案可查的被拒模式和解决方案、隐私清单和数据安全检查、112 个受跟踪的截止日期（欧盟《人工智能法案》、DSA、COPPA、年龄相关法律）以及一项适用于人工智能编码代理的技能。",
+    "at": "2026-11-23T15:53:36.482679+08:00"
   },
   "Tracer-Cloud/opensre": {
     "hash": "2ee5d5809daddc03f0cf7d6b82b966d7eb8658ba620945ab6f444deea522f016",
@@ -7845,9 +7845,9 @@
     "at": "2026-11-21T15:26:25.528249+08:00"
   },
   "unfr0zen/unfr0zen": {
-    "hash": "44b363cf42037cba40405bd3a9932e5b9d89c6dc5079a344ab4a7d628a5309ab",
-    "summary": "通过 USB 对 Nest Learning Thermostat（第 1 代、第 2 代和第 3 代）进行 Root，以便通过 MQTT、Matter（Wi-Fi、Thread）或 Zigbee 进行本地控制，无需使用 Google 的云服务。",
-    "at": "2026-11-21T15:26:25.528249+08:00"
+    "hash": "653dfffe82944db0d39250398141fe937fa6814a34f6a654cd74387e9fc04a09",
+    "summary": "通过USB对Nest Learning恒温器进行Root，以便通过MQTT、Matter或Zigbee进行本地控制，无需使用Google的云服务。",
+    "at": "2026-11-23T15:53:36.482679+08:00"
   },
   "Sergey-Bar/Penny": {
     "hash": "55958d06523c248dcd520cc7801bae9e10919fcd8067e49f873464f79e0baddc",
@@ -7948,5 +7948,150 @@
     "hash": "6f02d93ba86077d88703a6c32bfba00544228e423a334c2e7d86ee630f35f206",
     "summary": "面向 AI 编码代理的本地优先开源安全网关。在设备上强制执行工具调用策略、检测密钥并审计操作。",
     "at": "2026-11-22T15:07:06.539537+08:00"
+  },
+  "EL4CTEO/fast-anything": {
+    "hash": "84eb0efab39006a5d8bb518bc97fb556dce5cd29aa7da741348b704869fb06c6",
+    "summary": "不要用Rust重写。重写那 5% 的慢代码：分析 Python、Node 或 Ruby 应用，使用您的编码代理移植热点函数，并证明它们的行为相同。",
+    "at": "2026-11-23T15:53:36.482679+08:00"
+  },
+  "pierridotite/mobile-agent-testers": {
+    "hash": "11eb658da109b4ace97344787e121650c7c0196b85c28ed93ad79923bc58f2ac",
+    "summary": "20 名 AI 测试人员使用 20 款不同的手机，在 GitHub 的免费 Runner 上并行运行：iOS 模拟器和 Android 模拟器上的 Claude Code 代理，用于查找中断的流程、翻译、布局和无障碍性方面的漏洞",
+    "at": "2026-11-23T15:53:36.482679+08:00"
+  },
+  "leanprover-community/riemann-hypothesis": {
+    "hash": "62095343d40d69eef49e8bc5f97312bc869876faf271ffd4fd7c449c2a0a550b",
+    "summary": "用于黎曼猜想精益形式化的独立比较器设置（Alpöge，2026-11-20）",
+    "at": "2026-11-23T15:53:36.482679+08:00"
+  },
+  "os6/nospeaker": {
+    "hash": "7f8256fe5b4919d41c55230faba48a50b133486119e9cdfa4249b91a174d367d",
+    "summary": "使用触觉马达让您的MacBook触控板“说话”",
+    "at": "2026-11-23T15:53:36.482679+08:00"
+  },
+  "INK-Q/agy-fast": {
+    "hash": "350161d13c219954ce6fd0560c21d5ad53d41f5a80fb7e1ddaae21882e499e87",
+    "summary": "适用于 Google Antigravity 的非侵入式 MCP 加速器插件（CLI/桌面/IDE）：在不影响原生 UI 或差异的情况下，减少 LLM 轮次（-34%）、令牌配额（-31%）和上传流量（-40%）。",
+    "at": "2026-11-23T15:53:36.482679+08:00"
+  },
+  "danielwh2/sprite-stacking": {
+    "hash": "f4b7b1ba9d1038d929c4f79662da3cd215b6ebaa8cafdaa9a572db01b2c55be7",
+    "summary": "Agent 技能：将四个像素艺术视图转换为可以旋转的伪 3D 精灵。可与 Claude Code、Codex、Cursor、OpenCode、Gemini CLI、Pi 一起使用。",
+    "at": "2026-11-23T15:53:36.482679+08:00"
+  },
+  "sybil-solutions/skill-distill": {
+    "hash": "d731fa62fb4cbd1e5a712a6e34a3398eca7ec02e19b529f2b4b016bd200c49f3",
+    "summary": "将一个优秀的 Claude Code/Codex 会话提炼为一种技能，供开放权重模型遵循以重现该任务",
+    "at": "2026-11-23T15:53:36.482679+08:00"
+  },
+  "ThreatDefence/agentic-attack-detections": {
+    "hash": "ab7a543ec3b65971bbd4301af1f3ae66c2f8ad74effbe2e93709fea1216ce6e9",
+    "summary": "针对以下 AI 代理攻击框架的检测规则和 IOC：ARTEX、Cairn、PentAGI、HexStrike、CyberStrikeAI、Strix、Hermes Agent、Agent Zero、RedAmon、Xalgorix、Pentest Swarm AI。KQL 针对 Microsoft Sentinel 和 Defender XDR、Sigma、Suricata、Zeek、YARA、Splunk、Elastic、STIX 2.1 进行狩猎。",
+    "at": "2026-11-23T15:53:36.482679+08:00"
+  },
+  "ItsNotRexed/Hookshot": {
+    "hash": "2b9b76ce231774346d7c817896a636ccb8bdafd716c9c353727729119d200e15",
+    "summary": "Hookshot 是 Switch 2《塞尔达传说：时之笛》重制版的原生 PC 版重编译",
+    "at": "2026-11-23T15:53:36.482679+08:00"
+  },
+  "w01fb0ss/PiBot": {
+    "hash": "1568bf2407819c406fa7a6f85a587ac08d36f78b8d8cf7ba1fe4f6c17979111a",
+    "summary": "面向您的桌面端开源、本地优先的 AI 代理团队：多代理群聊、电脑使用、浏览器、MCP、例程和审批。macOS、Windows、Linux + Android。基于 pi 构建。",
+    "at": "2026-11-23T15:53:36.482679+08:00"
+  },
+  "alexeytarasov8/jetbrains-pycharm-professional-win": {
+    "hash": "c08d7c9bbe97e1c60d2dbd210d9c0783eef17a1fb4746209a77eee1ca38a21fb",
+    "summary": "JetBrains PyCharm - 适用于 Windows 10/11 的 Python 集成开发环境，用于科学计算、Web 框架和数据分析",
+    "at": "2026-11-23T15:53:36.482679+08:00"
+  },
+  "Wojcik1999/rob-run-menu-win": {
+    "hash": "19f3a896e662824b689c24c04d1ff269fc32e0da6cb7955e78fb321136349269",
+    "summary": "Rob Run 菜单 - 用于在 Windows 10/11 上构建自定义右键菜单、启动常用应用程序和组织上下文菜单命令的 Windows 桌面定制实用工具",
+    "at": "2026-11-23T15:53:36.482679+08:00"
+  },
+  "cachedarknorth54/wolfram-alpha-pro-win": {
+    "hash": "fa4ccdb7eee385b4c863bafd4321af3a58951d8eaaef366d37c213e43bcd0acc",
+    "summary": "Wolfram Research Wolfram Alpha Pro - 用于符号数学、数据分析和精选数据集的计算知识引擎，适用于 Windows 10/11",
+    "at": "2026-11-23T15:53:36.482679+08:00"
+  },
+  "hendersonbharat/avast-premium-security-win": {
+    "hash": "3e0d1bf2f1386bd06d0e0396b6abe56bfe142c898d5c42051defd3b08c996846",
+    "summary": "Avast - 用于实时威胁检测、防火墙保护和勒索软件防护的杀毒软件和互联网安全套件，适用于 Windows 10/11",
+    "at": "2026-11-23T15:53:36.482679+08:00"
+  },
+  "Aroralayla99/capcut-seedance-win": {
+    "hash": "8767a853706ed004a23ebf0c918d0ec7a4847c8bc9cda5ec15e882173ddf5327",
+    "summary": "CapCut Seedance - 用于文本转视频合成、图像动画和运动效果的 AI 视频生成工具，适用于 Windows 10/11",
+    "at": "2026-11-23T15:53:36.482679+08:00"
+  },
+  "volkov-ping/camtasia-win": {
+    "hash": "3b35e382e4ebeb208ea00df138f2a18197fea1b308e6c46f7b09b6b4beb7921a",
+    "summary": "TechSmith Camtasia - 用于屏幕录制、时间轴编辑和直接发布的屏幕录制和视频编辑软件，适用于 Windows 10/11",
+    "at": "2026-11-23T15:53:36.482679+08:00"
+  },
+  "igwei/topaz-video-ai-win": {
+    "hash": "b4dbfd5fc705428cd01ffb8f895ea10a3777a241892986fe699f4d596b7d4411",
+    "summary": "Topaz Labs Topaz Video AI - 用于降噪、帧插值和分辨率升频的视频增强和升频软件，适用于 Windows 10/11",
+    "at": "2026-11-23T15:53:36.482679+08:00"
+  },
+  "alexandere58/ableton-live-win": {
+    "hash": "cf6fb0f2fc1df1ba55c18423ceb707db5678f84f3caa404b781da59fdef51c60",
+    "summary": "Ableton - 用于现场表演、MIDI 编曲和音频效果处理的数字音频工作站，适用于 Windows 10/11",
+    "at": "2026-11-23T15:53:36.482679+08:00"
+  },
+  "emilioevans/obs-studio-win": {
+    "hash": "099008cd3c39ee810c5e05ebacb6e45a6cb8b2d181acd7bb6105033780229740",
+    "summary": "OBS Studio - 用于 Windows 10/11 的开源直播和录制套件，可进行直播、屏幕录制和场景合成",
+    "at": "2026-11-23T15:53:36.482679+08:00"
+  },
+  "govijr/fix-storage": {
+    "hash": "7002829b2b98925afd53077b52d2f5cb0c31c8c0c16f1e3dc18fa10a6a4c9946",
+    "summary": "一个用于解决 Mac 和 Linux 计算机存储问题的 CLI，只需运行 fix-storage 即可。",
+    "at": "2026-11-23T15:53:36.482679+08:00"
+  },
+  "bilalgursen/liquid-glass": {
+    "hash": "224a6ee72ca0d2aa0a0785d676ee69404e126bbd4364f846100203a67874822e",
+    "summary": "适用于 React 的开源玻璃控件：每个按钮、开关和滑块都是一个具有弹簧物理特性的折射 WebGL 镜头。",
+    "at": "2026-11-23T15:53:36.482679+08:00"
+  },
+  "funnymataleao/luma-webos-launcher": {
+    "hash": "47b9958867fad0025b89b4b669d010c089e1948409d70d71844cb93210138ca6",
+    "summary": "LG webOS TV 启动器：一款快速、以遥控器为先的主屏幕，提供实时视频壁纸、小部件、Jellyfin、Moonlight 游戏串流和 Home Assistant。原生 Rust + OpenGL ES。",
+    "at": "2026-11-23T15:53:36.482679+08:00"
+  },
+  "dopeytree/birdsong": {
+    "hash": "0d14302458cb4e86d7faf637fe57c91f02e58d9209fecfb279d6e539ea94743c",
+    "summary": "《鸟鸣》将您的BirdNET-Go监测站听到的鸟类汇集成一张手工绘制的19世纪插图，每种鸟的大小取决于其鸣叫的频率。",
+    "at": "2026-11-23T15:53:36.482679+08:00"
+  },
+  "NathanP278/openCalory": {
+    "hash": "fb1c312a09dbf00acc1634e15f6571a76e05bdbbd0b6a73997ad6a022087a6d0",
+    "summary": "免费、可自托管、离线优先的热量和宏量营养素跟踪PWA，具备自适应TDEE、SQLite/Turso同步和BYOK AI膳食扫描功能。",
+    "at": "2026-11-23T15:53:36.482679+08:00"
+  },
+  "tsaklidis/MyEksoda": {
+    "hash": "b4e20fbc3e734ab994c86003256135d49665fd367cd224861c1866c224ee4da3",
+    "summary": "扫描希腊电子收据，跟踪支出和价格。私密、加密，仅在您的手机上。",
+    "at": "2026-11-23T15:53:36.482679+08:00"
+  },
+  "ardia-browser/ardia": {
+    "hash": "36c96943cfc699aa366eda0e8ff5db08ef0f524b3b6b4165d20f605cda12f678",
+    "summary": "一款适用于 Mac 的免费 Chromium 浏览器：Arc 的侧边栏，Dia 的精致外观。在 Discord 上聊天：discord.gg/TdhuXrbcA6",
+    "at": "2026-11-23T15:53:36.482679+08:00"
+  },
+  "thtbee/nectarlink": {
+    "hash": "4cf366ae87942f7c637ce5ec6621846d60430f9f11cc755504919b62e89648fb",
+    "summary": "您的 Android 手机和您的电脑，协同工作。Windows 和 Linux。本地优先，端到端加密，无需账号。",
+    "at": "2026-11-23T15:53:36.482679+08:00"
+  },
+  "igor-alexandrov/tabletist": {
+    "hash": "753206d07f28f8f718962b55cf8b78e88620fd473f5a39426b7dfb60318dc9cf",
+    "summary": "一款适用于 PostgreSQL、MySQL 和 SQLite 的快速原生数据库客户端。使用 egui 以 Rust 编写；可在 Linux、macOS 和 Windows 上运行。",
+    "at": "2026-11-23T15:53:36.482679+08:00"
+  },
+  "AhmadHassan-BTed/Jantt": {
+    "hash": "e0dc0f6b6163048ffbbce389e340ad2bfe6d23a7ef065de44071a6c9ba38337d",
+    "summary": "使用 AI 创建交互式甘特图——无需编写代码，永久免费。内置 BYOK AI Copilot（10 家提供商 + Ollama）、免费云房间、工作日历 CPM、6 种视图、React/Vue/Svelte/Python/MCP。",
+    "at": "2026-11-23T15:53:36.482679+08:00"
   }
 }
