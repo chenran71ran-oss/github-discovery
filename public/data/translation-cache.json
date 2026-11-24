@@ -2605,9 +2605,9 @@
     "at": "2026-11-12T15:25:57.068836+08:00"
   },
   "FortoGraphy/prism-download-manager": {
-    "hash": "85e73fe547f89096012f170e25f3bb129b43995051f2a5e1569c951d0c66b06c",
-    "summary": "适用于Windows、macOS和Linux的快速、美观的开源下载管理器—多达32个连接、浏览器集成、视频和MP3下载、崩溃安全简历。",
-    "at": "2026-11-02T15:58:39.387747+08:00"
+    "hash": "4eaf99ac705825f7f3d43d58a39ee285808153bc2deda830e985be1094317b1e",
+    "summary": "适用于 Windows、macOS 和 Linux 的免费开源 IDM 替代品：最多 32 个连接、浏览器集成、视频和 MP3 下载、种子文件、防崩溃断点续传。",
+    "at": "2026-11-24T18:06:32.564036+08:00"
   },
   "jryang1997/MenuBarMijia": {
     "hash": "53d25504d139bb19ca37a82da7f2a8ae88a5affdad9391c999bee7f69cd0740e",
@@ -3965,9 +3965,9 @@
     "at": "2026-11-04T14:42:14.897156+08:00"
   },
   "fzn0x/mixmusic": {
-    "hash": "f569f821e03b6a6456777bb3a9860f66e9d8b457429e277a8328fa26a0c92d02",
-    "summary": "MixMusic 是一款适用于 macOS、Windows 和 Linux 的 YouTube Music 和 Spotify 原生桌面播放器，具备 363 多项内置功能和应用功能、社区主题和插件。iOS 和 Android 版本即将推出。",
-    "at": "2026-11-20T15:29:56.243932+08:00"
+    "hash": "3e5239032cbc5ffeb89b9ad3ebe42723ca3360bdd253fba8b8974f79bd94e228",
+    "summary": "MixMusic 是一款适用于 macOS、Windows 和 Linux 的 YouTube Music 和 Spotify 原生音乐播放器，拥有 363 多项内置功能和应用功能、社区主题和插件。iOS 和 Android 版本将于 v0.5.13 发布。",
+    "at": "2026-11-24T18:06:32.564036+08:00"
   },
   "aethai/ro3emu-server": {
     "hash": "cf8854d6025c61066dbcde83db6b930619a4cfc618f5d794d313087bf8da02c8",
@@ -4290,9 +4290,9 @@
     "at": "2026-11-06T15:00:22.164862+08:00"
   },
   "Anil-matcha/Open-Generative-AI": {
-    "hash": "991258757773fb5b24acc606624fb4c8d4783fe7a2beec23abc7623c83ab33c1",
-    "summary": "不受审查的开源 AI 视频平台替代方案 — 免费的 AI 图像和视频生成工作室，提供 800 多种模型（Flux、Midjourney、Kling、Sora、Veo）。无内容过滤器。自托管，采用 MIT 许可证。",
-    "at": "2026-11-16T14:49:14.015725+08:00"
+    "hash": "595c2ab45950543f1c99531808e14846a8cf83b2837ea4d0e189e747443315ac",
+    "summary": "无审查 AI 图片和视频生成器 — 免费的 AI 图片和视频生成工作室，提供 800 多个模型（Flux、Midjourney、Kling、Sora、Veo）。无内容过滤器。自托管，采用 MIT 许可证。",
+    "at": "2026-11-24T18:06:32.564036+08:00"
   },
   "CarterPerez-dev/Cybersecurity-Projects": {
     "hash": "940fbfdb1ee4f1d66caf6844e6fe57c5277df61e6381b9448927503066b9f162",
@@ -7870,9 +7870,9 @@
     "at": "2026-11-22T15:07:06.539537+08:00"
   },
   "R0Y00/Xbox2Windows": {
-    "hash": "d5a6f8cb231d6f896fa460dc286ab00f8c39e7cdf752183c699233e38f956e9f",
-    "summary": "针对 x64 Windows 的《GTA VI》静态重编译研究。源代码编译的 EXE 文件可在 Windows 上运行，两个已转换的像素着色器与硬件和 WARP 上的参考输出相匹配。完整游戏的启动尚未经过验证。",
-    "at": "2026-11-22T15:07:06.539537+08:00"
+    "hash": "48f45d8bc1e3c5448b4854b956daa1b692c5ec67f67ec1800fa3ae1275539444",
+    "summary": "针对 x64 Windows 上的 Xbox Series X|S 软件的静态重新编译研究，包括源代码构建的 CPU 和 GPU 测试。完整游戏的启动未经验证。",
+    "at": "2026-11-24T18:06:32.564036+08:00"
   },
   "omonkeyz/xbox-emulator": {
     "hash": "c95b88bf660265b26a13ea5d96b15e446133561f39b0c39adfeeaf6c3dd92bc5",
@@ -8090,8 +8090,148 @@
     "at": "2026-11-23T15:53:36.482679+08:00"
   },
   "AhmadHassan-BTed/Jantt": {
-    "hash": "e0dc0f6b6163048ffbbce389e340ad2bfe6d23a7ef065de44071a6c9ba38337d",
-    "summary": "使用 AI 创建交互式甘特图——无需编写代码，永久免费。内置 BYOK AI Copilot（10 家提供商 + Ollama）、免费云房间、工作日历 CPM、6 种视图、React/Vue/Svelte/Python/MCP。",
-    "at": "2026-11-23T15:53:36.482679+08:00"
+    "hash": "2c79feffc077c55cf99cc380f6242e74548555f6c172c1be36da5310b000d28e",
+    "summary": "使用 AI 创建交互式甘特图：无需编写代码，永久免费。内置自带密钥 AI 副驾驶（10 家提供商 + Ollama）、免费云房间、工作日历 CPM、6 种视图、React/Vue/Svelte/Python/MCP。",
+    "at": "2026-11-24T18:06:32.564036+08:00"
+  },
+  "Marvisak/VIctory": {
+    "hash": "562e666a06c93090976f1b1844e665117fa99408f0872d0685ce78856881fe94",
+    "summary": "尝试在 PC 上运行《GTA VI》",
+    "at": "2026-11-24T18:06:32.564036+08:00"
+  },
+  "ivall/xcl": {
+    "hash": "2c2e669d8ff4cb7bbd72ce258acfa4199e8e1e81f26db63db25801dea9da4ceb",
+    "summary": "适用于 Windows 的 Xbox Series 兼容层——以原生方式运行主机游戏代码，重新实现主机系统库并重新编译 RDNA2 着色器为 DXIL",
+    "at": "2026-11-24T18:06:32.564036+08:00"
+  },
+  "AFK-surf/xnulinux": {
+    "hash": "6a1f4682ef24fe2910a60b10f3e70e9a0411ec3f996c120187623a4006f3ed40",
+    "summary": "XNU 作为 Linux 中的可加载内核模块（适用于 arm64 Linux 的 macOS 兼容层）",
+    "at": "2026-11-24T18:06:32.564036+08:00"
+  },
+  "4lwayz/portwatch-vi": {
+    "hash": "2b37f3f895973307f5f392c5d39956673de37cfbbcb15073176833a55b939283",
+    "summary": "《GTA VI》已经在PC上运行了吗？社区重新编译和模拟工作的实时跟踪器，每日更新。",
+    "at": "2026-11-24T18:06:32.564036+08:00"
+  },
+  "ubiquitarianism/leonida": {
+    "hash": "09a343f0c3eca98a96d32cf299c78335629cb17f0556a33d8e5cb7beaf8ae12b",
+    "summary": "Leonida的延续，GTA VI的Xbox > PC移植版",
+    "at": "2026-11-24T18:06:32.564036+08:00"
+  },
+  "Ahmet-Dedeler/awesome-gta6-reverse-engineering": {
+    "hash": "076773e385aa0a2b8405eccab6993a77589482e5175f64bb201296d70c612f9d",
+    "summary": "精选的开源 GTA VI（GTA 6）逆向工程工具、RAGE 9/RPF9 存档浏览器、TTPF 纹理和 ADAT/AWC 音频解码器、格式文档以及 Xbox Series/PS5 转换层。",
+    "at": "2026-11-24T18:06:32.564036+08:00"
+  },
+  "gelenmedya/rustyfiles": {
+    "hash": "ace6754d7197e28a42750f091ea416fcd797642e6641788d678bfc14fbda64b3",
+    "summary": "一款适用于 Windows 和 macOS 的快速文件管理器，永不卡顿：选项卡、双窗格、将归档文件显示为文件夹、Quick Look 风格的预览。一款用 Rust 编写的文件资源管理器和 Finder 替代品。",
+    "at": "2026-11-24T18:06:32.564036+08:00"
+  },
+  "erkamyaman/safe-anything": {
+    "hash": "7670db90309938a9194097cd68acc9f2ddf0f83134f60641033127823b98b55b",
+    "summary": "抢在别人之前发现漏洞。一款快速、100% 基于 Rust 的漏洞扫描器：XSS、SQL 注入、泄露的密钥、依赖项 CVE 和 AI 代理设置。",
+    "at": "2026-11-24T18:06:32.564036+08:00"
+  },
+  "RyanLebedev6104/robrun-cheat": {
+    "hash": "c03889dc42494cfeab3bd99700e000cc2254668495f18722753003b15bf94cda",
+    "summary": "ROB RUN 外部覆盖层和外部运行时模块 — 空间骨骼透视、战利品雷达和帧数解锁器：原生 64 位 Windows 10/11 便携式 x64 版本，具备可热重载的 JSON 配置、低开销运行时和预构建的便携式版本。",
+    "at": "2026-11-24T18:06:32.564036+08:00"
+  },
+  "xikhar/papercraft": {
+    "hash": "8d52e2ce4e8eb43faf5b91e9367d9e0a1dea802804908099b74c1a0563ab356f",
+    "summary": "用于以手工制作的立体纸艺风格构建游戏、互动场景、网页和动画的代理技能",
+    "at": "2026-11-24T18:06:32.564036+08:00"
+  },
+  "JimLiu/open-artifact": {
+    "hash": "713b1f7a19f4d0f0d4ea88cd98c2a6e1bf137148027c6645af7167d619d2cbeb",
+    "summary": "开放式、不依赖代理和模型的工件，均以纯文本文件形式本地保存——可编辑、评论和导出幻灯片、UI 设计、设计系统、白板、表格、仪表板、文档和动画。",
+    "at": "2026-11-24T18:06:32.564036+08:00"
+  },
+  "fujc683/seedance-2-5-flash-free-tier": {
+    "hash": "65b0017bbfebb5fd2d21c29a16c49b278ecaf14eba31d369de55f54bc83ba5fc",
+    "summary": "购买Seedance 2.5 Flash免费积分可获得多少秒。",
+    "at": "2026-11-24T18:06:32.564036+08:00"
+  },
+  "fujc683/seedance-2-5-flash-alternatives": {
+    "hash": "900125c21c86122ad697f589578ee05682757204730f202ee4f18c6e2a227bc7",
+    "summary": "Seedance 2.5 Flash与Seedance 2.0、Kling 4.0 Flash和Veo 3。",
+    "at": "2026-11-24T18:06:32.564036+08:00"
+  },
+  "fujc683/seedance-2-5-flash-reference-video": {
+    "hash": "f7ebcd224849be4bc7d6f1bc09ed41fcacb5f5c413963bfacc376c834800f0a0",
+    "summary": "使用第一帧或参考剪辑控制 Seedance 2.5 Flash 动作。",
+    "at": "2026-11-24T18:06:32.564036+08:00"
+  },
+  "fujc683/seedance-2-5-flash-api": {
+    "hash": "56aeb3d64a26cb67e2b0d2e55bd1be01cd2298ccf8013cd1706382962f4adf1d",
+    "summary": "Seedance 2.5 Flash API：文本转视频端点、参数和错误。",
+    "at": "2026-11-24T18:06:32.564036+08:00"
+  },
+  "sammwyy/xvalkyrie": {
+    "hash": "725e9d0c2e2b39e5b1ac6a862da35d577a1d0f873d18222cf2f594410c6f73bc",
+    "summary": "适用于 Windows 的实验性 Xbox One（Durango）和 Series X|S（Scarlett）兼容层",
+    "at": "2026-11-24T18:06:32.564036+08:00"
+  },
+  "keptaduona/wickline": {
+    "hash": "f254d5ac83df6056b1fe6e5ac74717a71d3e720c464af3f87ab44696253d9ff6",
+    "summary": "免费的开源图表应用程序：任何时间周期的实时加密货币、股票、外汇和期货，100个指标，期权链，带回测的JavaScript策略，社区脚本。Windows、macOS 和 Linux。",
+    "at": "2026-11-24T18:06:32.564036+08:00"
+  },
+  "velorcolllections/capcut-pro-jafalor-video-editor": {
+    "hash": "319453e655c82558831f9b5fd9940f4980eb3e2d365e43f0eda73e268a5664ce",
+    "summary": "具备多轨道时间线、特效和导出控件的视频编辑工作区。",
+    "at": "2026-11-24T18:06:32.564036+08:00"
+  },
+  "ZerpaLuis/ableton-live-balemir-music-studio": {
+    "hash": "e7e9a28474b406f7c705a16702aec33e700e03b7cb12f625c43a1cf73fa2dd9e",
+    "summary": "在Balemir音乐工作室使用Ableton Live制作和编排曲目。",
+    "at": "2026-11-24T18:06:32.564036+08:00"
+  },
+  "lucast752/polymarket-trading-arbitrage-bot": {
+    "hash": "225db3b80761472886b09c043c9e7bd465d0086e015e267114db2fdc6e2ead8a",
+    "summary": "Polymarket CLOB 交易与套利机器人 — 15 分钟加密货币涨跌与大户跟单终端：原生 64 位 Windows 10/11 便携式 x64 版本，具备热重载 JSON 配置、低开销运行时和预构建便携式发布版。",
+    "at": "2026-11-24T18:06:32.564036+08:00"
+  },
+  "muhaiminrejoneabir-ai/fl-studio-tadalen-beat-lab": {
+    "hash": "46e463b2c9171a773961c57a892863ddccf80efab2e35f2848d39f170f224940",
+    "summary": "FL Studio Tadalen Beat Lab：一款专注于节拍制作的工具包，用于结构化节奏创作。",
+    "at": "2026-11-24T18:06:32.564036+08:00"
+  },
+  "AyushRajSinghParihar/weaponized-curiosity": {
+    "hash": "790f225de8718b842187e826107e51e070ea40b7246f4bbd25e9316350c02d0e",
+    "summary": "用于证据驱动型研究、实验和有界优化的便携式代理技能",
+    "at": "2026-11-24T18:06:32.564036+08:00"
+  },
+  "ahef-xyz/moneyfornothing": {
+    "hash": "f30d11b994914474390efd8ee5cc4b74fc54fd982f7ddb7ab2146ed197de54cb",
+    "summary": "适用于 macOS 的只读多银行应用。将您各家银行的余额、交易和证券账户集中在一个本地加密数据库中。无云端，绝不转移资金。提供源代码。",
+    "at": "2026-11-24T18:06:32.564036+08:00"
+  },
+  "visiuun/expressive-weather": {
+    "hash": "896569613656935a7b104e5afea970be981f7cbd5cdb709e79035470572aa525",
+    "summary": "一款精美、私密的天气应用，适用于 Android，提供 9 个互动小部件。Material 3 Expressive，无广告，无跟踪，无 Google 服务。",
+    "at": "2026-11-24T18:06:32.564036+08:00"
+  },
+  "dulaiduwang003/Pavise-Game": {
+    "hash": "6e827c4f0a732dca1030382cacf86ff7110a63a633c6c65319ac2831feb48114",
+    "summary": "开源 Windows 游戏资源管理器。抑制后台进程，为游戏提供独占的 CPU 内核，将设备中断引导至游戏内核之外，应用针对每款游戏的 GPU 驱动程序、内存和电源策略，并在游戏结束后恢复所有更改。无注入，无遥测。GPL-3.0。",
+    "at": "2026-11-24T18:06:32.564036+08:00"
+  },
+  "shirudo-dev/shirudo": {
+    "hash": "35392dadf81e03b5a0627bf24f87e1e539d0633132d2d2fbedb27ec2467f28ff",
+    "summary": "基于eBPF的安全平台",
+    "at": "2026-11-24T18:06:32.564036+08:00"
+  },
+  "TrentIndeed/joulvo-gym": {
+    "hash": "3e38e4c7e8a6cb59a7f13b93d305285937d6fb93b000752ee72a890e6f53c1a1",
+    "summary": "Joulvo Gym（前身为Kinetiq Gym）：开源智能健身房，正在开发中。网站、组装预览、文档和标价零件清单。CAD、构建文件和软件将在原型经过测试后发布。",
+    "at": "2026-11-24T18:06:32.564036+08:00"
+  },
+  "TauricResearch/TradingAgents": {
+    "hash": "6620276e4d5381fdc13b4fd45055bce5999fd0f613cff0a6b337b6265cacf797",
+    "summary": "TradingAgents：迈向代理金融研究",
+    "at": "2026-11-24T18:06:32.564036+08:00"
   }
 }
