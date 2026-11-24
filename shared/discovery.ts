@@ -33,6 +33,8 @@ export interface Repository {
   starDeltaDays?: number
   /** First day the repo was listed on GIT Bot (YYYY-MM-DD). */
   firstSeen?: string
+  /** 前端标记：主分类已按成员纠错改正（不来自采集器） */
+  corrected?: boolean
   /** GIT Bot classification (taxonomy v2+); absent in older snapshots. */
   tags?: string[]
   domain?: string

@@ -2,7 +2,7 @@
  * 第 2 层：D1 存储。表名带 gb_ 前缀，和数据库里旧版雷达留下的表互不影响。
  * 表结构在第一次访问时自动建好（CREATE TABLE IF NOT EXISTS），部署时不需要手动迁移。
  */
-import type { D1Database, Favorite, GitHubUser, Invite, Member, Role, Status } from "./types"
+import type { Correction, CorrectionKind, CorrectionStatus, D1Database, Favorite, GitHubUser, Invite, InviteLink, Member, Role, Status } from "./types"
 
 const SCHEMA = [
   `CREATE TABLE IF NOT EXISTS gb_members (
@@ -30,6 +30,31 @@ const SCHEMA = [
     saved_at TEXT NOT NULL,
     PRIMARY KEY (github_id, repo)
   )`,
+  // 邀请链接：id 是令牌的 SHA-256，令牌本身不落库
+  `CREATE TABLE IF NOT EXISTS gb_invite_links (
+    id TEXT PRIMARY KEY,
+    role TEXT NOT NULL CHECK (role IN ('admin', 'member')),
+    created_by TEXT NOT NULL,
+    created_at TEXT NOT NULL,
+    expires_at TEXT NOT NULL,
+    max_uses INTEGER NOT NULL,
+    uses INTEGER NOT NULL DEFAULT 0,
+    revoked_at TEXT
+  )`,
+  // 成员提交的纠错：分类改正、译文术语改正；站长审核后对所有人生效
+  `CREATE TABLE IF NOT EXISTS gb_corrections (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    kind TEXT NOT NULL CHECK (kind IN ('category', 'term')),
+    repo TEXT,
+    value TEXT NOT NULL,
+    github_id INTEGER NOT NULL,
+    login TEXT NOT NULL,
+    created_at TEXT NOT NULL,
+    status TEXT NOT NULL CHECK (status IN ('pending', 'approved', 'rejected')),
+    reviewed_by TEXT,
+    reviewed_at TEXT
+  )`,
+  `CREATE INDEX IF NOT EXISTS gb_corrections_status ON gb_corrections (status, created_at)`,
   // 看过的项目：用来淡化已读、筛选「没看过的」；只保留最近一段时间
   `CREATE TABLE IF NOT EXISTS gb_seen (
     github_id INTEGER NOT NULL,
@@ -84,6 +109,28 @@ export function createStore(db: D1Database) {
     importFavorites: (id: number, items: { repo: string, data: string }[], now: string) => db.batch(items.map(i => db.prepare(
       "INSERT INTO gb_favorites (github_id, repo, data, saved_at) VALUES (?, ?, ?, ?) ON CONFLICT (github_id, repo) DO NOTHING",
     ).bind(id, i.repo, i.data, now))),
+    createInviteLink: (id: string, role: Role, by: string, now: string, expires: string, maxUses: number) => db.prepare(
+      "INSERT INTO gb_invite_links (id, role, created_by, created_at, expires_at, max_uses) VALUES (?, ?, ?, ?, ?, ?)",
+    ).bind(id, role, by, now, expires, maxUses).run(),
+    getInviteLink: (id: string) => db.prepare("SELECT * FROM gb_invite_links WHERE id = ?").bind(id).first<InviteLink>(),
+    /** 仍可使用的链接（未撤销、未过期、次数没用完），新的在前 */
+    listInviteLinks: async (now: string) => (await db.prepare("SELECT * FROM gb_invite_links WHERE revoked_at IS NULL AND expires_at > ? AND uses < max_uses ORDER BY created_at DESC").bind(now).all<InviteLink>()).results,
+    /** 原子地用掉一次；返回是否成功（过期、撤销、用完都算失败） */
+    useInviteLink: async (id: string, now: string) => {
+      const r = await db.prepare("UPDATE gb_invite_links SET uses = uses + 1 WHERE id = ? AND revoked_at IS NULL AND expires_at > ? AND uses < max_uses").bind(id, now).run() as { meta?: { changes?: number }, changes?: number }
+      return (r.meta?.changes ?? r.changes ?? 0) > 0
+    },
+    revokeInviteLink: (id: string, now: string) => db.prepare("UPDATE gb_invite_links SET revoked_at = ? WHERE id = ? AND revoked_at IS NULL").bind(now, id).run(),
+    addCorrection: (kind: CorrectionKind, repo: string | null, value: string, gid: number, login: string, now: string, status: CorrectionStatus, reviewer: string | null) => db.prepare(
+      "INSERT INTO gb_corrections (kind, repo, value, github_id, login, created_at, status, reviewed_by, reviewed_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+    ).bind(kind, repo, value, gid, login, now, status, reviewer, reviewer ? now : null).run(),
+    getCorrection: (id: number) => db.prepare("SELECT * FROM gb_corrections WHERE id = ?").bind(id).first<Correction>(),
+    listCorrections: async (status: CorrectionStatus, limit = 200) => (await db.prepare("SELECT * FROM gb_corrections WHERE status = ? ORDER BY COALESCE(reviewed_at, created_at) DESC LIMIT ?").bind(status, limit).all<Correction>()).results,
+    countPendingCorrections: async (gid?: number) => (await (gid === undefined
+      ? db.prepare("SELECT COUNT(*) AS n FROM gb_corrections WHERE status = 'pending'")
+      : db.prepare("SELECT COUNT(*) AS n FROM gb_corrections WHERE status = 'pending' AND github_id = ?").bind(gid)).first<{ n: number }>())?.n ?? 0,
+    reviewCorrection: (id: number, status: CorrectionStatus, by: string, now: string) => db.prepare("UPDATE gb_corrections SET status = ?, reviewed_by = ?, reviewed_at = ? WHERE id = ?").bind(status, by, now, id).run(),
+    countPendingMembers: async () => (await db.prepare("SELECT COUNT(*) AS n FROM gb_members WHERE status = 'pending'").first<{ n: number }>())?.n ?? 0,
     listSeen: async (id: number, since: string, limit: number) => (await db.prepare("SELECT repo FROM gb_seen WHERE github_id = ? AND seen_at >= ? ORDER BY seen_at DESC LIMIT ?").bind(id, since, limit).all<{ repo: string }>()).results.map(r => r.repo),
     /** 记下看过的项目，并清掉过期的记录 */
     markSeen: (id: number, repos: string[], now: string, before: string) => db.batch([

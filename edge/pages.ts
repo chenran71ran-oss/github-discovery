@@ -7,15 +7,18 @@ const messages: Record<string, { tone: "info" | "warn" | "error", text: string }
   blocked: { tone: "error", text: "这个账号已被停用，如有疑问请联系站长。" },
   denied: { tone: "warn", text: "你取消了 GitHub 授权，需要授权后才能登录。" },
   expired: { tone: "warn", text: "登录已过期或链接失效，请重新登录。" },
+  invite_invalid: { tone: "warn", text: "这个邀请链接已过期、被撤销或次数已用完。已帮你提交访问申请，站长通过后即可进入；也可以向站长要一个新链接。" },
+  invited: { tone: "info", text: "你收到了 GIT Bot 的邀请。用 GitHub 登录即可加入，不需要等待审批。" },
   error: { tone: "error", text: "登录时出了点问题，请稍后重试。" },
   signedout: { tone: "info", text: "已退出登录。" },
 }
 
 const escape = (s: string) => s.replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;" }[c]!))
 
-export function loginPage(next: string, status: string | null) {
-  const message = status ? messages[status] : undefined
-  const href = `/api/auth/login?next=${encodeURIComponent(next)}`
+/** invite：有效的邀请链接令牌（登录按钮会带上它）；linkState：邀请链接本身的状态，决定提示语 */
+export function loginPage(next: string, status: string | null, invite: string | null = null, linkState: "valid" | "invalid" | null = null) {
+  const message = status ? messages[status] : linkState === "valid" ? messages.invited : linkState === "invalid" ? messages.invite_invalid : undefined
+  const href = `/api/auth/login?next=${encodeURIComponent(next)}${invite && linkState === "valid" ? `&invite=${encodeURIComponent(invite)}` : ""}`
   return `<!doctype html>
 <html lang="zh-CN">
 <head>
@@ -56,7 +59,7 @@ h1 b { color: var(--accent); }
   <p class="lead">用中文发现 GitHub 上正在升温的开源项目</p>
   ${message ? `<p class="msg ${message.tone}" role="status">${escape(message.text)}</p>` : ""}
   <a class="btn" href="${escape(href)}"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg>使用 GitHub 登录</a>
-  <p class="note">仅限受邀成员。第一次登录会提交访问申请，由站长审批。</p>
+  <p class="note">${linkState === "valid" ? "登录只用来确认你的 GitHub 身份，不会读取你的仓库。" : "仅限受邀成员。第一次登录会提交访问申请，由站长审批。"}</p>
 </main>
 </body>
 </html>`

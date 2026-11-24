@@ -313,6 +313,19 @@
 .radar-app .since.up { color: var(--up); }
 .radar-app .since.down { color: var(--down); }
 .radar-app .saved-live { align-self: center; padding: 2px 9px; border-radius: 11px; background: color-mix(in srgb, var(--up) 12%, transparent); color: var(--up); font-size: 12px; font-weight: 600; white-space: nowrap; }
+.radar-app .fix-open { margin-top: 8px; font-size: 12.5px; }
+.radar-app .fix { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--line-strong); }
+.radar-app .fix label { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-size: 13px; }
+.radar-app .fix select,
+.radar-app .fix input { height: 32px; min-width: 0; padding: 0 10px; border: 0; border-radius: 9px; background: var(--surface-solid); box-shadow: inset 0 0 0 1px var(--line-strong); color: var(--ink); font: inherit; font-size: 13px; }
+.radar-app .fix.term input { flex: 1 1 120px; }
+.radar-app .fix-hint { flex-basis: 100%; color: var(--faint); font-size: 12px; }
+.radar-app .account-btn { position: relative; }
+.radar-app .account-btn .dot { position: absolute; top: 1px; right: 1px; width: 9px; height: 9px; border-radius: 50%; background: var(--up); box-shadow: 0 0 0 2px var(--surface-solid); }
+.radar-app .account-menu .badge-n { margin-left: auto; }
+.radar-app .mp-link { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 10px; }
+.radar-app .mp-link input { flex: 1 1 200px; height: 34px; min-width: 0; padding: 0 10px; border: 0; border-radius: 9px; background: var(--surface-solid); box-shadow: inset 0 0 0 1px var(--accent); color: var(--ink); font: 12.5px var(--mono); }
+.radar-app .mp-link small { flex-basis: 100%; color: var(--muted); font-size: 12px; }
 .radar-app .trend { position: relative; }
 .radar-app .trend-read { display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px; color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
 .radar-app .trend-read b { color: var(--ink); font: 700 13.5px var(--mono); }
@@ -473,6 +486,8 @@
 .radar-app .mp-body { display: grid; gap: 10px; padding-bottom: 6px; }
 .radar-app .mp-body[aria-busy="true"] { opacity: 0.7; }
 .radar-app .mp-invite { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 8px; }
+.radar-app .mp-invite.links { display: flex; flex-wrap: wrap; }
+.radar-app .mp-invite.links select { flex: 1 1 96px; }
 .radar-app .mp-invite input,
 .radar-app .mp-list select,
 .radar-app .mp-invite select { min-width: 0; height: 36px; padding: 0 10px; border: 0; border-radius: 9px; background: var(--surface-solid); box-shadow: inset 0 0 0 1px var(--line-strong); color: var(--ink); font: inherit; font-size: 14px; }

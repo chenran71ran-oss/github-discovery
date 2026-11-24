@@ -53,6 +53,8 @@ export interface Me {
   name: string | null
   avatar: string | null
   role: Role
+  /** 仅管理员：待审批的人、待审核的纠错 */
+  pending?: { members: number, corrections: number }
 }
 export interface MemberRow {
   id: number
@@ -88,7 +90,45 @@ async function send<T>(method: string, url: string, body?: unknown): Promise<T> 
   return data
 }
 
+export interface InviteLinkRow {
+  id: string
+  role: Role
+  createdBy: string
+  createdAt: string
+  expiresAt: string
+  uses: number
+  maxUses: number
+}
+export interface CorrectionRow {
+  id: number
+  kind: "category" | "term"
+  repo: string | null
+  category?: string
+  from?: string
+  to?: string
+  by: string
+  createdAt: string
+  status: "pending" | "approved" | "rejected"
+  reviewedBy: string | null
+}
+export interface AppliedCorrections {
+  categories: Record<string, string>
+  terms: { from: string, to: string }[]
+}
+export type CorrectionInput = { kind: "category", repo: string, category: string } | { kind: "term", repo: string, from: string, to: string }
+
+export const correctionsApi = {
+  applied: () => send<AppliedCorrections>("GET", "/api/corrections"),
+  submit: (body: CorrectionInput) => send<{ ok: true, applied: boolean }>("POST", "/api/corrections", body),
+}
+
 export const accountApi = {
+  inviteLinks: () => send<{ links: InviteLinkRow[] }>("GET", "/api/admin/invite-links"),
+  createInviteLink: (body: { role: Role, days: number, maxUses: number }) => send<{ url: string, expiresAt: string, maxUses: number, role: Role }>("POST", "/api/admin/invite-links", body),
+  revokeInviteLink: (id: string) => send("DELETE", "/api/admin/invite-links", { id }),
+  corrections: () => send<{ pending: CorrectionRow[], approved: CorrectionRow[], approvedTotal: number }>("GET", "/api/admin/corrections"),
+  exportCorrections: () => send<AppliedCorrections>("GET", "/api/admin/corrections?format=export"),
+  reviewCorrection: (id: number, status: "approved" | "rejected") => send("PATCH", `/api/admin/corrections/${id}`, { status }),
   members: () => send<{ me: number, members: MemberRow[], invites: InviteRow[] }>("GET", "/api/admin/members"),
   invite: (login: string, role: Role) => send("POST", "/api/admin/invites", { login, role }),
   revokeInvite: (login: string) => send("DELETE", "/api/admin/invites", { login }),

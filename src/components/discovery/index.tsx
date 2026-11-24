@@ -1,14 +1,15 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react"
-import { useQuery } from "@tanstack/react-query"
+import { useQuery, useQueryClient } from "@tanstack/react-query"
 import { useMedia } from "react-use"
 import type { Period, Repository } from "@shared/discovery"
 import { domains } from "@shared/taxonomy"
 import { AccountButton, MembersPanel } from "./account"
-import { favoritesApi, isRepoName, loadDates, loadMe, loadSnapshot, markImported, markSeenLocal, readSaved, readSeenLocal, savedKey, seenApi, wasImported, writeSaved } from "./api"
+import { correctionsApi, favoritesApi, isRepoName, loadDates, loadMe, loadSnapshot, markImported, markSeenLocal, readSaved, readSeenLocal, savedKey, seenApi, wasImported, writeSaved } from "./api"
 import { CategoryFilter } from "./category-filter"
 import { RepoInsight, RepoSheet, time } from "./detail"
 import { Icon } from "./icons"
-import { type Sort, counts, sourceRows, visibleRows } from "./model"
+import { type Sort, applyCorrections, counts, sourceRows, visibleRows } from "./model"
+import type { OnCorrect } from "./correct"
 import { DataNote, Overview } from "./overview"
 import { Row, SkeletonRows, labels } from "./row"
 import { Segmented } from "./segmented"
@@ -62,8 +63,10 @@ export function Discovery() {
   const dates = useQuery({ queryKey: ["discovery-dates"], queryFn: loadDates, staleTime: 300_000 })
   // 账号层（Pages Functions）不存在时为 null，例如本地纯静态开发
   const me = useQuery({ queryKey: ["me"], queryFn: loadMe, staleTime: 300_000, retry: false, refetchOnWindowFocus: false })
-  const data = query.data
   const login = me.data?.login || ""
+  // 审核通过的成员纠错叠加在榜单上（分类、术语）
+  const fixes = useQuery({ queryKey: ["corrections", login], queryFn: correctionsApi.applied, enabled: !!login, staleTime: 300_000, retry: 1, refetchOnWindowFocus: false })
+  const data = useMemo(() => applyCorrections(query.data, fixes.data), [query.data, fixes.data])
   const remoteQuery = useQuery({ queryKey: ["favorites", login], queryFn: favoritesApi.list, enabled: !!login, staleTime: 60_000, retry: 1, refetchOnWindowFocus: false })
   const saved = login && remote ? remote : local
   useEffect(() => {
@@ -216,6 +219,23 @@ export function Discovery() {
     document.addEventListener("visibilitychange", apply)
     return () => document.removeEventListener("visibilitychange", apply)
   }, [updateReady])
+
+  const queryClient = useQueryClient()
+  const onCorrect = useCallback<OnCorrect>(async (body) => {
+    try {
+      const r = await correctionsApi.submit(body)
+      if (r.applied) {
+        setNotice("已改正，对所有人生效")
+        await queryClient.invalidateQueries({ queryKey: ["corrections"] })
+      } else {
+        setNotice("已提交，站长审核后对所有人生效")
+      }
+      return true
+    } catch (e) {
+      setNotice(e instanceof Error ? e.message : "提交没有成功")
+      return false
+    }
+  }, [queryClient])
 
   const copyLink = useCallback((repo: Repository) => {
     const url = `${window.location.origin}/?repo=${encodeURIComponent(repo.fullName)}`
@@ -482,15 +502,25 @@ export function Discovery() {
           <aside className="pane" aria-label={active ? "项目解读" : "榜单概况"}>
             <div className="pane-in" key={active ? "detail" : "overview"}>
               {active
-                ? <RepoInsight key={active.fullName} repo={active} period={period} saved={!!saved[active.fullName]} onSave={() => toggleSave(active)} onClose={() => setActiveName("")} onCopyLink={() => copyLink(active)} />
+                ? <RepoInsight key={active.fullName} repo={active} period={period} saved={!!saved[active.fullName]} onSave={() => toggleSave(active)} onClose={() => setActiveName("")} onCopyLink={() => copyLink(active)} onCorrect={me.data ? onCorrect : undefined} />
                 : <Overview data={data} period={period} onOpen={open} />}
             </div>
           </aside>
         )}
       </div>
 
-      {managing && <MembersPanel onClose={() => setManaging(false)} notify={setNotice} />}
-      {!wide && active && <RepoSheet key={active.fullName} repo={active} period={period} saved={!!saved[active.fullName]} onSave={() => toggleSave(active)} onClose={() => setActiveName("")} onCopyLink={() => copyLink(active)} />}
+      {managing && (
+        <MembersPanel
+          onClose={() => {
+            setManaging(false)
+            // 审核过纠错或成员后，刷新叠加的改正和头像上的提醒
+            void queryClient.invalidateQueries({ queryKey: ["corrections"] })
+            void queryClient.invalidateQueries({ queryKey: ["me"] })
+          }}
+          notify={setNotice}
+        />
+      )}
+      {!wide && active && <RepoSheet key={active.fullName} repo={active} period={period} saved={!!saved[active.fullName]} onSave={() => toggleSave(active)} onClose={() => setActiveName("")} onCopyLink={() => copyLink(active)} onCorrect={me.data ? onCorrect : undefined} />}
       <div role="status" aria-live="polite" className={`toast ${notice ? "visible" : ""}`}>{notice}</div>
       {updateReady && !notice && (
         <button type="button" className="update-pill" onClick={() => void applyPwaUpdate().catch(() => setNotice("更新没有成功，请手动刷新页面"))}>

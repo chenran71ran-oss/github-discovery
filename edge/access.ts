@@ -6,7 +6,7 @@ import { PUBLIC_PATHS, PUBLIC_PREFIXES } from "./config"
 import type { Store } from "./store"
 import type { GitHubUser, Member, Role, Session, Status } from "./types"
 
-export type Admission = { kind: "active", member: Member } | { kind: "pending" } | { kind: "blocked" }
+export type Admission = { kind: "active", member: Member, via?: "invite" | "link" } | { kind: "pending", linkInvalid?: boolean } | { kind: "blocked" }
 
 export function isOwner(login: string, ownerLogin: string | undefined) {
   return !!ownerLogin && login.toLowerCase() === ownerLogin.trim().toLowerCase()
@@ -17,9 +17,11 @@ export function isOwner(login: string, ownerLogin: string | undefined) {
  * - 环境变量里的站长：始终是管理员；
  * - 已是成员：按现有状态（封禁的进不来）；
  * - 被邀请：成为成员，邀请随即作废；
+ * - 带着有效的邀请链接：成为成员，链接用掉一次（链接过期、撤销或用完时照常进入待审批）；
  * - 其他人：记为「待审批」，由管理员决定。
+ * linkId 是邀请链接令牌的 SHA-256。已经是成员的人点链接不会用掉次数。
  */
-export async function admit(store: Store, user: GitHubUser, ownerLogin: string | undefined, now: string): Promise<Admission> {
+export async function admit(store: Store, user: GitHubUser, ownerLogin: string | undefined, now: string, linkId?: string): Promise<Admission> {
   const existing = await store.getMember(user.id)
   if (isOwner(user.login, ownerLogin)) {
     await store.saveProfile(user, "admin", "active", now)
@@ -29,10 +31,20 @@ export async function admit(store: Store, user: GitHubUser, ownerLogin: string |
     return { kind: "blocked" }
   } else if (existing?.status !== "active") {
     const invite = await store.getInvite(user.login)
-    await store.saveProfile(user, invite?.role ?? "member", invite ? "active" : "pending", now)
-    if (!invite) return { kind: "pending" }
-    await store.setAccess(user.id, invite.role, "active")
-    await store.deleteInvite(user.login)
+    if (invite) {
+      await store.saveProfile(user, invite.role, "active", now)
+      await store.setAccess(user.id, invite.role, "active")
+      await store.deleteInvite(user.login)
+      return { kind: "active", member: (await store.getMember(user.id))!, via: "invite" }
+    }
+    const link = linkId ? await store.getInviteLink(linkId) : null
+    if (link && await store.useInviteLink(link.id, now)) {
+      await store.saveProfile(user, link.role, "active", now)
+      await store.setAccess(user.id, link.role, "active")
+      return { kind: "active", member: (await store.getMember(user.id))!, via: "link" }
+    }
+    await store.saveProfile(user, "member", "pending", now)
+    return { kind: "pending", linkInvalid: !!linkId }
   } else {
     await store.saveProfile(user, existing.role, existing.status, now)
   }

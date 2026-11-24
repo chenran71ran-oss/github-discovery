@@ -1,6 +1,7 @@
-import { SESSION_COOKIE } from "../edge/config"
+import { INVITE_TOKEN, SESSION_COOKIE } from "../edge/config"
 import { clearCookie, configProblem, readSession, redirect, safeNext } from "../edge/http"
 import { loginPage } from "../edge/pages"
+import { sha256 } from "../edge/session"
 import { createStore, ensureSchema } from "../edge/store"
 import type { Context } from "../edge/types"
 
@@ -16,5 +17,17 @@ export async function onRequestGet(ctx: Context) {
     if (member?.status === "active") return redirect(next)
     headers.append("Set-Cookie", clearCookie(SESSION_COOKIE))
   }
-  return new Response(loginPage(next, url.searchParams.get("status")), { headers })
+  // 邀请链接 /login?invite=…：先看链接还能不能用，决定提示语和登录按钮是否带上它
+  const invite = url.searchParams.get("invite")
+  let linkState: "valid" | "invalid" | null = null
+  if (invite !== null && !configProblem(ctx.env)) {
+    linkState = "invalid"
+    if (INVITE_TOKEN.test(invite)) {
+      await ensureSchema(ctx.env.DB!)
+      const link = await createStore(ctx.env.DB!).getInviteLink(await sha256(invite))
+      const now = new Date().toISOString()
+      if (link && !link.revoked_at && link.expires_at > now && link.uses < link.max_uses) linkState = "valid"
+    }
+  }
+  return new Response(loginPage(next, url.searchParams.get("status"), invite, linkState), { headers })
 }

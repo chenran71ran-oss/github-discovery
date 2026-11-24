@@ -164,3 +164,16 @@ class ConfigTests(unittest.TestCase):
 
 
 if __name__ == '__main__': unittest.main()
+
+
+class CorrectionTests(unittest.TestCase):
+    def test_category_override_and_terms(self):
+        row = {"summary": "官方代理技能合集", "summarySource": "machine", "category": "开发工具", "tags": ["AI 与智能体"], "classification": {"by": "rules", "strategy": "full", "confidence": 0.3, "reasons": ["关键词 agent"]}}
+        out = pipeline.apply_corrections("a/one", row, {"categories": {"a/one": "AI 与智能体"}, "terms": [{"from": "代理技能", "to": "智能体技能"}]})
+        self.assertEqual(out["summary"], "官方智能体技能合集")
+        self.assertEqual((out["category"], out["tags"]), ("AI 与智能体", []))
+        self.assertEqual(out["classification"]["reasons"][0], "成员纠正")
+
+    def test_ai_summaries_and_unknown_labels_untouched(self):
+        row = {"summary": "代理技能", "summarySource": "ai-readme", "category": "开发工具"}
+        self.assertEqual(pipeline.apply_corrections("a/one", row, {"categories": {"a/one": "不存在"}, "terms": [{"from": "代理技能", "to": "智能体技能"}]}), {})
