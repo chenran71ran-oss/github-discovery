@@ -81,6 +81,10 @@ describe("breakout flag", () => {
     expect(isBreakout({ stars: 900, periodStars: null }, "weekly")).toBe(false)
     expect(isBreakout({ stars: 0, periodStars: 5000 }, "monthly")).toBe(false)
   })
+  it("uses the snapshot delta when Trending has no period gain", () => {
+    expect(isBreakout({ stars: 3200, periodStars: null, starDelta: 1200, starDeltaDays: 1 }, "daily")).toBe(true)
+    expect(isBreakout({ stars: 3200, periodStars: 100, starDelta: 1200, starDeltaDays: 1 }, "daily")).toBe(false)
+  })
   it("uses a stricter bar for longer periods", () => {
     const row = { stars: 6000, periodStars: 1500 }
     expect(isBreakout(row, "daily")).toBe(true)
@@ -91,8 +95,9 @@ describe("breakout flag", () => {
     for (const period of periods) {
       for (const row of data.periods[period]) {
         if (!isBreakout(row, period)) continue
-        expect(row.periodStars).toBeGreaterThanOrEqual(breakoutRules[period].min)
-        expect(row.periodStars! / row.stars).toBeGreaterThanOrEqual(breakoutRules[period].share)
+        const gain = row.periodStars ?? row.starDelta!
+        expect(gain).toBeGreaterThanOrEqual(breakoutRules[period].min)
+        expect(gain / row.stars).toBeGreaterThanOrEqual(breakoutRules[period].share)
       }
     }
   })

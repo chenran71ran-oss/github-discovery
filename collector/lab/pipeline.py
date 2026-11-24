@@ -6,7 +6,7 @@ from dataclasses import dataclass, field
 from datetime import datetime, timedelta
 from typing import Callable
 
-from collector.blocks import llm, meta, readme, search, trending, translate, upstream
+from collector.blocks import llm, meta, polish, readme, search, trending, translate, upstream
 from collector.blocks.classify import signals
 from collector.blocks.classify.engine import Evidence, Strategy, classify
 from collector.core import settings
@@ -124,7 +124,8 @@ def chinese_text(name, r, analysis, upstream_map, editorial, translations):
         return {"summary": editorial[name]["summary"], "summarySource": "editorial", "summaryAt": editorial[name]["at"]}
     if r.get("summary") and chinese(r["summary"]): return {k: r[k] for k in ("summary", "useCase", "techStack", "highlights", "summarySource", "summaryAt") if k in r}
     if name in translations and translations[name].get("hash") == h:
-        return {"summary": translations[name]["summary"], "summarySource": "machine", "summaryAt": translations[name]["at"]}
+        # 缓存里较早的译文也过一遍后期修订，不消耗翻译额度
+        return {"summary": polish.polish(translations[name]["summary"], r["description"]), "summarySource": "machine", "summaryAt": translations[name]["at"]}
     return {}
 
 

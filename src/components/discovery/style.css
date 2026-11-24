@@ -30,6 +30,7 @@
   --top: 52px; /* 悬浮顶栏高度 */
   --gap-top: calc(env(safe-area-inset-top) + 10px);
   --gap-bottom: calc(env(safe-area-inset-bottom) + 12px);
+  /* 底部不再有悬浮栏，只留安全区与少量呼吸空间 */
   position: relative;
   min-height: 100vh;
   min-height: 100dvh;
@@ -115,8 +116,6 @@
 .radar-app .chrome.hidden { opacity: 0; pointer-events: none; transition: opacity 0.32s cubic-bezier(0.33, 0, 0.2, 1), transform 0.36s cubic-bezier(0.33, 0, 0.2, 1); }
 .radar-app .chrome.top { top: var(--gap-top); display: flex; align-items: center; gap: 14px; height: var(--top); padding: 0 6px 0 10px; border-radius: 999px; }
 .radar-app .chrome.top.hidden { transform: translateY(-12px) scale(0.97); }
-.radar-app .chrome.bottom { bottom: var(--gap-bottom); display: flex; align-items: center; gap: 10px; }
-.radar-app .chrome.bottom.hidden { transform: translateY(14px) scale(0.97); }
 /* 键盘焦点在栏内时不收起：放在收起规则之后，并且选择器更具体 */
 .radar-app .chrome.chrome.hidden:focus-within { opacity: 1; pointer-events: auto; transform: none; }
 .radar-app .brand { display: inline-flex; align-items: center; gap: 9px; text-decoration: none; }
@@ -128,12 +127,10 @@
 .radar-app .chrome .seg button { border-radius: 999px; min-height: 34px; }
 .radar-app .chrome .seg-pill { border-radius: 999px; }
 .radar-app .seg.period { background: color-mix(in srgb, var(--ink) 7%, transparent); box-shadow: none; }
-.radar-app .seg.tabs { padding: 5px; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 0 0 1px rgba(255, 255, 255, 0.1), 0 12px 32px -12px rgba(0, 0, 0, 0.55); }
-.radar-app .seg.tabs button { min-height: 44px; padding: 0 20px; font-size: 14px; }
-.radar-app .seg.tabs .i { width: 18px; height: 18px; }
-.radar-app .seg.tabs button[aria-pressed="true"] { color: var(--accent-text); }
-.radar-app .seg.tabs button[aria-pressed="true"] .i { fill: color-mix(in srgb, currentColor 22%, transparent); }
-.radar-app .seg.tabs button:active { transform: scale(0.92); }
+.radar-app .saved-toggle { position: relative; border-radius: 50%; }
+.radar-app .saved-toggle.on { background: var(--accent-soft); color: var(--accent-text); }
+.radar-app .saved-toggle.on .i { fill: color-mix(in srgb, currentColor 22%, transparent); }
+.radar-app .saved-toggle .badge-n { position: absolute; top: 1px; right: -1px; min-width: 16px; height: 16px; padding: 0 4px; border-radius: 8px; font-size: 10px; line-height: 16px; box-shadow: 0 0 0 2px var(--surface-solid); }
 .radar-app .chrome-sep { width: 1px; height: 22px; background: var(--line-strong); }
 /* 明暗切换：太阳与月亮是同一个图形，切换时圆心缩放、月牙咬口滑入、光芒旋转收起 */
 .radar-app .mode-toggle { position: relative; display: grid; place-items: center; width: 38px; height: 38px; flex: none; border: 0; border-radius: 50%; background: none; color: var(--ink); transition: background 0.15s, transform 0.3s var(--spring); }
@@ -148,7 +145,7 @@
 .radar-app .badge-n { min-width: 18px; height: 18px; padding: 0 5px; border-radius: 9px; background: var(--accent); color: var(--accent-ink); font: 700 11px/18px var(--mono); text-align: center; }
 
 /* ================= 布局：榜单 + 右侧栏 ================= */
-.radar-app .layout { max-width: 1240px; margin: 0 auto; padding: calc(var(--gap-top) + var(--top) + 18px) max(20px, env(safe-area-inset-right)) calc(var(--gap-bottom) + 96px) max(20px, env(safe-area-inset-left)); display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; align-items: start; }
+.radar-app .layout { max-width: 1240px; margin: 0 auto; padding: calc(var(--gap-top) + var(--top) + 18px) max(20px, env(safe-area-inset-right)) calc(var(--gap-bottom) + 32px) max(20px, env(safe-area-inset-left)); display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; align-items: start; }
 .radar-app .main { min-width: 0; }
 
 /* ================= 工具栏：搜索 + 筛选，一行放下 ================= */
@@ -190,7 +187,7 @@
 .radar-app .banner.error { background: color-mix(in srgb, #ef4444 13%, transparent); box-shadow: inset 0 0 0 1px color-mix(in srgb, #ef4444 30%, transparent); }
 
 .radar-app .rows { margin: 0; padding: 4px; list-style: none; border-radius: 16px; background: var(--surface); box-shadow: inset 0 0 0 1px var(--line), var(--shadow); }
-.radar-app .row { position: relative; display: flex; align-items: stretch; border-radius: 12px; content-visibility: auto; contain-intrinsic-size: auto 110px; scroll-margin: calc(var(--gap-top) + var(--top) + 14px) 0 calc(var(--gap-bottom) + 84px); }
+.radar-app .row { position: relative; display: flex; align-items: stretch; border-radius: 12px; content-visibility: auto; contain-intrinsic-size: auto 110px; scroll-margin: calc(var(--gap-top) + var(--top) + 14px) 0 calc(var(--gap-bottom) + 20px); }
 .radar-app .row + .row::before { content: ""; position: absolute; top: 0; left: 64px; right: 14px; height: 1px; background: var(--line); transition: opacity 0.15s; }
 .radar-app .row:hover::before,
 .radar-app .row:hover + .row::before,
@@ -220,7 +217,7 @@
 .radar-app .show-filter button[aria-pressed="true"] { background: var(--accent-soft); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 50%, transparent); color: var(--accent-text); }
 .radar-app .show-filter button[aria-pressed="true"] b { color: inherit; }
 .radar-app .act.icon-only { flex: none; width: 44px; padding: 0; justify-content: center; }
-.radar-app .update-pill { position: fixed; z-index: 70; left: 50%; bottom: calc(var(--gap-bottom) + 72px); display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border: 0; border-radius: 10px; background: var(--ink); color: var(--bg); font-size: 13px; font-weight: 600; box-shadow: var(--pop); transform: translateX(-50%); cursor: pointer; animation: pill-in 0.3s var(--ease); }
+.radar-app .update-pill { position: fixed; z-index: 70; left: 50%; bottom: calc(var(--gap-bottom) + 8px); display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border: 0; border-radius: 10px; background: var(--ink); color: var(--bg); font-size: 13px; font-weight: 600; box-shadow: var(--pop); transform: translateX(-50%); cursor: pointer; animation: pill-in 0.3s var(--ease); }
 .radar-app .update-pill .i { width: 15px; height: 15px; }
 @keyframes pill-in { from { opacity: 0; transform: translate(-50%, 8px); } }
 .radar-app .sum { display: -webkit-box; overflow: hidden; color: var(--muted); font-size: 13.5px; line-height: 1.55; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
@@ -286,7 +283,7 @@
 .radar-app .foot .i { width: 13px; height: 13px; }
 
 /* ================= 右侧栏：概况 / 项目解读 ================= */
-.radar-app .pane { position: sticky; top: calc(var(--gap-top) + var(--top) + 18px); max-height: calc(100dvh - var(--gap-top) - var(--top) - var(--gap-bottom) - 96px); overflow: auto; overscroll-behavior: contain; border-radius: 16px; background: var(--surface-solid); box-shadow: inset 0 0 0 1px var(--line), var(--shadow); scrollbar-width: none; }
+.radar-app .pane { position: sticky; top: calc(var(--gap-top) + var(--top) + 18px); max-height: calc(100dvh - var(--gap-top) - var(--top) - var(--gap-bottom) - 32px); overflow: auto; overscroll-behavior: contain; border-radius: 16px; background: var(--surface-solid); box-shadow: inset 0 0 0 1px var(--line), var(--shadow); scrollbar-width: none; }
 .radar-app .pane::-webkit-scrollbar { display: none; }
 /* 内容比侧栏长时，底部渐隐提示还能往下滚，代替滚动条 */
 .radar-app .pane::after { content: ""; position: sticky; bottom: 0; display: block; height: 22px; margin-top: -22px; border-radius: 0 0 16px 16px; background: linear-gradient(transparent, var(--surface-solid)); pointer-events: none; }
@@ -312,6 +309,21 @@
 .radar-app .ins-title { min-width: 0; }
 .radar-app .ins-title .own { display: block; color: var(--faint); font-size: 12.5px; }
 .radar-app .ins-title h2 { margin: 0; overflow: hidden; font-size: 20px; line-height: 1.25; text-overflow: ellipsis; white-space: nowrap; }
+.radar-app .since { font-weight: 600; font-variant-numeric: tabular-nums; }
+.radar-app .since.up { color: var(--up); }
+.radar-app .since.down { color: var(--down); }
+.radar-app .saved-live { align-self: center; padding: 2px 9px; border-radius: 11px; background: color-mix(in srgb, var(--up) 12%, transparent); color: var(--up); font-size: 12px; font-weight: 600; white-space: nowrap; }
+.radar-app .trend { position: relative; }
+.radar-app .trend-read { display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px; color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
+.radar-app .trend-read b { color: var(--ink); font: 700 13.5px var(--mono); }
+.radar-app .trend svg { display: block; width: 100%; height: auto; overflow: visible; border-radius: 6px; touch-action: pan-y; cursor: crosshair; }
+.radar-app .trend svg:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.radar-app .trend-base { stroke: var(--line-strong); stroke-width: 1; }
+.radar-app .trend-cross { stroke: var(--faint); stroke-width: 1; stroke-dasharray: 2 3; }
+.radar-app .trend-line { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.radar-app .trend-dot { fill: var(--accent); stroke: var(--surface-solid); stroke-width: 2; }
+.radar-app .trend-axis { display: flex; justify-content: space-between; margin-top: 4px; color: var(--faint); font: 600 11px var(--mono); }
+.radar-app .trend-note { margin: 6px 0 0 !important; color: var(--muted); font-size: 12.5px !important; }
 .radar-app .ins-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 0; border-radius: 12px; box-shadow: inset 0 0 0 1px var(--line); }
 .radar-app .ins-stats.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .radar-app .sec .ins-stats { background: var(--surface-solid); }
@@ -377,7 +389,7 @@
 .radar-app .sheet::backdrop { background: rgba(4, 8, 20, 0.45); animation: fade 0.25s both; }
 .radar-app .grabber { position: sticky; top: 0; z-index: 1; display: grid; place-items: center; height: 26px; margin: 0 -18px 4px; background: inherit; cursor: grab; touch-action: none; }
 .radar-app .grabber i { width: 38px; height: 5px; border-radius: 3px; background: var(--line-strong); }
-.radar-app .toast { position: fixed; z-index: 70; left: 50%; bottom: calc(var(--gap-bottom) + 72px); padding: 9px 16px; border-radius: 10px; background: var(--ink); color: var(--bg); font-size: 13px; font-weight: 600; box-shadow: var(--pop); opacity: 0; pointer-events: none; transform: translate(-50%, 8px); transition: opacity 0.2s, transform 0.2s var(--ease); }
+.radar-app .toast { position: fixed; z-index: 70; left: 50%; bottom: calc(var(--gap-bottom) + 8px); padding: 9px 16px; border-radius: 10px; background: var(--ink); color: var(--bg); font-size: 13px; font-weight: 600; box-shadow: var(--pop); opacity: 0; pointer-events: none; transform: translate(-50%, 8px); transition: opacity 0.2s, transform 0.2s var(--ease); }
 .radar-app .toast.visible { opacity: 1; transform: translate(-50%, 0); }
 
 /* ================= 响应式 ================= */
@@ -429,11 +441,14 @@
   .radar-app .ins-stats > div:nth-child(4) { box-shadow: inset 1px 0 0 var(--line), inset 0 1px 0 var(--line); }
 }
 @media (max-width: 440px) {
-  /* 状态栏放不下品牌名、周期、明暗和头像，先收起品牌名 */
+  /* 状态栏放不下品牌名、周期、收藏、明暗和头像：收起品牌名和分隔线，间距收紧 */
   .radar-app .brand-name { display: none; }
+  .radar-app .chrome.top { gap: 6px; padding: 0 5px 0 6px; }
+  .radar-app .chrome-sep { display: none; }
+  .radar-app .chrome .seg.period button { padding: 0 11px; }
+  .radar-app .domain { gap: 4px; padding: 0 4px; font-size: 13px; white-space: nowrap; }
 }
 @media (max-width: 380px) {
-  .radar-app .seg.tabs button { padding: 0 16px; }
 }
 
 /* ================= 账号：状态栏头像、账号菜单、成员管理 ================= */

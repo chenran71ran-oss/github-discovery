@@ -4,6 +4,7 @@ import html
 import logging
 
 from collector.blocks.http import create_http_session
+from collector.blocks.polish import polish, split_name
 from collector.core.taxonomy import chinese
 
 log = logging.getLogger("collector.translate")
@@ -20,7 +21,17 @@ def digest(text: str) -> str:
 
 
 def machine_translate(text: str, session, email: str = ""):
-    """English description -> Simplified Chinese. None when it can't."""
+    """English description -> Simplified Chinese, post-edited. A leading product name stays in English."""
+    head = split_name(text)
+    if head:
+        rest = _mymemory(head[2], session, email)
+        return polish(f"{head[0]}{head[1]}{rest}", text) if rest else None
+    out = _mymemory(text, session, email)
+    return polish(out, text) if out else None
+
+
+def _mymemory(text: str, session, email: str = ""):
+    """One MyMemory call. None for quota notices, errors or non-Chinese output."""
     params = {"q": trim_bytes(text), "langpair": "en|zh-CN"}
     if email: params["de"] = email
     response = session.get("https://api.mymemory.translated.net/get", params=params, timeout=15)

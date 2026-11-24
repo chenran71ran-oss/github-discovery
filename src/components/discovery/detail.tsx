@@ -4,6 +4,7 @@ import { Icon, RepoIcon } from "./icons"
 import { Classified } from "./classified"
 import { Gain, labels, languageColors } from "./row"
 import { Section } from "./section"
+import { TrendSection } from "./trend"
 import { useScrollLock } from "./use-scroll-lock"
 
 export function time(date: string) {
@@ -77,6 +78,7 @@ export function RepoInsight({ repo, period, saved, onSave, onClose, onCopyLink }
         </span>
         {repo.techStack.map(s => <span key={s}>{s}</span>)}
       </div>
+      <TrendSection fullName={repo.fullName} />
       <Classified repo={repo} />
       <Section title="它是什么" chip={sourceChips[repo.summarySource]} tone={repo.summarySource === "ai-readme" ? "ok" : repo.summarySource === "machine" || repo.summarySource === "pending" ? "warn" : "neutral"}>
         <p>{repo.summary || repo.description}</p>

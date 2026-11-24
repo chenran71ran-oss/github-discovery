@@ -119,3 +119,41 @@ class HistoryTests(unittest.TestCase):
         periods = {"daily": [{"fullName": "a/one"}, {"fullName": "c/three"}]}
         update_first_seen(index, periods, "2026-11-11")
         self.assertEqual([r["firstSeen"] for r in periods["daily"]], ["2026-11-01", "2026-11-11"])
+
+    def test_trends_keep_recent_days_for_todays_repos(self):
+        from collector.blocks.history import build_trends
+        snaps = {f"2026-11-{d:02d}": {"periods": {"daily": [{"fullName": "a/one", "stars": 100 + d, "rank": d}, {"fullName": "b/two", "stars": 5, "rank": 30}] if d % 2 else [{"fullName": "a/one", "stars": 100 + d, "rank": 1}]}} for d in range(1, 21)}
+        t = build_trends(snaps, {"a/one", "b/two", "c/new"}, days=14)
+        self.assertEqual(t["days"][0], "2026-11-07")
+        self.assertEqual(len(t["repos"]["a/one"]["stars"]), 14)
+        self.assertEqual(t["repos"]["a/one"]["stars"][-1], 120)
+        self.assertEqual(t["repos"]["b/two"]["stars"][:2], [5, None])
+        self.assertNotIn("c/new", t["repos"])
+
+
+class PolishTests(unittest.TestCase):
+    def test_agent_terms_register_and_spacing(self):
+        from collector.blocks.polish import polish
+        self.assertEqual(polish("管理您的预算的人工智能代理", "An AI agent that manages your budget"), "管理你的预算的 AI 智能体")
+        self.assertEqual(polish("Vercel 的官方代理技能合集", "Official agent skills from Vercel"), "Vercel 的官方智能体技能合集")
+        self.assertEqual(polish("GPU （ CUDA ， Vulkan ）的推理", "inference on GPU (CUDA, Vulkan)"), "GPU（CUDA，Vulkan）的推理")
+        self.assertEqual(polish("适用于Windows的应用程序—免费", "free app for Windows"), "适用于 Windows 的应用——免费")
+
+    def test_proxy_is_not_turned_into_agent(self):
+        from collector.blocks.polish import polish
+        self.assertEqual(polish("HTTP 代理，支持 agent 转发", "HTTP proxy with agent forwarding"), "HTTP 代理，支持 agent 转发")
+
+    def test_leading_product_name_kept_in_english(self):
+        from collector.blocks.translate import machine_translate
+        calls = []
+
+        class Session:
+            def get(self, url, params, timeout):
+                calls.append(params["q"])
+
+                class R:
+                    def raise_for_status(self): pass
+                    def json(self): return {"responseStatus": 200, "responseData": {"translatedText": "告诉您的人工智能要做什么"}}
+                return R()
+        self.assertEqual(machine_translate("Render Anything Engine: tell your AI what to make", Session()), "Render Anything Engine：告诉你的 AI 要做什么")
+        self.assertEqual(calls, ["tell your AI what to make"])

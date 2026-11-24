@@ -45,6 +45,11 @@ def annotate_history(snapshot: dict, data, today):
     if index is None:
         index = history.build_first_seen({d: store.read_json(data / "history" / f"{d}.json", {}) for d in days})
     store.atomic_json(data / store.FIRST_SEEN, history.update_first_seen(index, snapshot["periods"], snapshot["date"]))
+    # 详情里的趋势小图：最近 14 份快照（含今天）里每个项目的总 Star 与日榜名次
+    recent = {d: store.read_json(data / "history" / f"{d}.json", {}) for d in sorted(days)[-13:]}
+    recent[snapshot["date"]] = snapshot
+    names = {r["fullName"] for rows in snapshot["periods"].values() for r in rows}
+    store.atomic_json(data / store.TRENDS, history.build_trends(recent, names), compact=True)
 
 
 def classify_only(cfg: config.Config):
