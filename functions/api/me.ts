@@ -12,7 +12,7 @@ export async function onRequestGet(ctx: Context) {
   // 已被移除或停用：清掉会话，前端回到登录页时才不会被签名仍有效的 Cookie 弹回来
   if (member?.status !== "active") return json({ error: "unauthorized" }, 401, { "Set-Cookie": clearCookie(SESSION_COOKIE) })
   const store = createStore(ctx.env.DB!)
-  // 站长和管理员：待审批的人和待审核的纠错，用来在头像上显示小红点
-  const pending = member.role === "admin" ? { members: await store.countPendingMembers(), corrections: await store.countPendingCorrections() } : undefined
+  // 站长和管理员：待审批的人数，用来在头像上显示小红点
+  const pending = member.role === "admin" ? { members: await store.countPendingMembers() } : undefined
   return json({ login: member.login, name: member.name, avatar: member.avatar_url, role: member.role, pending })
 }

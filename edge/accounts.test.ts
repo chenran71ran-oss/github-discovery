@@ -13,9 +13,6 @@ import { onRequestPut as favorite, onRequestGet as listFavorites, onRequestDelet
 import { onRequestPost as importFavorites } from "../functions/api/favorites/import"
 import { onRequestGet as listSeen, onRequestPost as markSeen } from "../functions/api/seen"
 import { onRequestPost as createLink, onRequestGet as listLinks, onRequestDelete as revokeLink } from "../functions/api/admin/invite-links"
-import { onRequestGet as appliedCorrections, onRequestPost as submitCorrection } from "../functions/api/corrections"
-import { onRequestGet as adminCorrections } from "../functions/api/admin/corrections/index"
-import { onRequestPatch as reviewCorrection } from "../functions/api/admin/corrections/[id]"
 import { admit, guard } from "./access"
 import { RECHECK_AFTER, SESSION_COOKIE, STATE_COOKIE } from "./config"
 import { safeNext, sessionCookie } from "./http"
@@ -542,59 +539,20 @@ describe("invite links", () => {
   })
 })
 
-describe("corrections", () => {
-  async function as(user: GitHubUser, role: "admin" | "member") {
+describe("pending reminder", () => {
+  it("tells admins how many people are waiting, and nobody else", async () => {
     await ensureSchema(env.DB!)
-    await store().saveProfile(user, role, "active", "t")
-    await store().setAccess(user.id, role, "active")
-    return (path: string, init: Parameters<typeof ctx>[1] = {}) => {
-      const x = ctx(path, init)
-      x.data.session = { gid: user.id, login: user.login, role, exp: 9e9, chk: 9e9 }
+    for (const [u, role] of [[owner, "admin"], [friend, "member"]] as const) {
+      await store().saveProfile(u, role, "active", "t")
+      await store().setAccess(u.id, role, "active")
+    }
+    await store().saveProfile(stranger, "member", "pending", "t")
+    const as = (u: GitHubUser, role: "admin" | "member") => {
+      const x = ctx("/api/me")
+      x.data.session = { gid: u.id, login: u.login, role, exp: 9e9, chk: 9e9 }
       return x
     }
-  }
-  const post = (body: unknown, headers: HeadersInit = json) => ({ method: "POST", body: JSON.stringify(body), headers })
-
-  it("collects member corrections for review, then applies approved ones for everyone", async () => {
-    const member = await as(friend, "member")
-    const admin = await as(owner, "admin")
-    expect((await submitCorrection(member("/api/corrections", post({ kind: "category", repo: "a/one", category: "理财与金融" })))).status).toBe(201)
-    expect((await submitCorrection(member("/api/corrections", post({ kind: "term", repo: "a/one", from: "代理技能", to: "智能体技能" })))).status).toBe(201)
-    let applied = await (await appliedCorrections(member("/api/corrections"))).json() as { categories: Record<string, string>, terms: { from: string, to: string }[] }
-    expect(applied).toEqual({ categories: {}, terms: [] })
-    const pending = ((await (await adminCorrections(admin("/api/admin/corrections"))).json()) as { pending: { id: number, kind: string }[] }).pending
-    expect(pending.map(p => p.kind).sort()).toEqual(["category", "term"])
-    for (const p of pending) {
-      const r = admin(`/api/admin/corrections/${p.id}`, { method: "PATCH", body: JSON.stringify({ status: "approved" }), headers: json, params: { id: String(p.id) } })
-      expect((await reviewCorrection(r)).status).toBe(200)
-    }
-    applied = await (await appliedCorrections(member("/api/corrections"))).json() as typeof applied
-    expect(applied).toEqual({ categories: { "a/one": "理财与金融" }, terms: [{ from: "代理技能", to: "智能体技能" }] })
-    // 站长自己提交的直接生效，并且同一项目以最新的为准
-    expect(((await (await submitCorrection(admin("/api/corrections", post({ kind: "category", repo: "a/one", category: "开发工具" })))).json()) as { applied: boolean }).applied).toBe(true)
-    const exported = await (await adminCorrections(admin("/api/admin/corrections?format=export"))).json() as typeof applied
-    expect(exported.categories["a/one"]).toBe("开发工具")
-  })
-  it("validates input and blocks members from reviewing or cross-site posting", async () => {
-    const member = await as(friend, "member")
-    const bad = async (body: unknown) => (await submitCorrection(member("/api/corrections", post(body)))).status
-    expect(await bad({ kind: "category", repo: "a/one", category: "不存在的分类" })).toBe(400)
-    expect(await bad({ kind: "category", category: "开发工具" })).toBe(400)
-    expect(await bad({ kind: "term", from: "代", to: "智能体" })).toBe(400)
-    expect(await bad({ kind: "term", from: "代理", to: "代理" })).toBe(400)
-    expect(await bad({ kind: "term", from: "x".repeat(31), to: "y" })).toBe(400)
-    expect(await bad({ kind: "delete-everything" })).toBe(400)
-    expect((await submitCorrection(member("/api/corrections", post({ kind: "term", from: "代理", to: "智能体" }, { "Content-Type": "application/json", "Origin": "https://evil.example" })))).status).toBe(400)
-    const r = member("/api/admin/corrections/1", { method: "PATCH", body: JSON.stringify({ status: "approved" }), headers: json, params: { id: "1" } })
-    expect((await reviewCorrection(r)).status).toBe(403)
-  })
-  it("tells admins how much is waiting", async () => {
-    const member = await as(friend, "member")
-    const admin = await as(owner, "admin")
-    await store().saveProfile(stranger, "member", "pending", "t")
-    await submitCorrection(member("/api/corrections", post({ kind: "term", from: "代理", to: "智能体" })))
-    const me = await (await meHandler(admin("/api/me"))).json() as { pending: { members: number, corrections: number } }
-    expect(me.pending).toEqual({ members: 1, corrections: 1 })
-    expect(((await (await meHandler(member("/api/me"))).json()) as { pending?: unknown }).pending).toBeUndefined()
+    expect(((await (await meHandler(as(owner, "admin"))).json()) as { pending: unknown }).pending).toEqual({ members: 1 })
+    expect(((await (await meHandler(as(friend, "member"))).json()) as { pending?: unknown }).pending).toBeUndefined()
   })
 })

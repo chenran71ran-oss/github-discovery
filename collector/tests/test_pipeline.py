@@ -172,7 +172,7 @@ class CorrectionTests(unittest.TestCase):
         out = pipeline.apply_corrections("a/one", row, {"categories": {"a/one": "AI 与智能体"}, "terms": [{"from": "代理技能", "to": "智能体技能"}]})
         self.assertEqual(out["summary"], "官方智能体技能合集")
         self.assertEqual((out["category"], out["tags"]), ("AI 与智能体", []))
-        self.assertEqual(out["classification"]["reasons"][0], "成员纠正")
+        self.assertEqual(out["classification"]["reasons"][0], "人工修正")
 
     def test_ai_summaries_and_unknown_labels_untouched(self):
         row = {"summary": "代理技能", "summarySource": "ai-readme", "category": "开发工具"}

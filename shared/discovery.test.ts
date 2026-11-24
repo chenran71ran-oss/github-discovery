@@ -114,17 +114,3 @@ describe("growth for every row", () => {
     expect(heatOf(50)).toBeGreaterThan(heatOf(5))
   })
 })
-
-describe("member corrections overlay", () => {
-  it("changes the category and fixes terms in non-AI summaries only", async () => {
-    const { applyCorrections } = await import("../src/components/discovery/model")
-    const row = (fullName: string, extra: Partial<typeof data.periods.daily[number]> = {}) => ({ ...data.periods.daily[0], fullName, category: "开发工具", tags: ["AI 与智能体"], summary: "官方代理技能合集", summarySource: "machine" as const, ...extra })
-    const snap = { ...data, periods: { daily: [row("a/one"), row("b/two", { summarySource: "ai-readme" })], weekly: [], monthly: [] } }
-    const out = applyCorrections(snap, { categories: { "a/one": "AI 与智能体", "b/two": "不存在" }, terms: [{ from: "代理技能", to: "智能体技能" }] })!
-    const [a, b] = out.periods.daily
-    expect([a.category, a.tags, a.corrected, a.summary]).toEqual(["AI 与智能体", [], true, "官方智能体技能合集"])
-    expect([b.category, b.corrected, b.summary]).toEqual(["开发工具", undefined, "官方代理技能合集"])
-    expect(snap.periods.daily[0].summary).toBe("官方代理技能合集")
-    expect(applyCorrections(snap, { categories: {}, terms: [] })).toBe(snap)
-  })
-})

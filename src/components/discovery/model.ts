@@ -20,28 +20,6 @@ export function sourceRows(data: DiscoverySnapshot | undefined, period: Period, 
   return Object.values(saved).map(r => data?.periods[period].find(n => n.fullName === r.fullName) || { ...r, rank: 0, previousRank: null, periodStars: null })
 }
 
-/**
- * 把审核通过的成员纠错叠加到快照上：改主分类（次要标签去掉同名的），
- * 以及在非 AI 生成的中文简介里替换术语。返回新对象，不改原快照。
- */
-export function applyCorrections(data: DiscoverySnapshot | undefined, fixes: { categories: Record<string, string>, terms: { from: string, to: string }[] } | null | undefined): DiscoverySnapshot | undefined {
-  if (!data || !fixes || (!Object.keys(fixes.categories).length && !fixes.terms.length)) return data
-  const fix = (r: Repository): Repository => {
-    let out = r
-    const label = fixes.categories[r.fullName]
-    if (label && categories.some(c => c.label === label) && label !== r.category) {
-      out = { ...out, category: label, domain: categoryOf(label).domain, tags: (r.tags || []).filter(t => t !== label), corrected: true }
-    }
-    if (out.summary && out.summarySource !== "ai-readme" && fixes.terms.length) {
-      let summary = out.summary
-      for (const t of fixes.terms) summary = summary.split(t.from).join(t.to)
-      if (summary !== out.summary) out = { ...out, summary }
-    }
-    return out
-  }
-  return { ...data, periods: Object.fromEntries(Object.entries(data.periods).map(([p, rows]) => [p, rows.map(fix)])) as DiscoverySnapshot["periods"] }
-}
-
 export function visibleRows(rows: Repository[], f: Filters) {
   // 选了细类时以细类为准（含次要标签），领域只决定显示哪些细类，计数与结果保持一致
   const out = filterRepositories(rows, f.q, f.language, f.category, undefined, f.category ? "" : f.domain)

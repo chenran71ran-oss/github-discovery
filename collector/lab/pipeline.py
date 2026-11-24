@@ -145,7 +145,7 @@ MACHINE_SOURCES = {"machine", "upstream", "editorial"}
 
 
 def apply_corrections(name: str, row: dict, corrections: dict) -> dict:
-    """Approved member corrections: a category override for this repo, and term fixes in non-AI summaries."""
+    """Maintainer corrections (collector/corrections.json): a category override for this repo, and term fixes in non-AI summaries."""
     out = {}
     terms = [t for t in corrections.get("terms") or [] if isinstance(t, dict) and t.get("from") and t.get("to")]
     if row.get("summary") and row.get("summarySource") in MACHINE_SOURCES and terms:
@@ -160,7 +160,7 @@ def apply_corrections(name: str, row: dict, corrections: dict) -> dict:
         out["domain"] = cat.domain
         out["tags"] = [t for t in row.get("tags") or [] if t != cat.label]
         c = dict(row.get("classification") or {"by": "rules", "strategy": "", "confidence": 1.0, "reasons": []})
-        c["reasons"] = ["成员纠正", *[x for x in c.get("reasons", []) if x != "成员纠正"]][:6]
+        c["reasons"] = ["人工修正", *[x for x in c.get("reasons", []) if x != "人工修正"]][:6]
         out["classification"] = c
     return out
 

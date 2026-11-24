@@ -2,7 +2,6 @@ import { type PointerEvent, useEffect, useRef } from "react"
 import { type Period, type Repository, compact } from "@shared/discovery"
 import { Icon, RepoIcon } from "./icons"
 import { Classified } from "./classified"
-import { type OnCorrect, TermFix } from "./correct"
 import { Gain, labels, languageColors } from "./row"
 import { Section } from "./section"
 import { TrendSection } from "./trend"
@@ -34,12 +33,10 @@ interface InsightProps {
   onSave: () => void
   onClose: () => void
   onCopyLink: () => void
-  /** 登录成员才有：提交分类或术语纠错 */
-  onCorrect?: OnCorrect
 }
 
 /** 项目解读正文：桌面端放在右侧栏，手机上放进底部面板，两处内容一致。 */
-export function RepoInsight({ repo, period, saved, onSave, onClose, onCopyLink, onCorrect }: InsightProps) {
+export function RepoInsight({ repo, period, saved, onSave, onClose, onCopyLink }: InsightProps) {
   const [owner, name] = repo.fullName.split("/")
   const moved = repo.previousRank ? repo.previousRank - repo.rank : 0
   const translated = repo.summary && repo.summary !== repo.description
@@ -82,14 +79,13 @@ export function RepoInsight({ repo, period, saved, onSave, onClose, onCopyLink, 
         {repo.techStack.map(s => <span key={s}>{s}</span>)}
       </div>
       <TrendSection fullName={repo.fullName} />
-      <Classified repo={repo} onCorrect={onCorrect} />
+      <Classified repo={repo} />
       <Section title="它是什么" chip={sourceChips[repo.summarySource]} tone={repo.summarySource === "ai-readme" ? "ok" : repo.summarySource === "machine" || repo.summarySource === "pending" ? "warn" : "neutral"}>
         <p>{repo.summary || repo.description}</p>
         <small className="origin">
           {sourceNotes[repo.summarySource]}
           {repo.summaryAt ? ` · ${time(repo.summaryAt)}` : ""}
         </small>
-        {onCorrect && repo.summary && repo.summarySource !== "ai-readme" && <TermFix key={repo.fullName} repo={repo} onCorrect={onCorrect} />}
       </Section>
       {repo.useCase && (
         <Section title="适用场景">

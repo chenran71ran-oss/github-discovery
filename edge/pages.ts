@@ -28,7 +28,7 @@ export function loginPage(next: string, status: string | null, invite: string | 
 <meta name="theme-color" content="#0b0d12" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#f5f6f8" media="(prefers-color-scheme: light)">
 <link rel="icon" href="/icon.svg">
-<title>登录 · GIT Bot</title>
+<title>GIT Bot</title>
 <style>
 :root { --bg: #f5f6f8; --ink: #141821; --muted: #4a5160; --card: #ffffff; --line: rgba(20, 24, 33, 0.1); --accent: #0067c0; --accent-ink: #fff; color-scheme: light; }
 @media (prefers-color-scheme: dark) { :root { --bg: #0b0d12; --ink: #e9ecf2; --muted: #a9b0bd; --card: #151922; --line: rgba(233, 236, 242, 0.1); --accent: #4cc2ff; --accent-ink: #001a2c; color-scheme: dark; } }
