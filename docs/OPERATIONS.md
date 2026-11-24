@@ -84,16 +84,19 @@ GitHub 的定时任务经常延后，2026-10-27 至 11-02 实际都在北京时�
 | `GITHUB_CLIENT_SECRET` | Secret | GitHub App 的 client secret |
 | `SESSION_SECRET` | Secret | 至少 32 个字符的随机串，用于签名登录 Cookie。更换它会让所有人重新登录 |
 | `ADMIN_GITHUB_LOGIN` | Text | 站长的 GitHub 用户名，始终是管理员 |
-| `DB`（绑定） | D1 | 账号数据所在的数据库，表名为 `gb_members`、`gb_invites`、`gb_favorites`、`gb_seen`（首次访问自动创建） |
+| `DB`（绑定） | D1 | 账号数据所在的数据库，表名为 `gb_members`、`gb_invites`、`gb_invite_links`、`gb_favorites`、`gb_seen`、`gb_corrections`（首次访问自动创建） |
 
 以前打开过网站的人可能还在用缓存里的旧页面：先打开 `/login` 登录，再强制刷新首页即可。
 
 GitHub App 的 Callback URL 需要包含 `https://radar.chenran71ran.cc/api/auth/callback`；在 PR 预览上测试时，还要加上预览地址对应的 `/api/auth/callback`（例如 `https://feat-accounts.github-discovery.pages.dev/api/auth/callback`）。缺少任何一项配置时整站返回 503。
 
-**管理成员**：站长用 GitHub 登录后，点状态栏的头像 →「成员管理」：
+**管理成员**：站长用 GitHub 登录后，点状态栏的头像 →「成员管理」（有待处理事项时头像上有小红点）：
+- 邀请链接：选有效期、人数和角色，点「生成链接」后自动复制，发给好友即可；链接只显示这一次，可以随时撤销；
 - 邀请：填对方的 GitHub 用户名，对方登录后直接成为成员；
 - 待审批：没被邀请的人登录后会出现在这里，可以通过或拒绝；
 - 成员：修改角色、停用 / 恢复、移除。停用或移除最迟 10 分钟后生效。
+
+**纠错**：成员提交的分类和术语改正在「纠错审核」里通过后立即对所有人生效。想让采集器也从源头改正，点「复制导出 JSON」，把内容覆盖到仓库的 `collector/corrections.json` 并提交（走 PR），之后每天的采集都会按它修正分类和机翻术语。
 
 **用量**：Pages Functions 免费额度是每天 10 万次请求。带哈希的脚本、样式、图标和图片已通过 `public/_routes.json` 绕过 Functions，打开一次页面大约只计 3–5 次。
 

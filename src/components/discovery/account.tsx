@@ -1,5 +1,5 @@
 import { type FormEvent, useCallback, useEffect, useRef, useState } from "react"
-import { type InviteRow, type Me, type MemberRow, type Role, accountApi } from "./api"
+import { type CorrectionRow, type InviteLinkRow, type InviteRow, type Me, type MemberRow, type Role, accountApi } from "./api"
 import { Icon } from "./icons"
 import { Section } from "./section"
 import { useScrollLock } from "./use-scroll-lock"
@@ -18,6 +18,7 @@ function Avatar({ src, login, size = 28 }: { src: string | null, login: string, 
 /** 顶部状态栏里的头像：点开是账号菜单 */
 export function AccountButton({ me, onManage }: { me: Me, onManage: () => void }) {
   const [open, setOpen] = useState(false)
+  const waiting = (me.pending?.members ?? 0) + (me.pending?.corrections ?? 0)
   const ref = useRef<HTMLDivElement>(null)
   useEffect(() => {
     if (!open) return
@@ -35,6 +36,7 @@ export function AccountButton({ me, onManage }: { me: Me, onManage: () => void }
     <div className="account" ref={ref}>
       <button type="button" className="account-btn" aria-haspopup="menu" aria-expanded={open} aria-label={`账号：${me.login}`} title={me.login} onClick={() => setOpen(o => !o)}>
         <Avatar src={me.avatar} login={me.login} />
+        {waiting > 0 && <span className="dot" aria-label={`${waiting} 项待处理`} />}
       </button>
       {open && (
         <div className="account-menu" role="menu">
@@ -57,6 +59,7 @@ export function AccountButton({ me, onManage }: { me: Me, onManage: () => void }
             >
               <Icon name="bot" />
               成员管理
+              {waiting > 0 && <span className="badge-n">{waiting}</span>}
             </button>
           )}
           <button type="button" role="menuitem" onClick={() => void accountApi.logout()}>
@@ -78,10 +81,19 @@ export function MembersPanel({ onClose, notify }: { onClose: () => void, notify:
   const [login, setLogin] = useState("")
   const [role, setRole] = useState<Role>("member")
   const [confirmId, setConfirmId] = useState<number | null>(null)
+  const [links, setLinks] = useState<InviteLinkRow[]>([])
+  const [fixes, setFixes] = useState<{ pending: CorrectionRow[], approved: CorrectionRow[], approvedTotal: number } | null>(null)
+  const [linkDays, setLinkDays] = useState(7)
+  const [linkUses, setLinkUses] = useState(1)
+  const [linkRole, setLinkRole] = useState<Role>("member")
+  const [fresh, setFresh] = useState<{ url: string, expiresAt: string, maxUses: number } | null>(null)
   useScrollLock(true)
   const reload = useCallback(async () => {
     try {
-      setData(await accountApi.members())
+      const [m, l, f] = await Promise.all([accountApi.members(), accountApi.inviteLinks(), accountApi.corrections()])
+      setData(m)
+      setLinks(l.links)
+      setFixes(f)
       setError("")
     } catch (e) {
       setError(e instanceof Error ? e.message : "读取成员失败")
@@ -111,6 +123,15 @@ export function MembersPanel({ onClose, notify }: { onClose: () => void, notify:
     if (!name) return
     void act(() => accountApi.invite(name, role), `已邀请 @${name}，对方用 GitHub 登录即可进入`).then(() => setLogin(""))
   }
+  const makeLink = () => void act(async () => {
+    const r = await accountApi.createInviteLink({ role: linkRole, days: linkDays, maxUses: linkUses })
+    setFresh(r)
+    await navigator.clipboard?.writeText(r.url).catch(() => {})
+  }, "邀请链接已生成并复制，发给好友即可")
+  const exportFixes = () => void act(async () => {
+    const all = await accountApi.exportCorrections()
+    await navigator.clipboard.writeText(`${JSON.stringify(all, null, 2)}\n`)
+  }, "已复制，粘贴到仓库的 collector/corrections.json 即可让采集器从源头改正")
   const pending = data?.members.filter(m => m.status === "pending") ?? []
   const members = data?.members.filter(m => m.status !== "pending") ?? []
   const locked = (m: MemberRow) => m.owner || m.id === data?.me
@@ -130,6 +151,46 @@ export function MembersPanel({ onClose, notify }: { onClose: () => void, notify:
       </header>
       {error && <p role="alert" className="banner error">{error}</p>}
       <div className="mp-body" aria-busy={busy}>
+        <Section title="邀请链接" chip={`${links.length} 个可用`} tone={links.length ? "accent" : "neutral"}>
+          <p className="mp-empty">生成一个链接发给好友，对方点开用 GitHub 登录就能直接加入，不需要知道对方的用户名。</p>
+          <div className="mp-invite links">
+            <select aria-label="有效期" value={linkDays} onChange={e => setLinkDays(Number(e.target.value))}>
+              <option value={1}>1 天内有效</option>
+              <option value={7}>7 天内有效</option>
+              <option value={30}>30 天内有效</option>
+            </select>
+            <select aria-label="可用次数" value={linkUses} onChange={e => setLinkUses(Number(e.target.value))}>
+              <option value={1}>限 1 人</option>
+              <option value={5}>限 5 人</option>
+              <option value={20}>限 20 人</option>
+            </select>
+            <select aria-label="加入后的角色" value={linkRole} onChange={e => setLinkRole(e.target.value as Role)}>
+              <option value="member">成员</option>
+              <option value="admin">管理员</option>
+            </select>
+            <button type="button" className="act primary" disabled={busy} onClick={makeLink}>生成链接</button>
+          </div>
+          {fresh && (
+            <div className="mp-link" role="status">
+              <input aria-label="邀请链接" readOnly value={fresh.url} onFocus={e => e.currentTarget.select()} />
+              <button type="button" className="act sm" onClick={() => void navigator.clipboard?.writeText(fresh.url).then(() => notify("已复制邀请链接"))}>复制</button>
+              <small>{`链接只显示这一次 · ${fresh.maxUses} 人可用 · ${new Date(fresh.expiresAt).toLocaleDateString("zh-CN")} 前有效`}</small>
+            </div>
+          )}
+          {links.length > 0 && (
+            <ul className="mp-list">
+              {links.map(l => (
+                <li key={l.id}>
+                  <span className="mp-name">
+                    {`已用 ${l.uses} / ${l.maxUses} · ${roleLabels[l.role]}`}
+                    <small>{`${l.createdBy} 生成 · ${new Date(l.expiresAt).toLocaleDateString("zh-CN")} 前有效`}</small>
+                  </span>
+                  <button type="button" className="link danger" disabled={busy} onClick={() => void act(() => accountApi.revokeInviteLink(l.id), "已撤销邀请链接")}>撤销</button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </Section>
         <Section title="邀请成员" chip={data ? `${data.invites.length} 个待使用` : undefined}>
           <form className="mp-invite" onSubmit={submit}>
             <input aria-label="GitHub 用户名" placeholder="GitHub 用户名" value={login} autoComplete="off" spellCheck={false} onChange={e => setLogin(e.target.value)} />
@@ -171,6 +232,31 @@ export function MembersPanel({ onClose, notify }: { onClose: () => void, notify:
                   ))}
                 </ul>
               )}
+        </Section>
+        <Section title="纠错审核" chip={fixes ? `${fixes.pending.length} 条待审` : "读取中"} tone={fixes?.pending.length ? "warn" : "neutral"}>
+          {!fixes || fixes.pending.length === 0
+            ? <p className="mp-empty">没有待审核的纠错。成员在项目解读里点「分错了？」「译得不对？」提交的会出现在这里。</p>
+            : (
+                <ul className="mp-list">
+                  {fixes.pending.map(f => (
+                    <li key={f.id}>
+                      <span className="mp-name">
+                        {f.kind === "category" ? `分类 → ${f.category}` : `「${f.from}」→「${f.to}」`}
+                        <small>{`${f.repo ?? "全局"} · @${f.by}`}</small>
+                      </span>
+                      <button type="button" className="act primary sm" disabled={busy} onClick={() => void act(() => accountApi.reviewCorrection(f.id, "approved"), "已通过，对所有人生效")}>通过</button>
+                      <button type="button" className="link" disabled={busy} onClick={() => void act(() => accountApi.reviewCorrection(f.id, "rejected"), "已驳回")}>驳回</button>
+                    </li>
+                  ))}
+                </ul>
+              )}
+          {fixes && fixes.approvedTotal > 0 && (
+            <p className="mp-empty">
+              {`已生效 ${fixes.approvedTotal} 条。`}
+              <button type="button" className="link" disabled={busy} onClick={exportFixes}>复制导出 JSON</button>
+              ，提交到仓库后采集器也会按它改正。
+            </p>
+          )}
         </Section>
         <Section title="成员" chip={data ? `${members.length} 人` : "读取中"}>
           <ul className="mp-list">

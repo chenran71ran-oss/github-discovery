@@ -24,6 +24,8 @@ CACHES = {"analysis": "analysis-cache.json", "translations": "translation-cache.
 def load_caches(data: Path, editorial_file: Path) -> dict:
     caches = {k: read_json(data / f, {}) for k, f in CACHES.items()}
     caches["editorial"] = read_json(editorial_file, {})
+    # 成员纠错经站长审核后导出到这里（网站「成员管理 → 纠错审核 → 导出」），从源头修正分类和术语
+    caches["corrections"] = read_json(editorial_file.parent / "corrections.json", {})
     return caches
 
 

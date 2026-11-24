@@ -12,6 +12,10 @@ import { onRequestGet as meHandler } from "../functions/api/me"
 import { onRequestPut as favorite, onRequestGet as listFavorites, onRequestDelete as unfavorite } from "../functions/api/favorites/index"
 import { onRequestPost as importFavorites } from "../functions/api/favorites/import"
 import { onRequestGet as listSeen, onRequestPost as markSeen } from "../functions/api/seen"
+import { onRequestPost as createLink, onRequestGet as listLinks, onRequestDelete as revokeLink } from "../functions/api/admin/invite-links"
+import { onRequestGet as appliedCorrections, onRequestPost as submitCorrection } from "../functions/api/corrections"
+import { onRequestGet as adminCorrections } from "../functions/api/admin/corrections/index"
+import { onRequestPatch as reviewCorrection } from "../functions/api/admin/corrections/[id]"
 import { admit, guard } from "./access"
 import { RECHECK_AFTER, SESSION_COOKIE, STATE_COOKIE } from "./config"
 import { safeNext, sessionCookie } from "./http"
@@ -450,5 +454,147 @@ describe("seen API", () => {
     const me = await as(friend)
     expect((await markSeen(me("/api/seen", post(["a/one"], { "Content-Type": "application/json", "Origin": "https://evil.example" })))).status).toBe(400)
     expect((await markSeen(me("/api/seen", post(Array.from({ length: 101 }, (_, i) => `a/r${i}`))))).status).toBe(400)
+  })
+})
+
+describe("invite links", () => {
+  function stubGitHub(user: GitHubUser) {
+    vi.stubGlobal("fetch", vi.fn(async (url: string) => {
+      if (url.includes("/login/oauth/access_token")) return Response.json({ access_token: "tok" })
+      if (url.endsWith("/user")) return Response.json(user)
+      throw new Error(`unexpected ${url}`)
+    }))
+  }
+  async function asAdmin() {
+    await ensureSchema(env.DB!)
+    await store().saveProfile(owner, "admin", "active", "t")
+    await store().setAccess(owner.id, "admin", "active")
+    return (path: string, init: Parameters<typeof ctx>[1] = {}) => {
+      const x = ctx(path, init)
+      x.data.session = { gid: owner.id, login: owner.login, role: "admin", exp: 9e9, chk: 9e9 }
+      return x
+    }
+  }
+  async function newLink(body: Record<string, unknown> = {}) {
+    const admin = await asAdmin()
+    const res = await createLink(admin("/api/admin/invite-links", { method: "POST", body: JSON.stringify(body), headers: json }))
+    expect(res.status).toBe(201)
+    return new URL(((await res.json()) as { url: string }).url).searchParams.get("invite")!
+  }
+  async function signInWith(user: GitHubUser, invite: string) {
+    stubGitHub(user)
+    const start = await startLogin(ctx(`/api/auth/login?next=/&invite=${invite}`))
+    const location = new URL(start.headers.get("Location")!)
+    // 令牌不出现在发给 GitHub 的地址里
+    expect(location.toString()).not.toContain(invite)
+    return callback(ctx(`/api/auth/callback?code=c&state=${location.searchParams.get("state")}`, { cookie: cookiePair(start.headers.get("Set-Cookie")!) }))
+  }
+
+  it("lets a friend join through the link, without approval, until uses run out", async () => {
+    const token = await newLink({ maxUses: 1, days: 7 })
+    const page = await (await loginPage(ctx(`/login?invite=${token}`))).text()
+    expect(page).toContain("你收到了 GIT Bot 的邀请")
+    expect(page).toContain(`invite=${token}`)
+    const res = await signInWith(friend, token)
+    expect(res.headers.get("Location")).toBe("/")
+    expect(res.headers.get("Set-Cookie")).toContain(`${SESSION_COOKIE}=`)
+    expect((await store().getMember(friend.id))?.status).toBe("active")
+    // 次数用完：下一个人进入待审批，并被告知链接失效
+    const second = await signInWith(stranger, token)
+    expect(second.headers.get("Location")).toBe("/login?status=invite_invalid")
+    expect((await store().getMember(stranger.id))?.status).toBe("pending")
+    expect(await (await loginPage(ctx(`/login?invite=${token}`))).text()).toContain("已过期、被撤销或次数已用完")
+  })
+  it("does not spend a use on existing members, and never unblocks", async () => {
+    const token = await newLink({ maxUses: 2 })
+    await store().saveProfile(friend, "member", "active", "t")
+    await store().saveProfile(stranger, "member", "blocked", "t")
+    await store().setAccess(stranger.id, "member", "blocked")
+    await signInWith(friend, token)
+    expect((await signInWith(stranger, token)).headers.get("Location")).toBe("/login?status=blocked")
+    const admin = await asAdmin()
+    const links = ((await (await listLinks(admin("/api/admin/invite-links"))).json()) as { links: { uses: number }[] }).links
+    expect(links[0].uses).toBe(0)
+  })
+  it("stops working once revoked or expired, and only stores a hash", async () => {
+    const token = await newLink({ maxUses: 5 })
+    const rows = await env.DB!.prepare("SELECT id FROM gb_invite_links").all<{ id: string }>()
+    expect(rows.results[0].id).not.toContain(token)
+    const admin = await asAdmin()
+    const id = ((await (await listLinks(admin("/api/admin/invite-links"))).json()) as { links: { id: string }[] }).links[0].id
+    expect((await revokeLink(admin("/api/admin/invite-links", { method: "DELETE", body: JSON.stringify({ id }), headers: json }))).status).toBe(200)
+    expect((await signInWith(friend, token)).headers.get("Location")).toBe("/login?status=invite_invalid")
+    const expiring = await newLink()
+    await env.DB!.prepare("UPDATE gb_invite_links SET expires_at = '2000-01-01T00:00:00.000Z'").run()
+    expect((await signInWith(stranger, expiring)).headers.get("Location")).toBe("/login?status=invite_invalid")
+  })
+  it("refuses bad link settings, members creating links, and cross-site requests", async () => {
+    const admin = await asAdmin()
+    const post = (body: unknown, headers: HeadersInit = json) => admin("/api/admin/invite-links", { method: "POST", body: JSON.stringify(body), headers })
+    expect((await createLink(post({ days: 0 }))).status).toBe(400)
+    expect((await createLink(post({ maxUses: 51 }))).status).toBe(400)
+    expect((await createLink(post({ role: "root" }))).status).toBe(400)
+    expect((await createLink(post({}, { "Content-Type": "application/json", "Origin": "https://evil.example" }))).status).toBe(400)
+    await store().saveProfile(friend, "member", "active", "t")
+    const m = ctx("/api/admin/invite-links", { method: "POST", body: "{}", headers: json })
+    m.data.session = { gid: friend.id, login: friend.login, role: "admin", exp: 9e9, chk: 9e9 }
+    expect((await createLink(m)).status).toBe(403)
+  })
+})
+
+describe("corrections", () => {
+  async function as(user: GitHubUser, role: "admin" | "member") {
+    await ensureSchema(env.DB!)
+    await store().saveProfile(user, role, "active", "t")
+    await store().setAccess(user.id, role, "active")
+    return (path: string, init: Parameters<typeof ctx>[1] = {}) => {
+      const x = ctx(path, init)
+      x.data.session = { gid: user.id, login: user.login, role, exp: 9e9, chk: 9e9 }
+      return x
+    }
+  }
+  const post = (body: unknown, headers: HeadersInit = json) => ({ method: "POST", body: JSON.stringify(body), headers })
+
+  it("collects member corrections for review, then applies approved ones for everyone", async () => {
+    const member = await as(friend, "member")
+    const admin = await as(owner, "admin")
+    expect((await submitCorrection(member("/api/corrections", post({ kind: "category", repo: "a/one", category: "理财与金融" })))).status).toBe(201)
+    expect((await submitCorrection(member("/api/corrections", post({ kind: "term", repo: "a/one", from: "代理技能", to: "智能体技能" })))).status).toBe(201)
+    let applied = await (await appliedCorrections(member("/api/corrections"))).json() as { categories: Record<string, string>, terms: { from: string, to: string }[] }
+    expect(applied).toEqual({ categories: {}, terms: [] })
+    const pending = ((await (await adminCorrections(admin("/api/admin/corrections"))).json()) as { pending: { id: number, kind: string }[] }).pending
+    expect(pending.map(p => p.kind).sort()).toEqual(["category", "term"])
+    for (const p of pending) {
+      const r = admin(`/api/admin/corrections/${p.id}`, { method: "PATCH", body: JSON.stringify({ status: "approved" }), headers: json, params: { id: String(p.id) } })
+      expect((await reviewCorrection(r)).status).toBe(200)
+    }
+    applied = await (await appliedCorrections(member("/api/corrections"))).json() as typeof applied
+    expect(applied).toEqual({ categories: { "a/one": "理财与金融" }, terms: [{ from: "代理技能", to: "智能体技能" }] })
+    // 站长自己提交的直接生效，并且同一项目以最新的为准
+    expect(((await (await submitCorrection(admin("/api/corrections", post({ kind: "category", repo: "a/one", category: "开发工具" })))).json()) as { applied: boolean }).applied).toBe(true)
+    const exported = await (await adminCorrections(admin("/api/admin/corrections?format=export"))).json() as typeof applied
+    expect(exported.categories["a/one"]).toBe("开发工具")
+  })
+  it("validates input and blocks members from reviewing or cross-site posting", async () => {
+    const member = await as(friend, "member")
+    const bad = async (body: unknown) => (await submitCorrection(member("/api/corrections", post(body)))).status
+    expect(await bad({ kind: "category", repo: "a/one", category: "不存在的分类" })).toBe(400)
+    expect(await bad({ kind: "category", category: "开发工具" })).toBe(400)
+    expect(await bad({ kind: "term", from: "代", to: "智能体" })).toBe(400)
+    expect(await bad({ kind: "term", from: "代理", to: "代理" })).toBe(400)
+    expect(await bad({ kind: "term", from: "x".repeat(31), to: "y" })).toBe(400)
+    expect(await bad({ kind: "delete-everything" })).toBe(400)
+    expect((await submitCorrection(member("/api/corrections", post({ kind: "term", from: "代理", to: "智能体" }, { "Content-Type": "application/json", "Origin": "https://evil.example" })))).status).toBe(400)
+    const r = member("/api/admin/corrections/1", { method: "PATCH", body: JSON.stringify({ status: "approved" }), headers: json, params: { id: "1" } })
+    expect((await reviewCorrection(r)).status).toBe(403)
+  })
+  it("tells admins how much is waiting", async () => {
+    const member = await as(friend, "member")
+    const admin = await as(owner, "admin")
+    await store().saveProfile(stranger, "member", "pending", "t")
+    await submitCorrection(member("/api/corrections", post({ kind: "term", from: "代理", to: "智能体" })))
+    const me = await (await meHandler(admin("/api/me"))).json() as { pending: { members: number, corrections: number } }
+    expect(me.pending).toEqual({ members: 1, corrections: 1 })
+    expect(((await (await meHandler(member("/api/me"))).json()) as { pending?: unknown }).pending).toBeUndefined()
   })
 })

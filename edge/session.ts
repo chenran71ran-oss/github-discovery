@@ -52,3 +52,9 @@ export async function verify<T extends { exp: number }>(token: string | undefine
 export function randomToken(bytes = 18) {
   return toBase64Url(crypto.getRandomValues(new Uint8Array(bytes)))
 }
+
+/** 邀请链接令牌的指纹：数据库里只存它，拿到数据库也还原不出可用的链接 */
+export async function sha256(text: string) {
+  const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text))
+  return [...new Uint8Array(digest)].map(b => b.toString(16).padStart(2, "0")).join("")
+}

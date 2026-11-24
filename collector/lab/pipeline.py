@@ -141,6 +141,30 @@ def classify_row(name, r, features: dict, analysis: dict, strategy: Strategy) ->
     return out
 
 
+MACHINE_SOURCES = {"machine", "upstream", "editorial"}
+
+
+def apply_corrections(name: str, row: dict, corrections: dict) -> dict:
+    """Approved member corrections: a category override for this repo, and term fixes in non-AI summaries."""
+    out = {}
+    terms = [t for t in corrections.get("terms") or [] if isinstance(t, dict) and t.get("from") and t.get("to")]
+    if row.get("summary") and row.get("summarySource") in MACHINE_SOURCES and terms:
+        summary = row["summary"]
+        for t in sorted(terms, key=lambda t: -len(t["from"])): summary = summary.replace(t["from"], t["to"])
+        if summary != row["summary"]: out["summary"] = summary
+    label = (corrections.get("categories") or {}).get(name)
+    tax = load()
+    if label in tax.labels:
+        cat = tax.by_label(label)
+        out["category"] = cat.label
+        out["domain"] = cat.domain
+        out["tags"] = [t for t in row.get("tags") or [] if t != cat.label]
+        c = dict(row.get("classification") or {"by": "rules", "strategy": "", "confidence": 1.0, "reasons": []})
+        c["reasons"] = ["成员纠正", *[x for x in c.get("reasons", []) if x != "成员纠正"]][:6]
+        out["classification"] = c
+    return out
+
+
 def enrich(periods: dict, caches: dict, src: Sources, opt: Options, now: datetime):
     """Fills Chinese text and classification on every row. Returns (ready, total, ai_configured)."""
     unique = {r["fullName"]: r for rows in periods.values() for r in rows}
@@ -159,6 +183,7 @@ def enrich(periods: dict, caches: dict, src: Sources, opt: Options, now: datetim
         if update: ready += 1
         merged = {**r, **update}
         update.update(classify_row(name, merged, caches["features"].get(name, {}), caches["analysis"], opt.strategy))
+        update.update(apply_corrections(name, {**merged, **update}, caches.get("corrections") or {}))
         for rows in periods.values():
             for item in rows:
                 if item["fullName"] == name: item.update(update)
