@@ -117,7 +117,7 @@ describe("growth for every row", () => {
 
 describe("member corrections overlay", () => {
   it("changes the category and fixes terms in non-AI summaries only", async () => {
-    const { applyCorrections } = await import("../src/components/discovery/model")
+    const { applyCorrections } = await import("./corrections")
     const row = (fullName: string, extra: Partial<typeof data.periods.daily[number]> = {}) => ({ ...data.periods.daily[0], fullName, category: "开发工具", tags: ["AI 与智能体"], summary: "官方代理技能合集", summarySource: "machine" as const, ...extra })
     const snap = { ...data, periods: { daily: [row("a/one"), row("b/two", { summarySource: "ai-readme" })], weekly: [], monthly: [] } }
     const out = applyCorrections(snap, { categories: { "a/one": "AI 与智能体", "b/two": "不存在" }, terms: [{ from: "代理技能", to: "智能体技能" }] })!

@@ -2,6 +2,7 @@
  * 外交层：页面与外部的全部交互——读取同源 JSON 快照、账号接口、收藏（账号或浏览器存储）。
  * 组件不直接 fetch 或读写 localStorage，换数据源时只改这里。
  */
+import type { AppliedCorrections } from "@shared/corrections"
 import { type DiscoverySnapshot, type Repository, type Trends, isSnapshot, isTrends } from "@shared/discovery"
 
 export const savedKey = "discovery-next-favorites-v1"
@@ -110,10 +111,6 @@ export interface CorrectionRow {
   createdAt: string
   status: "pending" | "approved" | "rejected"
   reviewedBy: string | null
-}
-export interface AppliedCorrections {
-  categories: Record<string, string>
-  terms: { from: string, to: string }[]
 }
 export type CorrectionInput = { kind: "category", repo: string, category: string } | { kind: "term", repo: string, from: string, to: string }
 
