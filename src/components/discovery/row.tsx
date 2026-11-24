@@ -55,12 +55,14 @@ interface RowProps {
   seen: boolean
   /** 今天第一次出现在 GIT Bot 上 */
   fresh: boolean
+  /** 收藏视图：收藏以来新增的 Star（项目今天在榜上时才有） */
+  since?: number
   onSave: (repo: Repository) => void
   onOpen: (repo: Repository) => void
 }
 
 /** 榜单一行：整行可点开解读，书签独立；名次、增量、简介一眼可读。 */
-export const Row = memo(({ repo, period, index, showCategory, selected, saved, seen, fresh, onSave, onOpen }: RowProps) => {
+export const Row = memo(({ repo, period, index, showCategory, selected, saved, seen, fresh, since, onSave, onOpen }: RowProps) => {
   const [owner, name] = repo.fullName.split("/")
   const moved = repo.previousRank ? repo.previousRank - repo.rank : 0
   return (
@@ -96,6 +98,7 @@ export const Row = memo(({ repo, period, index, showCategory, selected, saved, s
             {showCategory && <span className="cat" style={{ "--ch": categoryHues[categoryOf(repo.category).label] ?? 210 } as CSSProperties}>{categoryOf(repo.category).label}</span>}
             {repo.purposes?.[0] && <span className="purpose">{repo.purposes[0]}</span>}
             {repo.summarySource === "machine" && <span className="src" title="只翻译了项目简介，可能不够准确">机翻</span>}
+            {since !== undefined && since !== 0 && <span className={`since ${since > 0 ? "up" : "down"}`} title="与收藏时的 Star 数相比">{`收藏以来 ${since > 0 ? "+" : "−"}${compact(Math.abs(since))}`}</span>}
             {moved !== 0 && <span className={`move ${moved > 0 ? "up" : "down"}`} title="与昨日名次相比">{`${moved > 0 ? "↑" : "↓"}${Math.abs(moved)}`}</span>}
           </span>
         </span>

@@ -98,8 +98,9 @@ export const breakoutRules: Record<Period, { share: number, min: number }> = {
   weekly: { share: 0.25, min: 1000 },
   monthly: { share: 0.5, min: 3000 },
 }
-export function isBreakout(repo: Pick<Repository, "stars" | "periodStars">, period: Period) {
-  const gain = repo.periodStars
+/** 爆发：周期增长（Trending 的或快照差值）既多、占总 Star 的比例又高 */
+export function isBreakout(repo: Pick<Repository, "stars" | "periodStars" | "starDelta" | "starDeltaDays">, period: Period) {
+  const gain = growthOf(repo)?.value ?? null
   if (gain === null || repo.stars <= 0) return false
   const rule = breakoutRules[period]
   return gain >= rule.min && gain / repo.stars >= rule.share
@@ -116,6 +117,16 @@ export function growthOf(repo: Pick<Repository, "periodStars" | "starDelta" | "s
 /** 增长的热度 0–1（对数刻度，约 5000 Star 封顶），用于颜色深浅；不增长为 0 */
 export function heatOf(value: number) {
   return value <= 0 ? 0 : Math.min(1, Math.log10(value + 1) / Math.log10(5001))
+}
+/** 采集器生成的 trends.json：最近若干天每个项目的总 Star 与日榜名次，null 表示当天没上榜 */
+export interface Trends {
+  days: string[]
+  repos: Record<string, { stars: (number | null)[], rank: (number | null)[] }>
+}
+export function isTrends(v: unknown): v is Trends {
+  const t = v as Trends
+  return !!t && Array.isArray(t.days) && t.days.length > 0 && !!t.repos && typeof t.repos === "object"
+    && Object.values(t.repos).every(r => Array.isArray(r?.stars) && r.stars.length === t.days.length && Array.isArray(r.rank) && r.rank.length === t.days.length)
 }
 export const categoryNames = ["全部", ...categories.map(c => c.label), fallback.label]
 export function compact(n: number) {

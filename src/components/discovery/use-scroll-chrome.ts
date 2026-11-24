@@ -7,40 +7,33 @@ export function holdChrome(ms: number) {
 }
 
 /**
- * 顶部与底部的悬浮玻璃栏：滑动时淡出，停下来后淡入。
- * - 连续滑过 travel 像素才收起，轻微的滚动不会让栏闪一下；
- * - 停止滚动 idle 毫秒后浮现；iOS 惯性滚动期间会持续触发 scroll，所以惯性结束后才浮现；
- * - 页面顶部附近、以及键盘切换项目时始终显示。
+ * 顶部悬浮栏：往下浏览时收起并保持收起，停下来也不出现，界面保持干净；
+ * 明确往回滑（连续向上 reveal 像素）、回到页面顶部附近、滑到底部，或键盘切换项目时才出现。
+ * - 连续向下滑过 travel 像素才收起，轻微的滚动不会让栏闪一下；
+ * - iOS 惯性回弹会产生小幅反向滚动，reveal 设得比 travel 大，避免误触发。
  */
-export function useScrollChrome(idle = 260, edge = 64, travel = 24) {
+export function useScrollChrome(edge = 64, travel = 24, reveal = 56) {
   const [hidden, setHidden] = useState(false)
   useEffect(() => {
     let last = window.scrollY
     let moved = 0
-    let timer = 0
     const onScroll = () => {
       const y = window.scrollY
       const delta = y - last
       last = y
-      window.clearTimeout(timer)
-      if (y < edge || Date.now() < heldUntil) {
+      const bottom = y + window.innerHeight >= document.documentElement.scrollHeight - 4
+      if (y < edge || bottom || Date.now() < heldUntil) {
         moved = 0
         setHidden(false)
         return
       }
       // 换方向时重新累计
       moved = Math.sign(delta) === Math.sign(moved) ? moved + delta : delta
-      if (Math.abs(moved) > travel) setHidden(true)
-      timer = window.setTimeout(() => {
-        moved = 0
-        setHidden(false)
-      }, idle)
+      if (moved > travel) setHidden(true)
+      else if (moved < -reveal) setHidden(false)
     }
     window.addEventListener("scroll", onScroll, { passive: true })
-    return () => {
-      window.removeEventListener("scroll", onScroll)
-      window.clearTimeout(timer)
-    }
-  }, [idle, edge, travel])
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [edge, travel, reveal])
   return hidden
 }

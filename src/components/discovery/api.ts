@@ -2,7 +2,7 @@
  * 外交层：页面与外部的全部交互——读取同源 JSON 快照、账号接口、收藏（账号或浏览器存储）。
  * 组件不直接 fetch 或读写 localStorage，换数据源时只改这里。
  */
-import { type DiscoverySnapshot, type Repository, isSnapshot } from "@shared/discovery"
+import { type DiscoverySnapshot, type Repository, type Trends, isSnapshot, isTrends } from "@shared/discovery"
 
 export const savedKey = "discovery-next-favorites-v1"
 const fullName = /^[\w.-]+\/[\w.-]+$/
@@ -28,6 +28,15 @@ export async function loadSnapshot(date = "", signal?: AbortSignal): Promise<Dis
   const value: unknown = await response.json()
   if (!isSnapshot(value)) throw new Error("榜单数据格式异常，暂时无法展示。")
   return value
+}
+
+/** 趋势数据；还没生成（旧数据）或格式不对时返回 null，详情里就不显示趋势 */
+export async function loadTrends(): Promise<Trends | null> {
+  const response = await fetch("/data/trends.json")
+  if (response.status === 401) toLogin()
+  if (!response.ok) return null
+  const value: unknown = await response.json().catch(() => null)
+  return isTrends(value) ? value : null
 }
 
 export async function loadDates(): Promise<string[]> {

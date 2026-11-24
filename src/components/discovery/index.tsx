@@ -232,6 +232,7 @@ export function Discovery() {
   const freshCount = useMemo(() => filteredRows.filter(isFresh).length, [filteredRows, isFresh])
   const unseenCount = useMemo(() => filteredRows.filter(r => !seen.has(r.fullName)).length, [filteredRows, seen])
   const showing = view === "saved" ? "all" : show
+  const onListCount = useMemo(() => view === "saved" ? source.filter(r => r.rank).length : 0, [view, source])
   const repos = useMemo(() => showing === "new" ? filteredRows.filter(isFresh) : showing === "unseen" ? filteredRows.filter(r => !(unseenBase || seen).has(r.fullName)) : filteredRows, [filteredRows, showing, isFresh, unseenBase, seen])
   // 搜索时，被领域 / 分类 / 语言筛选挡住的匹配项数量，提示用户不要漏看
   const hiddenMatches = useMemo(() => q.trim() && (language || domain || category) ? visibleRows(source, { q, language: "", domain: "", category: "", sort }).length - filteredRows.length : 0, [source, q, language, domain, category, sort, filteredRows.length])
@@ -311,7 +312,7 @@ export function Discovery() {
       ? (
           <ol className="rows" key={listKey} ref={listRef}>
             {repos.map((repo, i) => (
-              <Row key={repo.fullName} repo={repo} period={period} index={i} showCategory={!category} selected={wide && active?.fullName === repo.fullName} saved={!!saved[repo.fullName]} seen={seen.has(repo.fullName) && !(wide && active?.fullName === repo.fullName)} fresh={isFresh(repo)} onSave={toggleSave} onOpen={open} />
+              <Row key={repo.fullName} repo={repo} period={period} index={i} showCategory={!category} selected={wide && active?.fullName === repo.fullName} saved={!!saved[repo.fullName]} seen={seen.has(repo.fullName) && !(wide && active?.fullName === repo.fullName)} fresh={isFresh(repo)} since={view === "saved" && repo.rank ? repo.stars - (saved[repo.fullName]?.stars ?? repo.stars) : undefined} onSave={toggleSave} onOpen={open} />
             ))}
           </ol>
         )
@@ -333,25 +334,21 @@ export function Discovery() {
           </div>
         )
 
-  const discoverLabel = (
-    <>
-      <Icon name="compass" />
-      发现
-    </>
-  )
-  const savedLabel = (
-    <>
-      <Icon name="bookmark" />
-      收藏
-      {savedCount > 0 && <span className="badge-n">{savedCount}</span>}
-    </>
-  )
-
   return (
     <div className="radar-app" data-mode={mode}>
       <div className="backdrop" aria-hidden="true" />
       <header className={`chrome top glass ${chromeHidden ? "hidden" : ""}`}>
-        <a className="brand" href="/" aria-label="GIT Bot 首页">
+        <a
+          className="brand"
+          href="/"
+          aria-label="GIT Bot 首页：回到发现"
+          onClick={(e) => {
+            // 不整页刷新，回到发现视图
+            if (e.metaKey || e.ctrlKey || e.shiftKey) return
+            e.preventDefault()
+            switchView("discover")
+          }}
+        >
           <span className="brand-mark"><Icon name="bot" /></span>
           <span className="brand-name">
             GIT
@@ -367,6 +364,17 @@ export function Discovery() {
           options={periods.map(p => ({ value: p, label: labels[p] }))}
         />
         <i className="chrome-sep" aria-hidden="true" />
+        <button
+          type="button"
+          className={`icon-btn saved-toggle ${view === "saved" ? "on" : ""}`}
+          aria-pressed={view === "saved"}
+          aria-label={view === "saved" ? `返回发现（当前是收藏，共 ${savedCount} 个）` : `我的收藏，共 ${savedCount} 个`}
+          title={view === "saved" ? "返回发现" : "我的收藏"}
+          onClick={() => switchView(view === "saved" ? "discover" : "saved")}
+        >
+          <Icon name="bookmark" />
+          {savedCount > 0 && <span className="badge-n">{savedCount > 99 ? "99+" : savedCount}</span>}
+        </button>
         <ModeToggle dark={isDark} onToggle={toggleMode} />
         {me.data && <AccountButton me={me.data} onManage={() => setManaging(true)} />}
       </header>
@@ -410,6 +418,9 @@ export function Discovery() {
               {view === "saved" ? "我的收藏" : `${labels[period]}榜单`}
               <span className="count">{query.isPending ? "" : repos.length}</span>
             </h1>
+            {view === "saved" && data && savedCount > 0 && (
+              <span className="saved-live" title="收藏的项目里，今天出现在这个周期榜单上的">{`${onListCount} 个今天在榜`}</span>
+            )}
             {view === "discover" && data && (
               <div className="show-filter" role="group" aria-label="只看">
                 <button type="button" aria-pressed={show === "new"} onClick={() => chooseShow(show === "new" ? "all" : "new")} title="今天第一次出现在 GIT Bot 上的项目">
@@ -480,18 +491,6 @@ export function Discovery() {
 
       {managing && <MembersPanel onClose={() => setManaging(false)} notify={setNotice} />}
       {!wide && active && <RepoSheet key={active.fullName} repo={active} period={period} saved={!!saved[active.fullName]} onSave={() => toggleSave(active)} onClose={() => setActiveName("")} onCopyLink={() => copyLink(active)} />}
-      <nav className={`chrome bottom ${chromeHidden ? "hidden" : ""}`} aria-label="底部导航">
-        <Segmented<"discover" | "saved">
-          className="tabs glass"
-          label="视图"
-          value={view}
-          onChange={switchView}
-          options={[
-            { value: "discover", label: discoverLabel },
-            { value: "saved", label: savedLabel },
-          ]}
-        />
-      </nav>
       <div role="status" aria-live="polite" className={`toast ${notice ? "visible" : ""}`}>{notice}</div>
       {updateReady && !notice && (
         <button type="button" className="update-pill" onClick={() => void applyPwaUpdate().catch(() => setNotice("更新没有成功，请手动刷新页面"))}>

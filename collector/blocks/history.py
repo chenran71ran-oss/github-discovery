@@ -59,3 +59,20 @@ def build_first_seen(snapshots: dict[str, dict]) -> dict[str, str]:
     for day in sorted(snapshots):
         for name in stars_by_repo(snapshots[day]): index.setdefault(name, day)
     return index
+
+
+def build_trends(snapshots: dict[str, dict], names: set[str], days: int = 14) -> dict:
+    """Per-repo daily total stars and daily rank for the last `days` published snapshots.
+
+    Output: {"days": [d1..dn], "repos": {name: {"stars": [..], "rank": [..]}}} with null where the repo
+    was not listed that day. Only repos in `names` (today's snapshot) are kept, so the file stays small.
+    """
+    order = sorted(snapshots)[-days:]
+    stars = {d: stars_by_repo(snapshots[d]) for d in order}
+    ranks = {d: {r["fullName"]: r.get("rank") or None for r in (snapshots[d].get("periods") or {}).get("daily", [])} for d in order}
+    repos = {}
+    for name in sorted(names):
+        s = [stars[d].get(name) for d in order]
+        if sum(v is not None for v in s) < 2: continue
+        repos[name] = {"stars": s, "rank": [ranks[d].get(name) for d in order]}
+    return {"days": order, "repos": repos}
