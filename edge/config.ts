@@ -36,7 +36,4 @@ export const MAX_SEEN = 5000
 export const INVITE_TOKEN = /^[\w-]{32}$/
 export const INVITE_MAX_DAYS = 30
 export const INVITE_MAX_USES = 50
-/** 纠错：术语长度上限、每人最多待审数量 */
-export const TERM_MAX = 30
-export const MAX_PENDING_CORRECTIONS = 30
 export const REPO_NAME = /^[a-z\d-]{1,39}\/(?!\.\.?$)[\w.-]{1,100}$/i

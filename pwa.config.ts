@@ -9,8 +9,7 @@ const pwaOption: Partial<VitePWAOptions> = {
   manifest: {
     name: "GIT Bot",
     short_name: "GIT Bot",
-    description: "用中文发现下一个好项目",
-    theme_color: "#4f7cff",
+    theme_color: "#0067c0",
     icons: [
       {
         src: "pwa-192x192.png",

@@ -1,5 +1,5 @@
 import { type FormEvent, useCallback, useEffect, useRef, useState } from "react"
-import { type CorrectionRow, type InviteLinkRow, type InviteRow, type Me, type MemberRow, type Role, accountApi } from "./api"
+import { type InviteLinkRow, type InviteRow, type Me, type MemberRow, type Role, accountApi } from "./api"
 import { Icon } from "./icons"
 import { Section } from "./section"
 import { useScrollLock } from "./use-scroll-lock"
@@ -18,7 +18,7 @@ function Avatar({ src, login, size = 28 }: { src: string | null, login: string, 
 /** 顶部状态栏里的头像：点开是账号菜单 */
 export function AccountButton({ me, onManage }: { me: Me, onManage: () => void }) {
   const [open, setOpen] = useState(false)
-  const waiting = (me.pending?.members ?? 0) + (me.pending?.corrections ?? 0)
+  const waiting = me.pending?.members ?? 0
   const ref = useRef<HTMLDivElement>(null)
   useEffect(() => {
     if (!open) return
@@ -36,7 +36,7 @@ export function AccountButton({ me, onManage }: { me: Me, onManage: () => void }
     <div className="account" ref={ref}>
       <button type="button" className="account-btn" aria-haspopup="menu" aria-expanded={open} aria-label={`账号：${me.login}`} title={me.login} onClick={() => setOpen(o => !o)}>
         <Avatar src={me.avatar} login={me.login} />
-        {waiting > 0 && <span className="dot" aria-label={`${waiting} 项待处理`} />}
+        {waiting > 0 && <span className="dot" aria-label={`${waiting} 人待审批`} />}
       </button>
       {open && (
         <div className="account-menu" role="menu">
@@ -82,7 +82,6 @@ export function MembersPanel({ onClose, notify }: { onClose: () => void, notify:
   const [role, setRole] = useState<Role>("member")
   const [confirmId, setConfirmId] = useState<number | null>(null)
   const [links, setLinks] = useState<InviteLinkRow[]>([])
-  const [fixes, setFixes] = useState<{ pending: CorrectionRow[], approved: CorrectionRow[], approvedTotal: number } | null>(null)
   const [linkDays, setLinkDays] = useState(7)
   const [linkUses, setLinkUses] = useState(1)
   const [linkRole, setLinkRole] = useState<Role>("member")
@@ -90,10 +89,9 @@ export function MembersPanel({ onClose, notify }: { onClose: () => void, notify:
   useScrollLock(true)
   const reload = useCallback(async () => {
     try {
-      const [m, l, f] = await Promise.all([accountApi.members(), accountApi.inviteLinks(), accountApi.corrections()])
+      const [m, l] = await Promise.all([accountApi.members(), accountApi.inviteLinks()])
       setData(m)
       setLinks(l.links)
-      setFixes(f)
       setError("")
     } catch (e) {
       setError(e instanceof Error ? e.message : "读取成员失败")
@@ -128,10 +126,6 @@ export function MembersPanel({ onClose, notify }: { onClose: () => void, notify:
     setFresh(r)
     await navigator.clipboard?.writeText(r.url).catch(() => {})
   }, "邀请链接已生成并复制，发给好友即可")
-  const exportFixes = () => void act(async () => {
-    const all = await accountApi.exportCorrections()
-    await navigator.clipboard.writeText(`${JSON.stringify(all, null, 2)}\n`)
-  }, "已复制，粘贴到仓库的 collector/corrections.json 即可让采集器从源头改正")
   const pending = data?.members.filter(m => m.status === "pending") ?? []
   const members = data?.members.filter(m => m.status !== "pending") ?? []
   const locked = (m: MemberRow) => m.owner || m.id === data?.me
@@ -232,31 +226,6 @@ export function MembersPanel({ onClose, notify }: { onClose: () => void, notify:
                   ))}
                 </ul>
               )}
-        </Section>
-        <Section title="纠错审核" chip={fixes ? `${fixes.pending.length} 条待审` : "读取中"} tone={fixes?.pending.length ? "warn" : "neutral"}>
-          {!fixes || fixes.pending.length === 0
-            ? <p className="mp-empty">没有待审核的纠错。成员在项目解读里点「分错了？」「译得不对？」提交的会出现在这里。</p>
-            : (
-                <ul className="mp-list">
-                  {fixes.pending.map(f => (
-                    <li key={f.id}>
-                      <span className="mp-name">
-                        {f.kind === "category" ? `分类 → ${f.category}` : `「${f.from}」→「${f.to}」`}
-                        <small>{`${f.repo ?? "全局"} · @${f.by}`}</small>
-                      </span>
-                      <button type="button" className="act primary sm" disabled={busy} onClick={() => void act(() => accountApi.reviewCorrection(f.id, "approved"), "已通过，对所有人生效")}>通过</button>
-                      <button type="button" className="link" disabled={busy} onClick={() => void act(() => accountApi.reviewCorrection(f.id, "rejected"), "已驳回")}>驳回</button>
-                    </li>
-                  ))}
-                </ul>
-              )}
-          {fixes && fixes.approvedTotal > 0 && (
-            <p className="mp-empty">
-              {`已生效 ${fixes.approvedTotal} 条。`}
-              <button type="button" className="link" disabled={busy} onClick={exportFixes}>复制导出 JSON</button>
-              ，提交到仓库后采集器也会按它改正。
-            </p>
-          )}
         </Section>
         <Section title="成员" chip={data ? `${members.length} 人` : "读取中"}>
           <ul className="mp-list">

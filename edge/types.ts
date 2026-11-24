@@ -65,22 +65,6 @@ export interface InviteLink {
   revoked_at: string | null
 }
 
-export type CorrectionKind = "category" | "term"
-export type CorrectionStatus = "pending" | "approved" | "rejected"
-export interface Correction {
-  id: number
-  kind: CorrectionKind
-  repo: string | null
-  /** category：{"category": 标签}；term：{"from": 原译法, "to": 正确译法} */
-  value: string
-  github_id: number
-  login: string
-  created_at: string
-  status: CorrectionStatus
-  reviewed_by: string | null
-  reviewed_at: string | null
-}
-
 export interface Session {
   gid: number
   login: string
