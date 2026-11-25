@@ -2,7 +2,6 @@ import { type KeyboardEvent, type PointerEvent, useId, useMemo, useState } from 
 import { useQuery } from "@tanstack/react-query"
 import { compact } from "@shared/discovery"
 import { loadTrends } from "../api"
-import { Module } from "./module"
 
 const W = 300
 const H = 76
@@ -67,8 +66,12 @@ function Trend({ days, stars, rank }: { days: string[], stars: (number | null)[]
   const summary = `${day(days[first.i])} 到 ${day(days[last.i])}，Star 从 ${compact(first.v)} 到 ${compact(last.v)}，上榜 ${listed.length} 天${best ? `，日榜最高第 ${best} 名` : ""}`
 
   return (
-    <Module title={`最近 ${days.length} 天`} meta={`${gained >= 0 ? "+" : "−"}${compact(Math.abs(gained))} Star`}>
-      <div className="trend">
+    <div className="trend">
+      <div className="trend-head">
+        <span>{`最近 ${days.length} 天`}</span>
+        <span>{`${gained >= 0 ? "+" : "−"}${compact(Math.abs(gained))} Star`}</span>
+      </div>
+      <div>
         <div className="trend-read" aria-hidden="true">
           <span>{day(days[focus])}</span>
           <b>{fv !== null ? `${compact(fv)} Star` : "未收录"}</b>
@@ -96,6 +99,6 @@ function Trend({ days, stars, rank }: { days: string[], stars: (number | null)[]
         </div>
         <p className="trend-note">{`上榜 ${listed.length} / ${days.length} 天${best ? ` · 日榜最高 #${best}` : ""}`}</p>
       </div>
-    </Module>
+    </div>
   )
 }
