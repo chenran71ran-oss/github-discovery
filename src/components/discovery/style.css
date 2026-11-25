@@ -302,8 +302,37 @@
 .radar-app .sec-chip.warn::before { background: #f59e0b; }
 .radar-app .sec-chip.accent::before { background: var(--accent); }
 .radar-app .sec-chip.neutral::before { display: none; }
-.radar-app .insight .sec p { margin: 0; font-size: 14px; line-height: 1.7; }
-.radar-app .insight ul { margin: 0; padding-left: 18px; line-height: 1.7; }
+/* ---------- 项目解读：模块化，三种颜色（中性灰 / 强调蓝 / 增长红） ---------- */
+.radar-app .insight { gap: 12px; }
+.radar-app .ins-top { display: grid; gap: 10px; padding: 2px 2px 4px; }
+.radar-app .ins-lead { margin: 0; color: var(--ink); font-size: 15px; line-height: 1.7; }
+.radar-app .ins-source { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; color: var(--faint); font-size: 12px; }
+.radar-app .mod { display: grid; gap: 10px; padding: 12px 14px 14px; border-radius: 12px; box-shadow: inset 0 0 0 1px var(--line); }
+.radar-app .mod-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.radar-app .mod-head h3 { margin: 0; color: var(--muted); font-size: 12.5px; font-weight: 700; letter-spacing: 0.04em; }
+.radar-app .mod-meta { color: var(--faint); font-size: 12px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.radar-app .mod p { margin: 0; font-size: 14px; line-height: 1.7; }
+.radar-app .mod-more summary { width: max-content; color: var(--muted); font-size: 12.5px; cursor: pointer; list-style: none; }
+.radar-app .mod-more summary::-webkit-details-marker { display: none; }
+.radar-app .mod-more summary::after { content: " ›"; display: inline-block; transition: transform 0.15s; }
+.radar-app .mod-more[open] summary::after { transform: rotate(90deg); }
+.radar-app .mod-more > :not(summary) { margin-top: 8px !important; }
+.radar-app .ins-source .mod-more p { color: var(--muted); font-size: 13px; line-height: 1.6; }
+.radar-app .ins-cats { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.radar-app .ins-domain { color: var(--faint); font-size: 12.5px; }
+.radar-app .ins-domain::after { content: " /"; }
+.radar-app .ins-cat { padding: 3px 10px; border-radius: 8px; background: var(--accent-soft); color: var(--accent-text); font-size: 13.5px; font-weight: 700; }
+.radar-app .chip-n { display: inline-flex; align-items: center; height: 24px; padding: 0 9px; border-radius: 7px; background: var(--field); color: var(--muted); font-size: 12.5px; }
+.radar-app .ins-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.radar-app .ins-line { color: var(--muted); font-size: 13px !important; }
+.radar-app .ins-line span { margin-right: 8px; color: var(--faint); font-size: 12px; }
+.radar-app .ins-topics { color: var(--faint); font-size: 12.5px !important; line-height: 1.7 !important; word-break: break-word; }
+.radar-app .ins-list { margin: 0; padding-left: 18px; font-size: 14px; line-height: 1.7; }
+/* 解读里只用三种颜色：下跌不再用绿色，改为中性灰 */
+.radar-app .insight .move.down,
+.radar-app .insight .gain.down { color: var(--muted); }
+/* 头像还没加载出来时的首字母底色，在解读里也用中性灰 */
+.radar-app .insight .repo-icon-letter { background: var(--field) !important; color: var(--muted) !important; }
 .radar-app .ins-head { display: grid; grid-template-columns: 48px minmax(0, 1fr) auto; align-items: center; gap: 12px; }
 .radar-app .ins-head .repo-icon { width: 48px; height: 48px; border-radius: 12px; }
 .radar-app .ins-title { min-width: 0; }
@@ -340,11 +369,6 @@
 .radar-app .ins-stats dd .gain { font-size: 16px; }
 .radar-app .ins-stats dd .gain.age { font-size: 13px; }
 .radar-app .ins-stats small { font-size: 11.5px; }
-.radar-app .ins-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-.radar-app .ins-tags span { display: inline-flex; align-items: center; gap: 5px; height: 24px; padding: 0 9px; border-radius: 7px; background: var(--field); color: var(--muted); font-size: 12.5px; }
-.radar-app .origin { display: block; margin-top: 6px; color: var(--faint); font-size: 12px; }
-.radar-app .original summary { color: var(--muted); font-size: 13px; cursor: pointer; }
-.radar-app .original p { margin: 6px 0 0; color: var(--muted); font-size: 13.5px; }
 .radar-app .ins-actions { display: grid; grid-template-columns: 1fr auto auto; gap: 8px; }
 /* 主要操作固定在侧栏 / 面板底部，内容再长也不用滚到底才看得到 */
 .radar-app .pane .ins-actions,
@@ -365,22 +389,8 @@
 .radar-app .keys span { display: inline-flex; align-items: center; gap: 4px; }
 
 /* GIT Bot 分类卡片与分布 */
-.radar-app .classified { gap: 9px; }
-.radar-app .cls-main { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
-.radar-app .cls-domain { color: var(--faint); font-size: 12.5px; }
-.radar-app .cls-domain::after { content: " /"; }
-.radar-app .cls-cat { padding: 2px 10px; border-radius: 8px; background: hsl(var(--ch) 60% 50% / 0.18); color: hsl(var(--ch) 60% var(--cat-l, 76%)); font-weight: 700; }
-.radar-app[data-mode="light"] .cls-cat { --cat-l: 34%; }
-.radar-app .cls-tag { padding: 2px 8px; border-radius: 8px; box-shadow: inset 0 0 0 1px var(--line-strong); color: var(--muted); font-size: 12.5px; }
-.radar-app .cls-meter { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 8px; color: var(--faint); font-size: 12px; }
-.radar-app .cls-meter i,
 .radar-app .spread i { display: block; height: 6px; overflow: hidden; border-radius: 3px; background: var(--line); }
-.radar-app .cls-meter b,
 .radar-app .spread b { display: block; height: 100%; border-radius: 3px; background: var(--accent); transition: width 0.4s var(--ease); }
-.radar-app .insight .cls-why { display: flex; flex-wrap: wrap; gap: 4px; margin: 0; padding: 0; list-style: none; }
-.radar-app .cls-why li { padding: 1px 8px; border-radius: 6px; background: var(--hover); color: var(--muted); font-size: 12px; }
-.radar-app .cls-line { margin: 0 !important; color: var(--muted); font-size: 13px !important; line-height: 1.6 !important; }
-.radar-app .cls-line span { margin-right: 8px; color: var(--faint); font-size: 12px; }
 .radar-app .spread { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
 .radar-app .spread li { display: grid; grid-template-columns: 34px 1fr 30px; align-items: center; column-gap: 8px; row-gap: 3px; font-size: 13px; }
 .radar-app .sp-label { font-weight: 650; }
