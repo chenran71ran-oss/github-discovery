@@ -1,8 +1,8 @@
 import { type KeyboardEvent, type PointerEvent, useId, useMemo, useState } from "react"
 import { useQuery } from "@tanstack/react-query"
 import { compact } from "@shared/discovery"
-import { loadTrends } from "./api"
-import { Section } from "./section"
+import { loadTrends } from "../api"
+import { Module } from "./module"
 
 const W = 300
 const H = 76
@@ -14,7 +14,7 @@ const day = (d: string) => `${Number(d.slice(5, 7))}/${Number(d.slice(8, 10))}`
  * 详情里的「最近 14 天」：总 Star 的走势（单一折线，不叠第二条刻度），
  * 名次放在文字里。悬停或用左右键查看每天的数字。
  */
-export function TrendSection({ fullName }: { fullName: string }) {
+export function InsightTrend({ fullName }: { fullName: string }) {
   const trends = useQuery({ queryKey: ["trends"], queryFn: loadTrends, staleTime: 600_000, retry: 1, refetchOnWindowFocus: false })
   const series = trends.data?.repos[fullName]
   if (!trends.data || !series || series.stars.filter(v => v !== null).length < 2) return null
@@ -67,7 +67,7 @@ function Trend({ days, stars, rank }: { days: string[], stars: (number | null)[]
   const summary = `${day(days[first.i])} 到 ${day(days[last.i])}，Star 从 ${compact(first.v)} 到 ${compact(last.v)}，上榜 ${listed.length} 天${best ? `，日榜最高第 ${best} 名` : ""}`
 
   return (
-    <Section title={`最近 ${days.length} 天`} chip={`${gained >= 0 ? "+" : "−"}${compact(Math.abs(gained))} Star`} tone={gained > 0 ? "accent" : "neutral"}>
+    <Module title={`最近 ${days.length} 天`} meta={`${gained >= 0 ? "+" : "−"}${compact(Math.abs(gained))} Star`}>
       <div className="trend">
         <div className="trend-read" aria-hidden="true">
           <span>{day(days[focus])}</span>
@@ -96,6 +96,6 @@ function Trend({ days, stars, rank }: { days: string[], stars: (number | null)[]
         </div>
         <p className="trend-note">{`上榜 ${listed.length} / ${days.length} 天${best ? ` · 日榜最高 #${best}` : ""}`}</p>
       </div>
-    </Section>
+    </Module>
   )
 }

@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react"
 import { type DiscoverySnapshot, type Period, type Repository, compact, isBreakout } from "@shared/discovery"
-import { time } from "./detail"
+import { time } from "./format"
 import { Icon, RepoIcon } from "./icons"
 import { distribution } from "./model"
 import { categoryHues, labels } from "./row"
