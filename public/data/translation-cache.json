@@ -870,9 +870,9 @@
     "at": "2026-10-30T13:49:17.238303+08:00"
   },
   "mw00/project-maya": {
-    "hash": "f2e4d91c04b2b9b8b274895dcc74bd9ceff9813173947b0845581f179751d042",
-    "summary": "在您自己的 GPU 上运行 GLM-5.3 (744B)、DeepSeek-V4.1-Flash (748B)、MiniMax-M3.1-Flash (428B)、GLM-5.3-Flash (321B) 和 Hy4-Flash (220B)——从 8 GB 的 VRAM 开始，支持 NVIDIA 和 AMD，一个仪表板，兼容 OpenAI 和 Anthropic 的 API。",
-    "at": "2026-11-20T15:29:56.243932+08:00"
+    "hash": "bdaf5a43111aeae91886c23a0476e4437c47fe96fbd72da048ee61d640306ae2",
+    "summary": "在你自己的 GPU 上运行 GLM-5.3 (744B)、DeepSeek-V4.1-Flash (748B)、MiniMax-M3.1-Flash (428B)、GLM-5.3-Flash (321B)、Hy4-Flash (220B) 和 Inkling 2 Mini (26B)——从 8 GB 的 VRAM 开始，支持 NVIDIA 和 AMD，一个仪表板，兼容 OpenAI 和 Anthropic 的 API。",
+    "at": "2026-11-25T16:51:20.382616+08:00"
   },
   "shaongitbd/doory": {
     "hash": "820970a5549ad70e59aa212093b80f9bef3967b6274f820324b181be72ef8c6a",
@@ -1305,9 +1305,9 @@
     "at": "2026-10-30T13:49:17.238303+08:00"
   },
   "jub0t/Concat": {
-    "hash": "f3a6297dd2b04a6c4035835f3d99ec4ff4eb278fab0780615b1740c984548a5b",
-    "summary": "Beta ：真正免费、开源、本地优先、跨平台的视频编辑器。可通过JSON-RPC API和MCP编写脚本。",
-    "at": "2026-11-06T15:00:22.164862+08:00"
+    "hash": "d22b21fab5b46e8966e288ef7a8cc38b8960f6881159a376312d23bb77c17db4",
+    "summary": "开源的 CapCut 替代品。",
+    "at": "2026-11-25T16:51:20.382616+08:00"
   },
   "deeplethe/utopia": {
     "hash": "3f4994f0f81c4fd39a337ecd480e98aa7f695ee585d473846a58f43e40b57c02",
@@ -5820,9 +5820,9 @@
     "at": "2026-11-11T14:46:54.915836+08:00"
   },
   "Moh4696/cinematic-skill": {
-    "hash": "acf7190f3513a0f34665c2e84c962ffb804b792313d5f38b27e295f129f3b4d2",
-    "summary": "完全由代码构建的叙述性电影的代理技巧：一个连续的相机在照片，地图和卡片上，定时到声音。Claude Code、Codex、Cursor、Gemini CLI。",
-    "at": "2026-11-11T14:46:54.915836+08:00"
+    "hash": "d5d522370f7a4e56a712522a321da43af2a5eef4870df7163b0a1830f81e2678",
+    "summary": "完全由代码构建的叙事电影影片的智能体技能。",
+    "at": "2026-11-25T16:51:20.382616+08:00"
   },
   "Morvex885/pulsar": {
     "hash": "ebbab828985eb7d6facce467e7cc84057ea676dc62a27d1f55ad2e89d2137ca0",
@@ -6590,9 +6590,9 @@
     "at": "2026-11-16T14:49:14.015725+08:00"
   },
   "elementalsouls/Claude-BugHunter": {
-    "hash": "3174c7ebe5d65dd7beef86fb209c5004844a1f61f6a8a36c8c4fb614e822f3bb",
-    "summary": "一个用于漏洞挖掘和外部红队工作的Claude Code技能包——82项技能、15个斜杠命令、681个披露报告模式（涵盖24个核心漏洞类别），以及企业身份+基础设施攻击矩阵。",
-    "at": "2026-11-16T14:49:14.015725+08:00"
+    "hash": "4b88fb24849a6863fec33b934f4543b95ada510d5daf1722436751aafffe8484",
+    "summary": "用于漏洞挖掘和外部红队工作的 Claude Code 技能包——84 项技能、15 个斜杠命令、681 个披露报告模式（涵盖 24 个核心漏洞类别），以及企业身份 + 基础设施攻击矩阵。",
+    "at": "2026-11-25T16:51:20.382616+08:00"
   },
   "NVIDIA/SkillEvaluator": {
     "hash": "166390b685511e5741469f9b61101752f8756c764a278ff9485e1220cd0982d1",
@@ -7290,9 +7290,9 @@
     "at": "2026-11-18T15:42:53.286735+08:00"
   },
   "vercel-labs/ui": {
-    "hash": "db8cfcda3bb528707e9f2f119bd76953f6a112c55649f1186faffda6bc8b70ac",
-    "summary": "一个用于代理构建下一代用户界面的行为库。",
-    "at": "2026-11-18T15:42:53.286735+08:00"
+    "hash": "c6d69f75063c7426ddcfa0cf704d4cebbb77234ec4b90f948711abcef09f9bde",
+    "summary": "一个行为库，供代理用于构建和推动下一代用户界面。",
+    "at": "2026-11-25T16:51:20.382616+08:00"
   },
   "vAPI-Network/vapi-network": {
     "hash": "f4420f70c563e280c51469fdcf8150071028a3da4825aad290e944cdd3e5971c",
@@ -7470,9 +7470,9 @@
     "at": "2026-11-19T15:39:09.482401+08:00"
   },
   "firecrawl/firecrawl": {
-    "hash": "0db4c86b351244bbaa2ed378a5de37faeb2b0c8be3d4c53c9b27902b68c2c81d",
-    "summary": "让您的客服代表更聪明的知识基础设施。通过一个 API 进行搜索、抓取并访问 550 多家数据提供商。",
-    "at": "2026-11-20T15:29:56.243932+08:00"
+    "hash": "eea8346683fbbdbbf55e81f8df22dce290ab36dfc92ec6ca16f7c84d59407bb3",
+    "summary": "让你的客服代表更聪明的知识基础设施。通过一个 API 搜索、抓取和访问 550 多个数据提供商。",
+    "at": "2026-11-25T16:51:20.382616+08:00"
   },
   "nginx/nginx": {
     "hash": "b89fbde855e8c7c8dd51332d90ce7de8d676610cb886774b2d64a7b0e7eecea0",
@@ -7480,9 +7480,9 @@
     "at": "2026-11-20T15:29:56.243932+08:00"
   },
   "cathrynlavery/diagram-design": {
-    "hash": "c4434798c9b36e4239fe4b05c3873cca82f3d669a8f3465206eb30430d9dd74c",
-    "summary": "适用于 Claude Code、Codex、GitHub Copilot、Cursor、Factory Droid、Qoder 和 Pi 的编辑图表设计。45 种图表类型。独立的 HTML + SVG。无阴影。无Mermaid杂乱。",
-    "at": "2026-11-20T15:29:56.243932+08:00"
+    "hash": "f88dcb699379562927c05a5d064629e373d2e36153b8aec84f6f2cd99b79a958",
+    "summary": "适用于 Claude Code、Codex、GitHub Copilot、Cursor、Factory Droid、Qoder 和 Pi 的编辑图表设计。52 种图表类型。自包含的 HTML + SVG。无阴影。无 Mermaid 杂乱。",
+    "at": "2026-11-25T16:51:20.382616+08:00"
   },
   "mjmirza/app-store-compliance": {
     "hash": "9cb218005b4f30d747dbcd7957aec7e8fc6aa82e8273ae717deef93f9e68a5a7",
@@ -7735,9 +7735,9 @@
     "at": "2026-11-20T15:29:56.243932+08:00"
   },
   "BaaRai/ARTEX": {
-    "hash": "e76ec0ed4288e66554f73a2cd824c42adee8a08eedb40e97d18cf69a49973ca7",
-    "summary": "ARTEX - AI自主渗透测试系统（英文译文；上游：Autumn-27/ARTEX，AGPL-3.0）",
-    "at": "2026-11-20T15:29:56.243932+08:00"
+    "hash": "12bfb961f1c9eebb7e0eb03b74a212beef4943603bbe1b5b92e3c6d79893deb5",
+    "summary": "积极维护的 ARTEX：AI 自主渗透测试系统。自托管、不依赖特定模型、有证据支持的发现结果。Autumn-27/ARTEX 的社区延续版，AGPL-3.0。",
+    "at": "2026-11-25T16:51:20.382616+08:00"
   },
   "pgrundev/pgboxdb": {
     "hash": "49b8bb694fa36a42db93fd5c642a90d826b11bf4cd04a8fed0ca8739ae9327b1",
@@ -7960,9 +7960,9 @@
     "at": "2026-11-23T15:53:36.482679+08:00"
   },
   "leanprover-community/riemann-hypothesis": {
-    "hash": "62095343d40d69eef49e8bc5f97312bc869876faf271ffd4fd7c449c2a0a550b",
-    "summary": "用于黎曼猜想精益形式化的独立比较器设置（Alpöge，2026-11-20）",
-    "at": "2026-11-23T15:53:36.482679+08:00"
+    "hash": "448da749c6ca46cf85b15ac05b52b6d9301cb3ddc6a3cb78f097348a6f55a488",
+    "summary": "黎曼猜想的 Lean 形式化（Alpöge，2026 年 11 月 20 日）正在由 Lean 社区的成员进行清理。",
+    "at": "2026-11-25T16:51:20.382616+08:00"
   },
   "os6/nospeaker": {
     "hash": "7f8256fe5b4919d41c55230faba48a50b133486119e9cdfa4249b91a174d367d",
@@ -8115,9 +8115,9 @@
     "at": "2026-11-24T18:06:32.564036+08:00"
   },
   "ubiquitarianism/leonida": {
-    "hash": "09a343f0c3eca98a96d32cf299c78335629cb17f0556a33d8e5cb7beaf8ae12b",
-    "summary": "Leonida的延续，GTA VI的Xbox > PC移植版",
-    "at": "2026-11-24T18:06:32.564036+08:00"
+    "hash": "3315b3e4dd0b385331a5edf11a3bf3666cca4dcedde89ccd7c590134c6f46168",
+    "summary": "Leonida 的延续，GTA VI 的 Xbox > PC 移植界面",
+    "at": "2026-11-25T16:51:20.382616+08:00"
   },
   "Ahmet-Dedeler/awesome-gta6-reverse-engineering": {
     "hash": "076773e385aa0a2b8405eccab6993a77589482e5175f64bb201296d70c612f9d",
@@ -8233,5 +8233,120 @@
     "hash": "6620276e4d5381fdc13b4fd45055bce5999fd0f613cff0a6b337b6265cacf797",
     "summary": "TradingAgents：迈向代理金融研究",
     "at": "2026-11-24T18:06:32.564036+08:00"
+  },
+  "xcl-dev/xcl": {
+    "hash": "2c2e669d8ff4cb7bbd72ce258acfa4199e8e1e81f26db63db25801dea9da4ceb",
+    "summary": "适用于 Windows 的 Xbox Series 兼容层——以原生方式运行主机游戏代码，重新实现主机系统库，并将 RDNA2 着色器重新编译为 DXIL",
+    "at": "2026-11-25T16:51:20.382616+08:00"
+  },
+  "fxceless/victory-fork": {
+    "hash": "26c79c27b220e82ac6a9c4654b31dc8137fe476c33e31471ff0931811ecd9eab",
+    "summary": "VIctory 的正在进行中的分支：让 Xbox Series 游戏在 Windows PC 上渲染和运行。不包含游戏文件。",
+    "at": "2026-11-25T16:51:20.382616+08:00"
+  },
+  "Indigo-0167/universal-game-mod-manager": {
+    "hash": "33b7b17812fc1e6c24ed5d707bde5533c762299bdbb145ae7def71cd73092a51",
+    "summary": "免费的 Windows 游戏模组管理器，用于发现、安装、更新和管理通用的 Unity 和虚幻引擎模组。",
+    "at": "2026-11-25T16:51:20.382616+08:00"
+  },
+  "Umbra9179/clipboard-history-manager-windows": {
+    "hash": "7f9e9efd34451a2470ff2cc7cc142dae7c62e7d0cccea217ff2fdce63edb85e7",
+    "summary": "免费的开源 Windows 剪贴板管理器，具备可搜索的历史记录、图片预览、标签、编辑和备份功能。",
+    "at": "2026-11-25T16:51:20.382616+08:00"
+  },
+  "Zettrox/ztrx": {
+    "hash": "8ec23ab08154a04d79952c8fe4359003fbf17359ff34df6ccb566f7a54030cde",
+    "summary": "在配备 NVIDIA GPU 的 Windows PC 上以原生方式运行游戏的 Xbox Series 版本",
+    "at": "2026-11-25T16:51:20.382616+08:00"
+  },
+  "solv4626/steam-achievement-manager-windows": {
+    "hash": "f21c16e42ef47d3a61a6a26c7a1748d4361e907837120cf64c1ef1818acaef86",
+    "summary": "适用于 Windows 的免费开源 Steam 成就管理器，用于管理游戏成就和编辑 Steam 游戏统计数据。",
+    "at": "2026-11-25T16:51:20.382616+08:00"
+  },
+  "zero5122/offline-file-converter-windows": {
+    "hash": "1bfe68f40a4e325486b428c8c86f8b471af41bac4d9f7e003fc4754f527bd098",
+    "summary": "适用于 Windows 的免费离线文件转换器——私密转换 PDF、文档、图像、音频和视频。",
+    "at": "2026-11-25T16:51:20.382616+08:00"
+  },
+  "kai415-debug/ffmpeg-video-audio-converter": {
+    "hash": "d8d0cce1826e30ca24e9f0341c068e115d88515e8fc248dff3b45028c3c165c8",
+    "summary": "免费的 Windows FFmpeg 图形用户界面，用于视频和音频转换、批量转码以及多媒体格式编码。",
+    "at": "2026-11-25T16:51:20.382616+08:00"
+  },
+  "Avaneesh-Inamdar/Stream-Tube-Desktop": {
+    "hash": "09139894c79043571635a67221b258f87e42eec2fc123920eba50b9b295fce8d",
+    "summary": "使用 Rust 编写的 Windows 原生 YouTube 客户端，内置 SponsorBlock、DeArrow 和 Return YouTube Dislike",
+    "at": "2026-11-25T16:51:20.382616+08:00"
+  },
+  "rowanbyte3329/stardew-valley-mod-manager": {
+    "hash": "da44dae613834b759961b95652ad500c82adeca9e2212a847ce1a4e21d8d83e1",
+    "summary": "适用于 Windows 的免费开源《星露谷物语》模组管理器，支持 SMAPI、模组更新和自定义模组配置文件。",
+    "at": "2026-11-25T16:51:20.382616+08:00"
+  },
+  "deterministic-machines/deslop-please": {
+    "hash": "6c7ca8bb604694ccf8266febf8d37c05db00793463c489c624c1daad5b63b41f",
+    "summary": "让你的代码（恢复）正常",
+    "at": "2026-11-25T16:51:20.382616+08:00"
+  },
+  "sous-labs/songe": {
+    "hash": "788f608b686166b2cb3c0b1f5bd1534beaba09e2966b96f1d60dcd989729e957",
+    "summary": "使用你的闲置算力为你的本地模型提供训练引擎",
+    "at": "2026-11-25T16:51:20.382616+08:00"
+  },
+  "olive527/steam-library-manager-windows": {
+    "hash": "b10f6963a1356e5d1d64a1eaf6312e1923f11e8009b0347426920dc170b611a7",
+    "summary": "免费的 Windows 游戏库管理器和备份工具，适用于 Steam、Origin 和 Ubisoft Connect，支持多个游戏库。",
+    "at": "2026-11-25T16:51:20.382616+08:00"
+  },
+  "Nebula4207/av1-video-encoder-gui": {
+    "hash": "a8577e04dabdd5fa1b6b30eec460ed453e3e6a75872248340e8e295394c72ac7",
+    "summary": "适用于 aomenc、rav1e、SVT-AV1、NVENC、Quick Sync 和 VP9 的免费 Windows AV1 视频编码器 GUI，支持并行编码。",
+    "at": "2026-11-25T16:51:20.382616+08:00"
+  },
+  "LooperSalty/AnyXboxX": {
+    "hash": "d39873fd0aa13ae1aedebbe3978b0c0d71f64087667a45bb95a4f5c77bdcffb6",
+    "summary": "AnyXboxX——Xbox Series X 模拟器原型（Unicorn 上的 GDK HLE）",
+    "at": "2026-11-25T16:51:20.382616+08:00"
+  },
+  "marcusyildirim/personal-capital": {
+    "hash": "cb1bd30fd14024bb092d31c85455f10de8fb393ab4d0ffc4dda597a0bb2e08a5",
+    "summary": "适用于 Windows 10/11 的 Personal Capital。在一个仪表板中跟踪你的净资产、投资和现金流，然后制定退休预测和费用分析，以便你规划长期支出和储蓄决策。",
+    "at": "2026-11-25T16:51:20.382616+08:00"
+  },
+  "byteopenbit/udio-music": {
+    "hash": "e7d45e693016bf68bb1387eff8a365c60d7b75d394ef2366927c49fc888b432c",
+    "summary": "适用于 Windows 10/11 的 Udio Music。根据文本提示生成原创歌曲，让你选择曲风、延长曲目和混音音轨，然后导出成品音频，用于个人项目或视频。",
+    "at": "2026-11-25T16:51:20.382616+08:00"
+  },
+  "GoogleChrome/modern-web-guidance-src": {
+    "hash": "a91cb804076e96e1afab4ea265c5964222cc1064142df14ad6aa125e01688e65",
+    "summary": "让你的编程智能体始终掌握最新的网络最佳实践",
+    "at": "2026-11-25T16:51:20.382616+08:00"
+  },
+  "havenicec/google-qr-sms-helper": {
+    "hash": "da000fb3e2d5acb3e5719dadabb7cf4d9d9412acd4bffa1d70a7e562a84900a5",
+    "summary": "Chrome 扩展程序 (MV3)，用于通过 iPad Mini 配置文件和 [3,null,4] RPC 回退将 Google 的强制性二维码验证切换回标准的 6 位数短信验证。",
+    "at": "2026-11-25T16:51:20.382616+08:00"
+  },
+  "alejandrobujan/tendedero": {
+    "hash": "7d520a9708bd5f8e2eddcf555c8aedf810b0abda0797a2c1599873e8c973836c",
+    "summary": "截取它。复制它。把它们都挂起来晾干。一款小巧的 macOS 原生应用，将每个屏幕截图以及你复制的任何内容悬挂在屏幕顶部的一行上，并能从中找到任何单词。",
+    "at": "2026-11-25T16:51:20.382616+08:00"
+  },
+  "cloudflare/security-audit-skill": {
+    "hash": "4bce776d471955537bce57ff8de60926fbbdbce4e2779d04a107a654b463a137",
+    "summary": "一种用于多阶段安全审计的编程智能体技能，具有经过独立验证、可由机器读取的结果",
+    "at": "2026-11-25T16:51:20.382616+08:00"
+  },
+  "pingdotgg/t3code": {
+    "hash": "caf29e670360d5e2ad59653a20d59ad2d01f06be127d78de940c9cad48d51cda",
+    "summary": "从任何电脑或手机控制 Claude Code、Codex 等工具的最佳方式",
+    "at": "2026-11-25T16:51:20.382616+08:00"
+  },
+  "pbakaus/impeccable": {
+    "hash": "1807e46f985f2a3c3f62a9b0f014d7010e945e466771059024488bdd2b7fb722",
+    "summary": "你的编程智能体的设计词汇。使用“润色”和“加粗”进行引导，使用“点评”和“审核”进行审阅，在交付之前发现 AI 瑕疵。",
+    "at": "2026-11-25T16:51:20.382616+08:00"
   }
 }
