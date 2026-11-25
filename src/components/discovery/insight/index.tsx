@@ -2,11 +2,10 @@ import { type PointerEvent, useEffect, useRef } from "react"
 import type { Period, Repository } from "@shared/discovery"
 import { useScrollLock } from "../use-scroll-lock"
 import { InsightActions } from "./actions"
-import { InsightCategory } from "./category"
-import { InsightHeader } from "./header"
-import { InsightNotes, InsightStack } from "./stack"
-import { InsightStats } from "./stats"
-import { InsightTrend } from "./trend"
+import { InsightBasis } from "./basis"
+import { InsightIntro } from "./header"
+import { InsightNotes } from "./notes"
+import { InsightTraffic } from "./traffic"
 
 export interface InsightProps {
   repo: Repository
@@ -19,18 +18,17 @@ export interface InsightProps {
 
 /**
  * 项目解读：桌面端放在右侧栏，手机上放进底部面板，两处内容一致。
- * 由独立模块按阅读顺序拼成——是什么 → 关键数字 → 走势 → 分类 → 技术与主题 → 适用场景 → 操作。
+ * 点开解读是为了了解项目和它的流量，所以只有两张主卡片：简介（含分类与技术栈标签）、流量数据（数字与走势）；
+ * 适用场景有内容时才出现，分类依据收成一行小字。
  * 颜色只用三种：中性灰（文字、边框、底色）、强调蓝（主按钮、主分类、走势线）、红（增长）。
  */
 export function RepoInsight({ repo, period, saved, onSave, onClose, onCopyLink }: InsightProps) {
   return (
     <article className="insight" aria-label={`${repo.fullName} 项目解读`}>
-      <InsightHeader repo={repo} onClose={onClose} />
-      <InsightStats repo={repo} period={period} />
-      <InsightTrend fullName={repo.fullName} />
-      <InsightCategory repo={repo} />
-      <InsightStack repo={repo} />
+      <InsightIntro repo={repo} onClose={onClose} />
+      <InsightTraffic repo={repo} period={period} />
       <InsightNotes repo={repo} />
+      <InsightBasis repo={repo} />
       <InsightActions fullName={repo.fullName} saved={saved} onSave={onSave} onCopyLink={onCopyLink} />
     </article>
   )
