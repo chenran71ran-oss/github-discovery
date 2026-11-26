@@ -32,7 +32,7 @@
 | `GITHUB_TOKEN` | 开启 28 个分类搜索流，补全仓库主题。Actions 自动提供 |
 | `LLM_BASE_URL`、`LLM_MODEL`、`LLM_API_KEY` | 支持 OpenAI Chat Completions 格式的 HTTPS 接口。三项都配置后，读取 README 生成中文简介、适用场景、技术栈、亮点与分类；校验失败不会覆盖已有内容。密钥只用于采集，不会写进前端或 JSON |
 | `AI_API_KEY`（Secret） | AI 翻译的密钥，默认用 Google Gemini（在 Google AI Studio 免费创建）。有它才开启：为没有更好中文的项目写一句中文介绍并给出分类建议，标为「AI 翻译」。每次运行最多 12 个请求、每个请求 10 个项目、间隔 8 秒，按日榜优先；结果按简介缓存在 `model-cache.json`。密钥无效、额度用完或服务不可用时自动退回机翻 |
-| `AI_BASE_URL`、`AI_MODEL`、`AI_MAX_REQUESTS`（Variables） | 换成任意 OpenAI 格式的接口（默认 `https://generativelanguage.googleapis.com/v1beta/openai`）、换模型（默认 `gemini-2.5-flash`）、改每次运行的请求上限（默认 12）。注：GitHub Models 已不能通过 Actions 令牌调用（2026-11 实测所有地址只返回占位页），所以不再使用 |
+| `AI_BASE_URL`、`AI_MODEL`、`AI_MAX_REQUESTS`（Variables） | 换成任意 OpenAI 格式的接口（默认 `https://generativelanguage.googleapis.com/v1beta/openai`）、换模型（默认 `gemini-flash-latest`）、改每次运行的请求上限（默认 12）。注：GitHub Models 已不能通过 Actions 令牌调用（2026-11 实测所有地址只返回占位页），所以不再使用 |
 | `MYMEMORY_EMAIL` | 机器翻译的每日额度从约 5,000 字符提高到约 50,000 字符 |
 | `MACHINE_TRANSLATION` | 设为 `0` 关闭机器翻译 |
 | `README_SIGNALS` | 设为 `0` 不读取 README 作为分类信号 |

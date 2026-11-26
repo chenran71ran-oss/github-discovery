@@ -22,7 +22,7 @@ from collector.core.taxonomy import chinese, load
 log = logging.getLogger("collector.models")
 
 DEFAULT_BASE = "https://generativelanguage.googleapis.com/v1beta/openai"
-DEFAULT_MODEL = "gemini-2.5-flash"
+DEFAULT_MODEL = "gemini-flash-latest"
 BATCH = 10
 MAX_REQUESTS = 12
 PAUSE_SECONDS = 8.0  # Gemini's free tier allows roughly 10 requests a minute for Flash models; stay below it
