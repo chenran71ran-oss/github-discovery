@@ -12,7 +12,8 @@ import logging
 import time
 from datetime import datetime
 
-from collector.blocks.http import create_http_session
+import requests
+
 from collector.blocks.polish import polish
 from collector.core.settings import TZ
 from collector.core.taxonomy import chinese, load
@@ -61,20 +62,35 @@ def request(session, token: str, model: str, projects: list[dict]) -> list[dict]
             {"role": "user", "content": json.dumps({"projects": projects}, ensure_ascii=False)},
         ],
     }
-    headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json", "Accept": "application/json"}
-    response = session.post(ENDPOINT, json=body, headers=headers, timeout=60)
+    headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json", "Accept": "application/json", "User-Agent": "git-bot-radar-collector"}
+    response = session.post(ENDPOINT, json=body, headers=headers, timeout=60, allow_redirects=False)
     if response.status_code in (401, 403):
         raise Stop(f"no access to GitHub Models ({response.status_code}); check `permissions: models: read`")
     if response.status_code == 429:
         raise Stop("GitHub Models rate limit reached for today")
     if response.status_code >= 500:
         raise Stop(f"GitHub Models unavailable ({response.status_code})")
-    response.raise_for_status()
-    choice = (response.json().get("choices") or [{}])[0]
+    if response.status_code >= 300:
+        raise Stop(f"GitHub Models returned {response.status_code} {describe(response)}")
+    try:
+        doc = response.json()
+    except ValueError as error:
+        raise Stop(f"GitHub Models returned a non-JSON reply {describe(response)}") from error
+    choice = (doc.get("choices") or [{}])[0]
     if choice.get("finish_reason") == "length": return []
     content = (choice.get("message") or {}).get("content") or "{}"
     items = json.loads(content).get("items")
     return items if isinstance(items, list) else []
+
+
+def describe(response) -> str:
+    """Status, content type and the start of the body, for the logs (never includes the token)."""
+    body = (response.text or "")[:200].replace("\n", " ")
+    return f"(status {response.status_code}, type {response.headers.get('Content-Type', '?')}, location {response.headers.get('Location', '-')}, body: {body!r})"
+
+
+def new_session():
+    return requests.Session()
 
 
 def pick(candidates: list[dict], cache: dict) -> list[dict]:
@@ -98,7 +114,7 @@ def enrich(candidates: list[dict], cache: dict, token: str, model: str = DEFAULT
     if not token or not todo: return stats
     labels = set(load().labels)
     stamp = now or datetime.now(TZ).isoformat()
-    session = (session_factory or create_http_session)()
+    session = (session_factory or new_session)()
     try:
         for start in range(0, min(len(todo), max_requests * BATCH), BATCH):
             batch = todo[start:start + BATCH]
