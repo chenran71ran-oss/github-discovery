@@ -6,7 +6,8 @@ from dataclasses import dataclass, field
 from datetime import datetime, timedelta
 from typing import Callable
 
-from collector.blocks import llm, meta, models, polish, readme, search, trending, translate, upstream
+from collector.blocks import llm, meta, polish, readme, search, trending, translate, upstream
+from collector.blocks import models as ai
 from collector.blocks.classify import signals
 from collector.blocks.classify.engine import Evidence, Strategy, classify
 from collector.core import settings
@@ -26,8 +27,8 @@ class Sources:
     upstream: Callable = upstream.fetch_upstream  # () -> {name: {summary, at}}
     translate: Callable = translate.machine_translate
     session: Callable | None = None  # HTTP session factory for translation
-    models: Callable = models.enrich  # GitHub Models: batch Chinese descriptions + category suggestions
-    models_session: Callable | None = None  # HTTP session factory for GitHub Models (tests)
+    models: Callable = ai.enrich  # AI API (default Gemini): batch Chinese descriptions + category suggestions
+    models_session: Callable | None = None  # HTTP session factory for the AI API (tests)
 
 
 @dataclass
@@ -37,8 +38,9 @@ class Options:
     translation: bool = True
     mymemory_email: str = ""
     readme: bool = True
-    # GitHub Models: (token, model, max requests per run); empty token turns it off
-    models: tuple[str, str, int] = ("", models.DEFAULT_MODEL, models.MAX_REQUESTS)
+    # AI API for batch Chinese descriptions: provider (empty key turns it off) and max requests per run
+    models: ai.Provider = field(default_factory=lambda: ai.Provider(ai.DEFAULT_BASE, ""))
+    models_max: int = ai.MAX_REQUESTS
     strategy: Strategy = field(default_factory=strategies.get)
     today: object = None
 
@@ -117,9 +119,9 @@ def run_analysis(unique: dict, cache: dict, opt: Options):
 
 
 def model_entry(name: str, r: dict, model_cache: dict | None):
-    """A GitHub Models answer for this repo's current description, if any."""
+    """An AI API answer for this repo's current description, if any."""
     entry = (model_cache or {}).get(name)
-    return entry if entry and entry.get("hash") == models.digest(r["description"]) else None
+    return entry if entry and entry.get("hash") == ai.digest(r["description"]) else None
 
 
 def chinese_text(name, r, analysis, upstream_map, editorial, translations, model_cache=None):
@@ -203,14 +205,13 @@ def enrich(periods: dict, caches: dict, src: Sources, opt: Options, now: datetim
         for rows in periods.values():
             for item in rows:
                 if item["fullName"] == name: item.update(update)
-    log.info("github models: %s", stats)
+    log.info("ai translation: %s", stats)
     return ready, len(unique), configured
 
 
 def run_models(periods: dict, unique: dict, caches: dict, upstream_map: dict, src: Sources, opt: Options, now: datetime) -> dict:
-    """Ask GitHub Models for the rows that have no better Chinese text, in ranking order (daily first)."""
-    token, model, max_requests = opt.models
-    if not token: return {"requests": 0, "accepted": 0, "rejected": 0, "stopped": "off"}
+    """Ask the AI API for the rows that have no better Chinese text, in ranking order (daily first)."""
+    if not opt.models.key: return {"requests": 0, "accepted": 0, "rejected": 0, "stopped": "off"}
     h = translate.digest
     def needs(r):
         name = r["fullName"]
@@ -220,9 +221,9 @@ def run_models(periods: dict, unique: dict, caches: dict, upstream_map: dict, sr
         return (caches["editorial"].get(name) or {}).get("descriptionHash") != h(r["description"])
     ordered = [unique[r["fullName"]] for p in ("daily", "weekly", "monthly") for r in periods.get(p, []) if needs(r)]
     try:
-        return src.models(ordered, caches["models"], token, model, max_requests, session_factory=src.models_session, now=now.isoformat())
+        return src.models(ordered, caches["models"], opt.models, opt.models_max, session_factory=src.models_session, now=now.isoformat())
     except Exception as error:  # never let the model step break a collection
-        log.warning("GitHub Models step failed: %s", error)
+        log.warning("AI step failed: %s", error)
         return {"requests": 0, "accepted": 0, "rejected": 0, "stopped": str(error)}
 
 
