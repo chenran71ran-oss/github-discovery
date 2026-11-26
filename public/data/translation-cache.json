@@ -2555,9 +2555,9 @@
     "at": "2026-11-02T15:58:39.387747+08:00"
   },
   "Leonxlnx/earshot": {
-    "hash": "4af1df3917c5f0f3ef102ed83d7764c158b99f8d2182ea66de14e237db9b86fc",
-    "summary": "编码代理的耳朵：让人工智能听到、审查和发出声音。仅限CPU ，开源。",
-    "at": "2026-11-02T15:58:39.387747+08:00"
+    "hash": "7f26a316a8b8433551d2644b93cf385d8592269b3817f011a65963b18b7693ac",
+    "summary": "面向编程智能体的音效：用通俗易懂的语言提问，earshot 会将声音渲染为代码。仅限 CPU，无音频模型，开源。",
+    "at": "2026-11-26T16:37:36.525215+08:00"
   },
   "ahwootech/BRUTAL": {
     "hash": "28c3b9894af298ed8da2950b282639a192363d01a0a37702cc85111fffe3b533",
@@ -7485,9 +7485,9 @@
     "at": "2026-11-25T16:51:20.382616+08:00"
   },
   "mjmirza/app-store-compliance": {
-    "hash": "9cb218005b4f30d747dbcd7957aec7e8fc6aa82e8273ae717deef93f9e68a5a7",
-    "summary": "避免常见的 App Store 和 Google Play 拒绝情况。开放式手册和提交前防护，包含 124 个有案可查的被拒模式和解决方案、隐私清单和数据安全检查、112 个受跟踪的截止日期（欧盟《人工智能法案》、DSA、COPPA、年龄相关法律）以及一项适用于人工智能编码代理的技能。",
-    "at": "2026-11-23T15:53:36.482679+08:00"
+    "hash": "fe67380e555e75792dc394402f4bc5138d0555ae59ed864a62959a248589350c",
+    "summary": "避免常见的 App Store 和 Google Play 拒绝情况。开放式手册和提交前防护工具，包含 125 种有案可查的被拒模式及解决方案、隐私清单和数据安全检查、117 项受跟踪的截止日期（欧盟《AI 法案》、DSA、《儿童在线隐私保护法案》（COPPA）、年龄相关法律）以及一项适用于 AI 编程智能体的技能。",
+    "at": "2026-11-26T16:37:36.525215+08:00"
   },
   "Tracer-Cloud/opensre": {
     "hash": "2ee5d5809daddc03f0cf7d6b82b966d7eb8658ba620945ab6f444deea522f016",
@@ -8348,5 +8348,95 @@
     "hash": "1807e46f985f2a3c3f62a9b0f014d7010e945e466771059024488bdd2b7fb722",
     "summary": "你的编程智能体的设计词汇。使用“润色”和“加粗”进行引导，使用“点评”和“审核”进行审阅，在交付之前发现 AI 瑕疵。",
     "at": "2026-11-25T16:51:20.382616+08:00"
+  },
+  "CroqueMr/libreelec-CB1": {
+    "hash": "ed9c27b2a52c8c61630e73f39e82eb8c6eb9384947142ee7d4dbb1d7d76bbd6b",
+    "summary": "LibreELEC，支持英特尔、AMD、Nvidia 等平台的高品质杜比视界和 HDR10+",
+    "at": "2026-11-26T16:37:36.525215+08:00"
+  },
+  "RMvdesi/obsidian-prism": {
+    "hash": "9fd4f3c4c67641358e1075f74e5fd667ead84ec9f9f39ebf7a50cd4237844c6a",
+    "summary": "光学用户界面、阻尼弹簧编排、512K 浅水小瓶、像素吉祥物和双模式思维套件，适用于 Antigravity（GPL-3.0）",
+    "at": "2026-11-26T16:37:36.525215+08:00"
+  },
+  "avatarmanz/VIctory-7900XTX": {
+    "hash": "4ec9144472f92fdc1a3ce71ede5324e3e42ac56fdc279e0e3f6ce0d418e6f52d",
+    "summary": "Goal：一款 Xbox Series 游戏（你自己的转储文件），在 PC 上不开启光线追踪时稳定达到 30+ fps，然后更高。移植，而非模拟：渲染器补丁 + 提前编译的着色器，首先是 RX 7900 XTX。不含游戏文件。",
+    "at": "2026-11-26T16:37:36.525215+08:00"
+  },
+  "opensetlabs/openset-llm": {
+    "hash": "767fd8a81428a7aeb8bcb249c6e4d4eb47dc11e6cb58d21e02be1922b7b59fab",
+    "summary": "在普通 CPU 上进行快速本地 LLM 推理。无 GPU，8 GB RAM。OpenAI 兼容服务器。",
+    "at": "2026-11-26T16:37:36.525215+08:00"
+  },
+  "alesha-pro/llm.asm": {
+    "hash": "d55dc3b712bbafa0006a3e6eaf8efeaa36d2ffb7fe961e6cc97c9fef45669f31",
+    "summary": "Qwen3-0.6B 推理（12 KB）、裸机可引导操作系统（22 KB）以及从零开始的 Mini-GPT 训练器，带实时盲文 TUI（32 KB），100% 纯 x86-64 NASM 汇编。零 C、零 libc、零依赖。",
+    "at": "2026-11-26T16:37:36.525215+08:00"
+  },
+  "erkamyaman/rea-games": {
+    "hash": "4d96b7b878bcb3170134b492e66910f424c59ee9ab68423d9de8193ef52cf48a",
+    "summary": "对任何游戏进行逆向工程，在任何引擎（Web、Rust、Godot）中重建该游戏，并证明重建后的游戏逐帧与原游戏相同。以开放的 GAME.md 格式提供的行为规范。",
+    "at": "2026-11-26T16:37:36.525215+08:00"
+  },
+  "Aifeng1992/roam-research": {
+    "hash": "ac0df35f7ea47342e1717d0d1be35450fd63b0df071dac2ae08178c742f3f2cf",
+    "summary": "适用于 Windows 10/11 的 Roam Research。将笔记和想法以关联区块的形式记录下来，让你能够构建个人知识图谱、撰写每日笔记，并将不同页面的想法关联起来，以用于研究和写作。",
+    "at": "2026-11-26T16:37:36.525215+08:00"
+  },
+  "hungmitchell/rclone-browser": {
+    "hash": "cd6a144230fedf5f2277d287542e2e00ba260b2a2893c23cea54c80877b83106",
+    "summary": "适用于 Windows 10/11 的 Rclone Browser。通过“所见即所得”界面（而非命令行标志）浏览和管理云存储远程存储、复制、同步和挂载 Google Drive、Dropbox、S3 以及数十家其他提供商的文件。",
+    "at": "2026-11-26T16:37:36.525215+08:00"
+  },
+  "askvalet/valet": {
+    "hash": "53e086e30ed4dde3ad32188ed9cbaee6ae2f7bc26b40aad5c978b822f3e58a76",
+    "summary": "与你的家庭实验室对话。一个自托管、开源、原生支持 AI 的主页。",
+    "at": "2026-11-26T16:37:36.525215+08:00"
+  },
+  "Ctuna89/HA-Family-Location": {
+    "hash": "549f347ebf84f15eddf47fde10dc42bc0209a99de1c2f9d328c4d848144f74d2",
+    "summary": "基于智能家居助手的家庭定位应用替代方案",
+    "at": "2026-11-26T16:37:36.525215+08:00"
+  },
+  "YejupiQej42/battery-health-tool": {
+    "hash": "c72b1ffcd0c910fe60f48a1ee084273e985917be29d9608780d86547fe08dddf",
+    "summary": "电池健康工具：详细报告、校准指南、充电限制。| 电池健康工具 Windows 工具实用程序 | 预先编译的便携式 x64 版，适用于 Windows",
+    "at": "2026-11-26T16:37:36.525215+08:00"
+  },
+  "FubaxuQeko52/battery-report-tool": {
+    "hash": "c72b1ffcd0c910fe60f48a1ee084273e985917be29d9608780d86547fe08dddf",
+    "summary": "电池健康工具：详细报告、校准指南、充电限制。| 电池健康工具 Windows 工具实用程序 | 预先编译的便携式 x64 版，适用于 Windows",
+    "at": "2026-11-26T16:37:36.525215+08:00"
+  },
+  "ahmet589/batt-health-x": {
+    "hash": "c72b1ffcd0c910fe60f48a1ee084273e985917be29d9608780d86547fe08dddf",
+    "summary": "电池健康工具：详细报告、校准指南、充电限制。| 电池健康工具 Windows 工具实用程序 | 预先编译的便携式 x64 版，适用于 Windows",
+    "at": "2026-11-26T16:37:36.525215+08:00"
+  },
+  "MiladJoodi/SonoJs-icons": {
+    "hash": "5c93766b15fa3e53659cab6ea18022a210e8385ca89a1e3eac38ad15bce2b717",
+    "summary": "适用于现代 React 界面的美观轻量级图标。",
+    "at": "2026-11-26T16:37:36.525215+08:00"
+  },
+  "Bactul/Programacion-para-tontos": {
+    "hash": "9bc26b3fee649d92863d27a5510e23379e40fe992b826cd02985837c6f9e8f00",
+    "summary": "由我撰写的西班牙语编程书籍和指南，可免费下载。",
+    "at": "2026-11-26T16:37:36.525215+08:00"
+  },
+  "justxor/golang-agent-skills-ru": {
+    "hash": "26e29709083bea8d8b5c3acbbd8951171a887c5c096ccc21cb501a9f4b916f99",
+    "summary": "Go/Golang（俄语）：适用于 Claude Code、Codex、Cursor 和 Copilot 的 Agent Skills。生产就绪的 Go、并发、REST API、PostgreSQL、测试、架构、性能和代码审查。",
+    "at": "2026-11-26T16:37:36.525215+08:00"
+  },
+  "XinaTian/MROffice": {
+    "hash": "f1c7b960df7e09ab3522f50148397bd0e3c64e159cbf8832d5a8180b25bf2a8a",
+    "summary": "MR Office——最接近 Microsoft Office 的 AI 办公套件的开源编辑器：在浏览器中处理文档、电子表格、演示文稿、PDF 和代码。每个编辑器中的 Copilot 都会与你一起编辑真实的 Word、Excel 和 PowerPoint 文件；MCP 服务器让 Claude、ChatGPT、Cursor 和 Codex 创建和编辑这些文件；只需一行代码即可将其嵌入你的应用。",
+    "at": "2026-11-26T16:37:36.525215+08:00"
+  },
+  "crest-browser/Crest": {
+    "hash": "71c1ac7d604b30b94016e37f402029899fd60841c738d87b98c8b1fda12ba5f4",
+    "summary": "适用于 Mac、iPhone 和 iPad 的开源浏览器。",
+    "at": "2026-11-26T16:37:36.525215+08:00"
   }
 }
