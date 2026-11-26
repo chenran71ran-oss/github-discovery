@@ -70,7 +70,7 @@ class ModelsBlockTests(unittest.TestCase):
         self.assertNotIn("b/two", cache)
 
     def test_stops_on_permission_or_quota_errors(self):
-        for status in (401, 403, 429, 503):
+        for status in (401, 403, 429):
             cache = {}
             stats = models.enrich([repo(f"a/r{i}") for i in range(25)], cache, P, session_factory=lambda s=status: FakeSession(status=s), sleep=lambda s: None)
             self.assertTrue(stats["stopped"])
@@ -166,4 +166,27 @@ class CompatibilityTests(unittest.TestCase):
                 return super().post(url, json=json, headers=headers, timeout=timeout)
         models.enrich([repo("a/one")], {}, models.Provider("https://api.example.com/v1/", "k", "m-1"), session_factory=lambda: Spy(), sleep=lambda s: None)
         self.assertEqual(seen, {"url": "https://api.example.com/v1/chat/completions", "model": "m-1", "auth": "Bearer k"})
+
+
+class BusyTests(unittest.TestCase):
+    def test_retries_then_switches_to_the_fallback_model(self):
+        class Overloaded(FakeSession):
+            def post(self, url, json=None, headers=None, timeout=None, allow_redirects=True):
+                if json["model"] == "gemini-flash-latest":
+                    self.calls.append("busy")
+                    return FakeResponse(503, text='{"error": "high demand"}')
+                return super().post(url, json=json, headers=headers, timeout=timeout)
+        waits, cache = [], {}
+        session = Overloaded()
+        stats = models.enrich([repo("a/one")], cache, models.Provider(models.DEFAULT_BASE, "k", "gemini-flash-latest"), session_factory=lambda: session, sleep=waits.append)
+        self.assertEqual(session.calls[:3], ["busy", "busy", "busy"])
+        self.assertEqual(waits[:2], list(models.RETRY_WAITS))
+        self.assertEqual((stats["accepted"], stats.get("fallback")), (1, "gemini-flash-lite-latest"))
+        self.assertEqual(cache["a/one"]["model"], "gemini-flash-lite-latest")
+
+    def test_stops_when_everything_stays_busy(self):
+        cache = {}
+        stats = models.enrich([repo(f"a/r{i}") for i in range(25)], cache, P, session_factory=lambda: FakeSession(status=503), sleep=lambda s: None)
+        self.assertTrue(stats["stopped"])
+        self.assertEqual(cache, {})
 

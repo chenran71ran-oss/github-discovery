@@ -10,7 +10,7 @@ import hashlib
 import json
 import logging
 import time
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from datetime import datetime
 
 import requests
@@ -33,6 +33,8 @@ class Provider:
     base_url: str  # OpenAI-compatible base, e.g. https://generativelanguage.googleapis.com/v1beta/openai
     key: str  # empty = off
     model: str = DEFAULT_MODEL
+    # 主模型持续繁忙（503）时改用的模型；只对默认的 Gemini 接口有意义
+    fallback: str = "gemini-flash-lite-latest"
 
     @property
     def endpoint(self) -> str:
@@ -58,6 +60,13 @@ def valid(item, labels: set[str]) -> bool:
     return isinstance(summary, str) and chinese(summary) and 6 <= len(summary) <= 160 and item.get("category") in labels
 
 
+RETRY_WAITS = (15.0, 45.0)  # 503 / 500 时的退避等待；之后仍失败才算这次不可用
+
+
+class Busy(Exception):
+    """The model is overloaded (5xx) even after retries; a lighter fallback model may still answer."""
+
+
 class Stop(Exception):
     """No permission, quota exhausted or the service is unavailable: stop calling for this run."""
 
@@ -70,8 +79,20 @@ def parse_items(content: str) -> list:
     return items if isinstance(items, list) else []
 
 
-def request(session, provider: Provider, projects: list[dict]) -> list[dict]:
-    """One batch. Returns the raw items; raises Stop when further calls are pointless."""
+def request(session, provider: Provider, projects: list[dict], sleep=time.sleep) -> list[dict]:
+    """One batch, retrying transient overloads (5xx) with backoff.
+    Returns the raw items; raises Busy when the model stays overloaded, Stop when further calls are pointless."""
+    for wait in (*RETRY_WAITS, None):
+        try:
+            return _request_once(session, provider, projects)
+        except Busy:
+            if wait is None: raise
+            log.info("AI model busy; retrying in %ss", wait)
+            sleep(wait)
+    return []
+
+
+def _request_once(session, provider: Provider, projects: list[dict]) -> list[dict]:
     labels = "、".join(load().labels)
     body = {
         "model": provider.model,
@@ -93,7 +114,7 @@ def request(session, provider: Provider, projects: list[dict]) -> list[dict]:
     if response.status_code == 429:
         raise Stop(f"AI API rate limit or quota reached {describe(response)}")
     if response.status_code >= 500:
-        raise Stop(f"AI API unavailable {describe(response)}")
+        raise Busy(f"AI API busy or unavailable {describe(response)}")
     if response.status_code >= 300:
         raise Stop(f"AI API returned {response.status_code} {describe(response)}")
     try:
@@ -137,13 +158,25 @@ def enrich(candidates: list[dict], cache: dict, provider: Provider, max_requests
     labels = set(load().labels)
     stamp = now or datetime.now(TZ).isoformat()
     session = (session_factory or new_session)()
+    active = provider
     try:
         for start in range(0, min(len(todo), max_requests * BATCH), BATCH):
             batch = todo[start:start + BATCH]
             projects = [{"id": i, "name": r["fullName"], "description": r["description"][:400], "topics": (r.get("topics") or [])[:8], "language": r.get("language", "")} for i, r in enumerate(batch)]
             if stats["requests"]: sleep(PAUSE_SECONDS)
             try:
-                items = request(session, provider, projects)
+                try:
+                    items = request(session, active, projects, sleep=sleep)
+                except Busy as busy:
+                    if not active.fallback or active.model == active.fallback: raise Stop(str(busy)) from busy
+                    log.warning("%s; switching to %s for the rest of this run", busy, active.fallback)
+                    active = replace(active, model=active.fallback)
+                    stats["fallback"] = active.model
+                    items = request(session, active, projects, sleep=sleep)
+            except Busy as busy:
+                stats["stopped"] = str(busy)
+                log.warning("%s; falling back to machine translation", busy)
+                break
             except Stop as stop:
                 stats["stopped"] = str(stop)
                 log.warning("%s; falling back to machine translation", stop)
@@ -157,7 +190,7 @@ def enrich(candidates: list[dict], cache: dict, provider: Provider, max_requests
             for i, r in enumerate(batch):
                 item = by_id.get(i)
                 if item and valid(item, labels):
-                    cache[r["fullName"]] = {"hash": digest(r["description"]), "summary": polish(item["summary"].strip(), r["description"]), "category": item["category"], "model": provider.model, "at": stamp}
+                    cache[r["fullName"]] = {"hash": digest(r["description"]), "summary": polish(item["summary"].strip(), r["description"]), "category": item["category"], "model": active.model, "at": stamp}
                     stats["accepted"] += 1
                 else:
                     stats["rejected"] += 1
