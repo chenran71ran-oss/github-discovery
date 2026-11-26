@@ -6,7 +6,7 @@ from collections import Counter
 from datetime import datetime, timedelta
 
 from collector.app import config, log as logs, store
-from collector.blocks import history
+from collector.blocks import history, models
 from collector.core.settings import ROOT, TZ
 from collector.lab import pipeline, strategies
 
@@ -14,7 +14,8 @@ log = logging.getLogger("collector")
 
 
 def options(cfg: config.Config) -> pipeline.Options:
-    return pipeline.Options(token=cfg.token, llm=cfg.llm, models=cfg.models, translation=cfg.translation, mymemory_email=cfg.mymemory_email, readme=cfg.readme, strategy=strategies.get(cfg.strategy))
+    base, key, model, max_requests = cfg.ai
+    return pipeline.Options(token=cfg.token, llm=cfg.llm, models=models.Provider(base, key, model), models_max=max_requests, translation=cfg.translation, mymemory_email=cfg.mymemory_email, readme=cfg.readme, strategy=strategies.get(cfg.strategy))
 
 
 def run(cfg: config.Config, sources: pipeline.Sources | None = None):
@@ -75,19 +76,23 @@ def report(snapshot: dict, timings: dict):
 
 
 def probe_models(cfg: config.Config, count: int = 10):
-    """Trial run: send one batch of today's machine-translated projects to GitHub Models and print the answers
-    next to what the site shows now. Writes nothing; used from the workflow's probe mode."""
-    from collector.blocks import models
+    """Trial run: list the models the key can use, then send one batch of today's machine-translated projects and
+    print the answers next to what the site shows now. Writes nothing; used from the workflow's probe mode."""
     from collector.core.taxonomy import load
-    token, model, _ = cfg.models
-    if not token: raise SystemExit("GitHub Models is off: set GITHUB_MODELS=1 and GITHUB_TOKEN")
-    snapshot = store.read_json(cfg.data_dir / "latest.json", {})
-    rows = [r for r in snapshot.get("periods", {}).get("daily", []) if r.get("summarySource") in ("machine", "pending")][:count]
-    projects = [{"id": i, "name": r["fullName"], "description": r["description"][:400], "topics": (r.get("topics") or [])[:8], "language": r.get("language", "")} for i, r in enumerate(rows)]
-    labels = set(load().labels)
+    base, key, model, _ = cfg.ai
+    if not key: raise SystemExit("AI_API_KEY is not set")
+    provider = models.Provider(base, key, model)
     with models.new_session() as session:
-        try: items = models.request(session, token, model, projects)
+        r = session.get(base.rstrip("/") + "/models", headers={"Authorization": f"Bearer {key}"}, timeout=30)
+        try: ids = [m.get("id") for m in r.json().get("data", [])]
+        except ValueError: ids = []
+        print(json.dumps({"check": "models", "status": r.status_code, "count": len(ids), "hasModel": any(i.split("/")[-1] == model for i in ids if i), "flash": [i for i in ids if i and "flash" in i][:12]}, ensure_ascii=False))
+        snapshot = store.read_json(cfg.data_dir / "latest.json", {})
+        rows = [r for r in snapshot.get("periods", {}).get("daily", []) if r.get("summarySource") in ("machine", "pending")][:count]
+        projects = [{"id": i, "name": r["fullName"], "description": r["description"][:400], "topics": (r.get("topics") or [])[:8], "language": r.get("language", "")} for i, r in enumerate(rows)]
+        try: items = models.request(session, provider, projects)
         except models.Stop as stop: raise SystemExit(f"probe failed: {stop}") from stop
+    labels = set(load().labels)
     by_id = {it.get("id"): it for it in items if isinstance(it, dict)}
     ok = 0
     for i, r in enumerate(rows):
@@ -95,7 +100,7 @@ def probe_models(cfg: config.Config, count: int = 10):
         good = models.valid(it, labels)
         ok += good
         print(json.dumps({"repo": r["fullName"], "en": r["description"][:120], "now": r.get("summary"), "nowCategory": r.get("category"),
-                          "model": models.polish(it.get("summary", ""), r["description"]) if good else it, "modelCategory": it.get("category"), "valid": good}, ensure_ascii=False))
+                          "ai": models.polish(it.get("summary", ""), r["description"]) if good else it, "aiCategory": it.get("category"), "valid": good}, ensure_ascii=False))
     print(json.dumps({"model": model, "sent": len(rows), "valid": ok}, ensure_ascii=False))
     if not ok: raise SystemExit("probe returned no valid answers")
 
@@ -105,7 +110,7 @@ def main(argv=None):
     sub = parser.add_subparsers(dest="command")
     sub.add_parser("run", help="collect, enrich, classify and publish (default)")
     sub.add_parser("classify", help="re-classify the latest snapshot without fetching rankings")
-    sub.add_parser("probe-models", help="trial: one GitHub Models batch on today's machine-translated rows, prints results, writes nothing")
+    sub.add_parser("probe-models", help="trial: list models, then one AI batch on today's machine-translated rows; prints results, writes nothing")
     ev = sub.add_parser("evaluate", help="score classifier strategies on the labelled set")
     ev.add_argument("--readme", action="store_true", help="also fetch READMEs (network) for the readme signal")
     ev.add_argument("--errors", action="store_true", help="list misclassified repositories")

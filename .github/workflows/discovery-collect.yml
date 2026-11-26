@@ -5,14 +5,12 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: run = 正常采集；probe-models = 试运行 GitHub Models（发一批真实项目、打印结果，不提交数据）
+        description: run = 正常采集；probe-models = 试运行 AI 翻译（列出可用模型、发一批真实项目、打印对比，不提交数据）
         type: choice
         options: [run, probe-models]
         default: run
 permissions:
   contents: write
-  # GitHub Models：用工作流自带的令牌调用模型，生成中文简介与分类建议
-  models: read
 concurrency:
   group: discovery-collect-${{ github.ref }}
   cancel-in-progress: false
@@ -28,13 +26,13 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install -r collector/requirements.txt
-      - name: Probe GitHub Models (trial, writes nothing)
+      - name: Probe AI translation (trial, writes nothing)
         if: inputs.mode == 'probe-models'
         run: python -m collector probe-models
         env:
-          GITHUB_TOKEN: ${{ github.token }}
-          GITHUB_MODELS: '1'
-          GITHUB_MODELS_MODEL: ${{ vars.GITHUB_MODELS_MODEL }}
+          AI_API_KEY: ${{ secrets.AI_API_KEY }}
+          AI_BASE_URL: ${{ vars.AI_BASE_URL }}
+          AI_MODEL: ${{ vars.AI_MODEL }}
       - if: inputs.mode != 'probe-models'
         run: python -m collector run
         env:
@@ -47,11 +45,13 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
           # Optional: one of the strategies in collector/lab/strategies.py (default: full).
           CLASSIFIER_STRATEGY: ${{ vars.CLASSIFIER_STRATEGY }}
-          # GitHub Models: Chinese descriptions + category suggestions with the workflow token (no paid key).
-          # Set the repository variable GITHUB_MODELS to 0 to turn it off; GITHUB_MODELS_MODEL to change the model.
-          GITHUB_MODELS: ${{ vars.GITHUB_MODELS || '1' }}
-          GITHUB_MODELS_MODEL: ${{ vars.GITHUB_MODELS_MODEL }}
-          GITHUB_MODELS_MAX_REQUESTS: ${{ vars.GITHUB_MODELS_MAX_REQUESTS }}
+          # AI translation: Chinese descriptions + category suggestions. Default provider is Google Gemini
+          # (free tier, OpenAI-compatible); without the AI_API_KEY secret this step is skipped.
+          # Optional variables: AI_BASE_URL (any OpenAI-compatible API), AI_MODEL, AI_MAX_REQUESTS.
+          AI_API_KEY: ${{ secrets.AI_API_KEY }}
+          AI_BASE_URL: ${{ vars.AI_BASE_URL }}
+          AI_MODEL: ${{ vars.AI_MODEL }}
+          AI_MAX_REQUESTS: ${{ vars.AI_MAX_REQUESTS }}
       - if: inputs.mode != 'probe-models'
         run: python -m unittest discover -s collector -p 'test_*.py'
       - name: Commit snapshots
