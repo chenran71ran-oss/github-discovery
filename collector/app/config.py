@@ -11,6 +11,7 @@ class Config:
     data_dir: Path
     token: str
     llm: tuple[str, str, str]  # base url, model, key
+    models: tuple[str, str, int]  # GitHub Models: token (empty = off), model id, max requests per run
     translation: bool
     mymemory_email: str
     readme: bool
@@ -28,6 +29,8 @@ def from_env(env=None) -> Config:
         data_dir=Path(env.get("DISCOVERY_DATA_DIR") or settings.DATA),
         token=env.get("GITHUB_TOKEN", ""),
         llm=(env.get("LLM_BASE_URL", ""), env.get("LLM_MODEL", ""), env.get("LLM_API_KEY", "")),
+        # 只在显式开启时调用（采集工作流里设为 1），本地运行默认不碰
+        models=(env.get("GITHUB_TOKEN", "") if env.get("GITHUB_MODELS") == "1" else "", env.get("GITHUB_MODELS_MODEL") or "openai/gpt-4.1-mini", int(env.get("GITHUB_MODELS_MAX_REQUESTS") or 12)),
         translation=env.get("MACHINE_TRANSLATION", "1") != "0",
         mymemory_email=env.get("MYMEMORY_EMAIL", ""),
         readme=env.get("README_SIGNALS", "1") != "0",

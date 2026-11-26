@@ -80,11 +80,12 @@ def stacks(stack_labels) -> Scores:
     return out
 
 
-def model(tax: Taxonomy, label: str | None) -> Scores:
-    """Category picked by the README model analysis, when one was validated."""
+def model(tax: Taxonomy, label: str | None, source: str = "readme") -> Scores:
+    """Category picked by a model (README analysis, or GitHub Models on the description), when validated."""
     if not label: return {}
     c = tax.by_label(label)
-    return {c.id: (1.0, ["模型阅读 README 后判断"])} if c is not tax.fallback else {}
+    reason = "模型阅读 README 后判断" if source == "readme" else "模型根据简介与主题判断"
+    return {c.id: (1.0, [reason])} if c is not tax.fallback else {}
 
 
 def detect(entries, text: str, extra=()) -> list[str]:

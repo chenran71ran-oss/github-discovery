@@ -31,6 +31,7 @@ class Evidence:
     topics: tuple[str, ...] = ()
     readme: dict | None = None  # signals.readme_features output
     model_label: str | None = None
+    model_source: str = "readme"  # "readme": README analysis; "brief": GitHub Models on the description and topics
 
 
 def collect_signals(tax: Taxonomy, ev: Evidence, s: Strategy) -> dict[str, signals.Scores]:
@@ -42,7 +43,7 @@ def collect_signals(tax: Taxonomy, ev: Evidence, s: Strategy) -> dict[str, signa
         "readme": lambda: signals.readme(tax, (ev.readme or {}).get("hits")),
         "language": lambda: signals.language(tax, ev.language),
         "stacks": lambda: signals.stacks(stack_labels),
-        "model": lambda: signals.model(tax, ev.model_label),
+        "model": lambda: signals.model(tax, ev.model_label, ev.model_source),
     }
     return {name: available[name]() for name, w in s.weights.items() if w and name in available}
 
