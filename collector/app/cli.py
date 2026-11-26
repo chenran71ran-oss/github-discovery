@@ -74,6 +74,31 @@ def report(snapshot: dict, timings: dict):
     logs.summary(periodCounts={k: len(v) for k, v in snapshot["periods"].items()}, enrichment=snapshot.get("enrichment"), classifier=snapshot.get("classifier"), categories=dict(Counter(r["category"] for r in unique.values()).most_common()), timings=timings)
 
 
+def diagnose(session, token: str, model: str):
+    """Print what each candidate endpoint returns for a one-line request (status, type, body start). Never prints the token."""
+    from collector.blocks import models
+    auth = {"Authorization": f"Bearer {token}", "User-Agent": "git-bot-radar-collector"}
+    try:
+        r = session.get("https://models.github.ai/catalog/models", headers={**auth, "Accept": "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28"}, timeout=30, allow_redirects=False)
+        ids = [m.get("id") for m in r.json()] if r.headers.get("Content-Type", "").startswith("application/json") and isinstance(r.json(), list) else []
+        print(json.dumps({"check": "catalog", "status": r.status_code, "type": r.headers.get("Content-Type"), "models": len(ids), "hasModel": model in ids, "sample": ids[:8], "body": (r.text or "")[:160]}, ensure_ascii=False))
+    except Exception as error:
+        print(json.dumps({"check": "catalog", "error": str(error)[:200]}))
+    body = {"model": model, "messages": [{"role": "user", "content": "回复两个字：你好"}], "max_tokens": 10}
+    variants = [
+        ("github.ai json", models.ENDPOINT, {"Content-Type": "application/json", "Accept": "application/json"}),
+        ("github.ai vnd", models.ENDPOINT, {"Content-Type": "application/json", "Accept": "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28"}),
+        ("github.ai no-accept", models.ENDPOINT, {"Content-Type": "application/json"}),
+        ("azure legacy", "https://models.inference.ai.azure.com/chat/completions", {"Content-Type": "application/json"}),
+    ]
+    for name, url, extra in variants:
+        try:
+            r = session.post(url, json=body if "azure" not in url else {**body, "model": model.split("/")[-1]}, headers={**auth, **extra}, timeout=60, allow_redirects=False)
+            print(json.dumps({"check": name, "url": url, "status": r.status_code, "type": r.headers.get("Content-Type"), "location": r.headers.get("Location"), "body": (r.text or "")[:240]}, ensure_ascii=False))
+        except Exception as error:
+            print(json.dumps({"check": name, "url": url, "error": str(error)[:200]}))
+
+
 def probe_models(cfg: config.Config, count: int = 10):
     """Trial run: send one batch of today's machine-translated projects to GitHub Models and print the answers
     next to what the site shows now. Writes nothing; used from the workflow's probe mode."""
@@ -86,6 +111,7 @@ def probe_models(cfg: config.Config, count: int = 10):
     projects = [{"id": i, "name": r["fullName"], "description": r["description"][:400], "topics": (r.get("topics") or [])[:8], "language": r.get("language", "")} for i, r in enumerate(rows)]
     labels = set(load().labels)
     with models.new_session() as session:
+        diagnose(session, token, model)
         try: items = models.request(session, token, model, projects)
         except models.Stop as stop: raise SystemExit(f"probe failed: {stop}") from stop
     by_id = {it.get("id"): it for it in items if isinstance(it, dict)}
