@@ -139,6 +139,13 @@ class PolishTests(unittest.TestCase):
         self.assertEqual(polish("GPU （ CUDA ， Vulkan ）的推理", "inference on GPU (CUDA, Vulkan)"), "GPU（CUDA，Vulkan）的推理")
         self.assertEqual(polish("适用于Windows的应用程序—免费", "free app for Windows"), "适用于 Windows 的应用——免费")
 
+    def test_agent_everywhere_but_network_terms_kept(self):
+        from collector.blocks.polish import polish
+        self.assertEqual(polish("面向代理和开发人员的开源云", "The open-source cloud for agents & devs"), "面向智能体和开发人员的开源云")
+        self.assertEqual(polish("显示代理正在做什么，子代理会亮起", "shows what the agent is doing; subagents light up"), "显示智能体正在做什么，子智能体会亮起")
+        self.assertEqual(polish("Web 服务器、反向代理和负载均衡", "web server, reverse proxy and load balancer"), "Web 服务器、反向代理和负载均衡")
+        self.assertEqual(polish("Polymarket 代理——本地交易台", "Polymarket Proxy — a local desk for agents"), "Polymarket 代理——本地交易台")
+
     def test_proxy_is_not_turned_into_agent(self):
         from collector.blocks.polish import polish
         self.assertEqual(polish("HTTP 代理，支持 agent 转发", "HTTP proxy with agent forwarding"), "HTTP 代理，支持 agent 转发")

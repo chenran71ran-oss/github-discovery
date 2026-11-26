@@ -15,6 +15,9 @@ TERMS = [
     (r"代理(技能|工作流|框架|平台|系统|运行时|编排|记忆|工具)", r"智能体\1", "agent"),
     (r"多代理", "多智能体", "agent"),
     (r"代理(?=[，。、；：]|$)", "智能体", "agent"),
+    # 其余位置的「代理」（子代理、代理应用、面向代理…）：原文说的是 agent 且没有提到网络代理时才改，
+    # 「反向代理」「代理服务器」这类网络术语保留
+    (r"(?<!反向)(?<!正向)代理(?!服务器|商|人|池|模式|地址|设置|规则)", "智能体", "agent-only"),
     (r"人工智能(?!体)", "AI", "ai"),
     (r"应用程序", "应用", ""),
     (r"您的", "你的", ""),
@@ -23,7 +26,11 @@ TERMS = [
 ]
 
 
+NETWORK = re.compile(r"\b(proxy|proxies|vpn|socks|gateway|reverse|clash|v2ray|xray|shadowsocks|tunnel)", re.I)
+
+
 def _has(en: str, word: str) -> bool:
+    if word == "agent-only": return _has(en, "agent") and not NETWORK.search(en)
     return not word or re.search(rf"\b{word}", en, re.I) is not None
 
 
@@ -31,7 +38,7 @@ def polish(zh: str, en: str) -> str:
     """Terminology, register and typography fixes. Never changes meaning-bearing words otherwise."""
     out = zh
     for pattern, repl, needs in TERMS:
-        if _has(en, needs) and not (needs == "agent" and re.search(r"\bproxy\b", en, re.I) and "代理" in pattern):
+        if _has(en, needs) and not (needs == "agent" and NETWORK.search(en) and "代理" in pattern):
             out = re.sub(pattern, repl, out)
     # 全角括号、逗号两侧多出来的空格：「（ CUDA ， Vulkan ）」→「（CUDA，Vulkan）」
     out = re.sub(r"\s*([（），。、；：！？])\s*", r"\1", out)
