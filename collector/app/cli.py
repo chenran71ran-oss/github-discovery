@@ -78,7 +78,6 @@ def probe_models(cfg: config.Config, count: int = 10):
     """Trial run: send one batch of today's machine-translated projects to GitHub Models and print the answers
     next to what the site shows now. Writes nothing; used from the workflow's probe mode."""
     from collector.blocks import models
-    from collector.blocks.http import create_http_session
     from collector.core.taxonomy import load
     token, model, _ = cfg.models
     if not token: raise SystemExit("GitHub Models is off: set GITHUB_MODELS=1 and GITHUB_TOKEN")
@@ -86,7 +85,7 @@ def probe_models(cfg: config.Config, count: int = 10):
     rows = [r for r in snapshot.get("periods", {}).get("daily", []) if r.get("summarySource") in ("machine", "pending")][:count]
     projects = [{"id": i, "name": r["fullName"], "description": r["description"][:400], "topics": (r.get("topics") or [])[:8], "language": r.get("language", "")} for i, r in enumerate(rows)]
     labels = set(load().labels)
-    with create_http_session() as session:
+    with models.new_session() as session:
         try: items = models.request(session, token, model, projects)
         except models.Stop as stop: raise SystemExit(f"probe failed: {stop}") from stop
     by_id = {it.get("id"): it for it in items if isinstance(it, dict)}

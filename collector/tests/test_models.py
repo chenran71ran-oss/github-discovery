@@ -8,14 +8,17 @@ from collector.lab import pipeline, strategies
 
 
 class FakeResponse:
-    def __init__(self, status, body=None):
+    def __init__(self, status, body=None, text=None):
         self.status_code = status
         self.body = body or {}
+        self.text = text if text is not None else __import__("json").dumps(self.body)
+        self.headers = {"Content-Type": "application/json"}
 
     def raise_for_status(self):
         if self.status_code >= 400: raise RuntimeError(self.status_code)
 
     def json(self):
+        if self.body is None or self.text == "": raise ValueError("not json")
         return self.body
 
 
@@ -26,7 +29,7 @@ class FakeSession:
         self.status, self.summary, self.category, self.drop = status, summary, category, set(drop)
         self.calls = []
 
-    def post(self, url, json=None, headers=None, timeout=None):  # noqa: A002 - mirrors requests
+    def post(self, url, json=None, headers=None, timeout=None, allow_redirects=True):  # noqa: A002 - mirrors requests
         self.calls.append(json)
         if self.status != 200: return FakeResponse(self.status)
         projects = __import__("json").loads(json["messages"][1]["content"])["projects"]
@@ -111,3 +114,28 @@ class ModelsPipelineTests(unittest.TestCase):
         pipeline.enrich(periods, caches, src, pipeline.Options(models=("tok", models.DEFAULT_MODEL, 2), readme=False), datetime.now(TZ))
         self.assertEqual(periods["daily"][0]["summarySource"], "machine")
         self.assertEqual(periods["daily"][0]["summary"], "构建 AI 智能体的开源框架")
+
+
+class DiagnosticsTests(unittest.TestCase):
+    def test_non_json_reply_stops_with_details(self):
+        class Empty(FakeSession):
+            def post(self, url, json=None, headers=None, timeout=None, allow_redirects=True):
+                r = FakeResponse(200, text="")
+                r.headers = {"Content-Type": "text/html"}
+                return r
+        stats = models.enrich([repo("a/one")], {}, "tok", session_factory=lambda: Empty(), sleep=lambda s: None)
+        self.assertIn("non-JSON", stats["stopped"])
+        self.assertIn("text/html", stats["stopped"])
+        self.assertNotIn("tok", stats["stopped"])
+
+    def test_redirect_is_reported_not_followed(self):
+        class Moved(FakeSession):
+            def post(self, url, json=None, headers=None, timeout=None, allow_redirects=True):
+                assert allow_redirects is False
+                r = FakeResponse(301, text="")
+                r.headers = {"Location": "https://elsewhere.example/"}
+                return r
+        stats = models.enrich([repo("a/one")], {}, "tok", session_factory=lambda: Moved(), sleep=lambda s: None)
+        self.assertIn("301", stats["stopped"])
+        self.assertIn("elsewhere.example", stats["stopped"])
+
