@@ -119,7 +119,8 @@ def chinese_text(name, r, analysis, upstream_map, editorial, translations):
     if entry and llm.valid_analysis(entry.get("analysis")):
         a = entry["analysis"]
         return {**{k: a[k] for k in ("summary", "useCase", "techStack", "highlights")}, "summarySource": "ai-readme", "summaryAt": entry["at"]}
-    if name in upstream_map: return {"summary": upstream_map[name]["summary"], "summarySource": "upstream", "summaryAt": upstream_map[name]["at"]}
+    # 上游中文速览也是英文转述来的，同样存在「代理」之类的术语问题，一并修订
+    if name in upstream_map: return {"summary": polish.polish(upstream_map[name]["summary"], r["description"]), "summarySource": "upstream", "summaryAt": upstream_map[name]["at"]}
     if name in editorial and editorial[name].get("descriptionHash") == h:
         return {"summary": editorial[name]["summary"], "summarySource": "editorial", "summaryAt": editorial[name]["at"]}
     if r.get("summary") and chinese(r["summary"]): return {k: r[k] for k in ("summary", "useCase", "techStack", "highlights", "summarySource", "summaryAt") if k in r}
