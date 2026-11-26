@@ -6,7 +6,7 @@ from dataclasses import dataclass, field
 from datetime import datetime, timedelta
 from typing import Callable
 
-from collector.blocks import llm, meta, polish, readme, search, trending, translate, upstream
+from collector.blocks import llm, meta, models, polish, readme, search, trending, translate, upstream
 from collector.blocks.classify import signals
 from collector.blocks.classify.engine import Evidence, Strategy, classify
 from collector.core import settings
@@ -26,6 +26,8 @@ class Sources:
     upstream: Callable = upstream.fetch_upstream  # () -> {name: {summary, at}}
     translate: Callable = translate.machine_translate
     session: Callable | None = None  # HTTP session factory for translation
+    models: Callable = models.enrich  # GitHub Models: batch Chinese descriptions + category suggestions
+    models_session: Callable | None = None  # HTTP session factory for GitHub Models (tests)
 
 
 @dataclass
@@ -35,6 +37,8 @@ class Options:
     translation: bool = True
     mymemory_email: str = ""
     readme: bool = True
+    # GitHub Models: (token, model, max requests per run); empty token turns it off
+    models: tuple[str, str, int] = ("", models.DEFAULT_MODEL, models.MAX_REQUESTS)
     strategy: Strategy = field(default_factory=strategies.get)
     today: object = None
 
@@ -112,7 +116,13 @@ def run_analysis(unique: dict, cache: dict, opt: Options):
     return True
 
 
-def chinese_text(name, r, analysis, upstream_map, editorial, translations):
+def model_entry(name: str, r: dict, model_cache: dict | None):
+    """A GitHub Models answer for this repo's current description, if any."""
+    entry = (model_cache or {}).get(name)
+    return entry if entry and entry.get("hash") == models.digest(r["description"]) else None
+
+
+def chinese_text(name, r, analysis, upstream_map, editorial, translations, model_cache=None):
     """Pick the best honest Chinese text, in order of trust. Returns the fields to update."""
     h = translate.digest(r["description"])
     entry = analysis.get(name)
@@ -123,6 +133,8 @@ def chinese_text(name, r, analysis, upstream_map, editorial, translations):
     if name in upstream_map: return {"summary": polish.polish(upstream_map[name]["summary"], r["description"]), "summarySource": "upstream", "summaryAt": upstream_map[name]["at"]}
     if name in editorial and editorial[name].get("descriptionHash") == h:
         return {"summary": editorial[name]["summary"], "summarySource": "editorial", "summaryAt": editorial[name]["at"]}
+    m = model_entry(name, r, model_cache)
+    if m: return {"summary": m["summary"], "summarySource": "ai-translate", "summaryAt": m["at"]}
     if r.get("summary") and chinese(r["summary"]): return {k: r[k] for k in ("summary", "useCase", "techStack", "highlights", "summarySource", "summaryAt") if k in r}
     if name in translations and translations[name].get("hash") == h:
         # 缓存里较早的译文也过一遍后期修订，不消耗翻译额度
@@ -131,10 +143,11 @@ def chinese_text(name, r, analysis, upstream_map, editorial, translations):
 
 
 # ---------- classification ----------
-def classify_row(name, r, features: dict, analysis: dict, strategy: Strategy) -> dict:
+def classify_row(name, r, features: dict, analysis: dict, strategy: Strategy, model_cache: dict | None = None) -> dict:
     entry = analysis.get(name)
-    model_label = entry["analysis"]["category"] if entry and llm.valid_analysis(entry.get("analysis")) else None
-    ev = Evidence(full_name=name, description=r["description"] if r["description"] != NO_DESCRIPTION else "", language=r.get("language", ""), summary=r.get("summary") or "", topics=tuple(features.get("topics") or r.get("topics") or ()), readme=features.get("readme"), model_label=model_label)
+    model_label, source = (entry["analysis"]["category"], "readme") if entry and llm.valid_analysis(entry.get("analysis")) else (None, "readme")
+    if not model_label and (m := model_entry(name, r, model_cache)): model_label, source = m["category"], "brief"
+    ev = Evidence(full_name=name, description=r["description"] if r["description"] != NO_DESCRIPTION else "", language=r.get("language", ""), summary=r.get("summary") or "", topics=tuple(features.get("topics") or r.get("topics") or ()), readme=features.get("readme"), model_label=model_label, model_source=source)
     out = classify(ev, strategy)
     # Model-provided stacks win; rule-detected stacks fill in only when the row has none.
     if r.get("techStack"): out.pop("techStack")
@@ -142,7 +155,7 @@ def classify_row(name, r, features: dict, analysis: dict, strategy: Strategy) ->
     return out
 
 
-MACHINE_SOURCES = {"machine", "upstream", "editorial"}
+MACHINE_SOURCES = {"machine", "upstream", "editorial", "ai-translate"}
 
 
 def apply_corrections(name: str, row: dict, corrections: dict) -> dict:
@@ -174,28 +187,50 @@ def enrich(periods: dict, caches: dict, src: Sources, opt: Options, now: datetim
     configured = run_analysis(unique, caches["analysis"], opt)
     try: gather_features(unique, caches["features"], src, opt, now)
     except Exception as error: log.warning("feature gathering failed: %s; classifying with what is cached", error)
+    model_cache = caches.setdefault("models", {})
+    stats = run_models(periods, unique, caches, upstream_map, src, opt, now)
     if opt.translation:
-        def has_chinese(n, r): return bool(chinese_text(n, r, caches["analysis"], upstream_map, caches["editorial"], {}))
+        def has_chinese(n, r): return bool(chinese_text(n, r, caches["analysis"], upstream_map, caches["editorial"], {}, model_cache))
         missing = {n: r["description"] for n, r in unique.items() if r["description"] != NO_DESCRIPTION and not chinese(r["description"]) and not has_chinese(n, r)}
         translate.translate_missing(missing, caches["translations"], now.isoformat(), opt.mymemory_email, src.translate, src.session)
     ready = 0
     for name, r in unique.items():
-        update = chinese_text(name, r, caches["analysis"], upstream_map, caches["editorial"], caches["translations"])
+        update = chinese_text(name, r, caches["analysis"], upstream_map, caches["editorial"], caches["translations"], model_cache)
         if update: ready += 1
         merged = {**r, **update}
-        update.update(classify_row(name, merged, caches["features"].get(name, {}), caches["analysis"], opt.strategy))
+        update.update(classify_row(name, merged, caches["features"].get(name, {}), caches["analysis"], opt.strategy, model_cache))
         update.update(apply_corrections(name, {**merged, **update}, caches.get("corrections") or {}))
         for rows in periods.values():
             for item in rows:
                 if item["fullName"] == name: item.update(update)
+    log.info("github models: %s", stats)
     return ready, len(unique), configured
+
+
+def run_models(periods: dict, unique: dict, caches: dict, upstream_map: dict, src: Sources, opt: Options, now: datetime) -> dict:
+    """Ask GitHub Models for the rows that have no better Chinese text, in ranking order (daily first)."""
+    token, model, max_requests = opt.models
+    if not token: return {"requests": 0, "accepted": 0, "rejected": 0, "stopped": "off"}
+    h = translate.digest
+    def needs(r):
+        name = r["fullName"]
+        if r["description"] == NO_DESCRIPTION or chinese(r["description"]): return False
+        if (caches["analysis"].get(name) or {}).get("analysis") and llm.valid_analysis(caches["analysis"][name]["analysis"]): return False
+        if name in upstream_map: return False
+        return (caches["editorial"].get(name) or {}).get("descriptionHash") != h(r["description"])
+    ordered = [unique[r["fullName"]] for p in ("daily", "weekly", "monthly") for r in periods.get(p, []) if needs(r)]
+    try:
+        return src.models(ordered, caches["models"], token, model, max_requests, session_factory=src.models_session, now=now.isoformat())
+    except Exception as error:  # never let the model step break a collection
+        log.warning("GitHub Models step failed: %s", error)
+        return {"requests": 0, "accepted": 0, "rejected": 0, "stopped": str(error)}
 
 
 def reclassify(snapshot: dict, caches: dict, strategy: Strategy):
     """Re-run classification on an existing snapshot without fetching rankings again."""
     for rows in snapshot["periods"].values():
         for r in rows:
-            r.update(classify_row(r["fullName"], r, caches["features"].get(r["fullName"], {}), caches["analysis"], strategy))
+            r.update(classify_row(r["fullName"], r, caches["features"].get(r["fullName"], {}), caches["analysis"], strategy, caches.get("models")))
     snapshot["taxonomyVersion"] = load().version
     snapshot["classifier"] = strategy.name
     return snapshot

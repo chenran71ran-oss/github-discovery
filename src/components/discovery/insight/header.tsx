@@ -6,6 +6,7 @@ import { More } from "./module"
 
 const sources: Record<Repository["summarySource"], string> = {
   "ai-readme": "README 解读",
+  "ai-translate": "AI 翻译",
   "upstream": "上游速览",
   "editorial": "资料整理",
   "machine": "机翻",
@@ -39,7 +40,7 @@ export function InsightIntro({ repo, onClose }: { repo: Repository, onClose: () 
         {stack.map(s => <li key={s} className="tag">{s}</li>)}
       </ul>
       <div className="intro-source">
-        <span title={repo.summarySource === "machine" ? "只翻译了项目简介，可能不够准确" : undefined}>
+        <span title={repo.summarySource === "machine" ? "只翻译了项目简介，可能不够准确" : repo.summarySource === "ai-translate" ? "模型根据英文简介与主题写的中文介绍" : undefined}>
           {sources[repo.summarySource]}
           {repo.summaryAt ? ` · ${time(repo.summaryAt)}` : ""}
         </span>

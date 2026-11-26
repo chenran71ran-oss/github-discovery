@@ -3,8 +3,16 @@ on:
   schedule:
     - cron: '20 0 * * *'
   workflow_dispatch:
+    inputs:
+      mode:
+        description: run = 正常采集；probe-models = 试运行 GitHub Models（发一批真实项目、打印结果，不提交数据）
+        type: choice
+        options: [run, probe-models]
+        default: run
 permissions:
   contents: write
+  # GitHub Models：用工作流自带的令牌调用模型，生成中文简介与分类建议
+  models: read
 concurrency:
   group: discovery-collect-${{ github.ref }}
   cancel-in-progress: false
@@ -20,7 +28,15 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install -r collector/requirements.txt
-      - run: python -m collector run
+      - name: Probe GitHub Models (trial, writes nothing)
+        if: inputs.mode == 'probe-models'
+        run: python -m collector probe-models
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_MODELS: '1'
+          GITHUB_MODELS_MODEL: ${{ vars.GITHUB_MODELS_MODEL }}
+      - if: inputs.mode != 'probe-models'
+        run: python -m collector run
         env:
           LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
           LLM_MODEL: ${{ secrets.LLM_MODEL }}
@@ -31,8 +47,15 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
           # Optional: one of the strategies in collector/lab/strategies.py (default: full).
           CLASSIFIER_STRATEGY: ${{ vars.CLASSIFIER_STRATEGY }}
-      - run: python -m unittest discover -s collector -p 'test_*.py'
+          # GitHub Models: Chinese descriptions + category suggestions with the workflow token (no paid key).
+          # Set the repository variable GITHUB_MODELS to 0 to turn it off; GITHUB_MODELS_MODEL to change the model.
+          GITHUB_MODELS: ${{ vars.GITHUB_MODELS || '1' }}
+          GITHUB_MODELS_MODEL: ${{ vars.GITHUB_MODELS_MODEL }}
+          GITHUB_MODELS_MAX_REQUESTS: ${{ vars.GITHUB_MODELS_MAX_REQUESTS }}
+      - if: inputs.mode != 'probe-models'
+        run: python -m unittest discover -s collector -p 'test_*.py'
       - name: Commit snapshots
+        if: inputs.mode != 'probe-models'
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'

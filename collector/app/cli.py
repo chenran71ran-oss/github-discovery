@@ -1,5 +1,6 @@
 """Command line: `python -m collector [run|classify|evaluate]`. The scheduled workflow calls `run`."""
 import argparse
+import json
 import logging
 from collections import Counter
 from datetime import datetime, timedelta
@@ -13,7 +14,7 @@ log = logging.getLogger("collector")
 
 
 def options(cfg: config.Config) -> pipeline.Options:
-    return pipeline.Options(token=cfg.token, llm=cfg.llm, translation=cfg.translation, mymemory_email=cfg.mymemory_email, readme=cfg.readme, strategy=strategies.get(cfg.strategy))
+    return pipeline.Options(token=cfg.token, llm=cfg.llm, models=cfg.models, translation=cfg.translation, mymemory_email=cfg.mymemory_email, readme=cfg.readme, strategy=strategies.get(cfg.strategy))
 
 
 def run(cfg: config.Config, sources: pipeline.Sources | None = None):
@@ -73,11 +74,39 @@ def report(snapshot: dict, timings: dict):
     logs.summary(periodCounts={k: len(v) for k, v in snapshot["periods"].items()}, enrichment=snapshot.get("enrichment"), classifier=snapshot.get("classifier"), categories=dict(Counter(r["category"] for r in unique.values()).most_common()), timings=timings)
 
 
+def probe_models(cfg: config.Config, count: int = 10):
+    """Trial run: send one batch of today's machine-translated projects to GitHub Models and print the answers
+    next to what the site shows now. Writes nothing; used from the workflow's probe mode."""
+    from collector.blocks import models
+    from collector.blocks.http import create_http_session
+    from collector.core.taxonomy import load
+    token, model, _ = cfg.models
+    if not token: raise SystemExit("GitHub Models is off: set GITHUB_MODELS=1 and GITHUB_TOKEN")
+    snapshot = store.read_json(cfg.data_dir / "latest.json", {})
+    rows = [r for r in snapshot.get("periods", {}).get("daily", []) if r.get("summarySource") in ("machine", "pending")][:count]
+    projects = [{"id": i, "name": r["fullName"], "description": r["description"][:400], "topics": (r.get("topics") or [])[:8], "language": r.get("language", "")} for i, r in enumerate(rows)]
+    labels = set(load().labels)
+    with create_http_session() as session:
+        try: items = models.request(session, token, model, projects)
+        except models.Stop as stop: raise SystemExit(f"probe failed: {stop}") from stop
+    by_id = {it.get("id"): it for it in items if isinstance(it, dict)}
+    ok = 0
+    for i, r in enumerate(rows):
+        it = by_id.get(i) or {}
+        good = models.valid(it, labels)
+        ok += good
+        print(json.dumps({"repo": r["fullName"], "en": r["description"][:120], "now": r.get("summary"), "nowCategory": r.get("category"),
+                          "model": models.polish(it.get("summary", ""), r["description"]) if good else it, "modelCategory": it.get("category"), "valid": good}, ensure_ascii=False))
+    print(json.dumps({"model": model, "sent": len(rows), "valid": ok}, ensure_ascii=False))
+    if not ok: raise SystemExit("probe returned no valid answers")
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(prog="python -m collector", description="GIT Bot collector")
     sub = parser.add_subparsers(dest="command")
     sub.add_parser("run", help="collect, enrich, classify and publish (default)")
     sub.add_parser("classify", help="re-classify the latest snapshot without fetching rankings")
+    sub.add_parser("probe-models", help="trial: one GitHub Models batch on today's machine-translated rows, prints results, writes nothing")
     ev = sub.add_parser("evaluate", help="score classifier strategies on the labelled set")
     ev.add_argument("--readme", action="store_true", help="also fetch READMEs (network) for the readme signal")
     ev.add_argument("--errors", action="store_true", help="list misclassified repositories")
@@ -85,6 +114,7 @@ def main(argv=None):
     cfg = config.from_env()
     logs.setup(cfg.log_level)
     if args.command == "classify": classify_only(cfg)
+    elif args.command == "probe-models": probe_models(cfg)
     elif args.command == "evaluate":
         from collector.lab import evaluate
         evaluate.main(readme=args.readme, errors=args.errors)

@@ -16,7 +16,8 @@ export interface Repository {
   techStack: string[]
   highlights: string[]
   category: string
-  summarySource: "ai-readme" | "upstream" | "editorial" | "machine" | "pending"
+  /** ai-translate：GitHub Models 根据英文简介与主题写的中文介绍 */
+  summarySource: "ai-readme" | "ai-translate" | "upstream" | "editorial" | "machine" | "pending"
   summaryAt: string | null
   /**
    * Where the row came from; absent in older snapshots.

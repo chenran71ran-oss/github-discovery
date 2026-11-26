@@ -3,7 +3,7 @@ from typing import Literal, TypedDict
 
 Period = Literal["daily", "weekly", "monthly"]
 Origin = Literal["trending", "language", "search"]
-SummarySource = Literal["ai-readme", "upstream", "editorial", "machine", "pending"]
+SummarySource = Literal["ai-readme", "ai-translate", "upstream", "editorial", "machine", "pending"]
 
 
 class Classification(TypedDict):

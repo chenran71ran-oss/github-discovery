@@ -18,7 +18,7 @@ def atomic_json(path: Path, data, compact: bool = False):
 
 FIRST_SEEN = "first-seen.json"
 TRENDS = "trends.json"
-CACHES = {"analysis": "analysis-cache.json", "translations": "translation-cache.json", "features": "feature-cache.json"}
+CACHES = {"analysis": "analysis-cache.json", "translations": "translation-cache.json", "features": "feature-cache.json", "models": "model-cache.json"}
 
 
 def load_caches(data: Path, editorial_file: Path) -> dict:
