@@ -90,8 +90,14 @@ def probe_models(cfg: config.Config, count: int = 10):
         snapshot = store.read_json(cfg.data_dir / "latest.json", {})
         rows = [r for r in snapshot.get("periods", {}).get("daily", []) if r.get("summarySource") in ("machine", "pending")][:count]
         projects = [{"id": i, "name": r["fullName"], "description": r["description"][:400], "topics": (r.get("topics") or [])[:8], "language": r.get("language", "")} for i, r in enumerate(rows)]
-        try: items = models.request(session, provider, projects)
-        except models.Stop as stop: raise SystemExit(f"probe failed: {stop}") from stop
+        try:
+            try: items = models.request(session, provider, projects)
+            except models.Busy as busy:
+                print(json.dumps({"check": "busy", "model": model, "message": str(busy)[:200], "fallback": provider.fallback}, ensure_ascii=False))
+                provider = models.Provider(base, key, provider.fallback)
+                model = provider.model
+                items = models.request(session, provider, projects)
+        except (models.Stop, models.Busy) as stop: raise SystemExit(f"probe failed: {stop}") from stop
     labels = set(load().labels)
     by_id = {it.get("id"): it for it in items if isinstance(it, dict)}
     ok = 0

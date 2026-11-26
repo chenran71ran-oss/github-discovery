@@ -30,7 +30,7 @@ def from_env(env=None) -> Config:
         token=env.get("GITHUB_TOKEN", ""),
         llm=(env.get("LLM_BASE_URL", ""), env.get("LLM_MODEL", ""), env.get("LLM_API_KEY", "")),
         # 批量中文介绍：默认 Gemini 的 OpenAI 兼容接口，有 AI_API_KEY 才开启
-        ai=(env.get("AI_BASE_URL") or "https://generativelanguage.googleapis.com/v1beta/openai", env.get("AI_API_KEY", ""), env.get("AI_MODEL") or "gemini-2.5-flash", int(env.get("AI_MAX_REQUESTS") or 12)),
+        ai=(env.get("AI_BASE_URL") or "https://generativelanguage.googleapis.com/v1beta/openai", env.get("AI_API_KEY", ""), env.get("AI_MODEL") or "gemini-flash-latest", int(env.get("AI_MAX_REQUESTS") or 12)),
         translation=env.get("MACHINE_TRANSLATION", "1") != "0",
         mymemory_email=env.get("MYMEMORY_EMAIL", ""),
         readme=env.get("README_SIGNALS", "1") != "0",
