@@ -1,0 +1,751 @@
+{
+  "getarcaneapp/arcane": {
+    "hash": "7966ced25099ff324f7d7c997c1b634dbc392aa7f48035cdc87b1b5a44aa93c8",
+    "summary": "这是一个现代的 Docker 管理工具，旨在为所有人提供简单易用的容器管理体验。",
+    "category": "自托管",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "janhq/jan": {
+    "hash": "04ff48c93442bd3df7e7429724ef56f1eadebdc0c14cca4fe9ecc7dde2e3c95f",
+    "summary": "这是一个开源的 ChatGPT 替代品，完全在你的电脑上离线运行，保护你的隐私。",
+    "category": "AI 与智能体",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "vxcontrol/pentagi": {
+    "hash": "151efcc923acb41ce3a127e342e7f1bbf3a2012a00d5ddddab46441741761296",
+    "summary": "这是一个全自主的 AI 智能体系统，能够执行复杂的渗透测试任务。",
+    "category": "AI 与智能体",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "vercel-labs/agent-skills": {
+    "hash": "dd57376d58d4125211823b53d3a59b0a4a1ffa57065c56d221f508dc48e0d24c",
+    "summary": "这是 Vercel 官方推出的智能体技能合集，用于扩展智能体的能力。",
+    "category": "AI 与智能体",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "LiberNT/LiberNT": {
+    "hash": "8c87e342763351acd638c83b0906fdac24ac180ffac502452c747bfc2c0ded7a",
+    "summary": "这是一个免费的且与 Windows 兼容的操作系统。",
+    "category": "命令行与系统",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "agent-substrate/substrate": {
+    "hash": "22bff492dbd082ae937ec0caf2b10b92194c1ffd4e2c94edf24a581541d0f6f0",
+    "summary": "这是智能体底座的核心系统，为各种智能体应用提供底层支持。",
+    "category": "AI 与智能体",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "michael-denyer/pstack-claude": {
+    "hash": "d9f06095ee8c59f1820136ec233ff56fcad3e4acb08342dd3e273bf8f05dfdb2",
+    "summary": "这是一个将 Cursor 的严谨智能体工作流转换并适配到多种其他 AI 编程工具中的项目。",
+    "category": "开发工具",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "SWE-agent/mini-swe-agent": {
+    "hash": "da2731e0c2bebb7d4b9aa251d264e9735673fc1d55e29490839c6367275e7e55",
+    "summary": "这是一个仅有 100 行代码的 AI 智能体，能帮你解决 GitHub Issues 或在命令行中协助你。",
+    "category": "AI 与智能体",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "sveltejs/svelte": {
+    "hash": "ab30de3063b19e2933b31ce37031a58224a264cf3d20b011d30f8b76b11ad157",
+    "summary": "这是一个轻量级的前端 Web 开发框架，能将组件直接编译为高效的原生 JavaScript。",
+    "category": "前端与界面",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "bendlang/bend": {
+    "hash": "62e701c42104636830679920d244c7f872c7634a0361d441b7132eefe20298e6",
+    "summary": "Bend 2 是一种通过证明来防止 AI 错误的快速编程语言，提供便捷的安装脚本。",
+    "category": "开发工具",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "wshobson/agents": {
+    "hash": "850a158b41e5628d63445ea2e23f37a9ac03d0140af38d4097620cdc2fdad8eb",
+    "summary": "为 Claude Code、Cursor 等工具编写并适配插件、智能体、技能与命令的集合。",
+    "category": "开发工具",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "appwrite/appwrite": {
+    "hash": "59d657b9c35fd0b4ab04e906139b8351d8c6f1e24dd4cd25f0a7c78dd68154bb",
+    "summary": "面向智能体与开发者的开源云平台，提供认证、数据库、存储、函数和托管等功能。",
+    "category": "后端与 API",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "ntdevlabs/tiny11builder": {
+    "hash": "fde6cdb4a574e52062b4d8b4d3e7570629621020040e626916f77e4cff14a50b",
+    "summary": "用于构建更小、更定制化的 Windows 11 镜像的 WinUI 应用。",
+    "category": "命令行与系统",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "tianma-if/edgeever": {
+    "hash": "42a12180198303a93cd9e6a2e18352e3501c7a553d40784885c87c8ad5fdfa33",
+    "summary": "采用 AI 原生的笔记应用，支持全平台即时同步、富文本和 MCP，可免费自托管。",
+    "category": "效率与办公",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "builtbybel/FluentCleaner": {
+    "hash": "a3c4227d3b1ce7f1968b878da90d4f743446b9de8f7f742d553f7ae1c0ab7c37",
+    "summary": "一个透明且由社区驱动的 Windows 系统清理工具，作为 CCleaner 的替代品。",
+    "category": "命令行与系统",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "k1tbyte/Wand-Enhancer": {
+    "hash": "1e5985d13ecbdc5d7a75c3cb3e832717dcb2966784fb998c6f045be86699d1a1",
+    "summary": "为 Wand (WeMod) 应用提供的高级用户体验与互操作性扩展工具。",
+    "category": "游戏与图形",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "k2-fsa/sherpa-onnx": {
+    "hash": "c6c5624eac3a425dd8a4c0201f1154cd73278d98431afbccadb4875dd7bcf5c6",
+    "summary": "基于 onnxruntime 的离线语音识别、合成与处理库，支持多平台与多种编程语言。",
+    "category": "音视频与图像",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "apache/airflow": {
+    "hash": "5fd616dd27cc56562cbf1d969f8d2b1a83c783ab7d611f837aa7413aac11e897",
+    "summary": "Apache Airflow 是一个用于以编程方式编写、调度和监控工作流的平台。",
+    "category": "自动化与爬虫",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "pola-rs/polars": {
+    "hash": "48efce428165cd401369cdee340f00c9a08304cc3ca56d7af0b96f316a55dd48",
+    "summary": "使用 Rust 编写的极速 DataFrame 查询引擎，用于高效处理和分析数据。",
+    "category": "数据与基础设施",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "microsoft/BitNet": {
+    "hash": "4acc41713d152c06028512e25d721a3f22c3e6c641bc352ae79e1cdc8fac2231",
+    "summary": "1 比特大语言模型的官方推理框架，支持高效运行超低精度模型。",
+    "category": "AI 与智能体",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "mastra-ai/mastra": {
+    "hash": "d18b73363fa7650e6e99b4863c2af9b4015e30907bdf28f2dbdc37fadc11c3f7",
+    "summary": "现代 TypeScript 框架，用于构建由 AI 驱动的应用和智能体。",
+    "category": "AI 与智能体",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "malisper/pgrust": {
+    "hash": "f5a7d8495426af4565872f771487e3af55a38777492ef10c0f397cfd88bf9ffc",
+    "summary": "用 Rust 重写的 Postgres，运行速度超越传统的 Postgres 和 ClickHouse。",
+    "category": "数据与基础设施",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "wonderwhy-er/DesktopCommanderMCP": {
+    "hash": "a00a46145b0afddaa638554c793d60322115cae63f60e36e9dcc8b13687286a5",
+    "summary": "为 Claude 提供终端控制、文件系统搜索和差异文件编辑能力的 MCP 服务端。",
+    "category": "AI 与智能体",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "datazip-inc/olake-go": {
+    "hash": "80f9597ffbd849a5ea8cb1dc906c9ad137bcfdfd6cc71b6711fc4160cc671fd5",
+    "summary": "开源的数据复制工具，可将多种数据库、Kafka 和 S3 的数据同步到 Apache Iceberg 和 Parquet。",
+    "category": "数据与基础设施",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "google-ai-edge/gallery": {
+    "hash": "d323062e9ecb6941e8e5276ab120f2d699adf8c61600aee2fbfff7823986d501",
+    "summary": "展示端侧机器学习与生成式 AI 用例的示例库，支持在本地尝试和使用模型。",
+    "category": "AI 与智能体",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "Akshayykadam/PixelBoard": {
+    "hash": "ff71824a4e3c2c86b55450f41b7c78090993b61c0174569a3c55f3d63a1d5c22",
+    "summary": "无需 Root 权限，即可在任意 Android 手机上解锁 Google Gemini 的自然语音听写与 AI 写作工具。",
+    "category": "移动与桌面",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "keycloak/keycloak": {
+    "hash": "a651ca2d80adaf99aba753685841b732a2edcc546f063ff5cd5ca8a45c6ec6f3",
+    "summary": "面向现代应用和服务的开源身份与访问管理系统。",
+    "category": "安全与隐私",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "meta/zstd": {
+    "hash": "5fb955ca3f9a31a43f23e4ca3dd4e3957d1aa0acdf3ed11aa5356763899d7851",
+    "summary": "Zstandard 是一款提供高压缩比的快速实时压缩算法。",
+    "category": "开发工具",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "juspay/hyperswitch": {
+    "hash": "cf3daf62715828a77ecdf1df24a70f6e72f090e3829c3dd840a93dfb621d5410",
+    "summary": "开源且可组合的支付平台，支持多支付渠道连接、智能路由及对账功能。",
+    "category": "理财与金融",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "Saffsanity/sill": {
+    "hash": "8c67f822d7f5f305312a1a345c347c15f1766794f9a46430eeee1b12790b4a41",
+    "summary": "这是一个开源的 Mac 窗口投屏工具，能把 Mac 窗口实时显示在 iPhone 或 iPad 上，并支持触控、Apple Pencil、触控板和键盘操作。",
+    "category": "移动与桌面",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "ianshulyadav/PixelMusic": {
+    "hash": "aea836a4bf8a0dfe960b33169aed80e1da9d84a1faea65d4776b7d0669ee7620",
+    "summary": "Pixel Music 是一个开源的 Android 音乐播放器，支持流式播放 YouTube Music 和 Telegram、播放高解析度无损 FLAC，以及滚动歌词和 10 段均衡器。",
+    "category": "影音娱乐",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "grokability/snipe-it": {
+    "hash": "2667b5bdeef0d92ab5d6408011d7952e5573bdaaa01d43e61d97358075a2398f",
+    "summary": "Snipe-IT 是一个免费的开源 IT 资产与软件许可证管理系统，帮助你轻松追踪和管理企业设备。",
+    "category": "自托管",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "consolelabs/hidden": {
+    "hash": "0242643acb218aa111b025a3b59df25563198663608be1ef4a506db433d119a8",
+    "summary": "Hidden 是一个超轻量的 macOS 实用工具，能够帮助你隐藏和管理菜单栏图标，让界面保持简洁。",
+    "category": "移动与桌面",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "dbeaver/dbeaver": {
+    "hash": "4d3284741cdec8505883a59669f90611865ede014a63d7625b88fa2dca753374",
+    "summary": "DBeaver 是一个免费的通用数据库管理工具和 SQL 客户端，支持多种主流数据库的连接与操作。",
+    "category": "开发工具",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "mautic/mautic": {
+    "hash": "53b361ab7205a2d5413e140e3cbe3176a2ad4eaec742d4ec7c6528d2e089fd41",
+    "summary": "Mautic 是一个开源的营销自动化软件，帮助你轻松管理营销活动、追踪客户并实现业务增长。",
+    "category": "自动化与爬虫",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "intrinsic-ai/intrinsic-core": {
+    "hash": "de00ef9bf787ca5189885087207947d3f8769e0b329579c59de0f8d44cec7d69",
+    "summary": "Intrinsic Core 提供了一个开源的本地运行时、SDK 以及硬件无关的工业机器人实时控制框架。",
+    "category": "智能家居与硬件",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "zephyrproject-rtos/zephyr": {
+    "hash": "d4e0360ab6e41219fe5af65fa64b4f3abd5f937c5cabb8da2a85025064281a89",
+    "summary": "Zephyr 是一个面向多种硬件架构的新一代、可扩展、优化且安全的实时操作系统（RTOS）。",
+    "category": "开发工具",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "openjdk/jdk": {
+    "hash": "56a3a613fa45e321d0e1cc7d92da31320ee29eba5c8fa65df731afdabe699bbf",
+    "summary": "这是 OpenJDK 的主干开发仓库，包含了 Java 开发工具包的核心源代码与主线开发内容。",
+    "category": "开发工具",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "CroqueMr/libreelec-CB1": {
+    "hash": "ed9c27b2a52c8c61630e73f39e82eb8c6eb9384947142ee7d4dbb1d7d76bbd6b",
+    "summary": "这是一个支持高画质 Dolby Vision 和 HDR10+ 的 LibreELEC 版本，适用于 Intel、AMD、Nvidia 等多种硬件平台。",
+    "category": "影音娱乐",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "seemoo-lab/openhaystack": {
+    "hash": "e4585c110e01452d028bff22e3552f9c1124003af0a8ce1371b92ead845f97a6",
+    "summary": "这是一个借助苹果庞大 Find My 网络追踪个人蓝牙设备的框架，让你能打造自己的「AirTags」。",
+    "category": "安全与隐私",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "opensearch-project/OpenSearch": {
+    "hash": "fa0a77c0b8b8bc5dcdc8f755011120f89fc26b89155c91176b703d920074c43a",
+    "summary": "这是一个开源的分布式 RESTful 搜索引擎，适用于各类搜索与数据分析场景。",
+    "category": "数据与基础设施",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "php/php-src": {
+    "hash": "fcb56316c193df6236b8b0d0969cab9324ffa18e3191d068377762b94b15c1bb",
+    "summary": "这是官方的 PHP 语言解释器，用于执行和解析 PHP 代码。",
+    "category": "开发工具",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "carla-simulator/carla": {
+    "hash": "ee75ef9f31a421917561ba2787d4df9b349c65aa8bce84d87aba4fb0f8c8ca61",
+    "summary": "这是一个开源的自动驾驶研究模拟器，用于测试和验证自动驾驶系统的性能。",
+    "category": "科研与论文",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "microsoft/copilot-sdk": {
+    "hash": "45e1b829e7b990d84542137dfa6cf5df2744ce83f4515ac4f0451ed0a54f7704",
+    "summary": "这是一个多平台 SDK，用于将 GitHub Copilot 智能体集成到各类应用和服务中。",
+    "category": "AI 与智能体",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "MISP/MISP": {
+    "hash": "e73c3bcfb2389f6f86576f2257f9477c907d77b37403e6b96b9b4141c62cbae9",
+    "summary": "这是一个开源的威胁情报与共享平台，帮助组织收集、存储和共享网络安全威胁信息。",
+    "category": "安全与隐私",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "librenms/librenms": {
+    "hash": "157693ab5b973a81e833d324e970c8b3e021e6a0e7b64420c7e47180b433fb3e",
+    "summary": "这是一个基于社区的开源网络监控系统，支持多种协议来监测你的网络设备与流量。",
+    "category": "数据与基础设施",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "magento/magento2": {
+    "hash": "8eadda8ad1766069898d4f52899f08e1030690ba8f2c45263424b11318cfdb70",
+    "summary": "这是一个知名的开源电子商务平台，用于构建和管理功能强大的在线商店。",
+    "category": "后端与 API",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "Marvisak/VIctory": {
+    "hash": "562e666a06c93090976f1b1844e665117fa99408f0872d0685ce78856881fe94",
+    "summary": "这是一个在 PC 上运行 GTA VI 的尝试项目，探索跨平台游戏运行的可能性。",
+    "category": "游戏与图形",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "Minireel/HGhub": {
+    "hash": "c4123aaafff4a67708d7d83dac4ce8c8d2c7882df19cd4fbc9e5dadac889d7a5",
+    "summary": "这是一个插件式媒体播放器，支持多种平台，用于播放网络影视剧集和短视频。",
+    "category": "影音娱乐",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "wangzan101/Mika": {
+    "hash": "2948c35a9fd047d8ec2e042bec33a38ae74010ef99bd44901ae05d107ca3e94f",
+    "summary": "一个运行在 Android 设备上的端侧 AI 智能体，能够操作应用和网页来帮你完成各种任务。",
+    "category": "AI 与智能体",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "xcl-dev/xcl": {
+    "hash": "2c2e669d8ff4cb7bbd72ce258acfa4199e8e1e81f26db63db25801dea9da4ceb",
+    "summary": "适用于 Windows 的 Xbox Series 兼容层，可在本地运行主机游戏代码并重新编译着色器。",
+    "category": "游戏与图形",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "mdiri-ai/SoduWork": {
+    "hash": "4a4eb28032c525a4d6efec4dbb49966435b8788838300878755cb64ef7cc1e2a",
+    "summary": "面向团队和智能体的 AI 原生自托管引擎，支持多智能体协作与工作流编排。",
+    "category": "AI 与智能体",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "ersinkoc/phonebox": {
+    "hash": "26c4f850847cdbd3386d9721b8aba5ec3bb17ab5c03b9744bd7e8f4a0cd2363d",
+    "summary": "将旧 Android 手机变成电脑的自定义桌面面板和触控控制台，提供丰富的小部件与模板。",
+    "category": "智能家居与硬件",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "Eglantine-Community/Eglantine": {
+    "hash": "cf4b94aafd006f9c7ac779a839df95ea692daa115e367993c297e7ec496425b3",
+    "summary": "一个为 Windows、Linux 和 macOS 构建的实验性 Switch 2 模拟器。",
+    "category": "游戏与图形",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "4lwayz/portwatch-vi": {
+    "hash": "2b37f3f895973307f5f392c5d39956673de37cfbbcb15073176833a55b939283",
+    "summary": "GTA VI 是否已能在 PC 上运行？这是一个每日更新的社区重构与模拟进展实时追踪器。",
+    "category": "游戏与图形",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "expo/exact": {
+    "hash": "e43347e727271b1348149cf47a4d6a8d0fb5e094eec20465b9cb1be3d526d1cb",
+    "summary": "基于 Rust 的高性能智能体原生跨平台应用开发工具，支持构建多端应用。",
+    "category": "开发工具",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "EL4CTEO/fast-anything": {
+    "hash": "84eb0efab39006a5d8bb518bc97fb556dce5cd29aa7da741348b704869fb06c6",
+    "summary": "通过分析 Python、Node 或 Ruby 应用性能，利用编码智能体将缓慢的代码段重写并进行替换的工具。",
+    "category": "开发工具",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "AFK-surf/xnulinux": {
+    "hash": "6a1f4682ef24fe2910a60b10f3e70e9a0411ec3f996c120187623a4006f3ed40",
+    "summary": "作为 Linux 可加载内核模块运行的 XNU，为 arm64 Linux 提供 macOS 兼容特性。",
+    "category": "命令行与系统",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "fxceless/victory-fork": {
+    "hash": "26c79c27b220e82ac6a9c4654b31dc8137fe476c33e31471ff0931811ecd9eab",
+    "summary": "Victory 的开发中分支，致力于让 Xbox Series 游戏在 Windows 电脑上渲染和运行。",
+    "category": "游戏与图形",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "imxieyi/Kernarium": {
+    "hash": "27f3f68e63df8b34dc8ed16fa76f8c4dae0c7472391a3ea338e2c3b6cfa6966e",
+    "summary": "这是一个能在 iOS 设备上原生运行真实 Linux 内核的项目，带你探索在苹果系统中的虚拟化与内核模拟技术。",
+    "category": "移动与桌面",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "govijr/terminal-mac": {
+    "hash": "51f03e491da9b1eea90c260d96963e99292f7fb36270603186aacaea11e609a0",
+    "summary": "这是一个在终端里运行完整 macOS 系统的趣味工具，让你能在命令行和文本界面中体验苹果操作系统的外观。",
+    "category": "命令行与系统",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "HolyArrs/HolyArrs": {
+    "hash": "a656d7761caea72850085639437c71e56d9f772036efa273102ef1fe430468cd",
+    "summary": "这是一个用于管理你的剧集、电影和音乐的自托管应用，将你的媒体服务器集中在一个地方统一管理。",
+    "category": "自托管",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "iamajmeena/neonclipping": {
+    "hash": "c2d4725a91b967ae2a09449c48c683a3673fcc5566ae05448502f743180bc1dc",
+    "summary": "这是一个开源的本地视频切片引擎，只需粘贴链接，即可结合本地 LLM 快速生成带字幕的 9:16 短视频。",
+    "category": "音视频与图像",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "N1nEmAn/sapper-v2": {
+    "hash": "b54c8b2641a6de2772441bf6077dc191433c9b561ac392a88afd8a13820581e3",
+    "summary": "这是一个具备自主进化能力的 AI 渗透测试智能体军团，专注于网络安全与自动化安全对抗场景。",
+    "category": "安全与隐私",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "RMvdesi/obsidian-prism": {
+    "hash": "9fd4f3c4c67641358e1075f74e5fd667ead84ec9f9f39ebf7a50cd4237844c6a",
+    "summary": "这是一个为 Obsidian 打造的特色主题与思考套件，带有光学 UI、弹簧动画和丰富的桌面自定义效果。",
+    "category": "前端与界面",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "ubiquitarianism/leonida": {
+    "hash": "3315b3e4dd0b385331a5edf11a3bf3666cca4dcedde89ccd7c590134c6f46168",
+    "summary": "这是一个针对 GTA VI 的 Xbox 转 PC 移植接口续作，旨在探索和推进相关的游戏移植技术。",
+    "category": "游戏与图形",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "pierridotite/mobile-agent-testers": {
+    "hash": "11eb658da109b4ace97344787e121650c7c0196b85c28ed93ad79923bc58f2ac",
+    "summary": "这是一个利用 GitHub 免费运行器并行测试的 AI 方案，通过多个智能体在手机模拟器上自动查找应用缺陷。",
+    "category": "开发工具",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "JosssphZhou/poki": {
+    "hash": "7129b8d1d56bb5a95c72e8a91a98e3ce2628a0f880e2f08463b22d0b15a4af8f",
+    "summary": "这是一个运行在 iPhone 上的开源智能体应用，能够像你一样读取屏幕并在真实应用中执行点击和输入操作。",
+    "category": "移动与桌面",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "agentes-chat/agentes-chat": {
+    "hash": "c27cc938b823d287fb362064c5f09590373d9d479d2694f9ee405f7007f78bc6",
+    "summary": "这是一个开源且支持自托管的 Slack 替代品，能让你的团队与多个大模型 AI 智能体在频道和私信中协作。",
+    "category": "社交与通讯",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "R0Y00/Xbox2Windows": {
+    "hash": "48f45d8bc1e3c5448b4854b956daa1b692c5ec67f67ec1800fa3ae1275539444",
+    "summary": "这是一个用于在 x64 Windows 上进行 Xbox Series X|S 软件静态重新编译研究的项目，包含源码构建的 CPU 和 GPU 测试。",
+    "category": "游戏与图形",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "os6/nospeaker": {
+    "hash": "7f8256fe5b4919d41c55230faba48a50b133486119e9cdfa4249b91a174d367d",
+    "summary": "这是一个利用触觉马达让你的 MacBook 触控板发出声音的实用工具。",
+    "category": "移动与桌面",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "opensetlabs/openset-llm": {
+    "hash": "767fd8a81428a7aeb8bcb249c6e4d4eb47dc11e6cb58d21e02be1922b7b59fab",
+    "summary": "这是一个能在普通 CPU 和 8 GB 内存下实现快速本地 LLM 推理的 OpenAI 兼容服务器。",
+    "category": "AI 与智能体",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "avatarmanz/VIctory-7900XTX": {
+    "hash": "a6201a718ed1bbbac581af6d6d67377a3b539e8c21e0fa8a4a23ad8bdbd00730",
+    "summary": "这是一个旨在将 Xbox Series X 游戏原生移植到 PC 上的项目，目标是在 RX 7900 XTX 上实现 4K 分辨率、光线追踪和 30+ 帧率。",
+    "category": "游戏与图形",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "omonkeyz/xbox-emulator": {
+    "hash": "c95b88bf660265b26a13ea5d96b15e446133561f39b0c39adfeeaf6c3dd92bc5",
+    "summary": "这是一个记录在 PC 上运行 Xbox Series X|S 构建版本进展的笔记项目。",
+    "category": "游戏与图形",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "INK-Q/agy-fast": {
+    "hash": "350161d13c219954ce6fd0560c21d5ad53d41f5a80fb7e1ddaae21882e499e87",
+    "summary": "这是一个针对 Google Antigravity 的非侵入式 MCP 加速器插件，可在不影响原生 UI 的前提下大幅减少 LLM 交互轮数、Token 配额和上传流量。",
+    "category": "AI 与智能体",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "alesha-pro/llm.asm": {
+    "hash": "d55dc3b712bbafa0006a3e6eaf8efeaa36d2ffb7fe961e6cc97c9fef45669f31",
+    "summary": "这是一个完全用纯 x86-64 NASM 汇编编写的项目，实现了极小的 LLM 推理、裸机可启动操作系统和从零开始的 Mini-GPT 训练器。",
+    "category": "开发工具",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "nexu-io/opengame": {
+    "hash": "1649b2f2262e5567db89f456037ab9275140015685b06945b76a802df559ce17",
+    "summary": "这是一个面向 AI 智能体的游戏引擎，能将各种编码智能体转化为全栈 AI 游戏工作室，支持构建并发布 3D 和小游戏到各大平台。",
+    "category": "AI 与智能体",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "Avaneesh-Inamdar/Stream-Tube-Desktop": {
+    "hash": "09139894c79043571635a67221b258f87e42eec2fc123920eba50b9b295fce8d",
+    "summary": "这是一个用 Rust 编写的 Windows 原生 YouTube 客户端，内置了 SponsorBlock、DeArrow 和 Return YouTube Dislike 功能。",
+    "category": "影音娱乐",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "leanprover-community/riemann-hypothesis": {
+    "hash": "448da749c6ca46cf85b15ac05b52b6d9301cb3ddc6a3cb78f097348a6f55a488",
+    "summary": "这是一个由 Lean 社区成员维护并整理的关于黎曼猜想的 Lean 形式化项目。",
+    "category": "科研与论文",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "DEEIX-AI/Winc": {
+    "hash": "8315f690bed0b2095a7dcd77de9b392dffabaf67b65b91dfe41fbcbd425cea31",
+    "summary": "使用 Rust 和自主渲染引擎构建的桌面编辑器，启动极快且内存轻量，能够流畅处理大文件。",
+    "category": "移动与桌面",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "yappologistic/CUI": {
+    "hash": "2d5968993a9f35b98592b9dfe8cdd535025cc57a68b418bcc3da7e607afa1da6",
+    "summary": "为 C 语言提供约 150 个原生 UI 组件，支持弹簧动画和键盘操作，跨平台且无外部依赖。",
+    "category": "前端与界面",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "Indigo-0167/universal-game-mod-manager": {
+    "hash": "33b7b17812fc1e6c24ed5d707bde5533c762299bdbb145ae7def71cd73092a51",
+    "summary": "免费的 Windows 游戏模组管理器，用于发现、安装、更新和管理 Unity 与 Unreal Engine 模组。",
+    "category": "游戏与图形",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "Umbra9179/clipboard-history-manager-windows": {
+    "hash": "7f9e9efd34451a2470ff2cc7cc142dae7c62e7d0cccea217ff2fdce63edb85e7",
+    "summary": "开源的 Windows 剪贴板管理器，支持可搜索的历史记录、图片预览、标签、编辑和备份功能。",
+    "category": "效率与办公",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "serveroshq/panel": {
+    "hash": "f2aa02a68dae1dbe597eb6cd7321d026e8eb21f0651d498fc0bb36722f19a712",
+    "summary": "开源的 ServerOS 控制面板，让你在单一界面中集中管理已有的 Linux 服务器。",
+    "category": "自托管",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "deterministic-machines/deslop-please": {
+    "hash": "6c7ca8bb604694ccf8266febf8d37c05db00793463c489c624c1daad5b63b41f",
+    "summary": "用 Rust 编写的代码清理工具，旨在帮助你恢复代码的整洁与可读性。",
+    "category": "开发工具",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "Reukix/Reloc": {
+    "hash": "2054a55aa49eab357fed779ae78081965dc398ed4e70ceaaa6d908c3613487fb",
+    "summary": "基于本地回环的 iOS 配件级位置模拟器，支持 iAP2、MFi-v3 和 NMEA 协议。",
+    "category": "移动与桌面",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "zero5122/offline-file-converter-windows": {
+    "hash": "1bfe68f40a4e325486b428c8c86f8b471af41bac4d9f7e003fc4754f527bd098",
+    "summary": "免费的 Windows 离线文件转换器，可私密地转换 PDF、文档、图像、音频和视频文件。",
+    "category": "效率与办公",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "solv4626/steam-achievement-manager-windows": {
+    "hash": "f21c16e42ef47d3a61a6a26c7a1748d4361e907837120cf64c1ef1818acaef86",
+    "summary": "一个适用于 Windows 的免费开源 Steam 成就管理工具，可用于管理游戏成就和编辑 Steam 游戏统计数据。",
+    "category": "游戏",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "danielwh2/sprite-stacking": {
+    "hash": "f4b7b1ba9d1038d929c4f79662da3cd215b6ebaa8cafdaa9a572db01b2c55be7",
+    "summary": "一个面向 AI 智能体的技能，能将四个角度的像素艺术视图转换为可旋转的伪 3D 精灵图。",
+    "category": "游戏与图形",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "kai415-debug/ffmpeg-video-audio-converter": {
+    "hash": "d8d0cce1826e30ca24e9f0341c068e115d88515e8fc248dff3b45028c3c165c8",
+    "summary": "一个免费的 Windows FFmpeg 图形界面工具，支持视频与音频转换、批量转码以及多媒体格式编码。",
+    "category": "音视频与图像",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "cutetailbud/ff-ruyijs": {
+    "hash": "567604c46db24d1fbbe8406ce2f891601cda23b43ac260d4e270362fe0fa5924",
+    "summary": "一个专为 AI 智能体打造的轻量级无头浏览器，用于执行网页自动化任务，并能应对各种反爬虫系统和登录流程。",
+    "category": "自动化与爬虫",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "lsernau/grh-lean": {
+    "hash": "98519fc088e9e24969aca2a050865f02ec153dd1c97ee75182149f8b66481e20",
+    "summary": "一个关于广义黎曼猜想的简短 Lean 4 形式化证明。",
+    "category": "科研与论文",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "sybil-solutions/skill-distill": {
+    "hash": "d731fa62fb4cbd1e5a712a6e34a3398eca7ec02e19b529f2b4b016bd200c49f3",
+    "summary": "一个将 Claude Code 或 Codex 的优质会话提炼为开源模型可依循技能的工具。",
+    "category": "开发工具",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "sous-labs/songe": {
+    "hash": "788f608b686166b2cb3c0b1f5bd1534beaba09e2966b96f1d60dcd989729e957",
+    "summary": "一个利用你的空闲计算资源为本地模型进行训练的引擎。",
+    "category": "AI 与智能体",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "xikhar/papercraft": {
+    "hash": "8d52e2ce4e8eb43faf5b91e9367d9e0a1dea802804908099b74c1a0563ab356f",
+    "summary": "一个构建手工立体纸艺风格游戏、交互场景、网页和动画的 AI 智能体技能。",
+    "category": "前端与界面",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "opencoredev/islandcn": {
+    "hash": "6379a1483b32851b2e7c644ece82b0f20d6a257f7f6ffd317c2e75c7f787c1df",
+    "summary": "一个基于 React 构建并使用 shadcn 安装的开源动态岛组件。",
+    "category": "前端与界面",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "YusufCeng1z/ding": {
+    "hash": "a4ce7ec650f91deb2fcac26f345eb190c04178ea5e34b835d32b3494de449106",
+    "summary": "一个具备真实弹簧物理效果的通知提示组件，支持 React、Svelte、Vue 和原生 DOM。",
+    "category": "前端与界面",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "harshsinghsv/swiftdl": {
+    "hash": "484a523e8d5c20f0539ea176b92a34c7896b1509783255392a6d83d4c50a0275",
+    "summary": "这是一个使用 Rust 和 Tauri 开发的快速、可续传的下载管理器，带有浏览器扩展，支持多连接和 IDM 风格的下载窗口。",
+    "category": "效率与办公",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "devvmhq/devvm": {
+    "hash": "a0f92709dff6c656a55342fbb64548e3495c16b8c59c16d0c5c998122ee0212b",
+    "summary": "为每个项目提供一个独立的虚拟机沙箱，内置项目所需的工具链，方便你或编码智能体直接开始编写代码。",
+    "category": "开发工具",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "erkamyaman/safe-anything": {
+    "hash": "7670db90309938a9194097cd68acc9f2ddf0f83134f60641033127823b98b55b",
+    "summary": "一个完全用 Rust 编写的快速漏洞扫描器，用于检测 XSS、SQL 注入、泄露的密钥、依赖项 CVE 和 AI 智能体配置中的安全隐患。",
+    "category": "安全与隐私",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "zortos293/XSEmu": {
+    "hash": "2b0baffa113309240ff939a8872934b0c249e096462e8c602f45d07948782537",
+    "summary": "一个运行在 Windows 上的实验性 Xbox Series X|S 游戏运行器，基于 XCL 翻译层和 D3D12 构建。",
+    "category": "游戏与图形",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "meshy-dev/ThreeRT": {
+    "hash": "536ef6fb2f4c094583e6dc44630e1aafe62c1245df9a5f6307f7a179b463ff3b",
+    "summary": "基于 Rust 和 wgpu 引擎构建的硬件光线追踪实时路径追踪器，提供类似于 three.js 的 API 与场景包。",
+    "category": "游戏与图形",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "Nebula4207/av1-video-encoder-gui": {
+    "hash": "a8577e04dabdd5fa1b6b30eec460ed453e3e6a75872248340e8e295394c72ac7",
+    "summary": "一个免费的 Windows AV1 视频编码器图形界面，支持多种编码器以及并行编码功能。",
+    "category": "音视频与图像",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "jmanico/grim-prompter": {
+    "hash": "5a28941e763ee3b87e7c402c96c17dcd20d4c1f2f822d0943f2aad1d8605b094",
+    "summary": "为 AI 编码智能体提供的威胁建模工具，可针对代码库生成有据可查的威胁模型。",
+    "category": "安全与隐私",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "gelenmedya/rustyfiles": {
+    "hash": "ace6754d7197e28a42750f091ea416fcd797642e6641788d678bfc14fbda64b3",
+    "summary": "一个专为 Windows 和 macOS 设计的快速文件管理器，采用多标签和双栏设计，可作为 File Explorer 和 Finder 的替代品。",
+    "category": "效率与办公",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "arpanjot-coding/AVault": {
+    "hash": "d3e66a08eb1b06c03951762083974245d89a27e61735a88e7deb110219548eb2",
+    "summary": "一个注重隐私的 Android 语音保险库和免 Root 电话录音应用，支持硬件加密、生物识别和自动清理功能。",
+    "category": "移动与桌面",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "kyy-logs/code-review-gate-skill": {
+    "hash": "882bfa7e576ecc7d534b87206925ac4d17010f233924fa2ff735c69a67ebe7d7",
+    "summary": "为 Claude Code 和 Codex 提供可审计的代码审查技能，通过四个独立探查器生成有据可查的审查结果和合并关卡。",
+    "category": "开发工具",
+    "model": "gemini-flash-lite-latest",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  }
+}

@@ -870,9 +870,9 @@
     "at": "2026-10-30T13:49:17.238303+08:00"
   },
   "mw00/project-maya": {
-    "hash": "bdaf5a43111aeae91886c23a0476e4437c47fe96fbd72da048ee61d640306ae2",
-    "summary": "在你自己的 GPU 上运行 GLM-5.3 (744B)、DeepSeek-V4.1-Flash (748B)、MiniMax-M3.1-Flash (428B)、GLM-5.3-Flash (321B)、Hy4-Flash (220B) 和 Inkling 2 Mini (26B)——从 8 GB 的 VRAM 开始，支持 NVIDIA 和 AMD，一个仪表板，兼容 OpenAI 和 Anthropic 的 API。",
-    "at": "2026-11-25T16:51:20.382616+08:00"
+    "hash": "2e1bf45cc1427c750723caa28ea1388152929ff4be2cef77ab66a13cba5454ab",
+    "summary": "在你自己的 GPU 上运行 GLM-5.3 (744B)、DeepSeek-V4.1-Flash (748B)、MiniMax-M3.1-Flash (428B)、GLM-5.3-Flash (321B)、Hy4-Flash (220B)、Ling-3.2-air (128B) 和 Inkling 2 Mini (26B)——从 8 GB 的 VRAM、NVIDIA 和 AMD 开始，一个仪表板，与 OpenAI 和 Anthropic 兼容的 API。",
+    "at": "2026-11-27T16:48:54.505219+08:00"
   },
   "shaongitbd/doory": {
     "hash": "820970a5549ad70e59aa212093b80f9bef3967b6274f820324b181be72ef8c6a",
@@ -1255,9 +1255,9 @@
     "at": "2026-10-30T13:49:17.238303+08:00"
   },
   "yetone/magpie": {
-    "hash": "dfa4450df641f3070e2e0cddcdbf58bf7a4af6fc5b8a8a2add44f4ead9c4249c",
-    "summary": "每个代理的模型。一个地方。DeepSeek上的Codex ，菜单栏中的Kimi上的Claude Code。",
-    "at": "2026-10-30T13:49:17.238303+08:00"
+    "hash": "15f95a7bef0e044e41d614de749a8377e865db58e7e5f838194b7b04a1f307d0",
+    "summary": "将你付费的所有套餐（Claude、ChatGPT、Copilot、GLM Coding Plan、Kimi Code 等）集中起来，并在任何智能体中使用：Claude Code、Codex、Claude Desktop……当一个套餐用完时，下一个套餐将接替使用。",
+    "at": "2026-11-27T16:48:54.505219+08:00"
   },
   "guillaumemeyer/watermarks-remover": {
     "hash": "eb037c7a3af8c06911903db88221c1f028c347b471a67da8e46da058952389ab",
@@ -3100,9 +3100,9 @@
     "at": "2026-11-02T15:58:39.387747+08:00"
   },
   "muellerberndt/cadence": {
-    "hash": "562ec9ff242a479730f781c515e2a5c04450b2eb69a59f5bb0e6833a4b1e9c5b",
-    "summary": "从现场体验中学习的大脑。系统1默认情况下：感知、记忆、可塑性和行动。用于自我观察和慢速校正的可选系统2。",
-    "at": "2026-11-02T15:58:39.387747+08:00"
+    "hash": "b336d2a690dd97e3c72af5f0132143a47cd0893bb6ddcbf9d6d8c01a1450a403",
+    "summary": "Cadence Neural Networks：从生活经历中学习的大脑。默认的系统 1：感知、记忆、可塑性和行动。可选的系统 2 用于自我观察和缓慢的纠正。",
+    "at": "2026-11-27T16:48:54.505219+08:00"
   },
   "linuxkid473/maclator": {
     "hash": "f770ee03734be0ef157d324912ceafdb04863c893f7052b8529a277234415a72",
@@ -7180,9 +7180,9 @@
     "at": "2026-11-18T15:42:53.286735+08:00"
   },
   "erkamyaman/rust-anything": {
-    "hash": "c7cef7e97c54480fbd82d1efab832b3c747c7fb1cf527857d95c145ab8aea49c",
-    "summary": "使用 Rust 逐一重写整个应用程序，并在每一步都对照原始应用程序的记录行为进行检查。TypeScript、Python、C、Go、Ruby 和 Java 中的 CLI、HTTP 服务器和库。",
-    "at": "2026-11-18T15:42:53.286735+08:00"
+    "hash": "281aa68b240556a9b618688067639f36f2f148b75a2cc7fd44df253f599f47ac",
+    "summary": "使用 Rust 逐一重写你的应用，并在每一步都与原版进行对照检查。适用于 TypeScript、JavaScript、Python、Go、Ruby、Java、C、PHP、C#、Kotlin 和 PowerShell。",
+    "at": "2026-11-27T16:48:54.505219+08:00"
   },
   "sybil-solutions/inference-optimisation-skill": {
     "hash": "8e3e26c1c8a883ab90d9ec564122d17df2f653868cd593562155b5a595794bcb",
@@ -8438,5 +8438,65 @@
     "hash": "71c1ac7d604b30b94016e37f402029899fd60841c738d87b98c8b1fda12ba5f4",
     "summary": "适用于 Mac、iPhone 和 iPad 的开源浏览器。",
     "at": "2026-11-26T16:37:36.525215+08:00"
+  },
+  "balikunsh-bot/keepassxc-talroora": {
+    "hash": "f82ac274aefda3cdc0bcaa75b263dea17f73d6a6267a29cd491214da41f770de",
+    "summary": "KeePassXC Talroora 用于整理凭据记录并管理加密密码数据库。",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "OpenD2K/opend2k": {
+    "hash": "3c62d495c19044e1e4ca2a3728baedeac6302279b77b699e54adadab07769b56",
+    "summary": "《沙丘 2000》（1998）的原生开源重制版，适用于 macOS、Windows、Linux、Android 和 iOS——并非 OpenRA；需要你自己的游戏数据",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "yes999zc/home-mate": {
+    "hash": "ea8d033d5001aaad06324b957246b22d895ecf7d4043091b9888787a1abc1bf9",
+    "summary": "自托管 AI 家居伴侣核心（Rust + Vue 3）：自适应完整 / 精简版构建、语音流、多房间网状网络、直接连接 Hermes Master Brain 和局域网自动发现。",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "m89wppy/BlueOS": {
+    "hash": "0cbeff14e741516991bb03c86aecb234ebd1e9a0113d00c73e60bd171b51b8cd",
+    "summary": "BlueOS，由 m89wppy 打造。一款以《蔚蓝档案》为灵感的 Android 17 ROM，基于 LineageOS 24.0。适用于 Pixel 6a、Pixel 6、Galaxy S20 FE Snapdragon、POCO X3 Pro、小米 9 透明版和 OnePlus 9 Pro 的 BlueOS 0.9.0，以及一个实验性的 TrebleDroid GSI。",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "ACoci86/roughMaps": {
+    "hash": "d98efe1c83625fb762932c94d28b4ef70fe57845279863c081d01583c945cfb7",
+    "summary": "在浏览器中将任何地点变为手绘地图。提供 55 种风格，从水彩画到藏宝图应有尽有。",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "OPISGUY/stop-press": {
+    "hash": "b188ec89811aba227765c7629caa68bee9939256a4b6324ddf3bc9638b715f8b",
+    "summary": "一款适用于旧款电子阅读器的自更新报纸：完整版适用于越狱的 Kindle 4，浏览器版适用于大多数 Kindle、Kobo、Boox 和旧款平板电脑。一个 Docker 容器，无需 API 密钥。",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "obsidianmd/obsidian-skills": {
+    "hash": "933af2d7d15b02197567b9d5ac469418339640fc68d65735984fc6fded783799",
+    "summary": "教你的智能体使用 Obsidian 和开放格式，包括 Markdown、Bases、JSON Canvas。",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "MorpheApp/morphe-patches": {
+    "hash": "bccdb6ebbbd4c6f6945ef46d6ae749497d96057e7eb8342f6db02b6ad01d8f06",
+    "summary": "Morphe 贴片",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "simplexai-labs/linger": {
+    "hash": "7bae59b2b7f4fb1a46074f40922d67188f9d3ff25a824117f6d71f59e886b3a2",
+    "summary": "Linger 是一款开源个人智能体，完全在你的电脑上运行。我们的目标是通过高效的模型 -Harness 协同设计，将强大的本地 AI 带到日常电脑中，从而打破科技巨头对 AI 的垄断，让每个人都能运行自己的 AI。",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "shogunakatsukiremedy/capri-ai-desktop": {
+    "hash": "8191a42a863c046524e3ae6a4293eeacc89fe5b2c9da18293b77700d4c150e56",
+    "summary": "Capri Capri Capri | AI 桌面助手和朋友",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "egoist/mygo": {
+    "hash": "d73e0693876d250b9dfe618ef88d8e9c00ecfb855ee22b4cb0dffe13557d3765",
+    "summary": "使用 Go 中的原生 UI 或 Web 前端开发桌面应用",
+    "at": "2026-11-27T16:48:54.505219+08:00"
+  },
+  "rushiranpise/Shizuku-Next": {
+    "hash": "4b145534b460d6ee89ae1078ec7ca1f08f8c7edbdd75c7c8a88a8330a3c417fb",
+    "summary": "一款功能丰富的 Shizuku 分支，具有改进的设置、可靠性、用户界面和额外的启动方法。",
+    "at": "2026-11-27T16:48:54.505219+08:00"
   }
 }
